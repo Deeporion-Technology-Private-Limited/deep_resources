@@ -20,6 +20,9 @@ export const DefaultNoIcon: Story = {
     variant: ButtonVariant.DefaultNoIcon,
     children: "Button",
     hover: true,
+    loader : false,
+    rightIcon : false,
+    addIcon : false,
   },
 };
 

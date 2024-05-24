@@ -2,6 +2,9 @@ import { ButtonColorScheme, ButtonSize, ButtonVariant } from "@/components/type"
 import { cn } from "@/utils";
 import { cva, VariantProps } from "class-variance-authority";
 import { ComponentProps, forwardRef } from "react";
+import loaderImg from "../Image/loader.png";
+import rightIconImg from "../Image/rightArrow.png";
+import addImg from "../Image/Add.png";
 
 const buttonStyles = cva(
   [
@@ -10,6 +13,9 @@ const buttonStyles = cva(
     "font-semibold",
     "focus:outline-none",
     "disabled:cursor-not-allowed",
+    "flex",
+    "items-center",
+    "justify-center"
   ],
   {
     variants: {
@@ -31,7 +37,6 @@ const buttonStyles = cva(
       {
         variant: ButtonVariant.DefaultNoIcon,
         colorscheme: ButtonColorScheme.Primary,
-        className: "bg-gradient-to-r from-cyan-500 to-blue-500",
       },
       {
         variant: ButtonVariant.DefaultRightIcon,
@@ -57,22 +62,32 @@ type ButtonProps = ComponentProps<"button"> & VariantProps<typeof buttonStyles> 
   size?: ButtonSize;
   colorscheme?: ButtonColorScheme;
   hover?: boolean;
+  loader?: boolean;
+  rightIcon?: boolean;
+  addIcon?: boolean;
 };
 
 export const PrimaryButton = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ variant = ButtonVariant.DefaultNoIcon, size = ButtonSize.Medium, colorscheme = ButtonColorScheme.Primary, hover = false, className, ...props }, ref) => {
+  ({ variant = ButtonVariant.DefaultNoIcon, size = ButtonSize.Medium, colorscheme = ButtonColorScheme.Primary, hover = false, loader = false, rightIcon = false, addIcon = false, className, children, ...props }, ref) => {
     const hoverClasses = hover ? {
       [ButtonVariant.DefaultNoIcon]: "hover:from-[#334EAC] hover:to-[#334EAC]",
       [ButtonVariant.DefaultRightIcon]: "hover:bg-primary-100",
       [ButtonVariant.DefaultLeftIcon]: "hover:bg-primary-100",
     }[variant] : '';
 
+    const backgroundColor = loader ? "bg-[#7096D1]" : "bg-gradient-to-r from-[#7096D1] to-[#334EAC]";    
+
     return (
       <button
         ref={ref}
-        className={cn(buttonStyles({ variant, size, colorscheme }), hoverClasses, className)}
+        className={cn(buttonStyles({ variant, size, colorscheme }), hoverClasses,backgroundColor, className)}
         {...props}
-      />
+      >
+        {rightIcon && <img src={rightIconImg} alt="Right Icon" className="h-[15px] w-[15px] mr-2 order-first" />}
+        <span>{children}</span>
+        {loader && <img src={loaderImg} alt="Loading..." className="h-[15px] w-[15px] ml-2 order-last" />}
+        {addIcon && <img src={addImg} alt="Add Icon" className="h-[15px] w-[15px] ml-2 order-last" />}
+      </button>
     );
   }
 );

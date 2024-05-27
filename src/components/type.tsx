@@ -1,7 +1,7 @@
 export enum ButtonVariant {
-  DefaultNoIcon = "defaultNoIcon",
-  DefaultRightIcon = "defaultRightIcon",
-  DefaultLeftIcon = "defaultLeftIcon",
+  DefaultPrimary = "defaultPrimary",
+  DefaultSeconday = "defaultSecondary",
+  DefaultDarkBackground = "defaultDarkBackground",
 }
 
 export enum ButtonSize {
@@ -11,11 +11,6 @@ export enum ButtonSize {
 }
 
 export enum ButtonColorScheme {
-  Primary = "primary",
-  Secondary = "secondary",
-  Tertiary = "tertiary",
-  Quaternary = "quaternary",
-  Quinary = "quinary",
-  Senary = "senary",
+  Primary = "primary"
 }
 

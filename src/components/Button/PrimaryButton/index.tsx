@@ -2,9 +2,7 @@ import { ButtonColorScheme, ButtonSize, ButtonVariant } from "@/components/type"
 import { cn } from "@/utils";
 import { cva, VariantProps } from "class-variance-authority";
 import { ComponentProps, forwardRef } from "react";
-import loaderImg from "../Image/loader.svg";
-import rightIconImg from "../Image/rightArrow.svg";
-import addImg from "../Image/Add.svg";
+import { Add, Loader } from "../Image/icon";
 
 const buttonStyles = cva(
   [
@@ -47,7 +45,7 @@ const buttonStyles = cva(
       {
         variant: ButtonVariant.DefaultDarkBackground,
         colorscheme: ButtonColorScheme.Primary,
-        className: "bg-transparent text-[#334EAC]",
+        className: "bg-[#FFFFFF] text-[#334EAC]",
       },
     ],
     defaultVariants: {
@@ -64,12 +62,12 @@ type ButtonProps = ComponentProps<"button"> & VariantProps<typeof buttonStyles> 
   colorscheme?: ButtonColorScheme;
   hover?: boolean;
   loader?: boolean;
-  rightIcon?: boolean;
-  addIcon?: boolean;
+  addRightIcon?: boolean;
+  addLeftIcon?: boolean;
 };
 
 export const PrimaryButton = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ variant = ButtonVariant.DefaultPrimary, size = ButtonSize.Medium, colorscheme = ButtonColorScheme.Primary, hover = false, loader = false, rightIcon = false, addIcon = false, disabled = false, className, children, ...props }, ref) => {
+  ({ variant = ButtonVariant.DefaultPrimary, size = ButtonSize.Medium, colorscheme = ButtonColorScheme.Primary, hover = false, loader = false, addRightIcon = false, addLeftIcon = false, disabled = false, className, children, ...props }, ref) => {
     const hoverClasses = !disabled && hover ? {
       [ButtonVariant.DefaultPrimary]: "hover:from-[#334EAC] hover:to-[#334EAC]",
       [ButtonVariant.DefaultSeconday]: "hover:bg-[#A3C0EB] hover:text-[#081F5C]",
@@ -79,12 +77,15 @@ export const PrimaryButton = forwardRef<HTMLButtonElement, ButtonProps>(
     const backgroundColor = disabled
       ? "text-[#72787F] bg-[#E8EBED]"
       : loader && variant !== ButtonVariant.DefaultSeconday
-        ? "bg-[#7096D1]"
+        ? variant === ButtonVariant.DefaultDarkBackground
+          ? "bg-[#FFFFFF]"
+          : "bg-[#7096D1]"
         : variant === ButtonVariant.DefaultSeconday
           ? "bg-[#D0E3FF]"
           : variant === ButtonVariant.DefaultDarkBackground
-            ? "bg-transparent"
+            ? "bg-[#FFFFFF]"
             : "bg-gradient-to-r from-[#7096D1] to-[#334EAC]";
+
 
     const iconColor = disabled ? "#E8EBED"
       : variant === ButtonVariant.DefaultSeconday || variant === ButtonVariant.DefaultDarkBackground
@@ -100,10 +101,10 @@ export const PrimaryButton = forwardRef<HTMLButtonElement, ButtonProps>(
         disabled={disabled}
         {...props}
       >
-        {rightIcon && <img src={rightIconImg} alt="Right Icon" className={cn(hasText ? "mr-2 order-first" : "")} style={{ fill: iconColor }} />}
+        {addRightIcon && <Add className={cn(hasText ? "mr-2 order-first" : "")} style={{ fill: iconColor }} />}
         <span className={cn(hasText ? "" : "sr-only")}>{children}</span>
-        {loader && <img src={loaderImg} alt="Loading..." className={cn(hasText ? "ml-2 order-last" : "")} style={{ fill: iconColor }} />}
-        {addIcon && <img src={addImg} alt="Add Icon" className={cn(hasText ? "ml-2 order-last" : "")} style={{ fill: iconColor }} />}
+        {loader && <Loader className={cn(hasText ? "ml-2 order-last" : "")} style={{ fill: iconColor }} />}
+        {addLeftIcon && <Add className={cn(hasText ? "ml-2 order-last" : "")} style={{ fill: iconColor }} />}
       </button>
     );
   }

@@ -14,3 +14,25 @@ export enum ButtonColorScheme {
   Primary = "primary"
 }
 
+export enum Month {
+  January = 0,
+  February,
+  March,
+  April,
+  May,
+  June,
+  July,
+  August,
+  September,
+  October,
+  November,
+  December
+}
+
+export interface CalendarProps {
+  year: number;
+  month: Month;
+  selectedDate?: Date;
+  onDateSelect?: (date: Date) => void;
+}
+

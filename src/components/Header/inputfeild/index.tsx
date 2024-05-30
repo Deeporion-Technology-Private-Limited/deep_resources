@@ -27,7 +27,7 @@ type InputProps = {
 } & VariantProps<typeof inputStyles> &
   Omit<ComponentProps<"input">, "value" | "placeholder" | "disabled" | "type">;
 
-export const Input = forwardRef<HTMLInputElement, InputProps>(
+export const InputIc = forwardRef<HTMLInputElement, InputProps>(
   (
     {
       className,

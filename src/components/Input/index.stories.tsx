@@ -34,10 +34,24 @@ export const Number: Story = {
   },
 };
 
+export const Numbers: Story = {
+  args: {
+    type: "numbers",
+    placeholder: "Number",
+  },
+};
+
 export const Date: Story = {
   args: {
     type: "date",
     placeholder: "Date",
+  },
+};
+
+export const Phone: Story = {
+  args: {
+    type: "Phone",
+    placeholder: "Phone",
   },
 };
 
@@ -52,5 +66,12 @@ export const SearchInput: Story = {
   args: {
     type: "search",
     placeholder: "Search",
+  },
+};
+
+export const EmailInput: Story = {
+  args: {
+    type: "email",
+    placeholder: "Enter your email",
   },
 };

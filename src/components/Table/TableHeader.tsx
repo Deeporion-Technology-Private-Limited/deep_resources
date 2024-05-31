@@ -9,7 +9,6 @@ const headerStyles = cva(
     "font-semibold",
     "focus:outline-none",
     "disabled:cursor-not-allowed",
-
   ],
   {
     variants: {
@@ -32,20 +31,20 @@ const headerStyles = cva(
       {
         variant: "solid",
         colorscheme: "primary",
-        className: "w-[110px] text-[#72787F] bg-[#FFFFFF] text-center p-16 rounded-lg border-2",
+        className: "text-[#72787F] bg-[#FFFFFF] text-center p-2 rounded-lg border-2",
       },
       {
         variant: "outline",
         colorscheme: "primary",
-        className: "text-[#72787F] bg-[#FFFFFF] text-center p-12 rounded-lg border-2",
+        className: "text-[#72787F] bg-[#FFFFFF] text-center p-2 rounded-lg border-2",
       },
       {
         variant: "ghost",
-        className: "text-[#72787F] bg-[#FFFFFF] text-center p-16 rounded-lg border-2",
+        className: "text-[#72787F] bg-[#FFFFFF] text-center p-2 rounded-lg border-2",
       },
       {
         variant: "custom",
-        className: "text-[#72787F] bg-[#FFFFFF] text-center p-16 rounded-lg border-2",
+        className: "text-[#72787F] bg-[#FFFFFF] text-center p-2 rounded-lg border-2",
       },
     ],
     defaultVariants: {
@@ -73,20 +72,26 @@ export const TableHeader = forwardRef<
         overflow: "hidden",
       }}
     >
-
-    <thead
-      ref={ref}
-      className={cn(headerStyles({ variant, size, colorscheme }), className)}
-      {...props}
-    >
-      <tr>
-        {children.map((item, index) => (
-          <th key={index} className="w-[110px] h-[34px] size-[12px]">
-            {item}
-          </th>
-        ))}
-      </tr>
-    </thead>
+      <thead
+        ref={ref}
+        className={cn(headerStyles({ variant, size, colorscheme }), className)}
+        {...props}
+      >
+        <tr>
+          {children.map((item, index) => (
+            <th
+              key={index}
+              className="px-4 py-2 text-left"
+              style={{
+                whiteSpace: "nowrap",
+                textAlign: "left",
+              }}
+            >
+              {item}
+            </th>
+          ))}
+        </tr>
+      </thead>
     </div>
   );
 });

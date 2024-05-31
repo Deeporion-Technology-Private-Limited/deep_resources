@@ -14,7 +14,7 @@ export enum ButtonColorScheme {
   Primary = "primary"
 }
 
-export enum Month {
+export enum MonthsOfYear {
   January = 0,
   February,
   March,
@@ -31,7 +31,7 @@ export enum Month {
 
 export interface CalendarProps {
   year: number;
-  month: Month;
+  month: MonthsOfYear;
   selectedDate?: Date;
   onDateSelect?: (date: Date) => void;
 }

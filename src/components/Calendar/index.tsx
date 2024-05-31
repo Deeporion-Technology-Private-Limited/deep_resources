@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { cn } from "@/utils";
 import { cva, VariantProps } from "class-variance-authority";
 import { ComponentProps, forwardRef } from "react";
-import { CalendarProps, Month } from "../type";
+import { CalendarProps, MonthsOfYear } from "../type";
 import { Left, Right } from '../Image/icon';
 
 const dayStyles = cva(
@@ -10,10 +10,8 @@ const dayStyles = cva(
     "flex",
     "items-center",
     "justify-center",
-    "rounded-md",
     "font-semibold",
     "cursor-pointer",
-    "hover:bg-gray-200",
     "transition-colors",
     "duration-300",
   ],
@@ -21,11 +19,16 @@ const dayStyles = cva(
     variants: {
       selected: {
         true: "bg-blue-500 text-white",
-        false: "bg-white text-gray-800",
+        false: "text-[#26282B] hover:bg-[#334EAC] hover:text-white",
       },
+      isPastMonthDay: {
+        true: "opacity-50 text-[#72787F] hover:bg-white hover:text-[#72787F]",
+        false: "",
+      }
     },
     defaultVariants: {
       selected: false,
+      isPastMonthDay: false,
     },
   }
 );
@@ -33,10 +36,10 @@ const dayStyles = cva(
 type CalendarDayProps = ComponentProps<"div"> & VariantProps<typeof dayStyles>;
 
 const CalendarDay = forwardRef<HTMLDivElement, CalendarDayProps>(
-  ({ selected, className, children, ...props }, ref) => (
+  ({ selected, isPastMonthDay, className, children, ...props }, ref) => (
     <div
       ref={ref}
-      className={cn(dayStyles({ selected }), className)}
+      className={cn(dayStyles({ selected, isPastMonthDay }), className)}
       {...props}
     >
       {children}
@@ -71,9 +74,9 @@ const DayView: React.FC<DayViewProps> = ({
   });
 
   return (
-    <div className="day-view w-[825px] p-4 border rounded-lg shadow-md">
+    <div className="day-view w-[825px] p-4 rounded-lg shadow-md">
       <div className="flex justify-between mb-4 items-center">
-        <button className='p-1 border-2 hover:bg-gray-200' onClick={onBack}><Left /></button>
+        <button className='hover:bg-gray-200' onClick={onBack}><Left /></button>
         <div className="day-view-header text-left text-[#26282B] font-semibold flex-1 pl-4">
           {formattedDate}
         </div>
@@ -82,7 +85,7 @@ const DayView: React.FC<DayViewProps> = ({
             <button onClick={onPrevDay}><Left /></button>
             <button onClick={onNextDay}><Right /></button>
           </div>
-          <div className="border-2 min-w-[190px] rounded-[50px] flex justify-between">
+          <div className="border min-w-[190px] rounded-[50px] flex justify-between">
             <button
               className={`p-2 ${selectedView === 'day' ? 'bg-[#D0E3FF] text-[#334EAC] rounded-[50px]' : 'text-[#72787F]'}`}
               onClick={() => handleViewChange('day')}
@@ -107,7 +110,7 @@ const DayView: React.FC<DayViewProps> = ({
       <div className="day-view-grid">
         {hours.map((hour, index) => (
           <div key={index} className="flex items-center mb-2 relative">
-            <div className="w-16 text-right mr-4 text-gray-500">{hour}</div>
+            <div className="pl-8 text-right mr-4 text-gray-500">{hour}</div>
             <div className="flex-1 border-t"></div>
           </div>
         ))}
@@ -125,7 +128,7 @@ const Calendar: React.FC<CalendarProps> = ({ year, month, selectedDate, onDateSe
 
   useEffect(() => {
     setCurrentYear(year);
-    setCurrentMonth(month);
+    setCurrentMonth(month -1);
   }, [year, month]);
 
   const handlePrevMonth = () => {
@@ -198,16 +201,17 @@ const Calendar: React.FC<CalendarProps> = ({ year, month, selectedDate, onDateSe
 
   const renderDays = () => {
     const days = [];
+    const currentDate = new Date();
     const prevMonthDaysCount = new Date(currentYear, currentMonth, 0).getDate();
     const totalDays = firstDayOfMonth + daysInMonth;
     const prevMonthStartDay = prevMonthDaysCount - firstDayOfMonth + 1;
-
+  
     for (let i = 0; i < totalDays; i++) {
       const day = i - firstDayOfMonth + 1;
       let currentDay;
       let displayDay: number;
       let isPastMonthDay = false;
-
+  
       if (day <= 0) {
         currentDay = new Date(currentYear, currentMonth - 1, prevMonthStartDay + i);
         displayDay = prevMonthStartDay + i;
@@ -215,21 +219,23 @@ const Calendar: React.FC<CalendarProps> = ({ year, month, selectedDate, onDateSe
       } else if (day > daysInMonth) {
         currentDay = new Date(currentYear, currentMonth + 1, day - daysInMonth);
         displayDay = day - daysInMonth;
+        isPastMonthDay = true;
       } else {
         currentDay = new Date(currentYear, currentMonth, day);
         displayDay = day;
       }
-
-      const isToday = isSameDay(currentDay, new Date());
+  
+      const isToday = isSameDay(currentDay, currentDate);
       const isSelected = selectedDate && isSameDay(currentDay, selectedDate);
-
+  
       days.push(
         <CalendarDay
           key={i}
-          className={cn("calendar-day font-normal", {
-            "opacity-30": isPastMonthDay,
+          selected={isSelected}
+          isPastMonthDay={isPastMonthDay}
+          className={cn("font-normal", {
             today: isToday,
-            selected: isSelected,
+            'bg-[#334EAC] text-white': isToday
           })}
           onClick={() => handleDateClick(displayDay)}
         >
@@ -237,7 +243,7 @@ const Calendar: React.FC<CalendarProps> = ({ year, month, selectedDate, onDateSe
         </CalendarDay>
       );
     }
-
+  
     if (days.length < 42) {
       const remainingDays = 42 - days.length;
       for (let i = 1; i <= remainingDays; i++) {
@@ -245,7 +251,8 @@ const Calendar: React.FC<CalendarProps> = ({ year, month, selectedDate, onDateSe
         days.push(
           <CalendarDay
             key={i + totalDays}
-            className={cn("calendar-day opacity-30 font-normal")}
+            isPastMonthDay
+            className={cn("font-normal")}
             onClick={() => handleDateClick(displayDay)}
           >
             {displayDay}
@@ -253,7 +260,7 @@ const Calendar: React.FC<CalendarProps> = ({ year, month, selectedDate, onDateSe
         );
       }
     }
-
+  
     return days;
   };
 
@@ -261,21 +268,24 @@ const Calendar: React.FC<CalendarProps> = ({ year, month, selectedDate, onDateSe
     <div>
       {view === 'month' ? (
         <>
+        <div className='shadow-md p-4'>
+
           <div className="flex justify-between mb-4">
             <button onClick={handlePrevMonth}><Left /></button>
             <div className="calendar-header text-center text-[#26282B] font-semibold mb-2">
-              {Month[currentMonth]} {currentYear}
+              {MonthsOfYear[currentMonth]} {currentYear}
             </div>
             <button onClick={handleNextMonth}><Right /></button>
           </div>
-          <div className="calendar-grid grid grid-cols-7 gap-2">
+          <div className="calendar-grid grid grid-cols-7 gap-6">
             {["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map((day, index) => (
-              <div key={index} className="calendar-day-header text-center opacity-50 text-[#72787F] font-normal">
+              <div key={index} className="calendar-day-header text-center text-[#72787F] font-normal">
                 {day}
               </div>
             ))}
             {renderDays()}
           </div>
+        </div>
         </>
       ) : (
         <DayView

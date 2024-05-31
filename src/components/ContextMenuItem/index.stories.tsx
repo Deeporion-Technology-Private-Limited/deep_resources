@@ -18,9 +18,10 @@ export const Default: Story = {
     args: {
         variant: "default",
         children: "MenuItem",
-        leftIcon: null,
-        rightIcon: null,
-        leftSpacer: null,
+        leftIcon: false,
+        rightIcon: false,
+        leftSpacer: false,
+        size: "md",
     },
 };
 
@@ -28,9 +29,10 @@ export const Hover: Story = {
     args: {
         variant: "hover",
         children: "MenuItem",
-        leftIcon: null,
-        rightIcon: null,
-        leftSpacer: null,
+        leftIcon: false,
+        rightIcon: false,
+        leftSpacer: false,
+        size: "md",
     },
 };
 
@@ -38,8 +40,10 @@ export const Active: Story = {
     args: {
         variant: "active",
         children: "MenuItem",
-        leftIcon: null,
-        rightIcon: null,
-        leftSpacer: null,
+        leftIcon: false,
+        rightIcon: false,
+        leftSpacer: false,
+        size: "md",
+
     },
 };

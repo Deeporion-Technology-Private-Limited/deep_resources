@@ -40,3 +40,17 @@ export const Date: Story = {
     placeholder: "Date",
   },
 };
+
+export const PhoneNumber: Story = {
+  args: {
+    type: "Phone number",
+    placeholder: "Phone Number",
+  },
+};
+
+export const SearchInput: Story = {
+  args: {
+    type: "search",
+    placeholder: "Search",
+  },
+};

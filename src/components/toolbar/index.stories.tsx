@@ -34,13 +34,3 @@ export const Default: Story = {
   },
 };
 
-export const Column: Story = {
-  args: {
-    variant: "column",
-    children: (
-      <>
-        
-      </>
-    ),
-  },
-};

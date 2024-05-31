@@ -24,6 +24,7 @@ type InputProps = {
   value?: string;
   required?: boolean;
   disabled?: boolean;
+  iconSrc?: string;
 } & VariantProps<typeof inputStyles> &
   Omit<ComponentProps<"input">, "value" | "placeholder" | "disabled" | "type">;
 
@@ -36,16 +37,16 @@ export const InputIc = forwardRef<HTMLInputElement, InputProps>(
       value,
       required,
       disabled,
+      iconSrc,
       ...props
     },
     ref
   ) => {
-    const isSearchType = type === "search";
 
     return (
       <div className={cn(inputStyles({ className }))}>
-        {isSearchType && (
-          <img src={searchIcon} alt="Search" className="ml-2" />
+        {iconSrc && (
+          <img src={iconSrc} alt="Input icon" className="ml-2" />
         )}
         <input
           ref={ref}

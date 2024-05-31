@@ -2,7 +2,7 @@ import { ButtonColorScheme, ButtonSize, ButtonVariant } from "@/components/type"
 import { cn } from "@/utils";
 import { cva, VariantProps } from "class-variance-authority";
 import { ComponentProps, forwardRef } from "react";
-import { Add, Loader } from "../Image/icon";
+import { Add, Loader } from "../../Image/icon";
 
 const buttonStyles = cva(
   [

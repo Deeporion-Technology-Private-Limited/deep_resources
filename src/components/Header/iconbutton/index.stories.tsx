@@ -6,7 +6,7 @@ import person from "../../Header/navbarIcons/person.svg"
 
 
 const meta: Meta<typeof Icon> = {
-  title: "Components/Icon",
+  title: "Components/IconButton",
   component: Icon,
   tags: ["autodocs"],
 };
@@ -22,7 +22,7 @@ export const Default: Story = {
   },
 };
 
-export const WithouText: Story = {
+export const WithoutText: Story = {
   args: {
     iconUrl: person,
   },

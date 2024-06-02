@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { InputIc } from ".";
+import search from "./inputicons/search.svg"
 
 const meta: Meta<typeof InputIc> = {
   title: "Components/InputIc",
@@ -18,9 +19,10 @@ export const Default: Story = {
   },
 };
 
-export const SearchInput: Story = {
+export const WithIcon: Story = {
   args: {
-    type: "search",
-    placeholder: "Search",
+    placeholder: "Enter text",
+    iconSrc: search,
   },
 };
+

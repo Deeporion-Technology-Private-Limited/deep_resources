@@ -14,31 +14,25 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Ghost: Story = {
-  args: {
-    variant: "ghost",
-    children: ["ID", "Order", "Date", "Amount", "Time created", "Status", "Name", "Role"],
-  },
-};
+const tableHeader = ["ID", "Order", "Date", "Amount", "Time created", "Status", "Name", "Role"];
+const tableData = [
+  ["1", "Order 1", "2024-06-01", "$100", "12:00 PM", "Pending", "John Doe", "Admin"],
+  ["2", "Order 2", "2024-06-02", "$100", "12:00 PM", "Pending", "John Harry", "Admin"],
+  ["3", "Order 3", "2024-06-03", "$100", "12:00 PM", "Pending", "John Harry", "Admin"],
+  ["4", "Order 4", "2024-06-04", "$100", "12:00 PM", "Pending", "John Harry", "Admin"],
+  ["5", "Order 5", "2024-06-05", "$100", "12:00 PM", "Pending", "John Harry", "Admin"],
+  ["6", "Order 6", "2024-06-06", "$100", "12:00 PM", "Pending", "John Harry", "Admin"],
+];
+
+
 
 export const Solid: Story = {
   args: {
     variant: "solid",
-    children: ["ID", "Order", "Date", "Amount", "Time created", "Status", "Name", "Role"],
+    header: tableHeader,
+    data: tableData, 
   },
 };
 
-export const Outline: Story = {
-  args: {
-    variant: "outline",
-    children: ["ID", "Order", "Date", "Amount", "Time created", "Status", "Name", "Role"],
-  },
-};
 
-export const Custom: Story = {
-  args: {
-    variant: "custom",
-    children: ["ID", "Order", "Date", "Amount", "Time created", "Status", "Name", "Role"],
-  },
-};
 

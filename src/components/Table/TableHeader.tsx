@@ -31,20 +31,7 @@ const headerStyles = cva(
       {
         variant: "solid",
         colorscheme: "primary",
-        className: "text-[#72787F] bg-[#FFFFFF] text-center p-2 rounded-lg border-2",
-      },
-      {
-        variant: "outline",
-        colorscheme: "primary",
-        className: "text-[#72787F] bg-[#FFFFFF] text-center p-2 rounded-lg border-2",
-      },
-      {
-        variant: "ghost",
-        className: "text-[#72787F] bg-[#FFFFFF] text-center p-2 rounded-lg border-2",
-      },
-      {
-        variant: "custom",
-        className: "text-[#72787F] bg-[#FFFFFF] text-center p-2 rounded-lg border-2",
+        className: "text-[#72787F] bg-[#FFFFFF] text-center p-2 rounded-lg border-b-2",
       },
     ],
     defaultVariants: {
@@ -57,41 +44,64 @@ const headerStyles = cva(
 
 type TableHeaderProps = ComponentProps<"thead"> &
   VariantProps<typeof headerStyles> & {
-    children: string[];
+    header: string[];
+    data: string[][];
   };
 
 export const TableHeader = forwardRef<
   HTMLTableSectionElement,
   TableHeaderProps
->(({ variant, size, colorscheme, className, children, ...props }, ref) => {
+>(({ variant, size, colorscheme, className, header, data, ...props }, ref) => {
   return (
     <div
+      className="overflow-x-auto"
       style={{
         borderBottom: "1px solid #CBD5E1",
-        borderRadius: "8px 8px 0px 0px",
+        borderRadius: "8px",
         overflow: "hidden",
+        backgroundColor: "white",
+        fontFamily: 'Poppins, sans-serif', 
       }}
     >
-      <thead
-        ref={ref}
-        className={cn(headerStyles({ variant, size, colorscheme }), className)}
-        {...props}
-      >
-        <tr>
-          {children.map((item, index) => (
-            <th
-              key={index}
-              className="px-4 py-2 text-left"
-              style={{
-                whiteSpace: "nowrap",
-                textAlign: "left",
-              }}
-            >
-              {item}
-            </th>
+      <table className="w-full">
+        <thead
+          ref={ref}
+          className={cn(
+            headerStyles({ variant, size, colorscheme }),
+            className
+          )}
+        >
+          <tr>
+            {header.map((column, index) => (
+              <th
+                key={index}
+                className="px-4 py-2 text-left bg-[#FFFFFF] border-b-2"
+                style={{
+                  whiteSpace: "nowrap",
+                  textAlign: "left",
+                }}
+              >
+                {column}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {data.map((row, rowIndex) => (
+            <tr key={rowIndex}>
+              {row.map((column, colIndex) => (
+                <td
+                  key={colIndex}
+                  className="px-4 py-2 text-left"
+                  style={{ width: "auto" }}
+                >
+                  {column}
+                </td>
+              ))}
+            </tr>
           ))}
-        </tr>
-      </thead>
+        </tbody>
+      </table>
     </div>
   );
 });

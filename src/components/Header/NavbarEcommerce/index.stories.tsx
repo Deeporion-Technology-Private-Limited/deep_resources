@@ -5,7 +5,7 @@ import { AnchorList } from "../menuItemlist";
 import { Anchor } from "../manuItem";
 
 const meta: Meta<typeof NavbarEcommerce> = {
-  title: "Components/NavbarEcommerce",
+  title: "Components/Header/NavbarEcommerce",
   component: NavbarEcommerce,
   parameters: {
     layout: "centered",

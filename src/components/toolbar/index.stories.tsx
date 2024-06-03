@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Toolbar } from ".";
-import { InputIc } from "../Header/inputfeild";
 import search from "../Header/inputfeild/inputicons/search.svg";
 import person from "../Header/navbarIcons/person.svg"
 import notification from "../Header/navbarIcons/notification.svg"
@@ -8,6 +7,7 @@ import fav from "../Header/navbarIcons/favorite.svg"
 import cart from "../Header/navbarIcons/shoping_cart.svg"
 import setting from "../Header/navbarIcons/settings.svg"
 import { Icon } from "../Header/iconbutton";
+import { InputIc } from "../Header/inputfeild";
 
 const meta: Meta<typeof Toolbar> = {
   title: "Components/Toolbar",

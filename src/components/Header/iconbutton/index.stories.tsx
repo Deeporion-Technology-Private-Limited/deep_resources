@@ -6,7 +6,7 @@ import person from "../../Header/navbarIcons/person.svg"
 
 
 const meta: Meta<typeof Icon> = {
-  title: "Components/IconButton",
+  title: "Components/Header/IconButton",
   component: Icon,
   tags: ["autodocs"],
 };

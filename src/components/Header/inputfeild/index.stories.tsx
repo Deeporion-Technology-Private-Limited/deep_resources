@@ -3,7 +3,7 @@ import { InputIc } from ".";
 import search from "./inputicons/search.svg"
 
 const meta: Meta<typeof InputIc> = {
-  title: "Components/InputIc",
+  title: "Components/Header/InputIc",
   component: InputIc,
   tags: ["autodocs"],
 };

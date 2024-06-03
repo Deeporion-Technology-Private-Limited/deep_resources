@@ -3,7 +3,7 @@ import { AnchorList } from ".";
 import { Anchor } from "../manuItem";
 
 const meta: Meta<typeof AnchorList> = {
-  title: "Components/AnchorList",
+  title: "Components/Header/AnchorList",
   component: AnchorList,
   tags: ["autodocs"],
 };

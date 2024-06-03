@@ -1,7 +1,6 @@
 import { cn } from "@/utils";
 import { cva, VariantProps } from "class-variance-authority";
 import { ComponentProps, forwardRef } from "react";
-import searchIcon from "./inputicons/search.svg";
 
 const inputStyles = cva([
   [

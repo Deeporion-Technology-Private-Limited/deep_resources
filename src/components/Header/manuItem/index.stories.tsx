@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Anchor } from ".";
 
 const meta: Meta<typeof Anchor> = {
-  title: "Components/Anchor",
+  title: "Components/Header/Anchor",
   component: Anchor,
   parameters: {
     layout: "centered",

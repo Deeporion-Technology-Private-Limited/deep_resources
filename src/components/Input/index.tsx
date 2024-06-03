@@ -18,35 +18,39 @@ const inputStyles = cva([
   "placeholder:text-sm",
 ]);
 
-type InputProps = ComponentProps<"input"> & VariantProps<typeof inputStyles>;
+type InputProps = ComponentProps<"input"> & {
+  search?: string;
+} & VariantProps<typeof inputStyles>;
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
-  ({ className, type = "text", ...props }, ref) => {
+  ({ className, type = "text", search, ...props }, ref) => {
+    const [value, setValue] = useState<string>("");
     const [error, setError] = useState<string | null>(null);
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-      const value = event.target.value;
+      const newValue = event.target.value;
+      setValue(newValue);
       let validationError: string | null = null;
 
       switch (type) {
         case "email":
-          if (value && !validateEmail(value)) {
+          if (newValue && !validateEmail(newValue)) {
             validationError = "Please enter a valid email address";
           }
           break;
         case "password":
-          if (value && !validatePassword(value)) {
+          if (newValue && !validatePassword(newValue)) {
             validationError =
               "Password must be at least 8 characters long and contain at least one letter and one number";
           }
           break;
-        case "Phone number":
-          if (value && !validatePhoneNumber(value)) {
+        case "phone":
+          if (newValue && !validatePhoneNumber(newValue)) {
             validationError = "Please enter a valid phone number";
           }
           break;
         case "numbers":
-          if (value && !validateNumbers(value)) {
+          if (newValue && !validateNumbers(newValue)) {
             validationError = "Please enter a valid number";
           }
           break;
@@ -78,12 +82,17 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
     };
 
     return (
-      <div>
+      <div className="relative">
         <input
           ref={ref}
           type={type}
+          value={value}
           autoComplete="off"
-          className={cn(inputStyles({ className }))}
+          className={cn(
+            inputStyles({ className }),
+            type === "search icon" && search && !value ? "pl-10" : ""
+          )}
+          style={type === "search icon" && search && !value ? { backgroundImage: `url(${search})`, backgroundRepeat: 'no-repeat', backgroundPosition: 'left center', backgroundSize: '20px' } : {}}
           {...props}
           onChange={handleChange}
           onFocus={handleFocus}

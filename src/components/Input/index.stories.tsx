@@ -57,7 +57,7 @@ export const Phone: Story = {
 
 export const PhoneNumber: Story = {
   args: {
-    type: "Phone number",
+    type: "phone",
     placeholder: "Phone Number",
   },
 };
@@ -66,6 +66,13 @@ export const SearchInput: Story = {
   args: {
     type: "search",
     placeholder: "Search",
+  },
+};
+
+export const SearchIcon: Story = {
+  args: {
+    type: "search icon",
+    search: "https://www.nicepng.com/png/detail/19-198210_small-search-icon-png.png"
   },
 };
 

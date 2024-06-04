@@ -18,17 +18,18 @@ const currentDate = new Date();
 const currentYear = currentDate.getFullYear();
 const currentMonth = currentDate.getMonth() + 1;
 
-export const Default : Story = {
-  args : {
-    year: currentYear,
-    month: currentMonth ,
-}
-};
-
-export const WithSelectedDate : Story = {
-  args : {
+export const Default: Story = {
+  args: {
     year: currentYear,
     month: currentMonth,
-    selectedDate: new Date(2024, 3, 15),
-}
+  }
+};
+
+export const WithSelectedDate: Story = {
+  args: {
+    year: currentYear,
+    month: currentMonth,
+    selectedDate:  new Date(),
+    onDateSelect: (date : Date) => date,
+  },
 };

@@ -2,7 +2,6 @@ import { ComponentProps, forwardRef } from "react";
 import { VariantProps, cva } from "class-variance-authority";
 import { ButtonDirection } from "../type";
 import { cn } from "@/utils";
-import { Account} from "../ButtonImage/icon";
 
 const IconButtonStyles = cva(
   [
@@ -26,7 +25,7 @@ const IconButtonStyles = cva(
 );
 
 type IconButtonProps = ComponentProps<"button"> & VariantProps<typeof IconButtonStyles> & {
-  account?: boolean;
+  iconUrl?: string;
   text?: string;
   backgroundColor?: string;
   className?: string;
@@ -35,7 +34,7 @@ type IconButtonProps = ComponentProps<"button"> & VariantProps<typeof IconButton
 };
 
 export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
-  ({ account=false, text, backgroundColor, className,children, direction = ButtonDirection.Row, ...props }, ref) => {
+  ({ iconUrl, text, backgroundColor, className,children, direction = ButtonDirection.Row, ...props }, ref) => {
 
     return (
       <button
@@ -43,7 +42,7 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
         className={cn(IconButtonStyles({ direction }), backgroundColor, className)}
         {...props}
       >
-        {account && <Account />}
+        <img src={iconUrl} alt="Icon" className="w-[16px] h-[16px]" />
         {text}
         {children}
       </button>

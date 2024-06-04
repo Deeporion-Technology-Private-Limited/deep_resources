@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Button } from ".";
+import { ButtonSize, ButtonVariant } from "./type";
 
 const meta: Meta<typeof Button> = {
   title: "Components/Button",
@@ -14,23 +15,41 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Solid: Story = {
+export const Primary: Story = {
   args: {
-    variant: "solid",
+    variant: ButtonVariant.DefaultPrimary,
     children: "Button",
+    hover: true,
+    loader : false,
+    addRightIcon : false,
+    addLeftIcon : false,
+    size : ButtonSize.Medium,
+    disabled: false,
   },
 };
 
-export const Outline: Story = {
+export const Secondary: Story = {
   args: {
-    variant: "outline",
+    variant: ButtonVariant.DefaultSeconday,
     children: "Button",
+    hover : true,
+    loader : false,
+    addRightIcon : false,
+    addLeftIcon : false,
+    size : ButtonSize.Medium,
+    disabled: false,
   },
 };
 
-export const Ghost: Story = {
+export const Darkbackground: Story = {
   args: {
-    variant: "ghost",
     children: "Button",
+    variant: ButtonVariant.DefaultDarkBackground,
+    hover : true,
+    loader : false,
+    addRightIcon : false,
+    addLeftIcon : false,
+    size : ButtonSize.Medium,
+    disabled: false,
   },
 };

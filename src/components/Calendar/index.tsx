@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react';
 import { cn } from "@/utils";
 import { cva, VariantProps } from "class-variance-authority";
 import { ComponentProps, forwardRef } from "react";
-import { CalendarProps, MonthsOfYear } from "../type";
-import { Left, Right } from '../Image/icon';
+import { CalendarProps, MonthsOfYear } from "../Button/type";
+import { Left, Right } from '../Button/ButtonImage/icon';
 
 const dayStyles = cva(
   [
@@ -128,8 +128,11 @@ const Calendar: React.FC<CalendarProps> = ({ year, month, selectedDate, onDateSe
 
   useEffect(() => {
     setCurrentYear(year);
-    setCurrentMonth(month -1);
-  }, [year, month]);
+    setCurrentMonth(month - 1);
+    if (selectedDate) {
+      setSelectedDay(selectedDate);
+    }
+  }, [year, month, selectedDate]);
 
   const handlePrevMonth = () => {
     if (currentMonth === 0) {
@@ -178,15 +181,15 @@ const Calendar: React.FC<CalendarProps> = ({ year, month, selectedDate, onDateSe
   const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
   const firstDayOfMonth = new Date(currentYear, currentMonth, 1).getDay();
 
-  const handleDateClick = (day: number) => {
-    const date = new Date(currentYear, currentMonth, day);
-    setSelectedDay(date);
-    setView('day');
-    setSelectedView('day');
-    if (onDateSelect) {
-      onDateSelect(date);
-    }
-  };
+const handleDateClick = (day: number) => {
+  const date = new Date(currentYear, currentMonth, day);
+  setSelectedDay(date);
+  setView('day');
+  setSelectedView('day');
+  if (onDateSelect) {
+    onDateSelect(date);
+  }
+};
 
   function isSameDay(date1: Date, date2: Date): boolean {
     if (!(date1 instanceof Date) || !(date2 instanceof Date)) {

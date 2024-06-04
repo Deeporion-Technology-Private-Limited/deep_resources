@@ -1,4 +1,5 @@
 import { Box, Button, Input, Stack, Text } from "@/components";
+import { ButtonVariant } from "@/components/Button/type";
 
 export const LoginForm = () => {
   return (
@@ -51,7 +52,7 @@ export const LoginForm = () => {
         </Text>
         <Input id="password" type="password" placeholder={"Password"} />
 
-        <Button type="submit" variant={"solid"} className="mt-10">
+        <Button type="submit" variant={ButtonVariant.DefaultPrimary} className="mt-10">
           Login
         </Button>
       </Stack>

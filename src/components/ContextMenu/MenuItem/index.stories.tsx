@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { LeftIcon, RightIcon } from "./Icon/icon";
-import { MenuItem } from "./MenuItem";
+import { MenuItem } from ".";
 
 const meta: Meta<typeof MenuItem> = {
     title: "Components/Menu/Menu Item",
@@ -20,6 +20,7 @@ export const Default: Story = {
         variant: "default",
         label: "MenuItem",
         leftSpacer: false,
+        border: false,
         size: "md",
     },
 };
@@ -47,6 +48,16 @@ export const WithLefttSpacer: Story = {
     args: {
         variant: "withRightIcon",
         label: "MenuItem",
+        leftSpacer: true,
+        size: "md",
+    },
+};
+
+export const WithBorder: Story = {
+    args: {
+        variant: "default",
+        label: "MenuItem",
+        border: true,
         leftSpacer: true,
         size: "md",
     },

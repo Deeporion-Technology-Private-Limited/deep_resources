@@ -2,12 +2,13 @@ import React, { forwardRef } from "react";
 import { cn } from "@/utils";
 import { cva, VariantProps } from "class-variance-authority";
 import { ComponentProps } from "react";
+import { Text } from "@/components/Text";
 
 // Styles for MenuItem
 const menuItemStyles = cva(
     [
         "flex",
-        // "w-full",
+        "w-full",
         "min-w-[184px]",
         "py-[9px]",
         "pl-[16px]",
@@ -70,20 +71,21 @@ interface MenuItemProps extends ComponentProps<"div">, VariantProps<typeof menuI
     leftIcon?: React.ReactNode;
     rightIcon?: React.ReactNode;
     leftSpacer?: boolean;
-    label: string
+    label: string;
+    border?: boolean;
 }
 
 // MenuItem Component
 export const MenuItem = forwardRef<HTMLDivElement, MenuItemProps>(
-    ({ variant, size, leftIcon, rightIcon, leftSpacer = false, label, className, ...props }, ref) => {
+    ({ variant, size, border = false, leftIcon, rightIcon, leftSpacer = false, label, className, ...props }, ref) => {
         return (
             <div
                 ref={ref}
-                className={cn(menuItemStyles({ variant, size, className }), leftIcon && "gap-2", leftSpacer && "pl-[42px]", rightIcon && "gap-[65px] pr-[4px]")}
+                className={cn(menuItemStyles({ variant, size, className }) ,  leftIcon && "gap-2", leftSpacer && "pl-[42px]", border && "border", rightIcon && "gap-[65px] pr-[4px]")}
                 {...props}
             >
                 {leftIcon}
-                <div>{label}</div>
+                <Text>{label}</Text>
                 {rightIcon}
 
             </div>

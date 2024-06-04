@@ -1,3 +1,4 @@
+import { Text } from "@/components/Text";
 import { cn } from "@/utils";
 import { VariantProps, cva } from "class-variance-authority";
 import { ComponentProps, forwardRef, useState } from "react";
@@ -13,7 +14,7 @@ const menuStyle = cva(
         "justify-center",
         "bg-gray-100",
         "rounded-md",
-        "p-2",
+        "p-3",
         "relative",
         "min-w-[182px]",
         "text-base",
@@ -22,13 +23,14 @@ const menuStyle = cva(
 )
 
 interface MenuProps extends ComponentProps<"div">, VariantProps<typeof menuStyle> {
-    children: React.ReactNode;
+    children?: React.ReactNode;
     className?: string;
     label: string;
+    activeColor?: string;
 }
 
 export const Menu = forwardRef<HTMLDivElement, MenuProps>(
-    ({ children, label, className, ...props }, ref) => {
+    ({ children, label, className, activeColor, ...props }, ref) => {
         const [isOpen, setIsOpen] = useState(false);
         const [isActive, setIsActive] = useState(false);
 
@@ -38,17 +40,16 @@ export const Menu = forwardRef<HTMLDivElement, MenuProps>(
         }
 
         return (
-            <>
+            <div className="relative" ref={ref} >
                 <div
-                    ref={ref}
-                    className={cn(menuStyle({ className }), isActive ? "bg-[#D0E3FF]" : null)}
+                    className={cn(menuStyle({ className }), isActive ? activeColor : null)}
                     onClick={toggleMenu}
                     {...props}
                 >
-                    <div>{label}</div>
+                    <Text>{label}</Text>
                 </div>
-                {isOpen && <div className="absolute bg-white ">{children}</div>}
-            </>
+                {isOpen && <div className="absolute top-[3.5rem] bg-white w-full flex flex-col gap-2 pt-2 ">{children}</div>}
+            </div>
         );
     }
 );

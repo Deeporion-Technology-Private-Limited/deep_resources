@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react";
-import { Menu } from "./Menu";
-import { MenuItem } from "../MenuItem/MenuItem";
+import { Menu } from ".";
+import { MenuItem } from "../MenuItem";
 import { LeftIcon, RightIcon } from "../MenuItem/Icon/icon";
 
 

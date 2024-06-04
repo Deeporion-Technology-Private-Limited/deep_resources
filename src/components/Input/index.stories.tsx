@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Input } from ".";
+import SearchImage from "./Icons/SearchImage";
+import CloseEye from "./Icons/CloseEye";
 
 const meta: Meta<typeof Input> = {
   title: "Components/Inputs/Input",
@@ -24,6 +26,7 @@ export const Password: Story = {
   args: {
     type: "password",
     placeholder: "Password",
+    eye: <CloseEye />
   },
 };
 
@@ -72,7 +75,8 @@ export const SearchInput: Story = {
 export const SearchIcon: Story = {
   args: {
     type: "search icon",
-    search: "https://www.nicepng.com/png/detail/19-198210_small-search-icon-png.png"
+    search: <SearchImage />,
+    placeholder: "Search here ...",
   },
 };
 

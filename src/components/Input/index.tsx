@@ -19,12 +19,15 @@ const inputStyles = cva([
 ]);
 
 type InputProps = ComponentProps<"input"> & {
-  search?: string;
+  search?: React.ReactNode;
+  eye?: React.ReactNode;
+  type?: "text" | "password" | "email" | "phone" | "numbers" | "search icon" | "date" | "search" | "Phone" | "number";
 } & VariantProps<typeof inputStyles>;
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
-  ({ className, type = "text", search, ...props }, ref) => {
+  ({ className, type = "text", search, eye, ...props }, ref) => {
     const [value, setValue] = useState<string>("");
+    const [showPassword, setShowPassword] = useState<boolean>(false);
     const [error, setError] = useState<string | null>(null);
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -81,22 +84,46 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       return /^\d*$/.test(numbers);
     };
 
+    const togglePasswordVisibility = () => {
+      setShowPassword((prevShowPassword) => !prevShowPassword);
+    };
+
     return (
       <div className="relative">
         <input
           ref={ref}
-          type={type}
+          type={showPassword && type === "password" ? "text" : type}
           value={value}
           autoComplete="off"
           className={cn(
             inputStyles({ className }),
-            type === "search icon" && search && !value ? "pl-10" : ""
+            type === "search icon" && !value ? "pl-10" : ""
           )}
-          style={type === "search icon" && search && !value ? { backgroundImage: `url(${search})`, backgroundRepeat: 'no-repeat', backgroundPosition: 'left center', backgroundSize: '20px' } : {}}
+          style={
+            type === "search icon" && !value
+              ? {
+                  backgroundRepeat: "no-repeat",
+                  backgroundPosition: "left center",
+                  backgroundSize: "20px",
+                  paddingLeft: "30px",
+                }
+              : {}
+          }
           {...props}
           onChange={handleChange}
           onFocus={handleFocus}
         />
+        {search && !value && (
+          <div className="absolute left-2 top-1/2 transform -translate-y-1/2">{search}</div>
+        )}
+        {eye && (
+          <div
+            className="absolute right-2 top-1/2 transform -translate-y-1/2 cursor-pointer"
+            onClick={togglePasswordVisibility}
+          >
+            {eye}
+          </div>
+        )}
         {error && <p className="text-red-500 text-xs mt-1">{error}</p>}
       </div>
     );

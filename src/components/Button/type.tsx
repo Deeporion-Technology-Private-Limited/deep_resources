@@ -4,6 +4,11 @@ export enum ButtonVariant {
   DefaultDarkBackground = "defaultDarkBackground",
 }
 
+export enum ButtonDirection {
+  Row = "row",
+  Column = "column",
+}
+
 export enum ButtonSize {
   Small = "sm",
   Medium = "md",

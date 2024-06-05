@@ -61,7 +61,7 @@ const chipsStyle= cva(
   
 
 
-type ChipsProps = ComponentProps<"button"> & VariantProps<typeof chipsStyle>&{ addRightIcon?: boolean;
+type ChipsProps = ComponentProps<"div"> & VariantProps<typeof chipsStyle>&{ addRightIcon?: boolean;
     addLeftIcon?: boolean;}
 
 export const Chips = forwardRef<HTMLDivElement, ChipsProps>(

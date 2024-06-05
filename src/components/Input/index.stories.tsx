@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Input } from ".";
 import SearchImage from "./Icons/SearchImage";
 import CloseEye from "./Icons/CloseEye";
+import OpenEye from "./Icons/OpenEye";
 
 const meta: Meta<typeof Input> = {
   title: "Components/Inputs/Input",
@@ -26,7 +27,9 @@ export const Password: Story = {
   args: {
     type: "password",
     placeholder: "Password",
-    eye: <CloseEye />
+    eye: <CloseEye />,
+    eyeOpen: <OpenEye />,
+
   },
 };
 

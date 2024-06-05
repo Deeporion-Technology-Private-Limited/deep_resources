@@ -42,7 +42,7 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
         className={cn(IconButtonStyles({ direction }), backgroundColor, className)}
         {...props}
       >
-        <img src={iconUrl} alt="Icon" className="w-[16px] h-[16px]" />
+        <img src={iconUrl} alt="Icon" className="w-[24px] h-[24px]" />
         {text}
         {children}
       </button>

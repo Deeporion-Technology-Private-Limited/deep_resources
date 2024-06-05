@@ -51,7 +51,7 @@ type TableHeaderProps = ComponentProps<"thead"> &
 export const TableHeader = forwardRef<
   HTMLTableSectionElement,
   TableHeaderProps
->(({ variant, size, colorscheme, className, header, data, ...props }, ref) => {
+>(({ variant, size, colorscheme, className, header, data }, ref) => {
   return (
     <div
       className="overflow-x-auto"

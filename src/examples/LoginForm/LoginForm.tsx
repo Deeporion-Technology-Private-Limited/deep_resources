@@ -39,6 +39,7 @@ export const LoginForm = () => {
           id="username"
           placeholder="Username"
           className="mb-4"
+          style={webstyle.inputBoxDesign}
         />
 
         <Text
@@ -50,12 +51,46 @@ export const LoginForm = () => {
         >
           Password
         </Text>
-        <Input id="password" type="password" placeholder={"Password"} />
+        <Input 
+          id="password" 
+          type="password" 
+          placeholder={"Password"} 
+          style={webstyle.inputBoxDesign}
+        />
 
-        <Button type="submit" variant={ButtonVariant.DefaultPrimary} className="mt-10">
+        <Button
+          type="submit"
+          variant={ButtonVariant.DefaultPrimary}
+          className="mt-10"
+          style={webstyle.loginButton}
+        >
           Login
         </Button>
       </Stack>
     </Box>
   );
+};
+
+const webstyle = {
+  inputBoxDesign: {
+    width: "360px",
+    height: "56px",
+    border: "1px solid #C9CDD2",
+    borderRadius: "8px",
+    color: "white",
+    padding: "10px 8px",
+  },
+  loginButton: {
+    width: "360px",
+    height: "56px",
+    borderRadius: "8px",
+    padding: "16px",
+    background: "linear-gradient(to right, #BFA59A, #3F271E)",
+    fontWeight: 600,
+    fontSize: "16px",
+    fontFamily: "poppins",
+    color: "#FFFFFF",
+    lineHeight: "24px",
+    align: "center",
+  },
 };

@@ -12,6 +12,9 @@ const systemMessageStyle = cva(
     "rounded",
     "gap-[8px]",
     "border-l-[4px]",
+    "border-t-[0.5px]",
+    "border-b-[0.5px]",
+    "border-r-[0.5px]",
   ],
   {
     variants: {

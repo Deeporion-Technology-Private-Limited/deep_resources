@@ -90,6 +90,16 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             inputStyles({ className }),
             type === "search icon" && "pl-10"
           )}
+          style={
+            type === "search icon" && !value
+              ? {
+                  backgroundRepeat: "no-repeat",
+                  backgroundPosition: "left center",
+                  backgroundSize: "20px",
+                  paddingLeft: "35px",
+                }
+              : {}
+          }
           {...props}
           onChange={handleChange}
           onFocus={handleFocus}

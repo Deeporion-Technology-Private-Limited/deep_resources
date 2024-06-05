@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { AnchorList } from ".";
-import { Anchor } from "../manuItem";
+import { Anchor } from "../ManuItem";
 
 const meta: Meta<typeof AnchorList> = {
   title: "Components/Header/AnchorList",

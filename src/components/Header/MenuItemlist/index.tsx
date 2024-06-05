@@ -2,9 +2,14 @@ import { cn } from "@/utils";
 import { VariantProps, cva } from "class-variance-authority";
 import { forwardRef } from "react";
 
-const toolStyles = cva([
-    "flex"
-],
+const anchorListStyles = cva(
+  [
+    "text-[12px]",
+    "font-bold",
+    "w-fit",
+    "flex",
+    "gap-[13px]"
+  ],
   {
     variants: {
       variant: {
@@ -21,18 +26,18 @@ const toolStyles = cva([
 type AnchorListProps = {
   children: React.ReactNode;
   className?: string;
-} & VariantProps<typeof toolStyles>;
+} & VariantProps<typeof anchorListStyles>;
 
-export const Toolbar = forwardRef<HTMLDivElement, AnchorListProps>(
+export const AnchorList = forwardRef<HTMLUListElement, AnchorListProps>(
   ({ className, children, variant, ...props }, ref) => {
     return (
-      <div
+      <ul
         ref={ref}
-        className={cn(toolStyles({ variant, className }))}
+        className={cn(anchorListStyles({ variant, className }))}
         {...props}
       >
         {children}
-      </div>
+      </ul>
     );
   }
 );

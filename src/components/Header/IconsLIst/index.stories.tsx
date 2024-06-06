@@ -5,7 +5,7 @@ import fav from "../navbarIcons/favorite.svg"
 import cart from "../navbarIcons/shoping_cart.svg"
 import setting from "../navbarIcons/settings.svg"
 import { IconsList } from ".";
-import { IconButton } from "@/components/Button/SingleIconButton/SingleIconButton";
+import { IconButton } from "@/components";
 
 const meta: Meta<typeof IconsList> = {
   title: "Components/Header/IconsList",

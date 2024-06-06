@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import DateRangeCalendar from './range';
+import DateRangeCalendar from '.';
 
 const meta: Meta<typeof DateRangeCalendar> = {
   title: "Components/Calendar/RangeCalendar",

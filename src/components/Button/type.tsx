@@ -15,7 +15,3 @@ export enum ButtonSize {
   Large = "lg",
 }
 
-export enum ButtonColorScheme {
-  Primary = "primary"
-}
-

@@ -1,5 +1,5 @@
 import { Box,Text } from "..";
-import { PrimaryButton } from "../Button/PrimaryButton";
+import { PrimaryButton } from "../PrimaryButton";
 import Card from "./Cards";
 import { Meta, StoryObj } from "@storybook/react";
 

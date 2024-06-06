@@ -13,13 +13,14 @@ const chipsStyle= cva(
       "disabled:cursor-not-allowed",
        "flex",
     "justify-center",
+    "font-light",
 "items-center"],
     {
       variants: {
         variant: {
-          solid: "",
-          outline: "border-2",
-          ghost: "transition-colors duration-300",
+          default: "",
+          not_active: "",
+          active: "",
           addRightIcon : false,
     addLeftIcon : false,
         },
@@ -34,24 +35,24 @@ const chipsStyle= cva(
       },
       compoundVariants: [
         {
-          variant: "solid",
+          variant: "default",
           colorscheme: "primary",
-          className: "bg-[#D0E3FF] hover:bg-primary-600 text-[#334EAC] gap-2",
+          className: "bg-[#D0E3FF] hover:bg-primary-600 text-[#334EAC] gap-2 ",
         },
         {
-          variant: "outline",
+          variant: "not_active",
           colorscheme: "primary",
           className:
             "text-[#081F5C] bg-[#E8EBED] gap-2",
         },
         {
-          variant: "ghost",
+          variant: "active",
           colorscheme: "primary",
           className: "text-primary-600 bg-gradient-to-r from-[#7096D1] to-[#334EAC] text-[#FFFFFF] gap-2",
         },
       ],
       defaultVariants: {
-        variant: "solid",
+        variant: "default",
         size: "sm",
         colorscheme: "primary",
       },
@@ -65,12 +66,12 @@ type ChipsProps = ComponentProps<"div"> & VariantProps<typeof chipsStyle>&{ addR
     addLeftIcon?: boolean;}
 
 export const Chips = forwardRef<HTMLDivElement, ChipsProps>(
-  ({ variant = "solid", size, colorscheme, className, addRightIcon = false, addLeftIcon = false,children, ...props }, ref) => {
+  ({ variant = "default", size, colorscheme, className, addRightIcon = false, addLeftIcon = false,children, ...props }, ref) => {
 
    
  const hasText = children !== undefined && children !== null && children !== '';
- const iconChange =  variant === "solid"? <CloseBlue className={className}  />
- : variant === "outline" ?<CloseBlack className={className}   /> : <CloseWhite  className={className} />
+ const iconChange =  variant === "default"? <CloseBlue className={className}  />
+ : variant === "not_active" ?<CloseBlack className={className}   /> : <CloseWhite  className={className} />
     return (
       <div
         ref={ref}

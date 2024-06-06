@@ -5,16 +5,17 @@ import {  CloseBlack, CloseBlue, CloseWhite } from "./ChipsImage/icon";
 
 
 const chipsStyle= cva(
-    [
-      "w-full",
-      "rounded-full",
-      "font-semibold",
-      "focus:outline-none",
-      "disabled:cursor-not-allowed",
-       "flex",
+  [
+    "w-full",
+    "rounded-full",
+    "font-semibold",  
+    "focus:outline-none",
+    "disabled:cursor-not-allowed",
+    "flex",
     "justify-center",
-    "font-light",
-"items-center"],
+    "font-light",  
+    "items-center",
+  ],
     {
       variants: {
         variant: {

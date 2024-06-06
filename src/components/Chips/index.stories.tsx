@@ -16,7 +16,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    variant: "solid",
+    variant: "default",
     children: "#1 day",
     addRightIcon : false,
     addLeftIcon : false,
@@ -25,7 +25,7 @@ export const Default: Story = {
 
 export const Not_Active: Story = {
   args: {
-    variant: "outline",
+    variant: "not_active",
     children: "#1 day",
     addRightIcon : false,
     addLeftIcon : false,
@@ -34,7 +34,7 @@ export const Not_Active: Story = {
 
 export const Active: Story = {
   args: {
-    variant: "ghost",
+    variant: "active",
     children: "#1 day",
     addRightIcon : false,
     addLeftIcon : false,

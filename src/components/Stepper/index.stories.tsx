@@ -1,5 +1,5 @@
 import React from 'react';
-import MyStepper from '../Stepper/index';
+import Stepper from '../Stepper/index';
 import type { Meta, StoryObj } from '@storybook/react';
 
 type Step = {
@@ -9,7 +9,7 @@ type Step = {
 
 const meta: Meta = {
   title: "Components/Stepper",
-  component: MyStepper,
+  component: Stepper,
   parameters: {
     layout: "centered",
   },
@@ -18,11 +18,11 @@ const meta: Meta = {
 
 export default meta;
 
-export const Default: StoryObj<{ steps: Step[] }> = (args: any) => <MyStepper {...args} />;
+export const Default: StoryObj<{ steps: Step[] }> = (args: any) => <Stepper {...args} />;
 Default.args = {
   steps: [
-    { component: () => <div>Step 1 Content</div>, title: 'Step 1: Personal Details' },
-    { component: () => <div>Step 2 Content</div>, title: 'Step 2: Address and Contact Information' },
-    { component: () => <div>Step 3 Content</div>, title: 'Step 3: Create Project' }
+    { component: () => <div>Step 1 Content</div>, title: 'My Cart Summary' },
+    { component: () => <div>Step 2 Content</div>, title: 'Choose Address' },
+    { component: () => <div>Step 3 Content</div>, title: 'Select Payment Method' }
   ],
 };

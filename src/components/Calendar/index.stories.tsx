@@ -1,8 +1,8 @@
-import Calendar from '.';
 import type { Meta, StoryObj } from "@storybook/react";
+import Calendar from ".";
 
 const meta: Meta<typeof Calendar> = {
-  title: "Components/Calendars/Calendar",
+  title: "Components/Calendar",
   component: Calendar,
   parameters: {
     layout: "centered",
@@ -29,7 +29,9 @@ export const WithSelectedDate: Story = {
   args: {
     year: currentYear,
     month: currentMonth,
-    selectedDate:  new Date(),
-    onDateSelect: (date : Date) => date,
+    selectedDate: new Date(),
+  },
+  argTypes: {
+    onDateSelect: { action: "selected" },
   },
 };

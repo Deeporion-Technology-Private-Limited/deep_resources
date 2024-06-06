@@ -5,7 +5,7 @@ import { forwardRef } from "react";
 
 const stepperStyles = cva(
   [
-    "flex flex-col gap-4 justify-between items-center w-full rounded-md font-semibold focus:outline-none disabled:cursor-not-allowed bg-gray-100 shadow-md p-4",
+    "flex flex-col gap-4 justify-between items-center w-full rounded-md font-semibold focus:outline-none disabled:cursor-not-allowed bg-white-100 p-4",
   ],
   {
     variants: {
@@ -108,8 +108,7 @@ const Stepper = forwardRef<HTMLDivElement, StepperProps>((props, ref) => {
                       />
                     </svg>
                   ) : (
-                    <div
-                      className="flex-shrink-0 rounded-full border-2 border-gray-300 w-8 h-8 flex items-center justify-center">
+                    <div className="flex-shrink-0 rounded-full border-2 border-gray-300 w-8 h-8 flex items-center justify-center">
                       {index + 1}
                     </div>
                   )}

@@ -4,7 +4,7 @@ import { useState, forwardRef, ComponentProps, ReactNode } from "react";
 import { ButtonVariant, ButtonSize } from "@/components/Button/type";
 import CloseIcon from "./Icons/CloseIcon";
 import { PrimaryButton } from "../PrimaryButton";
-import { Headings } from "./Headings/Headings";
+import { Headings } from "./Headings";
 
 const modalStyles = cva(
   [

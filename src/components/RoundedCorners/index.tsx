@@ -25,11 +25,10 @@ const roundedCornerStyles = cva(
         [BorderRadius.TripleXL]: "rounded-3xl",
         [BorderRadius.QuadrupleXL]: "rounded-4xl",
         [BorderRadius.Full]: "rounded-full",
-
-      },
+      }, 
     },
     defaultVariants: {
-      borderRadius: BorderRadius.Medium,
+      borderRadius: BorderRadius.None,
     },
   }
 );
@@ -39,7 +38,7 @@ type RoundedCornersProps = ComponentProps<"div"> & VariantProps<typeof roundedCo
 };
 
 export const RoundedCorners = forwardRef<HTMLDivElement, RoundedCornersProps>(
-  ({ borderRadius = BorderRadius.Medium, className, children, ...props }, ref) => {
+  ({ borderRadius = BorderRadius.None, className, children, ...props }, ref) => {
 
     return (
       <Box

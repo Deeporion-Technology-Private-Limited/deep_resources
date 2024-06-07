@@ -5,8 +5,8 @@ export enum BorderRadius {
   MediumMD = "rounded-md",
   Large = "rounded-lg",
   XL = "rounded-xl",
-  DoubleXL = "rounded-16px",
-  TripleXL = "rounded-24px",
-  QuadrupleXL = "rounded-32px",
+  DoubleXL = "rounded-2xl",
+  TripleXL = "rounded-3xl",
+  QuadrupleXL = "rounded-4xl",
   Full = "rounded-full"
 }

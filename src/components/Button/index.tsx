@@ -2,7 +2,7 @@ import { cn } from "@/utils";
 import { cva, VariantProps } from "class-variance-authority";
 import { ComponentProps, forwardRef } from "react";
 import { Add, Loader } from "./ButtonImage/icon";
-import { ButtonColorScheme, ButtonSize, ButtonVariant } from "./type";
+import { ButtonSize, ButtonVariant } from "./type";
 
 const buttonStyles = cva(
   [
@@ -28,30 +28,24 @@ const buttonStyles = cva(
         [ButtonSize.Medium]: "px-4 py-2 text-base",
         [ButtonSize.Large]: "px-6 py-3 text-lg",
       },
-      colorscheme: {
-        [ButtonColorScheme.Primary]: "text-white",
-      },
     },
     compoundVariants: [
       {
         variant: ButtonVariant.DefaultPrimary,
-        colorscheme: ButtonColorScheme.Primary,
+        className: "text-[#FFFFFF]"
       },
       {
         variant: ButtonVariant.DefaultSeconday,
-        colorscheme: ButtonColorScheme.Primary,
         className: "bg-[#D0E3FF] text-[#334EAC]",
       },
       {
         variant: ButtonVariant.DefaultDarkBackground,
-        colorscheme: ButtonColorScheme.Primary,
         className: "bg-[#FFFFFF] text-[#334EAC]",
       },
     ],
     defaultVariants: {
       variant: ButtonVariant.DefaultPrimary,
       size: ButtonSize.Medium,
-      colorscheme: ButtonColorScheme.Primary,
     },
   }
 );
@@ -59,7 +53,6 @@ const buttonStyles = cva(
 type ButtonProps = ComponentProps<"button"> & VariantProps<typeof buttonStyles> & {
   variant?: ButtonVariant;
   size?: ButtonSize;
-  colorscheme?: ButtonColorScheme;
   hover?: boolean;
   loader?: boolean;
   addRightIcon?: boolean;
@@ -67,25 +60,28 @@ type ButtonProps = ComponentProps<"button"> & VariantProps<typeof buttonStyles> 
 };
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ variant = ButtonVariant.DefaultPrimary, size = ButtonSize.Medium, colorscheme = ButtonColorScheme.Primary, hover = false, loader = false, addRightIcon = false, addLeftIcon = false, disabled = false, className, children, ...props }, ref) => {
+  ({ variant = ButtonVariant.DefaultPrimary, size = ButtonSize.Medium, hover = false, loader = false, addRightIcon = false, addLeftIcon = false, disabled = false, className, children, ...props }, ref) => {
     const hoverClasses = !disabled && hover ? {
-      [ButtonVariant.DefaultPrimary]: "hover:from-[#334EAC] hover:to-[#334EAC]",
-      [ButtonVariant.DefaultSeconday]: "hover:bg-[#A3C0EB] hover:text-[#081F5C]",
-      [ButtonVariant.DefaultDarkBackground]: "hover:text-[#081F5C]",
+      [ButtonVariant.DefaultPrimary]: "hover:from-[#3F271E] hover:to-[#3F271E]",
+      [ButtonVariant.DefaultSeconday]: "hover:bg-[#C4ACA1] hover:text-[#3F271E]",
+      [ButtonVariant.DefaultDarkBackground]: "hover:text-[#3F271E]",
     }[variant] : '';
 
-    const backgroundColor = disabled
+    const hasCustomBackgroundColor = className?.includes("bg-");
+
+    const defaultBackgroundColor = disabled
       ? "text-[#72787F] bg-[#E8EBED]"
       : loader && variant !== ButtonVariant.DefaultSeconday
         ? variant === ButtonVariant.DefaultDarkBackground
-          ? "bg-[#FFFFFF]"
-          : "bg-[#7096D1]"
+          ? "bg-[#BFA59A]"
+          : "bg-[#BFA59A]"
         : variant === ButtonVariant.DefaultSeconday
-          ? "bg-[#D0E3FF]"
+          ? "bg-[#EBE3E0] text-[#3F271E]"
           : variant === ButtonVariant.DefaultDarkBackground
-            ? "bg-[#FFFFFF]"
-            : "bg-gradient-to-r from-[#7096D1] to-[#334EAC]";
+            ? "bg-[#FFFFFF] text-[#3F271E]"
+            : "bg-gradient-to-r from-[#BFA59A] to-[#3F271E]";
 
+    const backgroundColor = hasCustomBackgroundColor ? "" : defaultBackgroundColor;
 
     const iconColor = disabled ? "#E8EBED"
       : variant === ButtonVariant.DefaultSeconday || variant === ButtonVariant.DefaultDarkBackground
@@ -97,7 +93,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     return (
       <button
         ref={ref}
-        className={cn(buttonStyles({ variant, size, colorscheme }), hoverClasses, backgroundColor, className)}
+        className={cn(buttonStyles({ variant, size }), hoverClasses, backgroundColor, className)}
         disabled={disabled}
         {...props}
       >

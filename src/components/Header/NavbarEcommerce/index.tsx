@@ -18,7 +18,7 @@ import fav from "../navbarIcons/favorite.svg";
 import cart from "../navbarIcons/shoping_cart.svg";
 import profile from "../navbarIcons/image.png";
 import SearchImage from "@/components/Input/Icons/SearchImage";
-import { IconButton } from "@/components/Button/SingleIconButton/SingleIconButton";
+import { IconButton } from "@/components";
 
 const navBarStyles = cva([
   "w-full",

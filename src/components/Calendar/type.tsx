@@ -18,4 +18,5 @@ export interface CalendarProps {
   month: MonthsOfYear;
   selectedDate?: Date;
   onDateSelect?: (date: Date) => void;
+  onDateRangeSelect?: (startDate: Date, endDate: Date) => void;
 }

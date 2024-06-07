@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from "@storybook/react";
 import { ButtonDirection } from "../type";
-import { GroupIconButton } from "./GroupIconButton";
-import { IconButton } from "../SingleIconButton/SingleIconButton";
+import { GroupIconButton } from ".";
+import { IconButton } from "../SingleIconButton";
 import Cart from "../ButtonImage/Cart.svg";
 import Favourite from "../ButtonImage/Favourite.svg";
 import Notification from "../ButtonImage/Notification.svg";

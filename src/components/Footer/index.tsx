@@ -4,14 +4,15 @@ import { ComponentProps, forwardRef } from "react";
 import { Box } from "@/components";
 
 const navBarStyles = cva([[
-    "p-[30px]",
+    "pl-[30px]",
     "text-[#36454f]",
-    "text-[13px]"
+    "text-[13px]",
+    "max-w-[320px]"
 ]]);
 type CustomerProps = ComponentProps<"div"> &
   VariantProps<typeof navBarStyles>;
 
-export const CustomerServices = forwardRef<HTMLDivElement, CustomerProps>(
+export const Footer = forwardRef<HTMLDivElement, CustomerProps>(
   ({ className, children, ...props }, ref) => {
     return (
       <Box

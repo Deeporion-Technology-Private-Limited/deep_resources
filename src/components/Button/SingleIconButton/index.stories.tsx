@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from "@storybook/react";
-import { IconButton } from "./SingleIconButton";
+import { IconButton } from ".";
 import { ButtonDirection } from "../type";
 import Accout from "../ButtonImage/Account.svg"
 

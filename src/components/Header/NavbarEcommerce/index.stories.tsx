@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { ComponentWithLogin, NavbarEcommerce } from ".";
+import { ComponentWithLogin, HorizontalNavBar,NavbarEcommerce } from ".";
 
 const meta: Meta<typeof NavbarEcommerce> = {
   title: "Components/Header/NavbarEcommerce",
@@ -27,6 +27,16 @@ export const LoggedIn: Story = {
     isLogin: true,
     children: <>
      <ComponentWithLogin isLogin/>
+    </>
+  },
+};
+
+export const LoggedInHorizontalNavBar: Story = {
+  args: {
+    variant:"column",
+    isLogin: true,
+    children: <>
+     <HorizontalNavBar isLogin variant="column" />
     </>
   },
 };

@@ -15,3 +15,4 @@ export * from "./Header/IconsLIst";
 export * from "./Calendar";
 export * from "./Calendar/RangeCalendar";
 export * from "./Elevation";
+export * from "./Header/LogImg";

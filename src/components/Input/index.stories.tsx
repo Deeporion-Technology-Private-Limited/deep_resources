@@ -89,3 +89,18 @@ export const EmailInput: Story = {
     placeholder: "Enter your email",
   },
 };
+
+export const SimpleInput: Story = {
+  args: {
+    type: "input",
+    placeholder: "Enter Something",
+  },
+};
+
+export const PrefixInput: Story = {
+  args: {
+    type: "prefix",
+    placeholder: "Enter Something",
+    prefix: "$"
+  },
+};

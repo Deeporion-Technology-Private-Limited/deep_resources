@@ -18,15 +18,29 @@ const inputStyles = cva([
   "placeholder:text-sm",
 ]);
 
+const simpleOutlineStyles = cva([
+  "w-full",
+  "border",
+  "border-gray-200",
+  "p-2",
+  "rounded-lg",
+  "placeholder:text-gray-400",
+  "placeholder:text-sm",
+  "outline-none",
+  "focus:outline-none",
+  "focus:border-gray-200",
+]);
+
 type InputProps = ComponentProps<"input"> & {
   search?: React.ReactNode;
   eyeOpen?: React.ReactNode;
   eye?: React.ReactNode;
-  type?: "text" | "password" | "email" | "phone" | "numbers" | "search icon" | "date" | "search" | "Phone" | "number";
+  prefix?: string;
+  type?: "text" | "password" | "email" | "phone" | "numbers" | "search icon" | "date" | "search" | "Phone" | "number" | "input" | "prefix";
 } & VariantProps<typeof inputStyles>;
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
-  ({ className, type = "text", search, eyeOpen, eye, ...props }, ref) => {
+  ({ className, type = "text", search, eyeOpen, eye, prefix, ...props }, ref) => {
     const [value, setValue] = useState<string>("");
     const [showPassword, setShowPassword] = useState<boolean>(false);
     const [error, setError] = useState<string | null>(null);
@@ -81,14 +95,20 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
 
     return (
       <div className="relative">
+        {type === "prefix" && prefix && (
+          <div className="absolute left-2 top-1/2 transform -translate-y-1/2 pointer-events-none">
+            {prefix}
+          </div>
+        )}
         <input
           ref={ref}
           type={showPassword && type === "password" ? "text" : type}
           value={value}
           autoComplete="off"
           className={cn(
-            inputStyles({ className }),
-            type === "search icon" && "pl-10"
+            type === "input" ? simpleOutlineStyles({ className }) : inputStyles({ className }),
+            type === "search icon" && "pl-10",
+            type === "prefix" && "pl-6"
           )}
           style={
             type === "search icon" && !value

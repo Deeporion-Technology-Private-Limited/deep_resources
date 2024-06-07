@@ -18,11 +18,24 @@ const inputStyles = cva([
   "placeholder:text-sm",
 ]);
 
+const simpleOutlineStyles = cva([
+  "w-full",
+  "border",
+  "border-gray-200",
+  "p-2",
+  "rounded-lg",
+  "placeholder:text-gray-400",
+  "placeholder:text-sm",
+  "outline-none",
+  "focus:outline-none",
+  "focus:border-gray-200",
+]);
+
 type InputProps = ComponentProps<"input"> & {
   search?: React.ReactNode;
   eyeOpen?: React.ReactNode;
   eye?: React.ReactNode;
-  type?: "text" | "password" | "email" | "phone" | "numbers" | "search icon" | "date" | "search" | "Phone" | "number";
+  type?: "text" | "password" | "email" | "phone" | "numbers" | "search icon" | "date" | "search" | "Phone" | "number" | "input";
 } & VariantProps<typeof inputStyles>;
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
@@ -87,7 +100,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           value={value}
           autoComplete="off"
           className={cn(
-            inputStyles({ className }),
+            type === "input" ? simpleOutlineStyles({ className }) : inputStyles({ className }),
             type === "search icon" && "pl-10"
           )}
           style={

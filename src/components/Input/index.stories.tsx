@@ -96,3 +96,11 @@ export const SimpleInput: Story = {
     placeholder: "Enter Something",
   },
 };
+
+export const PrefixInput: Story = {
+  args: {
+    type: "prefix",
+    placeholder: "Enter Something",
+    prefix: "$"
+  },
+};

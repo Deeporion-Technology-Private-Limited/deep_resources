@@ -1,8 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Footer } from ".";
-import { Box, IconsList, Input, Text } from "@/components";
-import { PrimaryButton } from "@/components/PrimaryButton";
-import { IconButton } from "@/components/Button/SingleIconButton/SingleIconButton";
+import { Box, IconsList,IconButton, Input, Text, Button } from "@/components";
+
 import instagram from "../Header/navbarIcons/Instagram.svg"
 import linkedin from "../Header/navbarIcons/LinkedIn.svg"
 import facebook from "../Header/navbarIcons/Facebook.svg"
@@ -65,9 +64,9 @@ export const SingpupForNewsLetter: Story = {
         </Text>
         <Box className="flex relative mb-[20px]">
           <Input className="rounded-none flex-1 h-[46px]" />
-          <PrimaryButton className="absolute right-0 w-fit h-full rounded-none text-[11px]">
+          <Button className="absolute right-0 w-fit h-full rounded-none text-[11px] bg-[#f00]">
             SUBSCRIBE
-          </PrimaryButton>
+          </Button>
         </Box>
         <IconsList className="justify-start">
           <IconButton iconUrl={instagram} />

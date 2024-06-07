@@ -6,7 +6,7 @@ import fav from "../navbarIcons/favorite.svg";
 import cart from "../navbarIcons/shoping_cart.svg";
 import setting from "../navbarIcons/settings.svg";
 import { IconsList } from "../IconsLIst";
-import { IconButton } from "@/components/Button/SingleIconButton/SingleIconButton";
+import { IconButton } from "@/components";
 import Input from "@/components/Input";
 import SearchImage from "@/components/Input/Icons/SearchImage";
 

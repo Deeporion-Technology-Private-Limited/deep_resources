@@ -1,0 +1,22 @@
+import type { Meta, StoryObj } from "@storybook/react";
+import { Elevation } from ".";
+import { ElevationShadow } from "./type";
+
+const meta: Meta<typeof Elevation> = {
+  title: "Components/Elevation",
+  component: Elevation,
+  parameters: {
+    layout: "centered",
+  },
+  tags: ["autodocs"],
+};
+
+export default meta;
+
+type Story = StoryObj<typeof meta>;
+
+export const ElevationLevels: Story = {
+  args: {
+    shadow: ElevationShadow.Medium
+  },
+};

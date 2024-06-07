@@ -20,10 +20,10 @@ export const Primary: Story = {
     variant: ButtonVariant.DefaultPrimary,
     children: "Button",
     hover: true,
-    loader : false,
-    addRightIcon : false,
-    addLeftIcon : false,
-    size : ButtonSize.Medium,
+    loader: false,
+    addRightIcon: false,
+    addLeftIcon: false,
+    size: ButtonSize.Medium,
     disabled: false,
   },
 };
@@ -32,24 +32,24 @@ export const Secondary: Story = {
   args: {
     variant: ButtonVariant.DefaultSeconday,
     children: "Button",
-    hover : true,
-    loader : false,
-    addRightIcon : false,
-    addLeftIcon : false,
-    size : ButtonSize.Medium,
+    hover: true,
+    loader: false,
+    addRightIcon: false,
+    addLeftIcon: false,
+    size: ButtonSize.Medium,
     disabled: false,
   },
 };
 
-export const Darkbackground: Story = {
+export const DarkBackground: Story = {
   args: {
     children: "Button",
     variant: ButtonVariant.DefaultDarkBackground,
-    hover : true,
-    loader : false,
-    addRightIcon : false,
-    addLeftIcon : false,
-    size : ButtonSize.Medium,
+    hover: true,
+    loader: false,
+    addRightIcon: false,
+    addLeftIcon: false,
+    size: ButtonSize.Medium,
     disabled: false,
   },
 };

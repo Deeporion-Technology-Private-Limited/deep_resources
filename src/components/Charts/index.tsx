@@ -1,7 +1,7 @@
 import { useState, useEffect, forwardRef } from 'react';
 import { cn } from "@/utils";
 import { VariantProps, cva } from "class-variance-authority";
-import { ComponentProps } from "react";
+import { ComponentProps } from 'react';
 
 const chartStyle = cva(
   [

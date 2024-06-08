@@ -15,4 +15,6 @@ export * from "./Header/IconsLIst";
 export * from "./Calendar";
 export * from "./Calendar/RangeCalendar";
 export * from "./Elevation";
+export * from "./PopupModal";
+export * from "./PopupModal/Headings";
 export * from "./Header/LogImg";

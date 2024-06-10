@@ -7,9 +7,9 @@ const meta = {
     layout: "centered",
   },
   argTypes: {
-    contentSize: {
-      control:'select', "options" :["text-xl","text-2xl","text-3xl","text-4xl","text-5xl"],
-    },
+    // contentSize: {
+    //   control:'select', "options" :["text-xl","text-2xl","text-3xl","text-4xl","text-5xl"],
+    // },
    
   },
   tags: ["autodocs"],
@@ -24,12 +24,15 @@ type Story = StoryObj<typeof meta>;
 export const Default :Story = {
 args : {
   SaveChanges: () => console.log("saved"),
+  
   onClose: () =>(isOpen: boolean) => { return !isOpen; },
   title: 'Sample Modal',
   contents:  "Contents in the modals ",
-  saveButton:true,
-  cancelButton:true,
-  contentSize:"text-2xl",
+  button02:true,
+  button01:true,
+  buttontext1:"button01",
+  buttontext2:"button02",
+
   
   
 }

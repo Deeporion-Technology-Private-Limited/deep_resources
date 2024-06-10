@@ -1,53 +1,15 @@
 import React, { forwardRef, useState } from "react";
-import { cva, VariantProps } from "class-variance-authority";
+import { VariantProps } from "class-variance-authority";
 import { ComponentProps } from "react";
-
-const inputStyles = cva([
-  "w-full",
-  "border",
-  "border-gray-200",
-  "p-2",
-  "rounded-lg",
-  "transition-all",
-  "duration-100",
-  "outline-none",
-  "focus:outline-primary-500",
-  "focus:border-transparent",
-  "placeholder:text-gray-400",
-  "placeholder:text-sm",
-]);
-
-const simpleOutlineStyles = cva([
-  "w-full",
-  "border",
-  "border-gray-200",
-  "p-2",
-  "rounded-lg",
-  "placeholder:text-gray-400",
-  "placeholder:text-sm",
-  "outline-none",
-  "focus:outline-none",
-  "focus:border-gray-200",
-]);
+import {InputType} from "../Input/type";
+import {getConditionalStyles, inputStyles} from "../Input/getStyles"
 
 type InputProps = ComponentProps<"input"> & {
   search?: React.ReactNode;
   eyeOpen?: React.ReactNode;
   eye?: React.ReactNode;
   prefix?: string;
-  type?:
-    | "text"
-    | "password"
-    | "email"
-    | "phone"
-    | "numbers"
-    | "search icon"
-    | "date"
-    | "search"
-    | "Phone"
-    | "number"
-    | "input"
-    | "prefix";
+  type?: InputType;
 } & VariantProps<typeof inputStyles>;
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
@@ -68,7 +30,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       const newValue = e.target.value;
       setValue(newValue);
       let validationError: string | null = null;
-    
+
       switch (type) {
         case "email":
           if (!validateEmail(newValue)) {
@@ -88,10 +50,8 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         default:
           break;
       }
-    
       setError(validationError);
     };
-    
 
     const handleFocus = () => {
       setError(null);
@@ -129,34 +89,6 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       setShowPassword((prevShowPassword) => !prevShowPassword);
     };
 
-    function getConditionalStyles(
-      type: string,
-      value: any,
-      className: string | undefined
-    ): string {
-      let styles = className ? `${className} ` : "";
-
-      if (type === "input") {
-        styles += simpleOutlineStyles();
-      } else {
-        styles += inputStyles();
-      }
-
-      if (type === "search icon" && !value) {
-        styles += " pl-10";
-      }
-
-      if (type === "search icon") {
-        styles += " pl-10";
-      }
-
-      if (type === "prefix") {
-        styles += " pl-6";
-      }
-
-      return styles.trim();
-    }
-
     const classNames = getConditionalStyles(type, value, className);
 
     const renderAdditionalComponent = () => {
@@ -191,7 +123,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       <div className="relative">
         <input
           ref={ref}
-          type={showPassword && type === "password" ? "text" : type}
+          type={showPassword && type === InputType.Password ? "text" : type}
           value={value}
           autoComplete="off"
           onBlur={handleBlur}

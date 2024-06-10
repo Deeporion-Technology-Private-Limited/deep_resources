@@ -3,8 +3,8 @@ import { useState, forwardRef, ComponentProps, ReactNode } from "react";
 
 import { ButtonVariant, ButtonSize } from "@/components/Button/type";
 import CloseIcon from "./Icons/CloseIcon";
-import { PrimaryButton } from "../PrimaryButton";
-import { Headings } from "./Headings";
+import { Button as PrimaryButton } from "../Button";
+import { Headings } from "../Headings";
 
 const modalStyles = cva(
   [
@@ -39,76 +39,83 @@ interface ModalPropss {
   children?: ReactNode;
   title: string;
   contents: string;
-  saveButton: boolean;
-  cancelButton: boolean;
-  contentSize: string;
+  button02: boolean;
+  button01: boolean;
+  buttontext1:string;
+  buttontext2:string;
+  
 }
 
 type ModalProps = ComponentProps<"div"> & VariantProps<typeof modalStyles>;
 export const Modal = forwardRef<ModalProps, ModalPropss>(
-  ({ onClose, title, contentSize, contents, saveButton, cancelButton }) => {
-    const [isOpen, setIsOpen] = useState(true);
+  ({ onClose, title, contents,buttontext1,buttontext2, button02, button01 }) => {
+    const [isOpen, setIsOpen] = useState(false);
     const toggleMenu = () => {
       setIsOpen(!isOpen);
     };
 
     return (
       <div>
+        <PrimaryButton
+          type="button"
+          hover
+          variant={ButtonVariant.DefaultPrimary}
+          size={ButtonSize.Small}
+          onClick={toggleMenu}
+        >
+          {" "}
+          Open Modal
+        </PrimaryButton>
         {isOpen && (
           <div
-            className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50"
+            className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-40"
             onClick={onClose}
           >
             <div
-              className="bg-white p-8 rounded shadow-md w-6/12 flex flex-col"
+              className="bg-white p-8 rounded rounded-br-3xl shadow-md w-6/12 flex flex-col"
               onClick={(e) => e.stopPropagation()}
             >
-              <div
-                onClick={toggleMenu}
-                className="w-full flex justify-end items-end"
-              >
-                <CloseIcon />{" "}
-              </div>
-              <div className="mb-3">
+              <div className="mb-3 flex justify-between border-b border-[rgba(255, 255, 255, 1)]">
                 <Headings
-                  FontSize="text-2xl"
+                  FontSize="text-xl"
                   fontWeight="font-bold"
                   text={title}
                 />{" "}
+                <div onClick={toggleMenu}>
+                  <CloseIcon />
+                </div>
               </div>
               <p>
                 <Headings
-                  className="font-normal"
-                  FontSize={contentSize}
+                  className="font-normal "
+                  FontSize={"text-base"}
                   fontWeight="font-normal"
                   text={contents}
                 ></Headings>
               </p>
-              <div
-                className={`flex ${cancelButton && saveButton ? "justify-between" : "justify-end"}  border-t border-[rgba(255, 255, 255, 1)] pt-6 mt-6`}
-              >
-                {saveButton && (
-                  <PrimaryButton
-                    type="button"
-                    hover
-                    variant={ButtonVariant.DefaultPrimary}
-                    size={ButtonSize.Small}
-                    className="w-1/4"
-                  >
-                    Save
-                  </PrimaryButton>
-                )}
-
-                {cancelButton && (
+              <div className={`flex justify-end pt-6`}>
+                {button01 && (
                   <PrimaryButton
                     type="button"
                     hover
                     size={ButtonSize.Small}
-                    className="w-1/4"
+                    className="w-1/4 mr-2 ml-2"
                     variant={ButtonVariant.DefaultPrimary}
                     onClick={toggleMenu}
                   >
-                    Cancel
+               {buttontext1}
+                  </PrimaryButton>
+                )}
+                {button02 && (
+                  <PrimaryButton
+                    type="button"
+                    hover
+                    variant={ButtonVariant.DefaultPrimary}
+                    size={ButtonSize.Small}
+                    className="w-1/4 mr-2 ml-2"
+                    onClick={toggleMenu}
+                  >
+                    {buttontext2}
                   </PrimaryButton>
                 )}
               </div>

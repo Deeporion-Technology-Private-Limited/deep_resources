@@ -4,7 +4,7 @@ import { Headings } from ".";
 const meta: Meta<typeof Headings> = {
 
   component: Headings,
-  title:'Components/Headings/Headings',
+  title:'Components/Headings',
   parameters: {
     layout: "centered",
   },

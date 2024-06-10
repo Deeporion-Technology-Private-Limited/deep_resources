@@ -2,6 +2,7 @@ import { useState, useEffect, forwardRef } from 'react';
 import { cn } from "@/utils";
 import { VariantProps, cva } from "class-variance-authority";
 import { ComponentProps } from 'react';
+import { singleSpliceSize, singleSpliceType } from './singleSpliceType';
 
 const singleSplineStyle = cva(
   [
@@ -16,12 +17,12 @@ const singleSplineStyle = cva(
   {
     variants: {
       variant: {
-        single_spline_area_chart: "",
+        [singleSpliceType.singleSpliceChart]: "",
       },
       size: {
-        sm: "px-4 py-2 text-sm",
-        md: "px-4 py-2 text-base",
-        lg: "px-6 py-3 text-lg",
+        [singleSpliceSize.small]: "px-4 py-2 text-sm",
+        [singleSpliceSize.medium]: "px-4 py-2 text-base",
+        [singleSpliceSize.large]: "px-6 py-3 text-lg",
       },
       colorscheme: {
         primary: "text-black",
@@ -29,14 +30,14 @@ const singleSplineStyle = cva(
     },
     compoundVariants: [
       {
-        variant: "single_spline_area_chart",
+        variant: singleSpliceType.singleSpliceChart,
         colorscheme: "primary",
         className: "text-[#DC2626] ",
       },
     ],
     defaultVariants: {
-      variant: "single_spline_area_chart",
-      size: "md",
+      variant:singleSpliceType.singleSpliceChart,
+      size: singleSpliceSize.medium,
       colorscheme: "primary",
     },
   }
@@ -74,7 +75,7 @@ const createCurvedPath = (values: number[], maxValue: number, width: number, hei
 export const singleSplineChart = forwardRef<HTMLDivElement, singleSplineChartProps>(
   (
     {
-      variant = "single_spline_area_chart",
+      variant = singleSpliceType.singleSpliceChart,
       size,
       colorscheme,
       className,

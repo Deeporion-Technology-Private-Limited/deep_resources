@@ -2,6 +2,7 @@ import { useState, useEffect, forwardRef } from 'react';
 import { cn } from "@/utils";
 import { VariantProps, cva } from "class-variance-authority";
 import { ComponentProps } from 'react';
+import { ChartColor, ChartsSize, ChartsType } from './ChartsTypes';
 
 const chartStyle = cva(
   [
@@ -16,32 +17,28 @@ const chartStyle = cva(
   {
     variants: {
       variant: {
-        Double_spline_area_chart: "",
-        BarChart: "",
-        PieChart: "",
-        Table_bar_chart: "",
-        Basic_area_Chart: "",
+        [ChartsType.Double_spline_area_chart]: ""
       },
       size: {
-        sm: "px-4 py-2 text-sm",
-        md: "px-4 py-2 text-base",
-        lg: "px-6 py-3 text-lg",
+        [ChartsSize.small]: "px-4 py-2 text-sm",
+        [ChartsSize.medium]: "px-4 py-2 text-base",
+        [ChartsSize.large]: "px-6 py-3 text-lg",
       },
       colorscheme: {
-        primary: "text-black",
+        [ChartColor.Primary]: "text-black",
       },
     },
     compoundVariants: [
       {
-        variant: "Double_spline_area_chart",
-        colorscheme: "primary",
+        variant:ChartsType.Double_spline_area_chart,
+        colorscheme: ChartColor.Primary,
         className: "text-[#DC2626] ",
       },
     ],
     defaultVariants: {
-      variant: "Double_spline_area_chart",
-      size: "md",
-      colorscheme: "primary",
+      variant: ChartsType.Double_spline_area_chart,
+      size: ChartsSize.medium,
+      colorscheme:ChartColor.Primary,
     },
   }
 );
@@ -82,7 +79,7 @@ const createCurvedPath = (values: number[], maxValue: number, width: number, hei
 export const Chart = forwardRef<HTMLDivElement, ChartProps>(
   (
     {
-      variant = "Double_spline_area_chart",
+      variant =ChartsType.Double_spline_area_chart,
       size,
       colorscheme,
       className,
@@ -121,7 +118,6 @@ export const Chart = forwardRef<HTMLDivElement, ChartProps>(
         className={cn(chartStyle({ variant, size, colorscheme, className }))}
         {...props}
       >
-        {variant === "Double_spline_area_chart" && (
           <div className="relative w-[610px] h-[238px]">
             <svg xmlns="http://www.w3.org/2000/svg" width={width} height={height} viewBox={`0 0 ${width} ${height}`} fill="none" style={{ overflow: 'visible' }}>
               <defs>
@@ -174,7 +170,6 @@ export const Chart = forwardRef<HTMLDivElement, ChartProps>(
               ))}
             </div>
           </div>
-        )}
       </div>
     );
   }

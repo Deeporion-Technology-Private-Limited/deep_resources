@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Chips }from "."
+import { ChipsTypes } from "./chipsTypes";
 
 const meta: Meta<typeof Chips> = {
   title: "Components/Chips",
@@ -16,7 +17,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    variant: "default",
+    variant: ChipsTypes.default,
     children: "#1 day",
     addRightIcon : false,
     addLeftIcon : false,
@@ -25,7 +26,7 @@ export const Default: Story = {
 
 export const Not_Active: Story = {
   args: {
-    variant: "not_active",
+    variant:ChipsTypes.not_active,
     children: "#1 day",
     addRightIcon : false,
     addLeftIcon : false,
@@ -34,7 +35,7 @@ export const Not_Active: Story = {
 
 export const Active: Story = {
   args: {
-    variant: "active",
+    variant: ChipsTypes.active,
     children: "#1 day",
     addRightIcon : false,
     addLeftIcon : false,

@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import singleSplineChart from ".";
+import { singleSpliceType } from "./singleSpliceType";
 
 const meta: Meta<typeof singleSplineChart> = {
   title: "Components/singleSplineChart",
@@ -16,7 +17,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    variant: "single_spline_area_chart",
+    variant: singleSpliceType.singleSpliceChart,
     value1: [600, 800, 1100, 500, 1000, 700, 800],
     days: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
     yAxisLabels: ["1.25K", "1.45K", "1.65K", "2K", "2.75K"],

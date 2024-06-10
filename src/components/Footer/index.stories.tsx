@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Footer } from ".";
-import { Box, IconsList,IconButton, Input, Text, Button } from "@/components";
+import { Box, IconsList, IconButton, Input, Text, Button } from "@/components";
 
-import instagram from "../Header/navbarIcons/Instagram.svg"
-import linkedin from "../Header/navbarIcons/LinkedIn.svg"
-import facebook from "../Header/navbarIcons/Facebook.svg"
+import instagram from "../Header/navbarIcons/Instagram.svg";
+import linkedin from "../Header/navbarIcons/LinkedIn.svg";
+import facebook from "../Header/navbarIcons/Facebook.svg";
 import google from "../Header/navbarIcons/Google.svg";
 
 const meta: Meta<typeof Footer> = {
@@ -21,60 +21,43 @@ type Story = StoryObj<typeof meta>;
 
 export const CustomerServices: Story = {
   args: {
-    children: (
-      <>
-        <Text
-          as="p"
-          className="text-[14px] mb-[15px] font-[600] text-[#ec048a] tracking-[.8px]"
-        >
-          CUSTOMER SERVICES
-        </Text>
-        <Box>
-          <Text as="p" className="mb-[20px] text-[13px] tracking-[.8px]">
-            <Text as="b" className="text-[13px]">
-              Phone:
-            </Text>{" "}
-            +9090909090
-          </Text>
-          <Text as="p" className="mb-[20px] text-[13px] tracking-[.8px]">
-            <Text as="b" className="text-[13px]">
-              Email:
-            </Text>{" "}
-            deeporion@gmail.com
-          </Text>
-        </Box>
-      </>
-    ),
+    title: "Customer Services",
+    services: [
+      {
+        name: "Phone",
+        value: "1-800-123-4567",
+      },
+      {
+        name: "Email",
+        value: "karan@gmail.com",
+      },
+    ]
   },
 };
 
-export const SingpupForNewsLetter: Story = {
+export const NeedHelp: Story = {
   args: {
-    children: (
-      <>
-        <Text
-          as="h1"
-          className="text-[14px] mb-[15px] font-[600] text-[#ec048a] tracking-[.8px]"
-        >
-          SIGN UP FOR OUR NEWSLETTER
-        </Text>
-        <Text as="p" className="mb-[15px] tracking-[.8px] text-[13px]">
-          Be the first to know about our new collections, exclusive offers, and
-          other perks!
-        </Text>
-        <Box className="flex relative mb-[20px]">
-          <Input className="rounded-none flex-1 h-[46px]" />
-          <Button className="absolute right-0 w-fit h-full rounded-none text-[11px] bg-[#f00]">
-            SUBSCRIBE
-          </Button>
-        </Box>
-        <IconsList className="justify-start">
-          <IconButton iconUrl={instagram} />
-          <IconButton iconUrl={facebook} />
-          <IconButton iconUrl={google} />
-          <IconButton iconUrl={linkedin} />
-        </IconsList>
-      </>
-    ),
+    title: "Need Help",
+    list: [
+      { name: "The Pinklay Story", href: "https://www.pinklay.com" },
+      { name: "The Pinklay Story", href: "https://www.pinklay.com" },
+      { name: "The Pinklay Story", href: "https://www.pinklay.com" },
+      { name: "The Pinklay Story", href: "https://www.pinklay.com" },
+    ],
+  },
+};
+
+export const NewsLetter: Story = {
+  args: {
+    title: "SIGN UP FOR OUR NEWSLETTER",
+    description:
+      "Be the first to know about our new collections, exclusive offers, and other perks!",
+    newsLetter: true,
+    links:[
+      {iconUrl: instagram},
+      {iconUrl: linkedin},
+      {iconUrl: facebook},
+      {iconUrl: google},
+    ]
   },
 };

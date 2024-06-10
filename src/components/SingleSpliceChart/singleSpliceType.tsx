@@ -1,5 +1,5 @@
 export enum singleSpliceType {
-      singleSpliceChart  = "single_spline_area_chart"
+      SingleLineChart  = "Singe Line Chart"
 
 }
 
@@ -7,4 +7,8 @@ export enum singleSpliceSize{
     small = "sm",
     medium = "md",
     large = "lg"
+}
+
+export enum graphColours{
+      Primary = "Primary"
 }

@@ -2,7 +2,7 @@ import { useState, useEffect, forwardRef } from 'react';
 import { cn } from "@/utils";
 import { VariantProps, cva } from "class-variance-authority";
 import { ComponentProps } from 'react';
-import { singleSpliceSize, singleSpliceType } from './singleSpliceType';
+import { graphColours, singleSpliceSize, singleSpliceType } from './singleSpliceType';
 
 const singleSplineStyle = cva(
   [
@@ -17,7 +17,7 @@ const singleSplineStyle = cva(
   {
     variants: {
       variant: {
-        [singleSpliceType.singleSpliceChart]: "",
+        [singleSpliceType.SingleLineChart]: "",
       },
       size: {
         [singleSpliceSize.small]: "px-4 py-2 text-sm",
@@ -25,25 +25,25 @@ const singleSplineStyle = cva(
         [singleSpliceSize.large]: "px-6 py-3 text-lg",
       },
       colorscheme: {
-        primary: "text-black",
+        [graphColours.Primary]: "text-black",
       },
     },
     compoundVariants: [
       {
-        variant: singleSpliceType.singleSpliceChart,
-        colorscheme: "primary",
+        variant: singleSpliceType.SingleLineChart,
+        colorscheme:graphColours.Primary,
         className: "text-[#DC2626] ",
       },
     ],
     defaultVariants: {
-      variant:singleSpliceType.singleSpliceChart,
+      variant:singleSpliceType.SingleLineChart,
       size: singleSpliceSize.medium,
-      colorscheme: "primary",
+      colorscheme: graphColours.Primary,
     },
   }
 );
 
-type singleSplineChartProps = ComponentProps<"div"> &
+type SingleLineChartProps = ComponentProps<"div"> &
   VariantProps<typeof singleSplineStyle> & {
     value1?: number[],
     days?: string[],
@@ -72,10 +72,10 @@ const createCurvedPath = (values: number[], maxValue: number, width: number, hei
   return pathData;
 };
 
-export const singleSplineChart = forwardRef<HTMLDivElement, singleSplineChartProps>(
+export const SingleLineChart = forwardRef<HTMLDivElement, SingleLineChartProps>(
   (
     {
-      variant = singleSpliceType.singleSpliceChart,
+      variant = singleSpliceType.SingleLineChart,
       size,
       colorscheme,
       className,
@@ -157,4 +157,4 @@ export const singleSplineChart = forwardRef<HTMLDivElement, singleSplineChartPro
   }
 );
 
-export default singleSplineChart;
+export default SingleLineChart;

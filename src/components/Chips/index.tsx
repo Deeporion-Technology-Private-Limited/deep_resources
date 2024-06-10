@@ -71,9 +71,10 @@ type ChipsProps = ComponentProps<"div"> & VariantProps<typeof chipsStyle> & {
 };
 
 export const Chips = forwardRef<HTMLDivElement, ChipsProps>(
-  ({ variant = ChipsTypes.default, size, colorscheme, className, addRightIcon = false, addLeftIcon = false, children, ...props }, ref) => {
-    let hasText = false;
+  ({ variant = ChipsTypes.default, size, colorscheme, className, 
+    addRightIcon = false, addLeftIcon = false, children, ...props }, ref) => {
 
+    let hasText = false;
     switch (true) {
       case children !== undefined:
       case children !== null:

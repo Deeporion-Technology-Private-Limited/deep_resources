@@ -19,10 +19,16 @@ export const Basic: Story = {
   },
 };
 
+export const Radio: Story = {
+  args: {
+    type: "radio",
+  },
+};
+
 export const WithText: Story = {
   args: {
     type: "checkbox",
-    label: "Checkbox"
+    label: "This is a text"
   },
 };
 

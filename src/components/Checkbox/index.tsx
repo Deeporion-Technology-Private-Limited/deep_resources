@@ -31,21 +31,22 @@ const inputStyles = cva(
     ],
     defaultVariants: {
       variant: "Basic",
-      size: "lg",
+      size: "md",
     },
   }
 );
 
 type InputProps = ComponentProps<"input"> & VariantProps<typeof inputStyles> & {
   label?: string
+  type: string;
 };
 
 export const Checkbox = forwardRef<HTMLInputElement, InputProps>(
-  ({ variant, size, className, disabled, label }) => {
+  ({ variant, size, type, className, disabled, label }) => {
     return (
       <div className="flex gap-2 items-center justify-center">
         <input
-          type="checkbox"
+          type={type}
           disabled={disabled}
           className={cn(inputStyles({ className, variant, size }), disabled && "cursor-not-allowed")}
         />

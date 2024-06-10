@@ -21,8 +21,8 @@ export const Default: Story = {
     days: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
     yAxisLabels: ["1.25K", "1.45K", "1.65K", "2K", "2.75K"],
     region: ["Region1"],
-    curveLineColor: "#EC4899", 
-    gradientStartColor: "rgba(236, 72, 153, 0.3)", 
-    gradientEndColor: "rgba(236, 72, 153, 0)" 
+    curveLineColor: "#EC4899",
+    gradientStartColor: "rgba(236, 72, 153, 0.3)",
+    gradientEndColor: "rgba(236, 72, 153, 0)"
   },
 };

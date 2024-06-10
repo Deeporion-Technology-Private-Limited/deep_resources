@@ -43,10 +43,10 @@ const singleSplineStyle = cva(
 );
 
 type singleSplineChartProps = ComponentProps<"div"> &
-  VariantProps<typeof singleSplineStyle> & { 
-    value1?: number[], 
-    days?: string[], 
-    yAxisLabels?: string[], 
+  VariantProps<typeof singleSplineStyle> & {
+    value1?: number[],
+    days?: string[],
+    yAxisLabels?: string[],
     region?: string[],
     curveLineColor?: string,
     gradientStartColor?: string,
@@ -82,9 +82,9 @@ export const singleSplineChart = forwardRef<HTMLDivElement, singleSplineChartPro
       days = [],
       yAxisLabels = [],
       region = [],
-      curveLineColor = "#6366F1", 
-      gradientStartColor = "rgba(99, 102, 241, 0.3)", 
-      gradientEndColor = "rgba(99, 102, 241, 0)", 
+      curveLineColor = "#6366F1",
+      gradientStartColor = "rgba(99, 102, 241, 0.3)",
+      gradientEndColor = "rgba(99, 102, 241, 0)",
       ...props
     },
     ref
@@ -108,49 +108,49 @@ export const singleSplineChart = forwardRef<HTMLDivElement, singleSplineChartPro
         className={cn(singleSplineStyle({ variant, size, colorscheme, className }))}
         {...props}
       >
-          <div className="relative w-[610px] h-[238px]">
-            <svg xmlns="http://www.w3.org/2000/svg" width={width} height={height} viewBox={`0 0 ${width} ${height}`} fill="none" style={{ overflow: 'visible' }}>
-              <defs>
-                <linearGradient id="gradient1" x1="0" y1="0" x2="0" y2="0.5">
-                  <stop offset="0%" stopColor={gradientStartColor} />
-                  <stop offset="100%" stopColor={gradientEndColor} />
-                </linearGradient>
-              </defs>
-              <path
-                d={`M0,${height} ${path1} L${width},${height} Z`}
-                fill="url(#gradient1)"
-              />
-              <path d={path1} stroke={curveLineColor} strokeWidth="1" fill="none" />
-              <g stroke="#E5E7EB" strokeWidth="1">
-                {yAxisLabels.map((label, index) => (
-                  index !== 0 && index !== yAxisLabels.length - 1 &&
-                  <line key={index} x1="0" y1={height - (index / (yAxisLabels.length - 1)) * height} x2={width} y2={height - (index / (yAxisLabels.length - 1)) * height} />
-                ))}
-              </g>
-            </svg>
-            <div style={{ position: 'absolute', top: 0, left: -70, height: '185px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+        <div className="relative w-[610px] h-[238px]">
+          <svg xmlns="http://www.w3.org/2000/svg" width={width} height={height} viewBox={`0 0 ${width} ${height}`} fill="none" style={{ overflow: 'visible' }}>
+            <defs>
+              <linearGradient id="gradient1" x1="0" y1="0" x2="0" y2="0.5">
+                <stop offset="0%" stopColor={gradientStartColor} />
+                <stop offset="100%" stopColor={gradientEndColor} />
+              </linearGradient>
+            </defs>
+            <path
+              d={`M0,${height} ${path1} L${width},${height} Z`}
+              fill="url(#gradient1)"
+            />
+            <path d={path1} stroke={curveLineColor} strokeWidth="1" fill="none" />
+            <g stroke="#E5E7EB" strokeWidth="1">
               {yAxisLabels.map((label, index) => (
-                <div key={index} style={{ textAlign: 'right', width: 50, color: '#6B7280', fontSize: '14px' }}>
-                  {label}
-                </div>
+                index !== 0 && index !== yAxisLabels.length - 1 &&
+                <line key={index} x1="0" y1={height - (index / (yAxisLabels.length - 1)) * height} x2={width} y2={height - (index / (yAxisLabels.length - 1)) * height} />
               ))}
-            </div>
-            <div style={{ position: 'absolute', bottom: 30, left: 0, width: '100%', display: 'flex', justifyContent: 'space-between' }}>
-              {days.map((label, index) => (
-                <div key={index} style={{ textAlign: 'center', width: `${100 / days.length}%`, color: '#6B7280', fontSize: '14px' }}>
-                  {label}
-                </div>
-              ))}
-            </div>
-            <div className='flex gap-4 text-black absolute bottom-[-20px]'>
-              {region?.map((item) => (
-                <div className={`flex justify-center items-center gap-2`} key={item}>
-                  <div className={`h-[10px] w-[10px] rounded-full`} style={{ backgroundColor: curveLineColor }}></div>
-                  <span style={{ color: '#6B7280', fontSize: '14px' }}>{item}</span>
-                </div>
-              ))}
-            </div>
+            </g>
+          </svg>
+          <div style={{ position: 'absolute', top: 0, left: -70, height: '185px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+            {yAxisLabels.map((label, index) => (
+              <div key={index} style={{ textAlign: 'right', width: 50, color: '#6B7280', fontSize: '14px' }}>
+                {label}
+              </div>
+            ))}
           </div>
+          <div style={{ position: 'absolute', bottom: 30, left: 0, width: '100%', display: 'flex', justifyContent: 'space-between' }}>
+            {days.map((label, index) => (
+              <div key={index} style={{ textAlign: 'center', width: `${100 / days.length}%`, color: '#6B7280', fontSize: '14px' }}>
+                {label}
+              </div>
+            ))}
+          </div>
+          <div className='flex gap-4 text-black absolute bottom-[-20px]'>
+            {region?.map((item) => (
+              <div className={`flex justify-center items-center gap-2`} key={item}>
+                <div className={`h-[10px] w-[10px] rounded-full`} style={{ backgroundColor: curveLineColor }}></div>
+                <span style={{ color: '#6B7280', fontSize: '14px' }}>{item}</span>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     );
   }

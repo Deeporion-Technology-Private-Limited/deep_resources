@@ -5,9 +5,10 @@ import { cn } from "@/utils";
 
 const IconButtonStyles = cva(
   [
+    "w-full",
     "flex",
     "items-center",
-    "justify-center",
+    "justify-start",
     "bg-transparent",
     "p-[10px]",
   ],
@@ -42,7 +43,7 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
         className={cn(IconButtonStyles({ direction }), backgroundColor, className)}
         {...props}
       >
-        <img src={iconUrl} alt="Icon"  />
+        {iconUrl && <img src={iconUrl} alt="Icon"  />}
         {text}
         {children}
       </button>

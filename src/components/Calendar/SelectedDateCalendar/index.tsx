@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react';
 import { cn } from "@/utils";
 import { cva, VariantProps } from "class-variance-authority";
 import { ComponentProps, forwardRef } from "react";
-import { Left, Right } from '../Button/ButtonImage/icon';
-import { CalendarProps, MonthsOfYear } from './type';
+import { Left, Right } from '../../Button/ButtonImage/icon';
+import { CalendarProps, MonthsOfYear } from '../type';
 
 const dayStyles = cva(
   [

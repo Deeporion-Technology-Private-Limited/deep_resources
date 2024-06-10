@@ -19,6 +19,13 @@ export const Basic: Story = {
   },
 };
 
+export const WithText: Story = {
+  args: {
+    type: "checkbox",
+    label: "Checkbox"
+  },
+};
+
 export const Disable: Story = {
   args: {
     type: "checkbox",

@@ -3,17 +3,16 @@ import { ButtonVariant } from "@/components/Button/type";
 import background from "../../images/backimage.png";
 import google from "../../images/Google.png";
 import phone from "../../images/phone.png";
-import { Alignment, TextWeight } from "@/utils/style";
+import { Alignment, TextSize, TextWeight } from "@/utils/style";
 import { Login } from "./type";
-import { InputType } from "@/components/Input/type";
+import { InputType, Placeholder } from "@/components/Input/type";
 
 export const LoginForm = () => {
   return (
     <Box className=" w-[100vw] flex items-center justify-between">
       <Box className="w-[50vw] flex justify-center flex-col items-center">
         <Text
-          as="label"
-          weight={"black"}
+          weight={TextWeight.Bold}
           className="absolute left-7 top-5 text-2xl"
         >
           Logo
@@ -23,15 +22,13 @@ export const LoginForm = () => {
           <Stack className="relative">
             <Box className="flex flex-col gap-6">
               <Box>
-                <Text as="h2" weight={TextWeight.Bold} size={"3xl"}>
+                <Text as="h2" weight={TextWeight.Bold} size={TextSize.Larger}>
                   {Login.Login}
                 </Text>
               </Box>
               <Box>
                 <Text
-                  as="label"
-                  htmlFor="username"
-                  size={"sm"}
+                  size={TextSize.Small}
                   weight={TextWeight.Medium}
                   className="mb-1.5"
                 >
@@ -40,15 +37,13 @@ export const LoginForm = () => {
                 <Input
                   type={InputType.Text}
                   id="username"
-                  placeholder="Username"
+                  placeholder={Placeholder.UserName}
                   className="mb-4"
                   style={webstyle.inputBoxDesign}
                 />
 
                 <Text
-                  as="label"
-                  htmlFor="password"
-                  size={"sm"}
+                  size={TextSize.Small}
                   weight={TextWeight.Medium}
                   className="mb-1.5"
                 >
@@ -57,13 +52,11 @@ export const LoginForm = () => {
                 <Input
                   id="password"
                   type={InputType.Password}
-                  placeholder={"Password"}
+                  placeholder={Placeholder.Password}
                   style={webstyle.inputBoxDesign}
                 />
                 <Text
-                  as="label"
-                  htmlFor="password"
-                  size={"sm"}
+                  size={TextSize.Small}
                   weight={TextWeight.Bold}
                   className=" w-full mt-2 text-end block text-[#7D5D4F]"
                 >
@@ -81,9 +74,8 @@ export const LoginForm = () => {
                 </Button>
 
                 <Text
-                  as="span"
                   emphasis={"low"}
-                  size={"sm"}
+                  size={TextSize.Small}
                   align={Alignment.Center}
                 >
                   {Login.OtherPlatform}
@@ -115,15 +107,14 @@ export const LoginForm = () => {
 
               <Box className="text-center">
                 <Text
-                  as="span"
                   emphasis={"low"}
-                  size={"sm"}
+                  size={TextSize.Small}
                   align={Alignment.Center}
                 >
                   {Login.AlreadyAccount}
                   <Text
-                    as="label"
                     weight={TextWeight.Medium}
+                    size={TextSize.Small}
                     className="text-black ml-2"
                   >
                     {Login.Register}

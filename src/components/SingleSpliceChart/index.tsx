@@ -33,8 +33,8 @@ const singleSplineStyle = cva(
 
 type SingleLineChartProps = ComponentProps<"div"> &
   VariantProps<typeof singleSplineStyle> & {
-    xAxis?: number[],
-    days?: string[],
+    xAxisValues?: number[],
+    xAxisLabels?: string[],
     yAxisLabels?: string[],
     region?: string,
     curveLineColor?: string,
@@ -65,8 +65,8 @@ export const SingleLineChart = forwardRef<HTMLDivElement, SingleLineChartProps>(
     {
       variant = singleSpliceType.SingleLineChart,
       className,
-      xAxis = [],
-      days = [],
+      xAxisValues = [],
+      xAxisLabels = [],
       yAxisLabels = [],
       region,
       curveLineColor = "#6366F1",
@@ -80,14 +80,14 @@ export const SingleLineChart = forwardRef<HTMLDivElement, SingleLineChartProps>(
     const [width, setWidth] = useState(0);
 
     useEffect(() => {
-      const maxVal = Math.max(...xAxis);
+      const maxVal = Math.max(...xAxisValues);
       setMaxValue(maxVal);
-      const calculatedWidth = days.length * 90;
+      const calculatedWidth = xAxisLabels.length * 90;
       setWidth(calculatedWidth);
-    }, [xAxis, days]);
+    }, [xAxisValues, xAxisLabels]);
 
     const height = 170;
-    const path1 = createCurvedPath(xAxis, maxValue, width, height);
+    const path1 = createCurvedPath(xAxisValues, maxValue, width, height);
 
     return (
       <div
@@ -123,8 +123,8 @@ export const SingleLineChart = forwardRef<HTMLDivElement, SingleLineChartProps>(
             ))}
           </div>
           <div style={{ position: 'absolute', bottom: 30, left: 0, width: '100%', display: 'flex', justifyContent: 'space-between' }}>
-            {days.map((label, index) => (
-              <div key={index} style={{ textAlign: 'center', width: `${100 / days.length}%`, color: '#6B7280', fontSize: '14px' }}>
+            {xAxisLabels.map((label, index) => (
+              <div key={index} style={{ textAlign: 'center', width: `${100 / xAxisLabels.length}%`, color: '#6B7280', fontSize: '14px' }}>
                 {label}
               </div>
             ))}

@@ -34,9 +34,9 @@ const chartStyle = cva(
 
 type ChartProps = ComponentProps<"div"> &
   VariantProps<typeof chartStyle> & { 
-    xAxis: number[], 
-    yAxis: number[], 
-    days?: string[], 
+    xAxisValues: number[], 
+    yAxisValues: number[], 
+    xAxisLabels?: string[], 
     yAxisLabels?: string[], 
     region?: string[],
     lineColor1?: string,
@@ -70,9 +70,9 @@ export const Chart = forwardRef<HTMLDivElement, ChartProps>(
     {
       variant = ChartsType.doubleSplineAreaChart,
       className,
-      xAxis = [],
-      yAxis = [],
-      days = [],
+      xAxisValues = [],
+      yAxisValues = [],
+      xAxisLabels = [],
       yAxisLabels = [], 
       region = [],
       lineColor1 = "#6366F1",
@@ -88,18 +88,18 @@ export const Chart = forwardRef<HTMLDivElement, ChartProps>(
     const [width, setWidth] = useState(0);
 
     useEffect(() => {
-      const calculatedWidth = days.length * 90;
+      const calculatedWidth = xAxisLabels.length * 90;
       setWidth(calculatedWidth);
-    }, [days]);
+    }, [xAxisLabels]);
 
     const height = 170;
-    const maxValue = Math.max(...xAxis, ...yAxis);
+    const maxValue = Math.max(...xAxisValues, ...yAxisValues);
     const fixedMaxValue = parseFloat(yAxisLabels[0].replace(/[^0-9.]/g, ''));
     
     const mapToFixedYAxis = (values: number[]) => values.map(val => (val / maxValue) * fixedMaxValue);
 
-    const adjustedXAxis = mapToFixedYAxis(xAxis);
-    const adjustedYAxis = mapToFixedYAxis(yAxis);
+    const adjustedXAxis = mapToFixedYAxis(xAxisValues);
+    const adjustedYAxis = mapToFixedYAxis(yAxisValues);
 
     const path1 = createCurvedPath(adjustedXAxis, fixedMaxValue, width, height);
     const path2 = createCurvedPath(adjustedYAxis, fixedMaxValue, width, height);
@@ -147,8 +147,8 @@ export const Chart = forwardRef<HTMLDivElement, ChartProps>(
             ))}
           </div>
           <div style={{ position: 'absolute', bottom: 30, left: 0, width: '100%', display: 'flex', justifyContent: 'space-between' }}>
-            {days.map((label, index) => (
-              <div key={index} style={{ textAlign: 'center', width: `${100 / days.length}%`, color: '#6B7280', fontSize: '14px' }}>
+            {xAxisLabels.map((label, index) => (
+              <div key={index} style={{ textAlign: 'center', width: `${100 / xAxisLabels.length}%`, color: '#6B7280', fontSize: '14px' }}>
                 {label}
               </div>
             ))}

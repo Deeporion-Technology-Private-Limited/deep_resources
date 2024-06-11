@@ -19,8 +19,8 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     variant: singleSpliceType.SingleLineChart,
-    xAxis: chartData[ChartValueType.Valuex],
-    days: chartData[ChartValueType.Days],
+    xAxisValues: chartData[ChartValueType.xAxisValues],
+    xAxisLabels: chartData[ChartValueType.xAxisLabels],
     yAxisLabels: chartData[ChartValueType.yAxisLabel],
     region: "Region1",
     curveLineColor: "#EC4899",

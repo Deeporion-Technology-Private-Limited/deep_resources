@@ -18,9 +18,9 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     variant: ChartsType.doubleSplineAreaChart,
-    xAxis: chartData[ChartValueType.Valuex],
-    yAxis: chartData[ChartValueType.Valuey],
-    days: chartData[ChartValueType.Days],
+    xAxisValues: chartData[ChartValueType.xAxisValues],
+    yAxisValues: chartData[ChartValueType.yAxisValues],
+    xAxisLabels: chartData[ChartValueType.xAxisLabels],
     yAxisLabels: chartData[ChartValueType.yAxisLabel],
     region: ["Region1", "Region2"],
     lineColor1: "#6366F1",

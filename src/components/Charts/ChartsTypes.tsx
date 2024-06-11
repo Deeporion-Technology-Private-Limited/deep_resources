@@ -3,16 +3,16 @@ export enum ChartsType {
 }
 
  export enum ChartValueType {
-    Valuex = "ValueX",
-    Valuey = "ValueY",
-    Days = "Days",
+    xAxisValues = "xAxisValues",
+    yAxisValues = "yAxisValues",
+    xAxisLabels = "xAxisLabels",
     yAxisLabel = "yAxisLabel"
   }
   
   export const chartData = {
-    [ChartValueType.Valuex]: [600, 800, 1100, 500, 1000, 700, 800],
-    [ChartValueType.Valuey]: [500, 700, 1000, 400, 900, 600, 700],
-    [ChartValueType.Days]: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+    [ChartValueType.xAxisValues]: [600, 800, 1100, 500, 1000, 700, 800],
+    [ChartValueType.yAxisValues]: [500, 700, 1000, 400, 900, 600, 700],
+    [ChartValueType.xAxisLabels]: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
     [ChartValueType.yAxisLabel]:["1120", "850", "550", "250", "0"],
   };
 

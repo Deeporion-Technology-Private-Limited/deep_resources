@@ -2,6 +2,7 @@ import { cva, VariantProps } from "class-variance-authority";
 import { ComponentProps, forwardRef } from "react";
 import { cn } from "@/utils";
 import { variants } from "./type";
+import { Box } from "..";
 
 const progressBarStyles = cva(" ", {
   variants: {
@@ -44,12 +45,12 @@ const ProgressBar = forwardRef<HTMLDivElement, ProgressBarProps>(
     const validProgress = Math.min(100, Math.max(0, progress));
     if (variant === variants.linear) {
       return (
-        <div
+        <Box
           className={cn(progressBarStyles({ variant }), className)}
           ref={ref}
           {...props}
         >
-          <div
+          <Box
             className="h-full flex items-center justify-end pr-2 bg-blue-400 rounded-xl"
             style={{
               width: `${validProgress}%`,
@@ -58,8 +59,8 @@ const ProgressBar = forwardRef<HTMLDivElement, ProgressBarProps>(
             }}
           >
             {middleText ? <>{validProgress + "%"}</> : null}
-          </div>
-        </div>
+          </Box>
+        </Box>
       );
     } else{
       const radius = (size - strokeWidth) / 2;
@@ -67,7 +68,7 @@ const ProgressBar = forwardRef<HTMLDivElement, ProgressBarProps>(
       const offset = circumference - (validProgress / 100) * circumference;
 
       return (
-        <div
+        <Box
           className={cn(progressBarStyles({ variant }), className)}
           ref={ref}
           {...props}
@@ -113,7 +114,7 @@ const ProgressBar = forwardRef<HTMLDivElement, ProgressBarProps>(
               </text>
             )}
           </svg>
-        </div>
+        </Box>
       );
     }
   }

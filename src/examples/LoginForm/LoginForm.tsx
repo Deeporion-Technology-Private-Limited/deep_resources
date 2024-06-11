@@ -1,112 +1,146 @@
 import { Box, Button, IconButton, Input, Stack, Text } from "@/components";
-import { ButtonDirection, ButtonVariant } from "@/components/Button/type";
+import { ButtonVariant } from "@/components/Button/type";
 import background from "../../images/backimage.png";
-import apple from "../../images/apple.png";
-import google from "../../images/google.png";
-import facebook from "../../images/facebook.png";
+import google from "../../images/Google.png";
+import phone from "../../images/phone.png";
+import { Alignment, TextWeight } from "@/utils/style";
+import { Login } from "./type";
+import { InputType } from "@/components/Input/type";
 
 export const LoginForm = () => {
   return (
     <Box className=" w-[100vw] flex items-center justify-between">
       <Box className="w-[50vw] flex justify-center flex-col items-center">
-      <Text as="label" weight={"black"}  className="absolute left-7 top-5 text-2xl"> 
-            Logo
-          </Text>
+        <Text
+          as="label"
+          weight={"black"}
+          className="absolute left-7 top-5 text-2xl"
+        >
+          Logo
+        </Text>
+        <Box className="container  flex flex-col gap-6"></Box>
         <Box className="w-fit">
-          
           <Stack className="relative">
-            <Text as="h2" weight={"bold"} size={"3xl"} className="mb-9" >
-              Login
-            </Text>
+            <Box className="flex flex-col gap-6">
+              <Box>
+                <Text as="h2" weight={TextWeight.Bold} size={"3xl"}>
+                  {Login.Login}
+                </Text>
+              </Box>
+              <Box>
+                <Text
+                  as="label"
+                  htmlFor="username"
+                  size={"sm"}
+                  weight={TextWeight.Medium}
+                  className="mb-1.5"
+                >
+                  {Login.Username}
+                </Text>
+                <Input
+                  type={InputType.Text}
+                  id="username"
+                  placeholder="Username"
+                  className="mb-4"
+                  style={webstyle.inputBoxDesign}
+                />
 
-            <Text
-              as="label"
-              htmlFor="username"
-              size={"sm"}
-              weight={"medium"}
-              className="mb-1.5"
-            >
-              Username
-            </Text>
-            <Input
-              type="text"
-              id="username"
-              placeholder="Username"
-              className="mb-4"
-              style={webstyle.inputBoxDesign}
-            />
+                <Text
+                  as="label"
+                  htmlFor="password"
+                  size={"sm"}
+                  weight={TextWeight.Medium}
+                  className="mb-1.5"
+                >
+                  {Login.Password}
+                </Text>
+                <Input
+                  id="password"
+                  type={InputType.Password}
+                  placeholder={"Password"}
+                  style={webstyle.inputBoxDesign}
+                />
+                <Text
+                  as="label"
+                  htmlFor="password"
+                  size={"sm"}
+                  weight={TextWeight.Bold}
+                  className=" w-full mt-2 text-end block text-[#7D5D4F]"
+                >
+                  {Login.ForgotPassword}
+                </Text>
+              </Box>
 
-<Box>
+              <Box className="flex flex-col gap-6">
+                <Button
+                  type="submit"
+                  variant={ButtonVariant.DefaultPrimary}
+                  style={webstyle.loginButton}
+                >
+                  {Login.Login}
+                </Button>
 
-            <Text
-              as="label"
-              htmlFor="password"
-              size={"sm"}
-              weight={"medium"}
-              className="mb-1.5"
-            >
-              Password
-            </Text>
-            <Input
-              id="password"
-              type="password"
-              placeholder={"Password"}
-              style={webstyle.inputBoxDesign}
-            />
-            <Text
-              as="label"
-              htmlFor="password"
-              size={"sm"}
-              weight={"bold"}
-              className="mb-1.5 w-full  text-end block text-[#7D5D4F]"
+                <Text
+                  as="span"
+                  emphasis={"low"}
+                  size={"sm"}
+                  align={Alignment.Center}
+                >
+                  {Login.OtherPlatform}
+                </Text>
+                <Box className="flex flex-col gap-[0.94rem]">
+                  <Box className="flex items-center justify-center border rounded-lg border-[#72787F]">
+                    <IconButton iconUrl={google} className="w-fit"></IconButton>
+                    <Text
+                      className="w-fit text-[#72787F]"
+                      align={Alignment.Center}
+                      weight={TextWeight.Bold}
+                    >
+                      {Login.Google}
+                    </Text>
+                  </Box>
 
-            >
-              Forgot Password
-            </Text>
-</Box>
+                  <Box className="flex items-center justify-center border rounded-lg border-[#72787F]">
+                    <IconButton iconUrl={phone} className="w-fit"></IconButton>
+                    <Text
+                      className="w-fit text-[#72787F] text-base"
+                      align={Alignment.Center}
+                      weight={TextWeight.Bold}
+                    >
+                      {Login.PhoneNumber}
+                    </Text>
+                  </Box>
+                </Box>
+              </Box>
 
-            <Button
-              type="submit"
-              variant={ButtonVariant.DefaultPrimary}
-              className="my-10"
-              style={webstyle.loginButton}
-            >
-              Login
-            </Button>
-
-            <Box className="flex w-[100%] justify-center ">
-              <IconButton
-                iconUrl={google}
-                backgroundColor="transparent"
-                direction={ButtonDirection.Row}
-              />
-              <IconButton
-                iconUrl={apple}
-                backgroundColor="transparent"
-                direction={ButtonDirection.Row}
-              />
-              <IconButton
-                iconUrl={facebook}
-                backgroundColor="transparent"
-                direction={ButtonDirection.Row}
-              />
+              <Box className="text-center">
+                <Text
+                  as="span"
+                  emphasis={"low"}
+                  size={"sm"}
+                  align={Alignment.Center}
+                >
+                  {Login.AlreadyAccount}
+                  <Text
+                    as="label"
+                    weight={TextWeight.Medium}
+                    className="text-black ml-2"
+                  >
+                    {Login.Register}
+                  </Text>
+                </Text>
+              </Box>
             </Box>
-
-            <Text as="span" emphasis={"low"} size={"sm"} align={"center"}>
-              Already have an account?
-              <Text as="label" weight={"medium"}
-              className="text-black ml-2"
-      >
-                Register
-              </Text>
-            </Text>
           </Stack>
         </Box>
       </Box>
       <Box className="relative">
-        <img src={background} alt=""  className=""/>
-        <Text className="absolute bottom-28 left-56 w-96 text-center text-white text-3xl"  weight={"bold"}>
-        Serve yourself some delicious cuisine
+        <img src={background} alt="img" />
+        <Text
+          className="absolute bottom-28 left-56 w-96 text-center text-white text-3xl"
+          weight={TextWeight.Bold}
+        >
+          {Login.NewShopping}
         </Text>
       </Box>
     </Box>
@@ -134,9 +168,5 @@ const webstyle = {
     color: "#FFFFFF",
     lineHeight: "24px",
     align: "center",
-  },
-  registertext: {
-    color: "black",
-    marginLeft: "0.5rem",
   },
 };

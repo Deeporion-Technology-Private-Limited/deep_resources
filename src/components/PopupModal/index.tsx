@@ -103,7 +103,7 @@ export const Modal = forwardRef<ModalProps, ModalPropss>(
                     variant={ButtonVariant.DefaultPrimary}
                     onClick={toggleMenu}
                   >
-                    {buttontext1}
+               {buttontext1}
                   </Button>
                 )}
                 {button02 && (

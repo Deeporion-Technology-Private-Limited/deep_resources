@@ -5,7 +5,6 @@ import { cn } from "@/utils";
 
 const IconButtonStyles = cva(
   [
-    "w-full",
     "flex",
     "items-center",
     "justify-start",

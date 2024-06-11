@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { LeftIcon, RightIcon } from "./Icon/icon";
 import { MenuItem } from ".";
 import { Box } from "@/components/Layout";
+import { MenuItemSize, MenuItemVariant } from "./MenuitemTypes";
 
 const meta: Meta<typeof MenuItem> = {
     title: "Components/Menu Item",
@@ -13,6 +14,8 @@ const meta: Meta<typeof MenuItem> = {
 };
 
 export default meta;
+
+const label = "Item"
 
 const generateMenuItemStory = ({
     variant,
@@ -26,13 +29,13 @@ const generateMenuItemStory = ({
     children,
     onClick,
 }: {
-    variant: string;
+    variant: MenuItemVariant;
     label: string;
     leftIcon?: JSX.Element;
     rightIcon?: JSX.Element;
     leftSpacer?: boolean;
     border?: boolean;
-    size: string;
+    size: MenuItemSize;
     isSubmenu?: boolean;
     children?: React.ReactNode;
     onClick?: () => void;
@@ -52,70 +55,70 @@ const generateMenuItemStory = ({
 });
 
 export const Default = generateMenuItemStory({
-    variant: "default",
-    label: "Menu Item",
-    size: "md",
+    variant: MenuItemVariant.Default,
+    label: "Item 1",
+    size: MenuItemSize.Small,
     leftSpacer: false,
     onClick: () => alert("Default item clicked"),
 });
 
 export const WithRightIcon = generateMenuItemStory({
-    variant: "withRightIcon",
-    label: "Menu Item",
+    variant: MenuItemVariant.RightIcon,
+    label,
     rightIcon: <LeftIcon />,
-    size: "md",
+    size: MenuItemSize.Medium,
     onClick: () => alert("Right icon item clicked"),
 });
 
 export const WithLeftIcon = generateMenuItemStory({
-    variant: "withLeftIcon",
-    label: "Menu Item",
+    variant: MenuItemVariant.LeftIcon,
+    label: "Item 3",
     leftIcon: <RightIcon />,
-    size: "md",
+    size: MenuItemSize.Medium,
     onClick: () => alert("Left icon item clicked"),
 });
 
 export const WithLeftSpacer = generateMenuItemStory({
-    variant: "withLeftSpacer",
-    label: "Menu Item",
+    variant: MenuItemVariant.LeftSpacer,
+    label: "Item 4",
     leftSpacer: true,
-    size: "md",
+    size: MenuItemSize.Medium,
     onClick: () => alert("Left spacer item clicked"),
 });
 
 export const WithBorder = generateMenuItemStory({
-    variant: "withBorder",
-    label: "Menu Item",
+    variant: MenuItemVariant.Border,
+    label: "Item 5",
     border: true,
     leftSpacer: true,
-    size: "md",
+    size: MenuItemSize.Medium,
     onClick: () => alert("Border item clicked"),
 });
 
 export const Submenu = generateMenuItemStory({
-    variant: "withRightIcon",
+    variant: MenuItemVariant.Default,
     label: "Menu Items",
     rightIcon: <LeftIcon />,
-    size: "md",
+    size: MenuItemSize.Medium,
     isSubmenu: true,
     children: (
         <Box>
             <MenuItem
                 label="Submenu Item 1"
-                size="sm"
-                variant="default"
+                size={MenuItemSize.Medium}
+                variant="Default"
                 onClick={() => alert("Submenu item 1 clicked")}
             />
             <MenuItem
                 label="Submenu Item 2"
-                size="sm"
-                variant="default"
+                size={MenuItemSize.Medium}
+                variant="Default"
                 onClick={() => alert("Submenu item 2 clicked")}
             />
             <MenuItem
                 label="Submenu Item 3"
-                size="sm"
-                variant="default"
+                size={MenuItemSize.Small}
+                variant="Default"
                 onClick={() => alert("Submenu item 3 clicked")}
             />
         </Box>

@@ -27,14 +27,12 @@ export const Default: Story = {
     title: "Logo",
     direction: NavbarDirection.Column,
     navItem: [
-      { manus: "Favourite", manuIcon: fav },
-      { manus: "notification", manuIcon: notification },
-      { manus: "Cart", manuIcon: cart },
-      { manus: "Setting", manuIcon: setting },
+      { menuIcon: fav },
+      { menuIcon: notification },
+      { menuIcon: cart },
+      { menuIcon: setting },
     ],
-    navBarIcons: [
-      { icon: person, iconName: "Logo" },
-    ],
+    navBarIcons: [{ icon: person, iconName: "Logo" }],
     profilePicture: profile,
   },
 };
@@ -44,14 +42,12 @@ export const LogedIn: Story = {
     title: "Logo",
     direction: NavbarDirection.Column,
     navItem: [
-      { manus: "Favourite", manuIcon: fav },
-      { manus: "notification", manuIcon: notification },
-      { manus: "Cart", manuIcon: cart },
-      { manus: "Setting", manuIcon: setting },
+      { menuIcon: fav },
+      { menuIcon: notification },
+      { menuIcon: cart },
+      { menuIcon: setting },
     ],
-    navBarIcons: [
-      { icon: person, iconName: "Logo" },
-    ],
+    navBarIcons: [{ icon: person, iconName: "Logo" }],
     profilePicture: profile,
     isLogin: true,
   },
@@ -62,17 +58,14 @@ export const WithLogoIcon: Story = {
     title: "Logo",
     direction: NavbarDirection.Column,
     navItem: [
-      { manus: "Favourite", manuIcon: fav },
-      { manus: "notification", manuIcon: notification },
-      { manus: "Cart", manuIcon: cart },
-      { manus: "Setting", manuIcon: setting },
+      { menuIcon: fav },
+      { menuIcon: notification },
+      { menuIcon: cart },
+      { menuIcon: setting },
     ],
-    navBarIcons: [
-      { icon: person, iconName: "Logo" },
-    ],
+    navBarIcons: [{ icon: person, iconName: "Logo" }],
     profilePicture: profile,
     isLogin: true,
     LogoIcon: log,
   },
 };
-

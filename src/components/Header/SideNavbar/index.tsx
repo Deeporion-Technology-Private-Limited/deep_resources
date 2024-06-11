@@ -36,8 +36,8 @@ const navBarStyles = cva(
 );
 
 type NavItems = {
-  manus?: string;
-  manuIcon?: string;
+  menus?: string;
+  menuIcon?: string;
 };
 
 type navBarIcons = {
@@ -90,8 +90,8 @@ export const SideNavbar = forwardRef<HTMLDivElement, LogoImageProps>(
               {navItem &&
                 navItem?.map((item) => (
                   <IconButton
-                    iconUrl={item.manuIcon}
-                    text={item.manus}
+                    iconUrl={item.menuIcon}
+                    text={item.menus}
                     direction={ButtonDirection.Column}
                     className="text-[12px]"
                   />

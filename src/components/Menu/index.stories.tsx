@@ -5,7 +5,7 @@ import { LeftIcon, RightIcon } from "../MenuItem/Icon/icon";
 
 
 const meta: Meta<typeof Menu> = {
-    title: "Components/Menu/Menu",
+    title: "Components/Menu",
     component: Menu,
     parameters: {
         layout: "centered",

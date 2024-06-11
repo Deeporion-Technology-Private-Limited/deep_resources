@@ -1,4 +1,5 @@
 export enum Login {
+  Logo = "LOGO" ,
   Login = "Login",
   Username = "Username",
   Password = "Password",

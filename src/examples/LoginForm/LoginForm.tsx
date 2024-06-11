@@ -15,7 +15,7 @@ export const LoginForm = () => {
           weight={TextWeight.Bold}
           className="absolute left-7 top-5 text-2xl"
         >
-          Logo
+          {Login.Logo}
         </Text>
         <Box className="container  flex flex-col gap-6"></Box>
         <Box className="w-fit">
@@ -66,7 +66,6 @@ export const LoginForm = () => {
 
               <Box className="flex flex-col gap-6">
                 <Button
-                  type="submit"
                   variant={ButtonVariant.DefaultPrimary}
                   style={webstyle.loginButton}
                 >
@@ -82,7 +81,7 @@ export const LoginForm = () => {
                 </Text>
                 <Box className="flex flex-col gap-[0.94rem]">
                   <Box className="flex items-center justify-center border rounded-lg border-[#72787F]">
-                    <IconButton iconUrl={google} className="w-fit"></IconButton>
+                    <IconButton iconUrl={google} className="w-fit" />
                     <Text
                       className="w-fit text-[#72787F]"
                       align={Alignment.Center}
@@ -93,7 +92,7 @@ export const LoginForm = () => {
                   </Box>
 
                   <Box className="flex items-center justify-center border rounded-lg border-[#72787F]">
-                    <IconButton iconUrl={phone} className="w-fit"></IconButton>
+                    <IconButton iconUrl={phone} className="w-fit" />
                     <Text
                       className="w-fit text-[#72787F] text-base"
                       align={Alignment.Center}

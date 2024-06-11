@@ -3,6 +3,7 @@ import { Input } from ".";
 import SearchImage from "./Icons/SearchImage";
 import CloseEye from "./Icons/CloseEye";
 import OpenEye from "./Icons/OpenEye";
+import { InputType, Placeholder } from "../Input/type";
 
 const meta: Meta<typeof Input> = {
   title: "Components/Inputs/Input",
@@ -18,89 +19,88 @@ type Story = StoryObj<typeof meta>;
 
 export const Text: Story = {
   args: {
-    type: "text",
-    placeholder: "Insert text here",
+    type: InputType.Text,
+    placeholder: Placeholder.Text,
   },
 };
 
 export const Password: Story = {
   args: {
-    type: "password",
-    placeholder: "Password",
+    type: InputType.Password,
+    placeholder: Placeholder.Password,
     eye: <CloseEye />,
     eyeOpen: <OpenEye />,
-
   },
 };
 
 export const Number: Story = {
   args: {
-    type: "number",
-    placeholder: "Number",
+    type: InputType.Number,
+    placeholder: Placeholder.Number,
   },
 };
 
 export const Numbers: Story = {
   args: {
-    type: "numbers",
-    placeholder: "Number",
+    type: InputType.Numbers,
+    placeholder: Placeholder.Number,
   },
 };
 
 export const Date: Story = {
   args: {
-    type: "date",
-    placeholder: "Date",
+    type: InputType.Date,
+    placeholder: Placeholder.Date,
   },
 };
 
 export const Phone: Story = {
   args: {
-    type: "Phone",
-    placeholder: "Phone",
+    type: InputType.Phones,
+    placeholder: Placeholder.Phone,
   },
 };
 
 export const PhoneNumber: Story = {
   args: {
-    type: "phone",
-    placeholder: "Phone Number",
+    type: InputType.Phone,
+    placeholder: Placeholder.PhoneNumber,
   },
 };
 
 export const SearchInput: Story = {
   args: {
-    type: "search",
-    placeholder: "Search",
+    type: InputType.Search,
+    placeholder: Placeholder.Search,
   },
 };
 
 export const SearchIcon: Story = {
   args: {
-    type: "search icon",
+    type: InputType.SearchIcon,
     search: <SearchImage />,
-    placeholder: "Search here ...",
+    placeholder: Placeholder.SearchIcon,
   },
 };
 
 export const EmailInput: Story = {
   args: {
-    type: "email",
-    placeholder: "Enter your email",
+    type: InputType.Email,
+    placeholder: Placeholder.Email,
   },
 };
 
 export const SimpleInput: Story = {
   args: {
-    type: "input",
-    placeholder: "Enter Something",
+    type: InputType.Input,
+    placeholder: Placeholder.Input,
   },
 };
 
 export const PrefixInput: Story = {
   args: {
-    type: "prefix",
-    placeholder: "Enter Something",
-    prefix: "$"
+    type: InputType.Prefix,
+    placeholder: Placeholder.Prefix,
+    prefix: "$",
   },
 };

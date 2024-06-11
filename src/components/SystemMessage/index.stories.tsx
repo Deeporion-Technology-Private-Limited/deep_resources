@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { SystemMessage } from ".";
-import { systemMessageTypes } from "./systemMessageTypes";
+import { messageText, systemMessageTypes } from "./systemMessageTypes";
 
 const meta: Meta<typeof SystemMessage> = {
   title: "Components/systemMessage",
@@ -18,23 +18,26 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     variant: systemMessageTypes.error,
-    children: "You have to agree with Privacy Policy and Terms and Conditions to Sign up",
+    children: messageText.children,
     addRightIcon : false,
+    handleClose:()=>{ alert("clicked on error message")},
     },
 };
 
 export const Warning: Story = {
   args: {
     variant: systemMessageTypes.warning,
-    children: "You have to agree with Privacy Policy and Terms and Conditions to Sign up",
+    children: messageText.children,
     addRightIcon : false,
+    handleClose:()=>{ alert("clicked on error warning")}
   },
 };
 
 export const Information: Story = {
   args: {
     variant: systemMessageTypes.information,
-    children: "You have to agree with Privacy Policy and Terms and Conditions to Sign up",
+    children: messageText.children,
     addRightIcon : false,
+    handleClose:()=>{  alert("clicked on error information")}
   },
 };

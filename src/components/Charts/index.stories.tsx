@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import Chart from ".";
-import { ChartsType } from "./ChartsTypes";
+import { ChartValueType, ChartsType, chartData } from "./ChartsTypes";
 
 const meta: Meta<typeof Chart> = {
   title: "Components/Chart",
@@ -17,11 +17,11 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    variant: ChartsType.Double_spline_area_chart,
-    value1: [600, 800, 1100, 500, 1000, 700, 800],
-    value2: [500, 700, 1000, 400, 900, 600, 700],
-    days: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
-    yAxisLabels: ["1.25K", "1.45K", "1.65K", "2K", "2.75K"],
+    variant: ChartsType.doubleSplineAreaChart,
+    xAxis: chartData[ChartValueType.Valuex],
+    yAxis: chartData[ChartValueType.Valuey],
+    days: chartData[ChartValueType.Days],
+    yAxisLabels: chartData[ChartValueType.yAxisLabel],
     region: ["Region1", "Region2"],
     lineColor1: "#6366F1",
     lineColor2: "#EC4899",

@@ -1,15 +1,17 @@
 import { cn } from "@/utils";
 import { VariantProps, cva } from "class-variance-authority";
 import { ComponentProps, ReactNode, forwardRef } from "react";
-import { CloseBlack, CloseBlue, CloseWhite } from "./ChipsImage/icon";
-import { ChipsTypes, ChipsSize } from "./chipsTypes";
+import { CloseBlack } from "./ChipsImage/icon";
+import { CloseBlue } from "./ChipsImage/icon";
+import { CloseWhite } from "./ChipsImage/icon";
+import { ChipsTypes, ChipsSize, chipscolour } from "./chipsTypes";
 
 const chipsStyle = cva(
   [
     "w-full",
-    "rounded-full",
-    "font-semibold",
     "focus:outline-none",
+    "min-w-[80px]",
+    "min-h-[20px]",
     "disabled:cursor-not-allowed",
     "flex",
     "justify-center",
@@ -26,70 +28,58 @@ const chipsStyle = cva(
         addLeftIcon: false,
       },
       size: {
-        [ChipsSize.small]: "px-3 py-0.5   text-sm",
-        [ChipsSize.medium]: "px-4 py-2 text-base",
-        [ChipsSize.large]: "px-6 py-3 text-lg",
+        sm: ChipsSize.small,
+        md:ChipsSize.medium ,
+        lg:ChipsSize.large ,
       },
       colorscheme: {
-        primary: "text-white",
+        primary: chipscolour.Primary,
       },
     },
     compoundVariants: [
       {
         variant: ChipsTypes.default,
-        colorscheme: "primary",
-        className: "bg-[#D0E3FF]  text-[#334EAC] gap-2 ",
+        className: "bg-[#D0E3FF] text-[#334EAC] gap-1 ",
       },
       {
         variant: ChipsTypes.not_active,
-        colorscheme: "primary",
-        className:
-          "text-[#081F5C] bg-[#E8EBED] gap-2",
+        className: "text-[#081F5C] bg-[#E8EBED] gap-2 rounded-full px-2",
       },
       {
         variant: ChipsTypes.active,
-        colorscheme: "primary",
         className: "text-primary-600 bg-gradient-to-r from-[#7096D1] to-[#334EAC] text-[#FFFFFF] gap-2",
       },
     ],
     defaultVariants: {
       variant: ChipsTypes.default,
-      size: ChipsSize.small,
+      size:"sm",
       colorscheme: "primary",
     },
   }
 );
-
-
-
 
 type ChipsProps = ComponentProps<"div"> & VariantProps<typeof chipsStyle> & {
   addRightIcon?: boolean;
   addLeftIcon?: boolean; 
   variant?: ChipsTypes;
   children?: ReactNode;
+  handleClick : ()=> void
 };
 
+
 export const Chips = forwardRef<HTMLDivElement, ChipsProps>(
-  ({ variant = ChipsTypes.default, size, colorscheme, className, 
+  ({ variant = ChipsTypes.default, size, colorscheme, className,handleClick, 
     addRightIcon = false, addLeftIcon = false, children, ...props }, ref) => {
 
-    let hasText = false;
-    switch (true) {
-      case children !== undefined:
-      case children !== null:
-      case children !== '':
-        hasText = true;
-        break;
-      default:
-        hasText = false;
-    }
 
-    const iconChange = variant === ChipsTypes.default 
-      ? <CloseBlue className={className} />
-      : variant === ChipsTypes.not_active 
-        ? <CloseBlack className={className} /> 
-        : <CloseWhite className={className} />;
+    const iconChange =
+    variant === ChipsTypes.default ? (
+      <CloseBlue className={className} handleClicked={handleClick} />
+    ) : variant === ChipsTypes.not_active ? (
+      <CloseBlack className={className} handleClicked={handleClick} />
+    ) : (
+      <CloseWhite className={className} handleClicked={handleClick} />
+    )
 
     return (
       <div
@@ -98,7 +88,7 @@ export const Chips = forwardRef<HTMLDivElement, ChipsProps>(
         {...props}
       >
         {addLeftIcon && iconChange}
-        <span className={cn(hasText ? "" : "sr-only")}>{children}</span>
+        <span>{children}</span>
         {addRightIcon && iconChange}
       </div>
     );

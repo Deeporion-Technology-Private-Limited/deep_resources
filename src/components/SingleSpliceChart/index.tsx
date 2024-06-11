@@ -2,7 +2,7 @@ import { useState, useEffect, forwardRef } from 'react';
 import { cn } from "@/utils";
 import { VariantProps, cva } from "class-variance-authority";
 import { ComponentProps } from 'react';
-import { graphColours, singleSpliceSize, singleSpliceType } from './singleSpliceType';
+import { singleSpliceType } from './singleSpliceType';
 
 const singleSplineStyle = cva(
   [
@@ -18,37 +18,25 @@ const singleSplineStyle = cva(
     variants: {
       variant: {
         [singleSpliceType.SingleLineChart]: "",
-      },
-      size: {
-        [singleSpliceSize.small]: "px-4 py-2 text-sm",
-        [singleSpliceSize.medium]: "px-4 py-2 text-base",
-        [singleSpliceSize.large]: "px-6 py-3 text-lg",
-      },
-      colorscheme: {
-        [graphColours.Primary]: "text-black",
-      },
-    },
+      }},
     compoundVariants: [
       {
         variant: singleSpliceType.SingleLineChart,
-        colorscheme:graphColours.Primary,
         className: "text-[#DC2626] ",
       },
     ],
     defaultVariants: {
       variant:singleSpliceType.SingleLineChart,
-      size: singleSpliceSize.medium,
-      colorscheme: graphColours.Primary,
     },
   }
 );
 
 type SingleLineChartProps = ComponentProps<"div"> &
   VariantProps<typeof singleSplineStyle> & {
-    value1?: number[],
+    xAxis?: number[],
     days?: string[],
     yAxisLabels?: string[],
-    region?: string[],
+    region?: string,
     curveLineColor?: string,
     gradientStartColor?: string,
     gradientEndColor?: string,
@@ -76,13 +64,11 @@ export const SingleLineChart = forwardRef<HTMLDivElement, SingleLineChartProps>(
   (
     {
       variant = singleSpliceType.SingleLineChart,
-      size,
-      colorscheme,
       className,
-      value1 = [],
+      xAxis = [],
       days = [],
       yAxisLabels = [],
-      region = [],
+      region,
       curveLineColor = "#6366F1",
       gradientStartColor = "rgba(99, 102, 241, 0.3)",
       gradientEndColor = "rgba(99, 102, 241, 0)",
@@ -94,19 +80,19 @@ export const SingleLineChart = forwardRef<HTMLDivElement, SingleLineChartProps>(
     const [width, setWidth] = useState(0);
 
     useEffect(() => {
-      const maxVal = Math.max(...value1);
+      const maxVal = Math.max(...xAxis);
       setMaxValue(maxVal);
       const calculatedWidth = days.length * 90;
       setWidth(calculatedWidth);
-    }, [value1, days]);
+    }, [xAxis, days]);
 
     const height = 170;
-    const path1 = createCurvedPath(value1, maxValue, width, height);
+    const path1 = createCurvedPath(xAxis, maxValue, width, height);
 
     return (
       <div
         ref={ref}
-        className={cn(singleSplineStyle({ variant, size, colorscheme, className }))}
+        className={cn(singleSplineStyle({ variant, className }))}
         {...props}
       >
         <div className="relative w-[610px] h-[238px]">
@@ -144,12 +130,7 @@ export const SingleLineChart = forwardRef<HTMLDivElement, SingleLineChartProps>(
             ))}
           </div>
           <div className='flex gap-4 text-black absolute bottom-[-20px]'>
-            {region?.map((item) => (
-              <div className={`flex justify-center items-center gap-2`} key={item}>
-                <div className={`h-[10px] w-[10px] rounded-full`} style={{ backgroundColor: curveLineColor }}></div>
-                <span style={{ color: '#6B7280', fontSize: '14px' }}>{item}</span>
-              </div>
-            ))}
+            {region}
           </div>
         </div>
       </div>

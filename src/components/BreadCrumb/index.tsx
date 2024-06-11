@@ -10,42 +10,68 @@ const breadCrumbStyles = cva(
   ]
 );
 
+type BreadCrumbItem = {
+  text: string;
+  iconUrl?: string;
+  separatorIconUrl?: string;
+};
+
 type BreadCrumbProps = ComponentProps<"div"> & VariantProps<typeof breadCrumbStyles> & {
-  iconUrl: string;
-  breadCrumbItems?: string[];
+  breadCrumbItems?: BreadCrumbItem[];
+  defaultSeparatorIconUrl?: string;
 };
 
 export const BreadCrumb = forwardRef<HTMLDivElement, BreadCrumbProps>(
-  ({ iconUrl, className, breadCrumbItems = [], children, ...props }, ref) => {
+  ({ className, breadCrumbItems = [], defaultSeparatorIconUrl, children, ...props }, ref) => {
     const [activeIndex, setActiveIndex] = useState<number | null>(null);
+    const [showAll, setShowAll] = useState<boolean>(false);
 
     const handleItemClick = (index: number) => {
       setActiveIndex(index);
     };
 
+    const handleShowAllClick = () => {
+      setShowAll(true);
+    };
+
+    const renderBreadCrumbItem = (item: BreadCrumbItem, index: number) => (
+      <div
+        key={index}
+        className="flex items-center cursor-pointer"
+        onClick={() => handleItemClick(index)}
+      >
+        {item.iconUrl && (
+          <img src={item.iconUrl} alt={`${item.text} Icon`} className="p-2" />
+        )}
+        <span
+          style={{ color: activeIndex === index ? '#26282B' : '#72787F' }}
+        >
+          {item.text}
+        </span>
+        {index < breadCrumbItems.length - 1 && (
+          <img src={item.separatorIconUrl || defaultSeparatorIconUrl} alt="Separator Icon" className="p-4" />
+        )}
+      </div>
+    );
+
     return (
       <Box
         ref={ref}
-        className={cn(breadCrumbStyles(), className)} 
+        className={cn(breadCrumbStyles(), className)}
         {...props}
       >
-        {breadCrumbItems.map((item, index) => (
-          <div
-            key={index}
-            className="flex items-center cursor-pointer"
-            onClick={() => handleItemClick(index)}
-          >
-            <span
-              className={`breadcrumb-item ${className}`}
-              style={{ color: activeIndex === index ? '#26282B' : '#72787F' }}
-            >
-              {item}
-            </span>
-            {index < breadCrumbItems.length - 1 && (
-              <img src={iconUrl} alt="Icon" className="p-4" />
-            )}
-          </div>
-        ))}
+        {breadCrumbItems.length > 5 && !showAll ? (
+          <>
+            {renderBreadCrumbItem(breadCrumbItems[0], 0)}
+            <button onClick={handleShowAllClick} className="mx-2">
+              ...
+            </button>
+            <img src={defaultSeparatorIconUrl} alt="Separator Icon" className="p-4" />
+            {renderBreadCrumbItem(breadCrumbItems[breadCrumbItems.length - 1], breadCrumbItems.length - 1)}
+          </>
+        ) : (
+          breadCrumbItems.map((item, index) => renderBreadCrumbItem(item, index))
+        )}
         {children}
       </Box>
     );

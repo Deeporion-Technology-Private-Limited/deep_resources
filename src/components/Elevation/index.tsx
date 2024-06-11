@@ -7,6 +7,9 @@ const elevationStyles = cva(
   [
     "w-[168px]",
     "h-[93px]",
+    "flex",
+    "items-center",
+    "justify-center",
     "rounded-md",
   ],
   {
@@ -26,10 +29,12 @@ const elevationStyles = cva(
 
 type ElevationProps = ComponentProps<"div"> & VariantProps<typeof elevationStyles> & {
   shadow?: ElevationShadow;
+  children?: React.ReactNode;
+  text?: String;
 };
 
 export const Elevation = forwardRef<HTMLDivElement, ElevationProps>(
-  ({ shadow = ElevationShadow.Medium, className, ...props }, ref) => {
+  ({ shadow = ElevationShadow.Medium, text, className,children, ...props }, ref) => {
 
     const shadowClass = shadow !== ElevationShadow.None ? `shadow-${shadow}` : "";
 
@@ -39,6 +44,8 @@ export const Elevation = forwardRef<HTMLDivElement, ElevationProps>(
         className={cn(elevationStyles({ shadow }), shadowClass, className)}
         {...props}
       >
+        {text}
+        {children}
       </Box>
     );
   }

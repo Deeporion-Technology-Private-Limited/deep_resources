@@ -3,7 +3,7 @@ import { Elevation } from ".";
 import { ElevationShadow } from "./type";
 
 const meta: Meta<typeof Elevation> = {
-  title: "Components/Elevation",
+  title: "Components/Elevation/Elevation",
   component: Elevation,
   parameters: {
     layout: "centered",
@@ -17,6 +17,7 @@ type Story = StoryObj<typeof meta>;
 
 export const ElevationLevels: Story = {
   args: {
-    shadow: ElevationShadow.Medium
+    shadow: ElevationShadow.Medium,
+    text: "Elevation"
   },
 };

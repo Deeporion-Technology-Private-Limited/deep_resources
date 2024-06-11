@@ -8,7 +8,7 @@ const GroupButtonStyles = cva(
     "flex",
     "items-center",
     "justify-center",
-    "bg-blue",
+    "bg-transparent"
   ],
   {
     variants: {

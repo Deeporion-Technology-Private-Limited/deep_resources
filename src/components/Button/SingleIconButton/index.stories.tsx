@@ -16,11 +16,21 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const SingleButton: Story = {
+export const Default: Story = {
   args: {
     iconUrl:Accout,
     text: "Logo",
     backgroundColor: "transparent",
     direction: ButtonDirection.Row,
+  },
+};
+
+export const SingleButtonForExample: Story = {
+  args: {
+    iconUrl:Accout,
+    text: "Logo",
+    backgroundColor: "transparent",
+    direction: ButtonDirection.Row,
+    className: `bg-blue-500 text-[#FFFFFF] rounded`,
   },
 };

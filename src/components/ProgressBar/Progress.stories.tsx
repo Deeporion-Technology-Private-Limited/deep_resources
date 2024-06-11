@@ -3,11 +3,12 @@ import ProgressBar from './Progress';
 import { variants } from './type';
 
 const meta: Meta<typeof ProgressBar> = {
-  title: "Components/ProgressBars",
+  title: "Components/ProcessBar",
   component: ProgressBar,
   parameters: {
     layout: 'centered',
   },
+  tags: ["autodocs"]
 };
 
 export default meta;

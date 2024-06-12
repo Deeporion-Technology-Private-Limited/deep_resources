@@ -30,8 +30,7 @@ Default.args = {
       component: (
         <Step1
           data={{ name: "" }}
-          handleChange={(e) => {
-            console.log(e.target.value);
+          handleChange={() => {
           }}
         />
       ),
@@ -43,8 +42,7 @@ Default.args = {
           data={{
             address: "",
           }}
-          handleChange={(e) => {
-            console.log(e.target.value);
+          handleChange={() => {
           }}
         />
       ),
@@ -56,8 +54,7 @@ Default.args = {
           data={{
             paymentDetails: "",
           }}
-          handleChange={(e) => {
-            console.log(e.target.value);
+          handleChange={() => {
           }}
         />
       ),

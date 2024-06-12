@@ -33,29 +33,24 @@ interface StepperProps {
 const Stepper = forwardRef<HTMLDivElement, StepperProps>((props, ref) => {
   const { steps } = props;
   const [activeStep, setActiveStep] = useState(0);
-  const [skipped, setSkipped] = useState(new Set<number>());
   const [submissionCompleted, setSubmissionCompleted] = useState(false);
   const [formData, setFormData] = useState<any>({});
 
   const isStepOptional = (step: number) => step === 1;
-
-  const isStepSkipped = (step: number) => skipped.has(step);
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
   };
 
   const handleSubmit = () => {
-    console.log("Submitting form...");
+    setActiveStep((prevActiveStep) => prevActiveStep + 1);
     setSubmissionCompleted(true);
   };
-  
 
   const handleBack = () => setActiveStep((prevActiveStep) => prevActiveStep - 1);
 
   const handleReset = () => {
     setActiveStep(0);
-    setSkipped(new Set<number>());
     setSubmissionCompleted(false);
     setFormData({});
   };
@@ -83,11 +78,10 @@ const Stepper = forwardRef<HTMLDivElement, StepperProps>((props, ref) => {
               <span className="text-xs text-gray-400">Optional</span>
             );
           }
-          if (isStepSkipped(index)) {
-            stepProps["aria-completed"] = false;
-          }
-          if (index < activeStep || (isLastStep && index === activeStep)) {
+          if (index < activeStep) {
             stepProps["aria-completed"] = true;
+          } else {
+            stepProps["aria-completed"] = false;
           }
           return (
             <div className="w-full flex items-center" key={index}>
@@ -97,8 +91,7 @@ const Stepper = forwardRef<HTMLDivElement, StepperProps>((props, ref) => {
                 })}
               >
                 <div className="flex-shrink-0 relative">
-                  {index < activeStep ||
-                  (isLastStep && index === activeStep) ? (
+                  {index < activeStep ? (
                     <svg
                       width="18"
                       height="13"
@@ -154,9 +147,11 @@ const Stepper = forwardRef<HTMLDivElement, StepperProps>((props, ref) => {
         {submissionCompleted ? (
           <div>
             {steps.map((step, index) => (
-              <div key={index}>
-                <h3>{step.title}</h3>
-                <div>{JSON.stringify(formData[index])}</div>
+              <div key={index} className="mb-4">
+                <h3 className="font-bold">{step.title}</h3>
+                <div className="p-2 bg-gray-100 rounded-md">
+                  <pre>{JSON.stringify(formData[index], null, 2)}</pre>
+                </div>
               </div>
             ))}
           </div>
@@ -172,4 +167,3 @@ const Stepper = forwardRef<HTMLDivElement, StepperProps>((props, ref) => {
 });
 
 export default Stepper;
-

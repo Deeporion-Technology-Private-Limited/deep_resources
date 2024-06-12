@@ -1,7 +1,7 @@
 import { cn } from "@/utils";
 import { VariantProps, cva } from "class-variance-authority";
 import { ComponentProps, forwardRef } from "react";
-import { Logo, AnchorList, Anchor, Input, Box, LogoImg } from "@/components";
+import { Logo, AnchorList, Anchor, Input, Box, LogoImg, GroupIconButton } from "@/components";
 import SearchImage from "@/components/Input/Icons/SearchImage";
 import { IconButton } from "@/components";
 import { NavbarDirection } from "../type";
@@ -97,7 +97,7 @@ export const Topnavbar = forwardRef<HTMLDivElement, LogoImageProps>(
               />
             )}
             {navBarIcons?.length > 0 && (
-              <Box className="flex">
+              <GroupIconButton className="gap-[0px]">
                 {navBarIcons?.map((item, index) => (
                   <>
                     {index === 0 ? (
@@ -119,7 +119,7 @@ export const Topnavbar = forwardRef<HTMLDivElement, LogoImageProps>(
                     )}
                   </>
                 ))}
-              </Box>
+              </GroupIconButton>
             )}
           </Box>
         </Box>

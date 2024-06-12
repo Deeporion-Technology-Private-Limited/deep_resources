@@ -2,6 +2,7 @@ import { Box, Text } from "@/components";
 import { cn } from "@/utils";
 import { cva, VariantProps } from "class-variance-authority";
 import { ComponentProps, forwardRef, useState } from "react";
+import { IProductDetails, IProductSpecifications } from './type';
 
 const productCardStyles = cva(
   "flex flex-col p-4 bg-white w-[600px] h-[fit-content] border border-[#CBD5E1] gap-[20px]",
@@ -18,40 +19,25 @@ function formatKey(key: string) {
     .trim();
 }
 
-type ProductCardProps = ComponentProps<"div"> &
+type ProductCardProps = ComponentProps<typeof Box> &
   VariantProps<typeof productCardStyles> & {
     productCode: string;
-    productDetail: {
-      productDetails: string;
-      sizeAndFit: string;
-      materialAndCare: string;
-    }
-    productSpecifications: {
-      fabric: string;
-      hemline: string;
-      length: string;
-      neck: string;
-      fabricType: string;
-      knitOrWoven: string;
-      mainTrend: string;
-      occasion: string;
-      color: string,
-      style: string,
-    };
+    productDetails: IProductDetails;
+    productSpecifications: IProductSpecifications;
   };
 
-  export const ProductCard = forwardRef<HTMLDivElement, ProductCardProps>(
+export const ProductCard = forwardRef<HTMLDivElement, ProductCardProps>(
   (
     {
       productCode,
-      productDetail,
+      productDetails,
       productSpecifications,
       className,
       ...props
     },
     ref
   ) => {
-    const [showMore, setShowMore] = useState(false);
+    const [showMore, setShowMore] = useState<boolean>(false);
 
     const specificationsArray = Object.entries(productSpecifications);
     const displayedSpecifications = showMore ? specificationsArray : specificationsArray.slice(0, 8);
@@ -63,22 +49,22 @@ type ProductCardProps = ComponentProps<"div"> &
         {...props}
       >
         <Text><span className="font-semibold">Product Code: </span>{productCode}</Text>
-        {Object.entries(productDetail).map(([key, value]) => (
+        {Object.entries(productDetails).map(([key, value]) => (
           <Box className={boxStyle()}>
             <Text className="font-semibold">{formatKey(key)}</Text>
             <Text className={textStyles()}>{value}</Text>
           </Box>
         ))}
         <Text className="font-semibold">Product Specifications</Text>
-        <div className="grid grid-cols-2 gap-4">
+        <Box className="grid grid-cols-2 gap-4">
           {displayedSpecifications.map(([key, value]) => (
-            <div key={key} className="flex flex-col border-b border-[#E8EBED]">
+            <Box key={key} className="flex flex-col border-b border-[#E8EBED]">
               <Text className="text-sm font-normal leading-6 text-left bg-#72787F capitalize"
                 style={{ color: '#72787F' }}>{key}</Text>
               <Text className={textStyles()}>{value}</Text>
-            </div>
+            </Box>
           ))}
-        </div>
+        </Box>
         {specificationsArray.length > 4 && (
           <button
             onClick={() => setShowMore(!showMore)}
@@ -91,3 +77,4 @@ type ProductCardProps = ComponentProps<"div"> &
     );
   }
 );
+

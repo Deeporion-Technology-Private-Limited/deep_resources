@@ -3,7 +3,7 @@ import { SystemMessage } from ".";
 import { messageText, systemMessageTypes } from "./systemMessageTypes";
 
 const meta: Meta<typeof SystemMessage> = {
-  title: "Components/systemMessage",
+  title: "Components/systemMessage/systemMessage",
   component: SystemMessage,
   parameters: {
     layout: "centered",

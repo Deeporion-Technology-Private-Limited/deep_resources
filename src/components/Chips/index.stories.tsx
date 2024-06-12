@@ -3,7 +3,7 @@ import { Chips } from "."
 import { ChipsTypes, chipsChildren } from "./chipsTypes";
 
 const meta: Meta<typeof Chips> = {
-  title: "Components/Chips",
+  title: "Components/Chips/Chips",
   component: Chips,
   parameters: {
     layout: "centered",

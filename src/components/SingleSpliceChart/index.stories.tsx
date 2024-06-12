@@ -4,7 +4,7 @@ import { singleSpliceType } from "./singleSpliceType";
 import { ChartValueType, chartData } from "../Charts/ChartsTypes";
 
 const meta: Meta<typeof SingleLineChart> = {
-  title: "Components/singleSplineChart",
+  title: "Components/singleSplineChart/singleSplineChart",
   component: SingleLineChart,
   parameters: {
     layout: "centered",

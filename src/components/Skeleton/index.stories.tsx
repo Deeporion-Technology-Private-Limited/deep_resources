@@ -4,7 +4,7 @@ import { Skeleton, SkeletonLayout } from ".";
 import { ButtonSize, SkeletonVariant } from "../Button/type";
 
 const meta: Meta<typeof Skeleton> = {
-  title: "Components/Skeleton",
+  title: "Components/Skeleton/Skeleton",
   component: Skeleton,
   parameters: {
     layout: "centered",

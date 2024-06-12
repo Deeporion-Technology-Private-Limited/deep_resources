@@ -17,3 +17,4 @@ export * from "./PopupModal";
 export * from "./Headings";
 export * from "./LogImg";
 export * from "./BreadCrumb";
+export * from "./Skeleton";

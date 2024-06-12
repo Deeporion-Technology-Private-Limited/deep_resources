@@ -8,7 +8,7 @@ type Step = {
 };
 
 const meta: Meta = {
-  title: "Components/Stepper",
+  title: "Components/Stepper/Stepper",
   component: Stepper,
   parameters: {
     layout: "centered",

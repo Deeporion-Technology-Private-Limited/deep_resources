@@ -1,7 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Footer } from ".";
-import { Box, IconsList, IconButton, Input, Text, Button } from "@/components";
-
 import instagram from "../Header/navbarIcons/Instagram.svg";
 import linkedin from "../Header/navbarIcons/LinkedIn.svg";
 import facebook from "../Header/navbarIcons/Facebook.svg";

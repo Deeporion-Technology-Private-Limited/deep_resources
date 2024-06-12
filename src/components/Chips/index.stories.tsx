@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Chips }from "."
+import { Chips } from "."
+import { ChipsTypes, chipsChildren } from "./chipsTypes";
 
 const meta: Meta<typeof Chips> = {
   title: "Components/Chips",
@@ -16,27 +17,31 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    variant: "default",
-    children: "#1 day",
-    addRightIcon : false,
-    addLeftIcon : false,
-    },
+    variant: ChipsTypes.default,
+    children:chipsChildren.chipsChildren,
+    addRightIcon: false,
+    addLeftIcon: false,
+    handleClick : ()=>{ alert("Click on default" )}
+  },
 };
 
 export const Not_Active: Story = {
   args: {
-    variant: "not_active",
-    children: "#1 day",
-    addRightIcon : false,
-    addLeftIcon : false,
+    variant: ChipsTypes.not_active,
+    children: chipsChildren.chipsChildren,
+    addRightIcon: false,
+    addLeftIcon: false,
+    handleClick : ()=>{ alert("Click on not Active" )},
+    size:'md'
   },
 };
 
 export const Active: Story = {
   args: {
-    variant: "active",
-    children: "#1 day",
-    addRightIcon : false,
-    addLeftIcon : false,
+    variant: ChipsTypes.active,
+    children:chipsChildren.chipsChildren,
+    addRightIcon: false,
+    addLeftIcon: false,
+    handleClick : ()=>{alert("Click on Active" )}
   },
 };

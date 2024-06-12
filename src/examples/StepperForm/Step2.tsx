@@ -1,12 +1,8 @@
 import React from 'react';
 import { Label } from './label';
+import { StepProps } from './StepProps';
 
-interface Step2Props {
-  data: { address: string }; 
-  handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-}
-
-const Step2: React.FC<Step2Props> = ({ data, handleChange }) => (
+const Step2: React.FC<StepProps> = ({ data, handleChange }) => (
   <div>
     <h2>{Label.StepHead}</h2>
     <label>

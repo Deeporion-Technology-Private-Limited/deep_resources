@@ -1,4 +1,5 @@
 import React from 'react';
+import { Label } from './label';
 
 interface Step2Props {
   data: { address: string }; 
@@ -7,9 +8,9 @@ interface Step2Props {
 
 const Step2: React.FC<Step2Props> = ({ data, handleChange }) => (
   <div>
-    <h2>Step 2: Address</h2>
+    <h2>{Label.StepHead}</h2>
     <label>
-      Address:
+      {Label.StepAdrs}
       <input type="text" name="address" value={data.address} onChange={handleChange} />
     </label>
   </div>

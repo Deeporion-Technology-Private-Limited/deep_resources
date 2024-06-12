@@ -1,4 +1,5 @@
 import React from 'react';
+import { Label } from '../StepperForm/label';
 
 interface Step1Props {
   data: { name: string }; 
@@ -7,9 +8,9 @@ interface Step1Props {
 
 const Step1: React.FC<Step1Props> = ({ data, handleChange }) => (
   <div>
-    <h2>Step 1: Personal Information</h2>
+    <h2>{Label.Heading}</h2>
     <label>
-      Name:
+      {Label.Name}
       <input type="text" name="name" value={data.name} onChange={handleChange} />
     </label>
   </div>

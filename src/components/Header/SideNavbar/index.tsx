@@ -3,8 +3,6 @@ import { VariantProps, cva } from "class-variance-authority";
 import { ComponentProps, forwardRef } from "react";
 import {
   Logo,
-  Toolbar,
-  IconsList,
   Box,
   LogoImg,
   GroupIconButton,
@@ -85,7 +83,7 @@ export const SideNavbar = forwardRef<HTMLDivElement, LogoImageProps>(
         >
           {LogoIcon !== "" ? <LogoImg logo={LogoIcon} /> : <Logo>{title}</Logo>}
 
-          <Toolbar className={`gap-[28px] pl-[0px] flex-col`}>
+          <Box className={`gap-[28px] pl-[0px] flex-col`}>
             <GroupIconButton direction={ButtonDirection.Column}>
               {navItem &&
                 navItem?.map((item) => (
@@ -98,9 +96,9 @@ export const SideNavbar = forwardRef<HTMLDivElement, LogoImageProps>(
                 ))}
               
             </GroupIconButton>
-          </Toolbar>
-          <Toolbar className={`gap-[28px] pl-[0px] flex-col`}>
-            <IconsList className="flex-col">
+          </Box>
+          <Box className={`gap-[28px] pl-[0px] flex-col`}>
+            <Box className="flex-col">
               {navBarIcons?.map((item, index) => (
                 <>
                   {index === 0 ? (
@@ -127,8 +125,8 @@ export const SideNavbar = forwardRef<HTMLDivElement, LogoImageProps>(
                   )}
                 </>
               ))}
-            </IconsList>
-          </Toolbar>
+            </Box>
+          </Box>
         </Box>
       </Box>
     );

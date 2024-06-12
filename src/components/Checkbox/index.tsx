@@ -1,6 +1,8 @@
 import { cn } from "@/utils";
 import { cva, VariantProps } from "class-variance-authority";
 import { ComponentProps, forwardRef } from "react";
+import { ButtonSize } from "../Button/type";
+import { InputType } from "./CheckboxTypes";
 
 const inputStyles = cva(
   [
@@ -19,9 +21,9 @@ const inputStyles = cva(
         Disable: true,
       },
       size: {
-        sm: "h-[18px] w-[18px]",
-        md: "h-[25px] w-[25px]",
-        lg: "h-[32px] w-[32px]",
+        [ButtonSize.Small]: "h-[18px] w-[18px]",
+        [ButtonSize.Medium]: "h-[25px] w-[25px]",
+        [ButtonSize.Large]: "h-[32px] w-[32px]",
       },
     },
     compoundVariants: [
@@ -31,14 +33,14 @@ const inputStyles = cva(
     ],
     defaultVariants: {
       variant: "Basic",
-      size: "md",
+      size: ButtonSize.Small,
     },
   }
 );
 
 type InputProps = ComponentProps<"input"> & VariantProps<typeof inputStyles> & {
-  label?: string
-  type: string;
+  label?: string;
+  type: InputType;
 };
 
 export const Checkbox = forwardRef<HTMLInputElement, InputProps>(

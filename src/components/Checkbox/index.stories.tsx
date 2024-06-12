@@ -16,20 +16,22 @@ type Story = StoryObj<typeof meta>;
 
 export const Basic: Story = {
   args: {
-    type: InputType.Checkbox,
+    checked: false,
+    label: "",
+    onChange: (e) => {alert(e.target.value)},
+    value: "label",
+    className: "",
+    labelClassname: "",
   },
 };
 
-export const Radio: Story = {
-  args: {
-    type: InputType.Radio,
-  },
-};
 
 export const WithText: Story = {
   args: {
     type: InputType.Checkbox,
-    label: "This is a text"
+    label: "This is a text",
+    defaultChecked: true,
+    onChange: () => alert("You selected this option")
   },
 };
 

@@ -1,8 +1,7 @@
 import { cn } from "@/utils";
 import { cva, VariantProps } from "class-variance-authority";
-import { ComponentProps, forwardRef } from "react";
+import { ComponentProps, forwardRef, useState } from "react";
 import { ButtonSize } from "../Button/type";
-import { InputType } from "./CheckboxTypes";
 
 const inputStyles = cva(
   [
@@ -10,9 +9,7 @@ const inputStyles = cva(
     "h-[25px]",
     "border",
     "rounded-lg",
-    "hover:border-neutral-900",
-    "focus:outline-none",
-    "cursor-pointer"
+    "cursor-pointer",
   ],
   {
     variants: {
@@ -38,21 +35,41 @@ const inputStyles = cva(
   }
 );
 
+
 type InputProps = ComponentProps<"input"> & VariantProps<typeof inputStyles> & {
   label?: string;
-  type: InputType;
+  value: string;
+  className?: string;
+  labelClassname?: string;
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 export const Checkbox = forwardRef<HTMLInputElement, InputProps>(
-  ({ variant, size, type, className, disabled, label }) => {
+  ({ variant, className, size, disabled, labelClassname, label, value, onChange }) => {
+
+    const [isChecked, setIsChecked] = useState(false);
+
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+      setIsChecked(event.target.checked);
+      if (onChange) {
+        onChange(event);
+      }
+    };
+
     return (
-      <div className="flex gap-2 items-center justify-center">
+      <div className="flex items-center gap-2">
         <input
-          type={type}
+          type="checkbox"
+          value={value}
           disabled={disabled}
+          checked={isChecked}
+          onChange={handleChange}
           className={cn(inputStyles({ className, variant, size }), disabled && "cursor-not-allowed")}
-        />
-        {label && <span>{label}</span>}
+        >
+        </input>
+        <label htmlFor={label} className={labelClassname}>
+          {label}
+        </label>
       </div>
     );
   }

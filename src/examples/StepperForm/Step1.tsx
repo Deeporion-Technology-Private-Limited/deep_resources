@@ -1,8 +1,8 @@
 import React from 'react';
 import { Label } from '../StepperForm/label';
-import { StepProps } from './StepProps';
+import { Step1Props } from './StepProps';
 
-const Step1: React.FC<StepProps> = ({ data, handleChange }) => (
+const Step1: React.FC<Step1Props> = ({ data, handleChange }) => (
   <div>
     <h2>{Label.Heading}</h2>
     <label>

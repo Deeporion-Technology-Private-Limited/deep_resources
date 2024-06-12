@@ -39,9 +39,7 @@ Default.args = {
     {
       component: (
         <Step2
-          data={{
-            address: "",
-          }}
+          data={{ address: "" }}
           handleChange={() => {
           }}
         />
@@ -51,9 +49,7 @@ Default.args = {
     {
       component: (
         <Step3
-          data={{
-            paymentDetails: "",
-          }}
+          data={{ paymentDetails: "" }}
           handleChange={() => {
           }}
         />

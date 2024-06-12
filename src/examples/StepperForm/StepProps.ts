@@ -4,8 +4,18 @@ export interface CommonStepData {
     paymentDetails: string;
   }
   
-  export interface StepProps {
-    data: CommonStepData;
+  export interface Step1Props {
+    data: { name: string };
+    handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  }
+  
+  export interface Step2Props {
+    data: { address: string };
+    handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  }
+  
+  export interface Step3Props {
+    data: { paymentDetails: string };
     handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   }
   

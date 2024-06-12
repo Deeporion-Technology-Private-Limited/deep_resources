@@ -1,8 +1,8 @@
 import React from 'react';
 import { Label } from './label';
-import { StepProps } from './StepProps';
+import { Step3Props } from './StepProps';
 
-const Step3: React.FC<StepProps> = ({ data, handleChange }) => (
+const Step3: React.FC<Step3Props> = ({ data, handleChange }) => (
   <div>
     <h2>{Label.StepDetls}</h2>
     <label>

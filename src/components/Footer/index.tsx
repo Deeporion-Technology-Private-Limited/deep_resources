@@ -1,7 +1,8 @@
 import { cn } from "@/utils";
 import { VariantProps, cva } from "class-variance-authority";
 import { ComponentProps, forwardRef } from "react";
-import { Box, Button, IconButton, IconsList, Input, Text } from "@/components";
+import { Box, Button, IconButton, Input, Text } from "@/components";
+import { InputType } from "../Input/type";
 
 const navBarStyles = cva([
   ["pl-[30px]", "text-[#36454f]", "text-[13px]", "max-w-[320px]"],
@@ -85,20 +86,20 @@ export const Footer = forwardRef<HTMLDivElement, CustomerProps>(
           )}
           {newsLetter && (
             <Box className="flex relative mb-[20px]">
-              <Input className="rounded-none flex-1 h-[46px]" />
+              <Input type={InputType.Text} className="rounded-none flex-1 h-[46px]" />
               <Button className="absolute right-0 w-fit h-full rounded-none text-[11px] bg-[#f00]">
                 SUBSCRIBE
               </Button>
             </Box>
           )}
           {links && (
-            <IconsList className="justify-start">
+            <Box className="justify-start flex">
               {links.map((item) => (
                 <>
-                  <IconButton iconUrl={item.iconUrl} />
+                  <IconButton iconUrl={item.iconUrl} className="w-fit"/>
                 </>
               ))}
-            </IconsList>
+            </Box>
           )}
         </Box>
       </Box>

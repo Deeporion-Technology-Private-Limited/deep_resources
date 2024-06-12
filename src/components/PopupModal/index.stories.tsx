@@ -1,7 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Modal } from ".";
 import { Checkbox, Headings, Input, Text } from "..";
-import { InputType } from "../Input/type";
+import { InputType } from "@/components/Input/type";
+import {InputType as Checkboxinput} from "@/components/Checkbox/CheckboxTypes"
 import ReviewCard from "../Cards/ReviewCard/ReviewCard";
 import { LoginForm } from "../../examples/LoginForm/LoginForm";
 
@@ -67,7 +68,7 @@ export const ModalInputs: Story = {
           className="font-normal "
           FontSize={"text-base"}
           fontWeight="font-normal"
-          text={"heading in the modals"}
+          text={"Please fill the Form"}
         ></Headings>
 
         <div className="flex flex-col mb-4">
@@ -144,7 +145,8 @@ export const PivacyPolicy: Story = {
       <>
         <Text className="mb-4">"Contents in the Terms and conditions"</Text>
 
-        <Checkbox label="Accept the Terms and Conditions" type="checkbox" />
+        <Checkbox label="Accept the Terms and Conditions" type={Checkboxinput.Checkbox} />
+        
       </>
     ),
   },

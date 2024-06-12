@@ -3,13 +3,8 @@ import { useState, forwardRef, ComponentProps, ReactNode } from "react";
 
 import { ButtonVariant, ButtonSize } from "@/components/Button/type";
 import CloseIcon from "./Icons/CloseIcon";
-<<<<<<< HEAD
 import { Button,Headings } from "..";
 
-=======
-import { Headings } from "../Headings";
-import { Button } from "..";
->>>>>>> 9bb193dc4ca20df3ec15e59d2f243e63c4ad8282
 
 const modalStyles = cva(
   [
@@ -48,15 +43,10 @@ interface ModalPropss {
   button01: boolean;
   buttontext1: string;
   buttontext2: string;
-<<<<<<< HEAD
-=======
-
->>>>>>> 9bb193dc4ca20df3ec15e59d2f243e63c4ad8282
 }
 
 type ModalProps = ComponentProps<"div"> & VariantProps<typeof modalStyles>;
 export const Modal = forwardRef<ModalProps, ModalPropss>(
-<<<<<<< HEAD
   ({
     onClose,
     title,
@@ -66,9 +56,6 @@ export const Modal = forwardRef<ModalProps, ModalPropss>(
     button01,
     children,
   }) => {
-=======
-  ({ onClose, title, contents, buttontext1, buttontext2, button02, button01 }) => {
->>>>>>> 9bb193dc4ca20df3ec15e59d2f243e63c4ad8282
     const [isOpen, setIsOpen] = useState(false);
     const toggleMenu = () => {
       setIsOpen(!isOpen);
@@ -109,10 +96,6 @@ export const Modal = forwardRef<ModalProps, ModalPropss>(
               <div className={`flex justify-end pt-6`}>
                 {button01 && (
                   <Button
-<<<<<<< HEAD
-=======
-                    type="button"
->>>>>>> 9bb193dc4ca20df3ec15e59d2f243e63c4ad8282
                     hover
                     size={ButtonSize.Small}
                     className="w-1/4 mr-2 ml-2"
@@ -124,10 +107,6 @@ export const Modal = forwardRef<ModalProps, ModalPropss>(
                 )}
                 {button02 && (
                   <Button
-<<<<<<< HEAD
-=======
-                    type="button"
->>>>>>> 9bb193dc4ca20df3ec15e59d2f243e63c4ad8282
                     hover
                     variant={ButtonVariant.DefaultPrimary}
                     size={ButtonSize.Small}

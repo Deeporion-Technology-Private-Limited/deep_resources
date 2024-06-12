@@ -19,3 +19,8 @@ export enum ButtonIconPosition {
   Left = "left",
   Right = "right",
 }
+
+export enum SkeletonVariant {
+  Circle = "circle",
+  Rectangle = "rectangle",
+}

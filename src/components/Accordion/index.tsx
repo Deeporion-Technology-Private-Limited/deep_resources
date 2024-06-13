@@ -67,7 +67,7 @@ export const Accordion = forwardRef<HTMLDivElement, AccordionProps>(
                     onClick={handleClick}
                 >
                     <div >{children}</div>
-                    <div className={`duration-300 ${handleButton || variant !== AccordionTypes.Plus ? "origin-center -rotate-180" : ""}`}>
+                    <div className={`duration-300 ${handleButton || variant !== AccordionTypes.Plus && "origin-center -rotate-180"}`}>
                         {handleButton && variant === AccordionTypes.Plus ? <Minus /> : Icon}
                     </div>
                     {handleButton && (

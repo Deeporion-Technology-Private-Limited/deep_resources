@@ -1,8 +1,8 @@
 import { cn } from "@/utils";
 import { VariantProps, cva } from "class-variance-authority";
-import { ComponentProps, forwardRef, useState } from "react";
+import React, { ComponentProps, forwardRef, useState } from "react";
 import { AccordionTypes } from "./AccordionTypes";
-import { UpCursor, UpArrow, Minus, Plus } from "./Icon/Icon";
+import {  Minus } from "./Icon/Icon";
 import { Checkbox } from "../Checkbox";
 import { InputType } from "../Checkbox/CheckboxTypes";
 
@@ -47,6 +47,7 @@ type AccordionProps = ComponentProps<"div"> & VariantProps<typeof accordionStyle
     children?: String;
     content: string;
     Select: any[];
+    Icon : React.ReactNode
 };
 
 
@@ -54,14 +55,11 @@ type AccordionProps = ComponentProps<"div"> & VariantProps<typeof accordionStyle
 
 
 export const Accordion = forwardRef<HTMLDivElement, AccordionProps>(
-    ({ variant = AccordionTypes.Arrow, content, className, Select, children, ...props }, ref) => {
+    ({ variant = AccordionTypes.Arrow, content, className, Select, Icon, children, ...props }, ref) => {
 
         const [handleButton, setHandleButton] = useState(false);
 
         const handleClick = () => setHandleButton(!handleButton);
-
-        const showIcon = variant === AccordionTypes.Arrow ? <UpArrow /> :
-            variant === AccordionTypes.Cursor ? <UpCursor /> : handleButton ? <Minus /> : <Plus />
 
         return (
             <><div
@@ -70,7 +68,7 @@ export const Accordion = forwardRef<HTMLDivElement, AccordionProps>(
                 {...props}
             >
                 <div>{children}</div>
-                <div onClick={handleClick} className={`duration-300 ${handleButton || variant !== AccordionTypes.Plus && "duration-300 origin-center -rotate-180 "} `}>{showIcon}</div>
+                <div onClick={handleClick} className={`duration-300 ${handleButton || variant !== AccordionTypes.Plus && "duration-300 origin-center -rotate-180 "} `}>{handleButton && variant === AccordionTypes.Plus ?  <Minus/>: Icon}</div>
             </div>
                 <div>
                     {handleButton && <div className="w-[510px] border py-2">

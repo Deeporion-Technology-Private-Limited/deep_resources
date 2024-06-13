@@ -145,7 +145,7 @@ export const PivacyPolicy: Story = {
       <>
         <Text className="mb-4">"Contents in the Terms and conditions"</Text>
 
-        <Checkbox label="Accept the Terms and Conditions" type={Checkboxinput.Checkbox} />
+        <Checkbox label="Accept the Terms and Conditions" type={Checkboxinput.Checkbox} value={""} />
         
       </>
     ),

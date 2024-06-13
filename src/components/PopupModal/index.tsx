@@ -78,7 +78,7 @@ export const Modal = forwardRef<ModalProps, ModalPropss>(
             onClick={onClose}
           >
             <div
-              className="bg-white p-8 rounded rounded-br-3xl shadow-md w-6/12 flex flex-col"
+              className="bg-white p-8 rounded rounded-br-3xl shadow-md min-w-max md:max-w-7xl w-6/12 flex flex-col"
               onClick={(e) => e.stopPropagation()}
             >
               <div className="mb-3 flex justify-between border-b border-[rgba(255, 255, 255, 1)]">
@@ -102,7 +102,7 @@ export const Modal = forwardRef<ModalProps, ModalPropss>(
                     variant={ButtonVariant.DefaultPrimary}
                     onClick={toggleMenu}
                   >
-               {buttontext1}
+                    {buttontext1}
                   </Button>
                 )}
                 {button02 && (

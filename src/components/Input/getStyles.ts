@@ -29,6 +29,21 @@ export const simpleOutlineStyles = cva([
   "focus:border-gray-200",
 ]);
 
+export const otpInputStyles = cva([
+  "w-12",
+  "border",
+  "border-gray-200",
+  "p-2",
+  "rounded-lg",
+  "text-center",
+  "placeholder:text-gray-400",
+  "placeholder:text-sm",
+  "outline-none",
+  "focus:outline-primary-500",
+  "focus:border-transparent",
+]);
+
+
 export function getConditionalStyles(
   type: string,
   value: any,
@@ -38,15 +53,13 @@ export function getConditionalStyles(
 
   if (type === InputType.Input) {
     styles += simpleOutlineStyles();
+  } else if (type === InputType.Otp) {
+    styles += otpInputStyles();
   } else {
     styles += inputStyles();
   }
 
   if (type === InputType.SearchIcon && !value) {
-    styles += " pl-10";
-  }
-
-  if (type === InputType.SearchIcon) {
     styles += " pl-10";
   }
 

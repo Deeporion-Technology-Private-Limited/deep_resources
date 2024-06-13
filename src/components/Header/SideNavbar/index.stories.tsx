@@ -1,13 +1,19 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import person from "../navbarIcons/person.svg";
 import notification from "../navbarIcons/notification.svg";
 import fav from "../navbarIcons/favorite.svg";
 import cart from "../navbarIcons/shoping_cart.svg";
 import setting from "../navbarIcons/settings.svg";
 import profile from "../navbarIcons/image.png";
+
 import log from "../navbarIcons/logo.svg";
 import { SideNavbar } from ".";
 import { NavbarDirection } from "../type";
+import {
+  Cart,
+  Favourite,
+  Notification,
+  Setting,
+} from "@/components/MenuItem/Icon/icon";
 
 const meta: Meta<typeof SideNavbar> = {
   title: "Components/Header/SideNavbar",
@@ -20,20 +26,30 @@ const meta: Meta<typeof SideNavbar> = {
 
 export default meta;
 
+const profileDetail = {
+  profileName: "karan",
+  profilePicture: profile,
+};
+
+const navItemDetail = [
+  { menuIconComponent: <Favourite />, menuIcon: fav, menus: "Favourite" },
+  {
+    menuIconComponent: <Notification />,
+    menuIcon: notification,
+    menus: "Notifications",
+  },
+  { menuIconComponent: <Cart />, menuIcon: cart, menus: "Cart" },
+  { menuIconComponent: <Setting />, menuIcon: setting, menus: "Setting" },
+];
+
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
     title: "Logo",
     direction: NavbarDirection.Column,
-    navItem: [
-      { menuIcon: fav },
-      { menuIcon: notification },
-      { menuIcon: cart },
-      { menuIcon: setting },
-    ],
-    navBarIcons: [{ icon: person, iconName: "profile" }],
-    profilePicture: profile,
+    navItem: navItemDetail,
+    profileItem: profileDetail,
   },
 };
 
@@ -41,15 +57,9 @@ export const LogedIn: Story = {
   args: {
     title: "Logo",
     direction: NavbarDirection.Column,
-    navItem: [
-      { menuIcon: fav },
-      { menuIcon: notification },
-      { menuIcon: cart },
-      { menuIcon: setting },
-    ],
-    navBarIcons: [{ icon: person, iconName: "profile" }],
-    profilePicture: profile,
+    navItem: navItemDetail,
     isLogin: true,
+    profileItem: profileDetail,
   },
 };
 
@@ -57,15 +67,49 @@ export const WithLogoIcon: Story = {
   args: {
     title: "Logo",
     direction: NavbarDirection.Column,
-    navItem: [
-      { menuIcon: fav },
-      { menuIcon: notification },
-      { menuIcon: cart },
-      { menuIcon: setting },
-    ],
-    navBarIcons: [{ icon: person, iconName: "profile" }],
-    profilePicture: profile,
+    navItem: navItemDetail,
     isLogin: true,
     LogoIcon: log,
+    profileItem: profileDetail,
+  },
+};
+
+export const WithMenuItemName: Story = {
+  args: {
+    title: "Logo",
+    direction: NavbarDirection.Column,
+    navItem: navItemDetail,
+    isLogin: true,
+    LogoIcon: log,
+    showNavItemName: true,
+    profileItem: profileDetail,
+  },
+};
+
+export const LargeSideBar: Story = {
+  args: {
+    title: "Logo",
+    direction: NavbarDirection.Column,
+    navItem: navItemDetail,
+    isLogin: true,
+    LogoIcon: log,
+    showNavItemName: true,
+    profileItem: profileDetail,
+    largeSidebar: true,
+    hover: false,
+  },
+};
+
+export const HoverSideBar: Story = {
+  args: {
+    title: "Logo",
+    direction: NavbarDirection.Column,
+    navItem: navItemDetail,
+    isLogin: true,
+    LogoIcon: log,
+    showNavItemName: true,
+    profileItem: profileDetail,
+    largeSidebar: false,
+    hover: true,
   },
 };

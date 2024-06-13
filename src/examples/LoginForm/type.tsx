@@ -1,5 +1,5 @@
 export enum Login {
-  Logo = "LOGO" ,
+  Logo = "LOGO",
   Login = "Login",
   Username = "Username",
   Password = "Password",
@@ -12,4 +12,11 @@ export enum Login {
   PhoneNumber = "Login with Phone Number",
   NoAccount = "Don’t have an account?",
   CreateAccount = "Create Account",
+  VerificationCode = "We’ll send you a verification code you can use to Log in",
+  PhoneNum = "Phone number",
+  PasswordRecovery = "Password recovery",
+  CheckMail = "Check your email",
+  SentLink = "We have sent a password reset link to email@email.com",
+  ResendEmail = "Resend e-mail",
+  BackTo = "Back to",
 }

@@ -3,7 +3,7 @@ import Chart from ".";
 import { ChartValueType, ChartsType, chartData } from "./ChartsTypes";
 
 const meta: Meta<typeof Chart> = {
-  title: "Components/Chart",
+  title: "Components/Chart/Chart",
   component: Chart,
   parameters: {
     layout: "centered",

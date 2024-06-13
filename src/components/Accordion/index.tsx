@@ -2,20 +2,21 @@ import { cn } from "@/utils";
 import { VariantProps, cva } from "class-variance-authority";
 import React, { ComponentProps, forwardRef, useState } from "react";
 import { AccordionTypes } from "./AccordionTypes";
-import {  Minus } from "./Icon/Icon";
+import { Minus } from "./Icon/Icon";
 import { Checkbox } from "../Checkbox";
-import { InputType } from "../Checkbox/CheckboxTypes";
 
 
 const accordionStyle = cva(
     [
-        "w-[510px]",
+        "w-[500px]",
         "h-fit",
         "border",
         "py-2",
         "flex",
         "justify-between",
         "shadow-sm",
+        "relative",
+        "text-xs"
     ],
     {
         variants: {
@@ -47,12 +48,8 @@ type AccordionProps = ComponentProps<"div"> & VariantProps<typeof accordionStyle
     children?: String;
     content: string;
     Select: any[];
-    Icon : React.ReactNode
+    Icon: React.ReactNode
 };
-
-
-
-
 
 export const Accordion = forwardRef<HTMLDivElement, AccordionProps>(
     ({ variant = AccordionTypes.Arrow, content, className, Select, Icon, children, ...props }, ref) => {
@@ -62,22 +59,32 @@ export const Accordion = forwardRef<HTMLDivElement, AccordionProps>(
         const handleClick = () => setHandleButton(!handleButton);
 
         return (
-            <><div
-                ref={ref}
-                className={cn(accordionStyle({ variant, className }))}
-                {...props}
-            >
-                <div>{children}</div>
-                <div onClick={handleClick} className={`duration-300 ${handleButton || variant !== AccordionTypes.Plus && "duration-300 origin-center -rotate-180 "} `}>{handleButton && variant === AccordionTypes.Plus ?  <Minus/>: Icon}</div>
-            </div>
-                <div>
-                    {handleButton && <div className="w-[510px] border py-2">
-                        {variant === AccordionTypes.Plus ? (Select.map((item , i) => {
-                           return <div className="flex gap-2 w-[300px]" key={i}> <Checkbox value={item} onChange={(e)=> console.log("e",e)
-                           }/>  {item} </div>
-                        })) :( content)}</div>}
+            <>
+                <div
+                    ref={ref}
+                    className={cn(accordionStyle({ variant, className }))}
+                    {...props}
+                    onClick={handleClick}
+                >
+                    <div >{children}</div>
+                    <div className={`duration-300 ${handleButton || variant !== AccordionTypes.Plus ? "origin-center -rotate-180" : ""}`}>
+                        {handleButton && variant === AccordionTypes.Plus ? <Minus /> : Icon}
+                    </div>
+                    {handleButton && (
+                    <div className="absolute top-10 left-0 w-full border h-fit overflow-y-auto">
+                        {variant === AccordionTypes.Plus ? (
+                            Select.map((item, i) => (
+                                <div key={i} className="flex px-2 py-1">
+                                    <Checkbox value={item} /> {item}
+                                </div>
+                            ))
+                        ) : (
+                            <div className="px-2 py-1">{content}</div>
+                        )}
+                    </div>
+                )}
                 </div>
-
+               
             </>
         );
     }

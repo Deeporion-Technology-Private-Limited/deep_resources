@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { AutoComplete } from ".";
+import {AutoType, Placeholder} from "../AutoComplete/type"
 
 const meta: Meta<typeof AutoComplete> = {
   title: "Components/AutoComplete/AutoComplete",
@@ -448,24 +449,24 @@ type Story = StoryObj<typeof meta>;
 
 export const Text: Story = {
   args: {
-    type: "text",
-    placeholder: "Insert text here",
+    type: AutoType.Text,
+    placeholder: Placeholder.Text,
     suggestions: ['Apple', 'Banana', 'Orange', 'Peach', 'Grapes'],
   },
 };
 
 export const Country: Story = {
   args: {
-    type: "country",
-    placeholder: "Insert number here",
+    type: AutoType.Country,
+    placeholder: Placeholder.CountrySelect,
     suggestions: countries.map(country => country.label),
   },
 };
 
 export const MultipleValues: Story = {
   args: {
-    type: "multivalues",
-    placeholder: "Select Multi Values",
+    type: AutoType.Multivalues,
+    placeholder: Placeholder.MultiValues,
     suggestions: countries.map(country => country.label),
   },
 };

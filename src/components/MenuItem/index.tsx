@@ -126,5 +126,3 @@ export const MenuItem = forwardRef<HTMLDivElement, MenuItemProps>(
         );
     }
 );
-
-export { menuItemStyles };

@@ -3,8 +3,8 @@ import { useState, forwardRef, ComponentProps, ReactNode } from "react";
 
 import { ButtonVariant, ButtonSize } from "@/components/Button/type";
 import CloseIcon from "./Icons/CloseIcon";
-import { Headings } from "../Headings";
-import { Button } from "..";
+import { Button,Headings } from "..";
+
 
 const modalStyles = cva(
   [
@@ -43,12 +43,19 @@ interface ModalPropss {
   button01: boolean;
   buttontext1: string;
   buttontext2: string;
-
 }
 
 type ModalProps = ComponentProps<"div"> & VariantProps<typeof modalStyles>;
 export const Modal = forwardRef<ModalProps, ModalPropss>(
-  ({ onClose, title, contents, buttontext1, buttontext2, button02, button01 }) => {
+  ({
+    onClose,
+    title,
+    buttontext1,
+    buttontext2,
+    button02,
+    button01,
+    children,
+  }) => {
     const [isOpen, setIsOpen] = useState(false);
     const toggleMenu = () => {
       setIsOpen(!isOpen);
@@ -63,12 +70,11 @@ export const Modal = forwardRef<ModalProps, ModalPropss>(
           size={ButtonSize.Small}
           onClick={toggleMenu}
         >
-          {" "}
           Open Modal
         </Button>
         {isOpen && (
           <div
-            className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-40"
+            className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-40 overflow-y-auto"
             onClick={onClose}
           >
             <div
@@ -85,18 +91,11 @@ export const Modal = forwardRef<ModalProps, ModalPropss>(
                   <CloseIcon />
                 </div>
               </div>
-              <p>
-                <Headings
-                  className="font-normal "
-                  FontSize={"text-base"}
-                  fontWeight="font-normal"
-                  text={contents}
-                ></Headings>
-              </p>
+
+              {children}
               <div className={`flex justify-end pt-6`}>
                 {button01 && (
                   <Button
-                    type="button"
                     hover
                     size={ButtonSize.Small}
                     className="w-1/4 mr-2 ml-2"
@@ -108,7 +107,6 @@ export const Modal = forwardRef<ModalProps, ModalPropss>(
                 )}
                 {button02 && (
                   <Button
-                    type="button"
                     hover
                     variant={ButtonVariant.DefaultPrimary}
                     size={ButtonSize.Small}

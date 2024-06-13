@@ -73,7 +73,7 @@ export const Accordion = forwardRef<HTMLDivElement, AccordionProps>(
                 <div>
                     {handleButton && <div className="w-[510px] border py-2">
                         {variant === AccordionTypes.Plus ? (Select.map((item , i) => {
-                           return <div className="flex gap-2 w-[300px]" key={i}> <Checkbox type={InputType.Checkbox} value={item} onChange={(e)=> console.log("e",e)
+                           return <div className="flex gap-2 w-[300px]" key={i}> <Checkbox value={item} onChange={(e)=> console.log("e",e)
                            }/>  {item} </div>
                         })) :( content)}</div>}
                 </div>

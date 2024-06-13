@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Checkbox } from ".";
+import { InputType } from "./CheckboxTypes";
 
 const meta: Meta<typeof Checkbox> = {
     title: "Components/Checkbox",
@@ -15,26 +16,28 @@ type Story = StoryObj<typeof meta>;
 
 export const Basic: Story = {
   args: {
-    type: "checkbox",
+    checked: false,
+    label: "",
+    onChange: (e) => {alert(e.target.value)},
+    value: "label",
+    className: "",
+    labelClassname: "",
   },
 };
 
-export const Radio: Story = {
-  args: {
-    type: "radio",
-  },
-};
 
 export const WithText: Story = {
   args: {
-    type: "checkbox",
-    label: "This is a text"
+    type: InputType.Checkbox,
+    label: "This is a text",
+    defaultChecked: true,
+    onChange: () => alert("You selected this option")
   },
 };
 
 export const Disable: Story = {
   args: {
-    type: "checkbox",
+    type: InputType.Checkbox,
     disabled: true
   },
 };

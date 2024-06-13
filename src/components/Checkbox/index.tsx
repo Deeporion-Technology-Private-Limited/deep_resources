@@ -1,6 +1,7 @@
 import { cn } from "@/utils";
 import { cva, VariantProps } from "class-variance-authority";
-import { ComponentProps, forwardRef } from "react";
+import { ComponentProps, forwardRef, useState } from "react";
+import { ButtonSize } from "../Button/type";
 
 const inputStyles = cva(
   [
@@ -8,9 +9,7 @@ const inputStyles = cva(
     "h-[25px]",
     "border",
     "rounded-lg",
-    "hover:border-neutral-900",
-    "focus:outline-none",
-    "cursor-pointer"
+    "cursor-pointer",
   ],
   {
     variants: {
@@ -19,9 +18,9 @@ const inputStyles = cva(
         Disable: true,
       },
       size: {
-        sm: "h-[18px] w-[18px]",
-        md: "h-[25px] w-[25px]",
-        lg: "h-[32px] w-[32px]",
+        [ButtonSize.Small]: "h-[18px] w-[18px]",
+        [ButtonSize.Medium]: "h-[25px] w-[25px]",
+        [ButtonSize.Large]: "h-[32px] w-[32px]",
       },
     },
     compoundVariants: [
@@ -31,26 +30,46 @@ const inputStyles = cva(
     ],
     defaultVariants: {
       variant: "Basic",
-      size: "md",
+      size: ButtonSize.Small,
     },
   }
 );
 
+
 type InputProps = ComponentProps<"input"> & VariantProps<typeof inputStyles> & {
-  label?: string
-  type: string;
+  label?: string;
+  value: string;
+  className?: string;
+  labelClassname?: string;
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 export const Checkbox = forwardRef<HTMLInputElement, InputProps>(
-  ({ variant, size, type, className, disabled, label }) => {
+  ({ variant, className, size, disabled, labelClassname, label, value, onChange }) => {
+
+    const [isChecked, setIsChecked] = useState(false);
+
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+      setIsChecked(event.target.checked);
+      if (onChange) {
+        onChange(event);
+      }
+    };
+
     return (
-      <div className="flex gap-2 items-center justify-center">
+      <div className="flex items-center gap-2">
         <input
-          type={type}
+          type="checkbox"
+          value={value}
           disabled={disabled}
+          checked={isChecked}
+          onChange={handleChange}
           className={cn(inputStyles({ className, variant, size }), disabled && "cursor-not-allowed")}
-        />
-        {label && <span>{label}</span>}
+        >
+        </input>
+        <label htmlFor={label} className={labelClassname}>
+          {label}
+        </label>
       </div>
     );
   }

@@ -1,19 +1,11 @@
 import { cn } from "@/utils";
 import { VariantProps, cva } from "class-variance-authority";
 import { ComponentProps, forwardRef } from "react";
-import {
-  Logo,
-  AnchorList,
-  Anchor,
-  Toolbar,
-  IconsList,
-  Input,
-  Box,
-  LogoImg,
-} from "@/components";
+import { Logo, AnchorList, Anchor, Input, Box, LogoImg, GroupIconButton } from "@/components";
 import SearchImage from "@/components/Input/Icons/SearchImage";
 import { IconButton } from "@/components";
 import { NavbarDirection } from "../type";
+import { InputType } from "@/components/Input/type";
 
 const navBarStyles = cva(
   ["w-full", "border", "h-[76px]", "flex", "justify-center", "items-center"],
@@ -60,10 +52,10 @@ export const Topnavbar = forwardRef<HTMLDivElement, LogoImageProps>(
       className,
       children,
       title,
-      LogoIcon ="",
+      LogoIcon = "",
       direction = NavbarDirection.Row,
       navItem,
-      navBarIcons,
+      navBarIcons =[],
       profilePicture,
       isLogin = false,
       isSearch = false,
@@ -85,9 +77,7 @@ export const Topnavbar = forwardRef<HTMLDivElement, LogoImageProps>(
             direction === "column" ? "flex-col h-full" : ""
           }`}
         >
-          {
-            LogoIcon !== "" ? (<LogoImg logo={LogoIcon} />) : (<Logo>{title}</Logo>)
-          }
+          {LogoIcon !== "" ? <LogoImg logo={LogoIcon} /> : <Logo>{title}</Logo>}
           {navItem && navItem?.length > 0 && (
             <AnchorList>
               {navItem?.map((item) => (
@@ -97,39 +87,41 @@ export const Topnavbar = forwardRef<HTMLDivElement, LogoImageProps>(
               ))}
             </AnchorList>
           )}
-          <Toolbar className={"gap-[28px]"}>
+          <Box className={"gap-[28px] flex"}>
             {isSearch && (
               <Input
-                type="search icon"
+                type={InputType.SearchIcon}
                 search={<SearchImage />}
                 placeholder="Search here ..."
                 className="outline-none rounded-full"
               />
             )}
-            <IconsList>
-              {navBarIcons?.map((item, index) => (
-                <>
-                  {index === 0 ? (
-                    !isLogin ? (
-                      <IconButton
-                        iconUrl={item.icon}
-                        text={item.iconName}
-                        className="font-bold"
-                      />
+            {navBarIcons?.length > 0 && (
+              <GroupIconButton className="gap-[0px]">
+                {navBarIcons?.map((item, index) => (
+                  <>
+                    {index === 0 ? (
+                      !isLogin ? (
+                        <IconButton
+                          iconUrl={item.icon}
+                          text={item.iconName}
+                          className="font-bold"
+                        />
+                      ) : (
+                        <img
+                          className="w-[38px] h-[38px] rounded-full"
+                          src={profilePicture}
+                          alt="profile"
+                        />
+                      )
                     ) : (
-                      <img
-                        className="w-[38px] h-[38px] rounded-full"
-                        src={profilePicture}
-                        alt="profile"
-                      />
-                    )
-                  ) : (
-                    <IconButton iconUrl={item.icon} text={item.iconName} />
-                  )}
-                </>
-              ))}
-            </IconsList>
-          </Toolbar>
+                      <IconButton iconUrl={item.icon} text={item.iconName} />
+                    )}
+                  </>
+                ))}
+              </GroupIconButton>
+            )}
+          </Box>
         </Box>
       </Box>
     );

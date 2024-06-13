@@ -1,0 +1,16 @@
+export enum SignUp {
+  Logo = "LOGO",
+  CreateAccount = "Create Account",
+  FillInfo = "Fill your information below or register with your social account",
+  Name = "Name",
+  Email = "Email",
+  Password = "Password",
+  Agree = "I agree with",
+  PrivacyPolicy = "Privacy Policy",
+  And = "and",
+  Terms = "Terms and Conditions",
+  Signup = "Sign up",
+  AlreadyAccount = "Already have an account?",
+  Login = "Log in",
+  NewShopping = "Your new Shopping experience.",
+}

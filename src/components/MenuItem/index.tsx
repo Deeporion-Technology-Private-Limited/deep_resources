@@ -2,20 +2,8 @@ import React, { forwardRef, useState } from "react";
 import { cn } from "@/utils";
 import { cva, VariantProps } from "class-variance-authority";
 import { ComponentProps } from "react";
-import { Text } from "@/components/Text";
-
-// Define enums for MenuItemVariant and MenuItemSize
-enum MenuItemVariant {
-    Default = "default",
-    WithLeftIcon = "withLeftIcon",
-    WithRightIcon = "withRightIcon",
-    WithLeftSpacer = "withLeftSpacer"
-}
-
-enum MenuItemSize {
-    Small = "sm",
-    Medium = "md"
-}
+import { MenuItemSize, MenuItemVariant, PrimaryType } from "./MenuitemTypes";
+import { Text } from "../Text";
 
 // Define styles for MenuItem
 const menuItemStyles = cva(
@@ -33,53 +21,41 @@ const menuItemStyles = cva(
         "cursor-pointer",
         "hover:bg-[#E8EBED]",
         "active:bg-[#D0E3FF]",
-        "relative" // Added relative positioning
+        "relative"
     ],
     {
         variants: {
-            variant: {
-                default: MenuItemVariant.Default,
-                withLeftIcon: "",
-                withRightIcon: "",
-                withLeftSpacer: ""
-            },
+            variant: MenuItemVariant,
             size: {
-                sm: "text-sm",
-                md: "text-base"
+                [MenuItemSize.Small]: "text-sm",
+                [MenuItemSize.Medium]: "text-base",
             },
-            colorscheme: {
-                primary: "text-black"
-            }
+            colorscheme: PrimaryType,
         },
         compoundVariants: [
             {
-                variant: MenuItemVariant.Default,
-                colorscheme: "primary",
-                className: ""
+                variant: "Default",
+                colorscheme: "Primary",
             },
             {
-                variant: MenuItemVariant.WithLeftIcon,
-                colorscheme: "primary",
-                className: ""
+                variant: "LeftIcon",
+                colorscheme: "Primary",
             },
             {
-                variant: MenuItemVariant.WithRightIcon,
-                colorscheme: "primary",
-                className: ""
+                variant: "RightIcon",
+                colorscheme: "Primary",
             },
             {
-                variant: MenuItemVariant.WithLeftSpacer,
-                colorscheme: "primary",
-                className: ""
+                variant: "LeftSpacer",
+                colorscheme: "Primary",
             }
         ],
         defaultVariants: {
             size: MenuItemSize.Medium,
-            colorscheme: "primary"
-        }
-    }
+            colorscheme: "Primary"
+        },
+    },
 );
-
 // Define MenuItemProps
 interface MenuItemProps
     extends ComponentProps<"div">,
@@ -94,7 +70,6 @@ interface MenuItemProps
     children?: React.ReactNode;
 }
 
-// MenuItem Component
 export const MenuItem = forwardRef<HTMLDivElement, MenuItemProps>(
     (
         {
@@ -115,32 +90,30 @@ export const MenuItem = forwardRef<HTMLDivElement, MenuItemProps>(
     ) => {
         const [submenuVisible, setSubmenuVisible] = useState(false);
 
-        // Define a dynamic onClick handler
         const handleClick = (e: React.MouseEvent) => {
-            e.stopPropagation(); // Prevent click event from bubbling up
+            e.stopPropagation();
             if (onClick) {
-                onClick(); 
+                onClick();
             } else if (isSubmenu && children) {
                 setSubmenuVisible(!submenuVisible)
             } else {
-                alert("Default Click behaviour"); // Default click behavior
+                alert("Default Click behaviour");
             }
         };
 
-        // Assemble the classNames based on props and styles
         const classNames = cn(
             menuItemStyles({ variant, size, className }),
             leftIcon && "gap-2",
             leftSpacer && "pl-[42px]",
             border && "border",
-            rightIcon && "gap-[65px] pr-[4px]"
-        );
+            rightIcon && "gap-[65px] pr-[4px]",
+        )
 
         return (
             <div
                 ref={ref}
                 className={classNames}
-                onClick={handleClick} // Use dynamic onClick handler
+                onClick={handleClick}
                 {...props}
             >
                 {leftIcon}
@@ -153,6 +126,3 @@ export const MenuItem = forwardRef<HTMLDivElement, MenuItemProps>(
         );
     }
 );
-
-// Export styles for testing or customization in Storybook
-export { menuItemStyles };

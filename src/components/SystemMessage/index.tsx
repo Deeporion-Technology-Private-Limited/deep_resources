@@ -2,11 +2,12 @@ import { cn } from "@/utils";
 import { VariantProps, cva } from "class-variance-authority";
 import { ComponentProps, forwardRef } from "react";
 import { CloseBlack, CloseRed, CloseYellow } from "./systemIcon/icon";
+import { messageColor, systemMessageSize, systemMessageTypes } from "./systemMessageTypes";
 
 const systemMessageStyle = cva(
   [
     "w-[360px]",
-    "h-[60px]",
+    "h-fit",
     "b-[0px, 0px, 0px, 4px]",
     "p-[12px, 16px, 12px, 16px]",
     "rounded",
@@ -19,39 +20,35 @@ const systemMessageStyle = cva(
   {
     variants: {
       variant: {
-        error: "",
-        warning: "",
-        information: "",
+        [systemMessageTypes.error]: "",
+        [systemMessageTypes.warning]: "",
+        [systemMessageTypes.information]: "",
       },
       size: {
-        sm: "px-4 py-2 text-sm",
-        md: "px-4 py-2 text-base",
-        lg: "px-6 py-3 text-lg",
+              sm: systemMessageSize.small ,
+             md: systemMessageSize.medium,
+            lg:systemMessageSize.large ,
       },
       colorscheme: {
-        primary: "text-white",
+        primary: messageColor.Primary ,
       },
     },
     compoundVariants: [
       {
-        variant: "error",
-        colorscheme: "primary",
+        variant: systemMessageTypes.error,
         className: " text-[#DC2626] gap-2 border-l-[#DC2626]  bg-[#FEE2E2]", 
       },
       {
-        variant: "warning",
-        colorscheme: "primary",
+        variant: systemMessageTypes.warning,
         className: "text-[#D97706]  border-l-[#D97706]  bg-[#FEF3C7] gap-2",
       },
       {
-        variant: "information",
-        colorscheme: "primary",
-        className:
-        "border-l-[#8833FF] text-black  gap-2",
+        variant: systemMessageTypes.information,
+        className:"border-l-[#8833FF] text-black  gap-2",
       },
     ],
     defaultVariants: {
-      variant: "error",
+      variant:systemMessageTypes.error,
       size: "sm",
       colorscheme: "primary",
     },
@@ -59,15 +56,16 @@ const systemMessageStyle = cva(
 );
 
 type SystemMessageProps = ComponentProps<"div"> &
-  VariantProps<typeof systemMessageStyle> & { addRightIcon?: boolean };
+  VariantProps<typeof systemMessageStyle> & { addRightIcon?: boolean , handleClose:()=>void};
 
 export const SystemMessage = forwardRef<HTMLDivElement, SystemMessageProps>(
   (
     {
-      variant = "error",
+      variant = systemMessageTypes.error,
       size,
       colorscheme,
       className,
+      handleClose,
       addRightIcon = false,
       children,
       ...props
@@ -76,7 +74,8 @@ export const SystemMessage = forwardRef<HTMLDivElement, SystemMessageProps>(
   ) => {
 
 
-    const iconChange = variant === "error" ?  <CloseRed/> : variant === "warning" ? <CloseYellow/> : <CloseBlack/>
+    const iconChange = variant === systemMessageTypes.error ?  <CloseRed handleClick={handleClose}/> : 
+    variant === systemMessageTypes.warning ? <CloseYellow handleClick={handleClose}/> : <CloseBlack handleClick={handleClose}/>
 
 
 

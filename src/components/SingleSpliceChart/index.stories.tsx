@@ -1,9 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import singleSplineChart from ".";
+import SingleLineChart from ".";
+import { singleSpliceType } from "./singleSpliceType";
+import { ChartValueType, chartData } from "../Charts/ChartsTypes";
 
-const meta: Meta<typeof singleSplineChart> = {
-  title: "Components/singleSplineChart",
-  component: singleSplineChart,
+const meta: Meta<typeof SingleLineChart> = {
+  title: "Components/singleSplineChart/singleSplineChart",
+  component: SingleLineChart,
   parameters: {
     layout: "centered",
   },
@@ -16,11 +18,11 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    variant: "single_spline_area_chart",
-    value1: [600, 800, 1100, 500, 1000, 700, 800],
-    days: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
-    yAxisLabels: ["1.25K", "1.45K", "1.65K", "2K", "2.75K"],
-    region: ["Region1"],
+    variant: singleSpliceType.SingleLineChart,
+    xAxisValues: chartData[ChartValueType.xAxisValues],
+    xAxisLabels: chartData[ChartValueType.xAxisLabels],
+    yAxisLabels: chartData[ChartValueType.yAxisLabel],
+    region: "Region1",
     curveLineColor: "#EC4899",
     gradientStartColor: "rgba(236, 72, 153, 0.3)",
     gradientEndColor: "rgba(236, 72, 153, 0)"

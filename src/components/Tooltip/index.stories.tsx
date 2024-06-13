@@ -76,10 +76,10 @@ export const TooltipRight: Story = {
 
 export const Arrow: Story = {
     args: {
-        content: "Tooltip on Right",
+        content: "Tooltip on Top",
         trigger: "click",
         placement: "top",
-        children: <button>Hover over me</button>,
+        children: <button>Click me</button>,
         arrow: true,
     },
 };

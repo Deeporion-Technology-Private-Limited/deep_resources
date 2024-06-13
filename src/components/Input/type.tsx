@@ -12,6 +12,7 @@ export enum InputType {
   Input = "input",
   Prefix = "prefix",
   Checkbox = "checkbox",
+  Otp = "otp"
 }
 
 export enum Placeholder {

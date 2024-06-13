@@ -104,3 +104,10 @@ export const PrefixInput: Story = {
     prefix: "$",
   },
 };
+
+export const OtpInput: Story = {
+  args: {
+    type: InputType.Otp,
+    quantity: 6
+  },
+};

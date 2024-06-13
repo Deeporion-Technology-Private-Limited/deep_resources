@@ -16,7 +16,7 @@ const accordionStyle = cva(
         "justify-between",
         "shadow-sm",
         "relative",
-        "text-xs"
+        "text-sm"
     ],
     {
         variants: {

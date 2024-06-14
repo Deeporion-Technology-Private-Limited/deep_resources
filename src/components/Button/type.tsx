@@ -25,3 +25,19 @@ export enum SkeletonVariant {
   Text = "text",
   Card = "card" 
 }
+
+export enum ArrowPosition {
+  Inside = 'inside',
+  Outside = 'outside',
+}
+
+export enum IndicatorType {
+  Dots = 'dots',
+  Bars = 'bars',
+}
+
+export enum SlideVariant {
+  Default = "default",
+  Bordered = "bordered",
+  Shadowed = "shadowed",
+}

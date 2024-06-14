@@ -20,3 +20,5 @@ export * from "./Loader/CircularLoader";
 export * from "./Loader/LinearLoader";
 export * from "./LogImg";
 export * from "./Skeleton";
+export * from "./Tooltip";
+export * from "./Checkbox";

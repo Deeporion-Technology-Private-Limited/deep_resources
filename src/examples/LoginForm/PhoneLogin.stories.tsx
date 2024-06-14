@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import Signup from "./Signup";
+import PhoneLogin from "./PhoneLogin";
 
-const meta: Meta<typeof Signup> = {
+const meta: Meta<typeof PhoneLogin> = {
   title: "Examples/Form",
-  component: Signup,
+  component: PhoneLogin,
   parameters: {
     layout: "centered",
   },
@@ -13,4 +13,4 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Sign_up: Story = {};
+export const Phone_login: Story = {};

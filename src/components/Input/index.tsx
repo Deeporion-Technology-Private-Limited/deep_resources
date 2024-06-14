@@ -1,8 +1,8 @@
 import React, { forwardRef, useState } from "react";
 import { VariantProps } from "class-variance-authority";
 import { ComponentProps } from "react";
-import {InputType} from "../Input/type";
-import {getConditionalStyles, inputStyles} from "../Input/getStyles"
+import { InputType } from "../Input/type";
+import { getConditionalStyles, inputStyles } from "../Input/getStyles";
 
 type InputProps = ComponentProps<"input"> & {
   search?: React.ReactNode;
@@ -10,16 +10,27 @@ type InputProps = ComponentProps<"input"> & {
   eye?: React.ReactNode;
   prefix?: string;
   type: InputType;
+  quantity: number;
 } & VariantProps<typeof inputStyles>;
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
   (
-    { className, type = "text", search, eyeOpen, eye, prefix, ...props },
+    {
+      className,
+      type = "text",
+      search,
+      eyeOpen,
+      eye,
+      prefix,
+      quantity,
+      ...props
+    },
     ref
   ) => {
     const [value, setValue] = useState<string>("");
     const [showPassword, setShowPassword] = useState<boolean>(false);
     const [error, setError] = useState<string | null>(null);
+    const maxLength = type === "otp" ? 1 : undefined;
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
       const newValue = event.target.value;
@@ -85,6 +96,10 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       return true;
     };
 
+    const validateOTP = (otp: string): boolean => {
+      return otp.length === 1 && !isNaN(Number(otp));
+    };
+
     const togglePasswordVisibility = () => {
       setShowPassword((prevShowPassword) => !prevShowPassword);
     };
@@ -128,6 +143,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           autoComplete="off"
           onBlur={handleBlur}
           className={classNames}
+          maxLength={maxLength}
           {...props}
           onChange={handleChange}
           onFocus={handleFocus}

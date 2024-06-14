@@ -22,5 +22,6 @@ export enum ButtonIconPosition {
 
 export enum SkeletonVariant {
   Circle = "circle",
-  Rectangle = "rectangle",
+  Text = "text",
+  Card = "card" 
 }

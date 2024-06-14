@@ -26,7 +26,6 @@ const Signup = () => {
         >
           {SignUp.Logo}
         </Text>
-        <Box className="container  flex flex-col gap-6"></Box>
         <Box className="w-fit">
           <Stack className="relative">
             <Box className="flex flex-col gap-6">

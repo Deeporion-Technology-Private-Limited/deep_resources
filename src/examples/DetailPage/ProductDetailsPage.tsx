@@ -13,7 +13,10 @@ export const ProductDetails = () => {
     selectedSize: 'L',
     image: 'path/to/image.jpg',
     description: '302014 (Tessa Rain )',
-    icon: 'path/to/icon.png'
+    icon: 'path/to/icon.png',
+    arrival: 'Get it by Thu, 6 June',
+    paymentMethod: 'Cash on Delivery Available',
+    returnPolicy: 'Easy 14 days return and exchange available',
   };  
 
   return (

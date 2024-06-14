@@ -3,6 +3,9 @@ import React from "react";
 import bag from "../../images/bag.png";
 import like from "../../images/like.png";
 import checked from "../../images/checked.jpg";
+import delivery from "../../images/delivery.png";
+import returnimage from "../../images/returnimage.png";
+import payment from "../../images/payment.png";
 import { Product } from "./type";
 
 interface ProductData {
@@ -16,6 +19,9 @@ interface ProductData {
   selectedSize: string;
   image: string;
   description: string;
+  arrival: string;
+  returnPolicy: string;
+  paymentMethod: string;
 }
 
 const ProductCard: React.FC<{ data: ProductData }> = ({ data }) => {
@@ -102,6 +108,35 @@ const ProductCard: React.FC<{ data: ProductData }> = ({ data }) => {
         <p className="text-[#3F271E] font-medium">
           <IconButton>{Product.Change}</IconButton>
         </p>
+      </div>
+      <div
+        className="border rounded-lg p-5 w-80 font-sans flex flex-col items-center justify-between"
+        style={{ width: "614px", height: "168px" }}
+      >
+        <div className="flex items-center justify-between w-full">
+          <p className="text-gray-800 font-medium">
+            <img src={delivery} alt="Bag" className="h-6 w-6 inline-block" />
+          </p>
+          <p className="text-[#111827] font-normal ml-2 w-full max-w-[550px] h-auto">
+            {data.arrival}
+          </p>
+        </div>
+        <div className="flex items-center justify-between w-full">
+          <p className="text-gray-800 font-medium">
+            <img src={payment} alt="Bag" className="h-6 w-6 inline-block" />
+          </p>
+          <p className="text-[#111827] font-normal ml-2 w-full max-w-[550px] h-auto">
+            {data.paymentMethod}
+          </p>
+        </div>
+        <div className="flex items-center justify-between w-full">
+          <p className="text-gray-800 font-medium">
+            <img src={returnimage} alt="Bag" className="h-6 w-6 inline-block" />
+          </p>
+          <p className="text-[#111827] font-normal ml-2 w-full max-w-[550px] h-auto">
+            {data.returnPolicy}
+          </p>
+        </div>
       </div>
     </div>
   );

@@ -1,12 +1,10 @@
+import React, { ComponentProps, forwardRef, useState, useEffect } from "react";
 import { cn } from "@/utils";
 import { cva, VariantProps } from "class-variance-authority";
-import { ComponentProps, forwardRef, useState } from "react";
 import { ButtonSize } from "../Button/type";
 
 const inputStyles = cva(
   [
-    "w-[25px]",
-    "h-[25px]",
     "border",
     "rounded-lg",
     "cursor-pointer",
@@ -15,7 +13,7 @@ const inputStyles = cva(
     variants: {
       variant: {
         Basic: "",
-        Disable: true,
+        Disable: "cursor-not-allowed opacity-50",
       },
       size: {
         [ButtonSize.Small]: "h-[18px] w-[18px]",
@@ -23,11 +21,6 @@ const inputStyles = cva(
         [ButtonSize.Large]: "h-[32px] w-[32px]",
       },
     },
-    compoundVariants: [
-      {
-        variant: "Basic",
-      }
-    ],
     defaultVariants: {
       variant: "Basic",
       size: ButtonSize.Small,
@@ -35,42 +28,74 @@ const inputStyles = cva(
   }
 );
 
-
-type InputProps = ComponentProps<"input"> & VariantProps<typeof inputStyles> & {
+type InputProps = Omit<ComponentProps<"input">, "size"> & VariantProps<typeof inputStyles> & {
+  type?: "checkbox" | "radio";
   label?: string;
-  value: string;
+  checked?: boolean;
   className?: string;
   labelClassname?: string;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  labelPosition?: "before" | "after";
 };
 
 export const Checkbox = forwardRef<HTMLInputElement, InputProps>(
-  ({ variant, className, size, disabled, labelClassname, label, value, onChange }) => {
+  ({
+    variant,
+    className,
+    size,
+    disabled,
+    labelClassname,
+    label,
+    checked,
+    type = "checkbox",
+    onChange,
+    labelPosition = "after",
+    ...props
+  }, ref) => {
 
-    const [isChecked, setIsChecked] = useState(false);
+    const [isChecked, setIsChecked] = useState(checked ?? false);
+
+    useEffect(() => {
+      if (checked !== undefined) {
+        setIsChecked(checked);
+      }
+    }, [checked]);
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-      setIsChecked(event.target.checked);
-      if (onChange) {
-        onChange(event);
+      if (!disabled) {
+        setIsChecked(event.target.checked);
+        if (onChange) {
+          onChange(event);
+        }
       }
     };
 
-    return (
-      <div className="flex items-center gap-2">
+    const inputElement = (
         <input
-          type="checkbox"
-          value={value}
+          ref={ref}
+          type={type}
           disabled={disabled}
           checked={isChecked}
           onChange={handleChange}
-          className={cn(inputStyles({ className, variant, size }), disabled && "cursor-not-allowed")}
-        >
-        </input>
-        <label htmlFor={label} className={labelClassname}>
-          {label}
-        </label>
+          className={cn(inputStyles({ variant, size, className }))}
+          {...props}
+        />
+    );
+
+    const labelElement = label && (
+      <label htmlFor={props.id} className={labelClassname}>
+        {label}
+      </label>
+    );
+
+    return (
+      <div className="flex items-center gap-4 text-center">
+        {labelPosition === "before" && labelElement}
+        {inputElement}
+        {labelPosition === "after" && labelElement}
       </div>
     );
   }
 );
+
+Checkbox.displayName = "Checkbox";

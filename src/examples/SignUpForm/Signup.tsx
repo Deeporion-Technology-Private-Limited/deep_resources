@@ -2,7 +2,6 @@ import {
   Box,
   Button,
   Checkbox,
-  IconButton,
   Input,
   Stack,
   Text,
@@ -89,13 +88,6 @@ const Signup = () => {
                   className="mb-4 focus:outline-transparent "
                   style={webstyle.inputBoxDesign}
                 />
-                <Text
-                  size={TextSize.Small}
-                  weight={TextWeight.Bold}
-                  className=" w-full mt-2 text-end block text-[#7D5D4F]"
-                >
-                  {/* {SignUp.ForgotPassword} */}
-                </Text>
               </Box>
               <Box className="flex gap-2">
                 <Checkbox type={InputType.Checkbox} className="w-6" />

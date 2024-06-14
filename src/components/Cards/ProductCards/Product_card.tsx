@@ -33,12 +33,12 @@ const productCardStyles = cva(
   }
 );
 
-type ProductCardProps = ComponentProps<"div"> &
+type ProductCardProps = ComponentProps<typeof Box> &
   VariantProps<typeof productCardStyles> & {
     imageSrc: string;
-    title: string;
-    price: string;
-    sizes: string[];
+    title?: string;
+    price?: string;
+    sizes?: string[];
     additionalImages?: string[];
     isBestseller?: string;
     deliveryInfo?: string;

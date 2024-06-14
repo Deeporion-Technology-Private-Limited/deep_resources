@@ -10,7 +10,6 @@ type InputProps = ComponentProps<"input"> & {
   eye?: React.ReactNode;
   prefix?: string;
   type: InputType;
-  quantity: number;
 } & VariantProps<typeof inputStyles>;
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
@@ -22,7 +21,6 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       eyeOpen,
       eye,
       prefix,
-      quantity,
       ...props
     },
     ref

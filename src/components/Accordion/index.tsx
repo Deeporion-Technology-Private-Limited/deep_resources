@@ -6,16 +6,16 @@ import { Checkbox } from "../Checkbox";
 
 const accordionStyle = cva(
   [
-    "w-[400px]",
     "h-fit",
     "border",
     "py-2",
-    "flex",
-    "justify-between",
     "shadow-sm",
-    "relative",
     "text-sm",
-    "px-2", 
+    "px-2",
+    "flex", // Use flex for dynamic width
+    "justify-between",
+    "items-center",
+    "w-full", // Full width
   ],
   {
     variants: {
@@ -44,7 +44,7 @@ const accordionStyle = cva(
 
 type AccordionProps = ComponentProps<"div"> & VariantProps<typeof accordionStyle> & {
   variant: AccordionTypes;
-  children: String;
+  children: string;
   content?: any;
   Icon: React.ReactNode;
   childClassName?: string; 
@@ -58,7 +58,7 @@ export const Accordion = forwardRef<HTMLDivElement, AccordionProps>(
     const handleClick = () => setHandleButton(!handleButton);
 
     return (
-      <div className="w-full">
+      <div className="w-full"> {/* Ensure the accordion takes full width of its parent */}
         <div
           ref={ref}
           className={cn(accordionStyle({ variant, className }))}
@@ -74,9 +74,9 @@ export const Accordion = forwardRef<HTMLDivElement, AccordionProps>(
         </div>
 
         {handleButton && (
-          <div className={cn("mt-1 relative w-full border bg-white", childClassName)}>
+          <div className={cn("mt-1 w-full border bg-white", childClassName)}>
             {variant !== AccordionTypes.Plus ? (
-              <div className="px-2  py-1">{content}</div>
+              <div className="px-2 py-1">{content}</div>
             ) : (
               <div className="px-2 py-1">
                 {content.map((item: any, i: number) => (

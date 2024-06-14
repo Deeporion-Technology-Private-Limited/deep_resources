@@ -10,8 +10,11 @@ export const ProductDetails = () => {
     discount: '25% off',
     isTaxInclusive: true,
     sizes: ['XS', 'S', 'M', 'L', 'XL', 'XXL'],
-    selectedSize: 'L'
-  };
+    selectedSize: 'L',
+    image: 'path/to/image.jpg',
+    description: '302014 (Tessa Rain )',
+    icon: 'path/to/icon.png'
+  };  
 
   return (
     <div className="flex justify-center">

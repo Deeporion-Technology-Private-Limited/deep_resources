@@ -30,7 +30,11 @@ export const Default: Story = {
     modalbutton: true,
     header: (
       <Box className="mb-3 flex justify-between  border-[rgba(255, 255, 255, 1)]">
-        <Headings FontSize="text-xl" fontWeight="font-bold" text={"Model Heading"} />{" "}
+        <Headings
+          FontSize="text-xl"
+          fontWeight="font-bold"
+          text={"Model Heading"}
+        />{" "}
       </Box>
     ),
     children: (
@@ -69,7 +73,7 @@ export const ModalInputs: Story = {
           >
             Name :
           </label>
-          <Input id="input1" placeholder="Input 1" type={InputType.Text} />
+          <Input id="input1" placeholder="Input 1" type={InputType.Text} quantity={0} />
         </div>
         <div className="flex flex-col mb-4">
           <label
@@ -78,14 +82,18 @@ export const ModalInputs: Story = {
           >
             Email :
           </label>
-          <Input id="input1" placeholder="Input 1" type={InputType.Text} />
+          <Input id="input1" placeholder="Input 1" type={InputType.Text} quantity={0} />
         </div>
       </>
     ),
     header: (
       <>
         <Box className="mb-3 flex justify-between  border-[rgba(255, 255, 255, 1)]">
-          <Headings FontSize="text-xl" fontWeight="font-bold" text={"Modal Heading"} />{" "}
+          <Headings
+            FontSize="text-xl"
+            fontWeight="font-bold"
+            text={"Modal Heading"}
+          />{" "}
         </Box>
       </>
     ),
@@ -103,7 +111,11 @@ export const ReviewModal: Story = {
     header: (
       <>
         <Box className="mb-3 flex justify-between  border-[rgba(255, 255, 255, 1)]">
-          <Headings FontSize="text-xl" fontWeight="font-bold" text={"Modal Heading"} />{" "}
+          <Headings
+            FontSize="text-xl"
+            fontWeight="font-bold"
+            text={"Modal Heading"}
+          />{" "}
         </Box>
       </>
     ),
@@ -139,7 +151,11 @@ export const PivacyPolicy: Story = {
     header: (
       <>
         <Box className="mb-3 flex justify-between  border-[rgba(255, 255, 255, 1)]">
-          <Headings FontSize="text-xl" fontWeight="font-bold" text={"Modal Heading"} />{" "}
+          <Headings
+            FontSize="text-xl"
+            fontWeight="font-bold"
+            text={"Modal Heading"}
+          />{" "}
         </Box>
       </>
     ),

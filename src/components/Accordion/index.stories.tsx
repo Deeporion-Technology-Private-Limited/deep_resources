@@ -21,7 +21,7 @@ export const Default: Story = {
     variant: AccordionTypes.Arrow,
     children:contentName.Accordion1,
     content:contentData.content,
-    Icon:<UpArrow/>
+    Icon:<UpArrow/>,
   },
 };
 
@@ -38,8 +38,7 @@ export const Plus: Story = {
   args: {
     variant: AccordionTypes.Plus,
     children:contentName.Accordion3,
-    content:contentData.content,
-    Select:Data[contentName.Size],
+    content:Data,
     Icon: <PlusIcon/>
   },
 };

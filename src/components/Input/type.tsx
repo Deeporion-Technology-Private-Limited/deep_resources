@@ -31,4 +31,6 @@ export enum Placeholder {
   YourName = "Your name",
   YourEmail = "Your email",
   YourPassword = "Your password",
+  YourNewPassword = "Your new password" ,
+  ConfirmNew = "Confirm your new password"
 }

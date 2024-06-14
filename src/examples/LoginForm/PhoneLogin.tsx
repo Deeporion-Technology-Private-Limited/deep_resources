@@ -43,9 +43,10 @@ const PhoneLogin = () => {
               </Text>
               <Input
                prefix="+91"
+               className='focus:outline-transparent'
                type={InputType.Prefix}
                 style={webstyle.inputBoxDesign}
-              />
+              />          
             </Box>
 
             <Box className="flex flex-col gap-6">
@@ -54,7 +55,7 @@ const PhoneLogin = () => {
                 style={webstyle.loginButton}
               >
                 {Login.Login}
-              </Button>
+              </Button>      
             </Box>
 
             <Box className="text-center">

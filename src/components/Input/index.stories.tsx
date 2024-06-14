@@ -108,6 +108,5 @@ export const PrefixInput: Story = {
 export const OtpInput: Story = {
   args: {
     type: InputType.Otp,
-    quantity: 6
   },
 };

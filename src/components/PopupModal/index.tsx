@@ -1,5 +1,5 @@
 import { VariantProps, cva } from "class-variance-authority";
-import { useState, forwardRef, ComponentProps, ReactNode } from "react";
+import { useState, forwardRef, ComponentProps, ReactNode, useEffect } from "react";
 
 import { ButtonVariant, ButtonSize } from "@/components/Button/type";
 import { Box, Button,Headings } from "..";
@@ -39,6 +39,8 @@ interface ModalPropss {
   button02: boolean;
   button01: boolean;
  modalbutton:boolean;
+ openModal:boolean;
+//  closeModal:boolean;
 }
 
 type ModalProps = ComponentProps<"div"> & VariantProps<typeof modalStyles>;
@@ -48,13 +50,16 @@ export const Modal = forwardRef<ModalProps, ModalPropss>(
     button01,
     children,
     header,
+    openModal,
     modalbutton,
   }) => {
     const [isOpen, setIsOpen] = useState(false);
     const toggleMenu = () => {
-      setIsOpen(!isOpen);
+      setIsOpen(!isOpen)
     };
-
+    useEffect(()=>{
+      toggleMenu()
+    },[])
     return (
       <div>{
         modalbutton && 
@@ -69,7 +74,7 @@ export const Modal = forwardRef<ModalProps, ModalPropss>(
         </Button>
         }
         
-        {isOpen && (
+        {(isOpen) && (
           <div
             className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-40 overflow-y-auto"
             onClick={toggleMenu}

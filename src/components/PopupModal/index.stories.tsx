@@ -28,6 +28,8 @@ export const Default: Story = {
     button02: true,
     button01: true,
     modalbutton: true,
+    openModal:true,
+    
     header: (
       <Box className="mb-3 flex justify-between  border-[rgba(255, 255, 255, 1)]">
         <Headings
@@ -57,6 +59,8 @@ export const ModalInputs: Story = {
     button02: true,
     button01: true,
     modalbutton: true,
+    openModal:true,
+    
     children: (
       <>
         <Headings
@@ -108,6 +112,8 @@ export const ReviewModal: Story = {
     button02: true,
     button01: true,
     modalbutton: true,
+    openModal:true,
+    
     header: (
       <>
         <Box className="mb-3 flex justify-between  border-[rgba(255, 255, 255, 1)]">
@@ -148,6 +154,8 @@ export const PivacyPolicy: Story = {
     button02: true,
     button01: true,
     modalbutton: true,
+    openModal:true,
+    
     header: (
       <>
         <Box className="mb-3 flex justify-between  border-[rgba(255, 255, 255, 1)]">
@@ -180,6 +188,7 @@ export const LoginForms: Story = {
     modalbutton: true,
     button02: false,
     button01: false,
+    openModal:true,
     children: <LoginForm />,
     header: <></>,
   },

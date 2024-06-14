@@ -58,11 +58,6 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             validationError = "Please enter a valid number";
           }
           break;
-        case "otp":
-          if (!validateOTP(newValue)) {
-            validationError = "Only One Number is accepted";
-          }
-          break;
         default:
           break;
       }

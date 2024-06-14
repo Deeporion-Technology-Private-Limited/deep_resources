@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Modal } from ".";
-import { Checkbox, Headings, Input, Text } from "..";
+import { Box, Checkbox, Headings, Input, Text } from "..";
 import { InputType } from "@/components/Input/type";
-import {InputType as Checkboxinput} from "@/components/Checkbox/CheckboxTypes"
+import { InputType as Checkboxinput } from "@/components/Checkbox/CheckboxTypes";
 import ReviewCard from "../Cards/ReviewCard/ReviewCard";
 import { LoginForm } from "../../examples/LoginForm/LoginForm";
 
@@ -12,11 +12,7 @@ const meta = {
   parameters: {
     layout: "centered",
   },
-  argTypes: {
-    // contentSize: {
-    //   control:'select', "options" :["text-xl","text-2xl","text-3xl","text-4xl","text-5xl"],
-    // },
-  },
+  argTypes: {},
   tags: ["autodocs"],
 } satisfies Meta<typeof Modal>;
 
@@ -26,42 +22,45 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    SaveChanges: () => console.log("saved"),
-
     onClose: () => (isOpen: boolean) => {
       return !isOpen;
     },
-    title: "Sample Modal",
-    contents: "Contents in the modals ",
     button02: true,
     button01: true,
-    buttontext1: "Text 1",
-    buttontext2: "Text 2",
+    modalbutton: true,
+    openModal:true,
+    
+    header: (
+      <Box className="mb-3 flex justify-between  border-[rgba(255, 255, 255, 1)]">
+        <Headings
+          FontSize="text-xl"
+          fontWeight="font-bold"
+          text={"Model Heading"}
+        />{" "}
+      </Box>
+    ),
     children: (
-      <div>
+      <Box>
         <Headings
           FontSize={"text-base"}
           fontWeight="font-normal"
           text={"Contents in the modals"}
         ></Headings>
-      </div>
+      </Box>
     ),
   },
 };
 
 export const ModalInputs: Story = {
   args: {
-    SaveChanges: () => console.log("saved"),
-
     onClose: () => (isOpen: boolean) => {
       return !isOpen;
     },
-    title: "Sample Modal",
-    contents: "Contents in the modals ",
     button02: true,
     button01: true,
-    buttontext1: "button01",
-    buttontext2: "button02",
+    modalbutton: true,
+    openModal:true,
+    
     children: (
       <>
         <Headings
@@ -78,7 +77,7 @@ export const ModalInputs: Story = {
           >
             Name :
           </label>
-          <Input id="input1" placeholder="Input 1" type={InputType.Text} />
+          <Input id="input1" placeholder="Input 1" type={InputType.Text} quantity={0} />
         </div>
         <div className="flex flex-col mb-4">
           <label
@@ -87,8 +86,19 @@ export const ModalInputs: Story = {
           >
             Email :
           </label>
-          <Input id="input1" placeholder="Input 1" type={InputType.Text} />
+          <Input id="input1" placeholder="Input 1" type={InputType.Text} quantity={0} />
         </div>
+      </>
+    ),
+    header: (
+      <>
+        <Box className="mb-3 flex justify-between  border-[rgba(255, 255, 255, 1)]">
+          <Headings
+            FontSize="text-xl"
+            fontWeight="font-bold"
+            text={"Modal Heading"}
+          />{" "}
+        </Box>
       </>
     ),
   },
@@ -96,17 +106,25 @@ export const ModalInputs: Story = {
 
 export const ReviewModal: Story = {
   args: {
-    SaveChanges: () => console.log("saved"),
-
     onClose: () => (isOpen: boolean) => {
       return !isOpen;
     },
-    title: "Sample Modal",
-    contents: "Contents in the modals ",
     button02: true,
     button01: true,
-    buttontext1: "button01",
-    buttontext2: "button02",
+    modalbutton: true,
+    openModal:true,
+    
+    header: (
+      <>
+        <Box className="mb-3 flex justify-between  border-[rgba(255, 255, 255, 1)]">
+          <Headings
+            FontSize="text-xl"
+            fontWeight="font-bold"
+            text={"Modal Heading"}
+          />{" "}
+        </Box>
+      </>
+    ),
     children: (
       <>
         <Headings
@@ -130,40 +148,48 @@ export const ReviewModal: Story = {
 
 export const PivacyPolicy: Story = {
   args: {
-    SaveChanges: () => console.log("saved"),
-
     onClose: () => (isOpen: boolean) => {
       return !isOpen;
     },
-    title: "Terms and Conditions",
-    contents: " ",
     button02: true,
     button01: true,
-    buttontext1: "button01",
-    buttontext2: "button02",
+    modalbutton: true,
+    openModal:true,
+    
+    header: (
+      <>
+        <Box className="mb-3 flex justify-between  border-[rgba(255, 255, 255, 1)]">
+          <Headings
+            FontSize="text-xl"
+            fontWeight="font-bold"
+            text={"Modal Heading"}
+          />{" "}
+        </Box>
+      </>
+    ),
     children: (
       <>
         <Text className="mb-4">"Contents in the Terms and conditions"</Text>
 
-        <Checkbox label="Accept the Terms and Conditions" type={Checkboxinput.Checkbox} />
-        
+        <Checkbox
+          label="Accept the Terms and Conditions"
+          type={Checkboxinput.Checkbox}
+          value={" "}
+        />
       </>
     ),
   },
 };
 export const LoginForms: Story = {
   args: {
-    SaveChanges: () => console.log("saved"),
-
     onClose: () => (isOpen: boolean) => {
       return !isOpen;
     },
-    title: "Login Forms",
-    contents: "Contents in the modals ",
+    modalbutton: true,
     button02: false,
     button01: false,
-    buttontext1: "button01",
-    buttontext2: "button02",
+    openModal:true,
     children: <LoginForm />,
+    header: <></>,
   },
 };

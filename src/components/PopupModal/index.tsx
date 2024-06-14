@@ -1,10 +1,9 @@
 import { VariantProps, cva } from "class-variance-authority";
-import { useState, forwardRef, ComponentProps, ReactNode } from "react";
+import { useState, forwardRef, ComponentProps, ReactNode, useEffect } from "react";
 
 import { ButtonVariant, ButtonSize } from "@/components/Button/type";
+import { Box, Button,Headings } from "..";
 import CloseIcon from "./Icons/CloseIcon";
-import { Button,Headings } from "..";
-
 
 const modalStyles = cva(
   [
@@ -35,34 +34,35 @@ const modalStyles = cva(
 
 interface ModalPropss {
   onClose: () => void;
-  SaveChanges: () => void;
   children?: ReactNode;
-  title: string;
-  contents: string;
+  header: ReactNode;
   button02: boolean;
   button01: boolean;
-  buttontext1: string;
-  buttontext2: string;
+ modalbutton:boolean;
+ openModal:boolean;
+//  closeModal:boolean;
 }
 
 type ModalProps = ComponentProps<"div"> & VariantProps<typeof modalStyles>;
 export const Modal = forwardRef<ModalProps, ModalPropss>(
   ({
-    onClose,
-    title,
-    buttontext1,
-    buttontext2,
     button02,
     button01,
     children,
+    header,
+    openModal,
+    modalbutton,
   }) => {
     const [isOpen, setIsOpen] = useState(false);
     const toggleMenu = () => {
-      setIsOpen(!isOpen);
+      setIsOpen(!isOpen)
     };
-
+    useEffect(()=>{
+      toggleMenu()
+    },[])
     return (
-      <div>
+      <div>{
+        modalbutton && 
         <Button
           type="button"
           hover
@@ -72,26 +72,24 @@ export const Modal = forwardRef<ModalProps, ModalPropss>(
         >
           Open Modal
         </Button>
-        {isOpen && (
+        }
+        
+        {(isOpen) && (
           <div
             className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-40 overflow-y-auto"
-            onClick={onClose}
+            onClick={toggleMenu}
           >
             <div
-              className="bg-white p-8 rounded rounded-br-3xl shadow-md w-6/12 flex flex-col"
+              className="bg-white p-8 rounded rounded-br-3xl shadow-md min-w-max md:max-w-7xl w-6/12 flex flex-col"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="mb-3 flex justify-between border-b border-[rgba(255, 255, 255, 1)]">
-                <Headings
-                  FontSize="text-xl"
-                  fontWeight="font-bold"
-                  text={title}
-                />{" "}
-                <div onClick={toggleMenu}>
-                  <CloseIcon />
-                </div>
+             <Box className="flex justify-between">
+             {header}
+              <div  onClick={toggleMenu}>
+              <CloseIcon /> 
               </div>
-
+             </Box>
+             
               {children}
               <div className={`flex justify-end pt-6`}>
                 {button01 && (
@@ -102,7 +100,7 @@ export const Modal = forwardRef<ModalProps, ModalPropss>(
                     variant={ButtonVariant.DefaultPrimary}
                     onClick={toggleMenu}
                   >
-               {buttontext1}
+                    button
                   </Button>
                 )}
                 {button02 && (
@@ -113,7 +111,7 @@ export const Modal = forwardRef<ModalProps, ModalPropss>(
                     className="w-1/4 mr-2 ml-2"
                     onClick={toggleMenu}
                   >
-                    {buttontext2}
+                    button
                   </Button>
                 )}
               </div>

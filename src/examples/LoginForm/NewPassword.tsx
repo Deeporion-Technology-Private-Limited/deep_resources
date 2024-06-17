@@ -41,7 +41,7 @@ const NewPassword = () => {
                   type={InputType.Password}
                   id="password"
                   placeholder={Placeholder.YourNewPassword}
-                  className="mb-4 focus:outline-transparent"
+                  className="mb-4 focus:outline-transparent flex"
                   style={webstyle.inputBoxDesign}
                 />
 

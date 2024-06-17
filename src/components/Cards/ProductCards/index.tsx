@@ -6,13 +6,11 @@ import { ComponentProps, forwardRef, useState } from "react";
 const productCardStyles = cva(
   [
     "max-w-sm",
-    "mx-auto",
     "bg-white",
     "shadow-md",
     "overflow-hidden",
     "rounded-lg",
     "transition-transform",
-    "hover:scale-105",
   ],
   {
     variants: {

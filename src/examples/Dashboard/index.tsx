@@ -7,7 +7,7 @@ import { NavbarDirection } from "@/components/Header/type";
 import Carousel from "@/components/CarouselSlider";
 const dashboardStyles = cva(
   [
-
+    "w-full",
   ],
   {
     variants: {
@@ -121,7 +121,7 @@ export const Dashboard = forwardRef<HTMLDivElement, DashboardProps>(
             </Text>
           </Box>
           <Box className="pt-[1.25rem]">
-
+            
           </Box>
         </Box>
       </Box>

@@ -38,6 +38,4 @@ export enum IndicatorType {
 
 export enum SlideVariant {
   Default = "default",
-  Bordered = "bordered",
-  Shadowed = "shadowed",
 }

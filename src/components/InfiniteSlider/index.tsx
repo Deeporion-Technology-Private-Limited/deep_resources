@@ -9,8 +9,8 @@ const slideStyles = cva(
     variants: {
       variant: {
         [SlideVariant.Default]: "",
-        [SlideVariant.Bordered]: "border border-gray-300 rounded-md",
-        [SlideVariant.Shadowed]: "shadow-md",
+        // [SlideVariant.Bordered]: "border border-gray-300 rounded-md",
+        // [SlideVariant.Shadowed]: "shadow-md",
       },
     },
     defaultVariants: {

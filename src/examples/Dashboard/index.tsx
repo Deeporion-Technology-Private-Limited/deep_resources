@@ -5,9 +5,12 @@ import { Box, Text } from "@/components";
 import { Topnavbar } from "@/components/Header/TopNavbar";
 import { NavbarDirection } from "@/components/Header/type";
 import Carousel from "@/components/CarouselSlider";
+import FaverateCard from "@/components/Cards/FaverateCard";
+import { CardData } from "./data";
+
 const dashboardStyles = cva(
   [
-
+    "w-full",
   ],
   {
     variants: {
@@ -76,7 +79,7 @@ export const Dashboard = forwardRef<HTMLDivElement, DashboardProps>(
         </Box>
         <Box className="pt-[1.25rem]">
           <Carousel
-            className="max-w-6xl"
+            className="max-w-7xl"
             items={[
               {
                 button: {
@@ -120,8 +123,25 @@ export const Dashboard = forwardRef<HTMLDivElement, DashboardProps>(
               New Arrivals
             </Text>
           </Box>
-          <Box className="pt-[1.25rem]">
-
+          <Box className="pt-[1.25rem] flex justify-between">
+            {CardData.map((data) =>
+              <FaverateCard
+                imageSrc={data.imageSrc}
+                description={data.description}
+                brand={data.brand}
+                isnew={data.isnew}
+              />
+            )}
+          </Box>
+        </Box>
+        <Box className="w-full flex justify-center">
+          <Box className="mt-[5.4rem] w-[33.81rem] flex flex-col gap-[6px] divide-y-[3px] divide-[#BFA59A]">
+            <Text className="text-3xl font-bold text-center">
+              Featured in
+            </Text>
+            <Text className="text-base font-normal py-[6px] text-center">
+              Brands where out product has been featured
+            </Text>
           </Box>
         </Box>
       </Box>

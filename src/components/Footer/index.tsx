@@ -3,100 +3,96 @@ import { VariantProps, cva } from "class-variance-authority";
 import { ComponentProps, forwardRef } from "react";
 import { Box, Button, IconButton, Input, Text } from "@/components";
 import { InputType } from "../Input/type";
+import { CoreCustomerProps } from "./footerInterface";
 
 const navBarStyles = cva([
   ["pl-[30px]", "text-[#36454f]", "text-[13px]", "max-w-[320px]"],
 ]);
 
-type serviceItem = {
-  name?: string;
-  value?: string;
-};
-type socialLinks = {
-  iconUrl?: string;
-};
-
-type listItem = {
-  name?: string;
-  href?: string;
-};
-
-type CustomerProps = {
-  children?: React.ReactNode;
-  className?: string;
-  title?: string;
-  description?: string;
-  services?: serviceItem[];
-  links?: socialLinks[];
-  list?: listItem[];
-  newsLetter?: boolean;
-} & ComponentProps<"div"> &
-  VariantProps<typeof navBarStyles>;
-
-// SERVICE
+interface CustomerProps
+  extends CoreCustomerProps,
+    ComponentProps<typeof Box>,
+    VariantProps<typeof navBarStyles> {}
 
 export const Footer = forwardRef<HTMLDivElement, CustomerProps>(
   (
     {
       className,
-      title,
+      heading = {},
       services,
       links,
-      list=[],
+      list = [],
       description = "",
       newsLetter = false,
       children,
+      footerTextColor = "",
+      customInnerBoxClass = "",
+      innerClass = "",
       ...props
     },
     ref
   ) => {
     return (
       <Box ref={ref} className={cn(navBarStyles({ className }))} {...props}>
-        <Text
-          as="p"
-          className="text-[14px] mb-[15px] font-[600] text-[#ec048a] tracking-[.8px]"
-        >
-          {title}
-        </Text>
-        <Box className="flex flex-col">
+        {Object.keys(heading).length > 0 && (
+          <Text
+            as="p"
+            className={`text-[14px] mb-[15px] font-[600] text-[${!heading.titleColor ? (footerTextColor ? footerTextColor : "gray") : heading.titleColor}] tracking-[.8px]`}
+          >
+            {heading.title}
+          </Text>
+        )}
+        <Box className={`${innerClass} flex flex-col`}>
           {list?.length > 0 && (
             <ul className="list-none">
               {list?.map((item) => (
-                <li className="text-[12px] mb-[7px] text-[#36454f]">
-                  <a href={item.href} className="hover:text-[#5ac4be] hover:underline">
+                <li
+                  className={`text-[12px] mb-[20px] text-[${footerTextColor ? footerTextColor : "black"}]`}
+                >
+                  <a href={item.href} className="">
                     {item.name}
                   </a>
                 </li>
               ))}
             </ul>
           )}
-          {services?.map((item) => (
-            <Text as="p" className="mb-[20px] text-[13px] tracking-[.8px]">
-              <Text as="b" className="text-[13px]">
-                {item.name}
-              </Text>{": "}
-              {item.value}
-            </Text>
-          ))}
-
-          {description !== "" && (
-            <Text as="p" className="mb-[15px] tracking-[.8px] text-[13px]">
-              {description}
-            </Text>
-          )}
+          {services &&
+            services?.map((item) => (
+              <Text
+                as="p"
+                className={`mb-[20px] text-[13px] tracking-[.8px] text-[${footerTextColor ? footerTextColor : "black"}]`}
+              >
+                <Text as="b" className="text-[13px]">
+                  {item.name}
+                </Text>
+                {": "}
+                {item.value}
+              </Text>
+            ))}
           {newsLetter && (
             <Box className="flex relative mb-[20px]">
-              <Input type={InputType.Text} className="rounded-none flex-1 h-[46px]" />
+              <Input
+                type={InputType.Text}
+                className="rounded-none flex-1 h-[46px]"
+              />
               <Button className="absolute right-0 w-fit h-full rounded-none text-[11px] bg-[#f00]">
                 SUBSCRIBE
               </Button>
             </Box>
           )}
+          {description !== "" && (
+            <Text
+              as="p"
+              className={`mb-[15px] tracking-[.8px] text-[13px] text-[${footerTextColor ? footerTextColor : "black"}]`}
+            >
+              {description}
+            </Text>
+          )}
           {links && (
             <Box className="justify-start flex">
               {links.map((item) => (
                 <>
-                  <IconButton iconUrl={item.iconUrl} className="w-fit"/>
+                  <IconButton iconUrl={item.iconUrl} className="w-fit" />
                 </>
               ))}
             </Box>

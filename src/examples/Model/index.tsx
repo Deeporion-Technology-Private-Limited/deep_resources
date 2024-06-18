@@ -1,5 +1,6 @@
 import { Box, Button, Headings, Menu, MenuItem, Modal } from "@/components";
-import ProductCard from "@/components/Cards/ProductCards/Product_card";
+// import ProductCard from "@/components/Cards/ProductCards/Product_card";
+import ProductCard from "../../components/Cards/ProductCards"
 import chart from "./Icons/chart.svg";
 import frmaeMeasurement from "../../images/frameMeasurement.png";
 import hearticon from "./Icons/hearticon.svg";
@@ -18,6 +19,7 @@ export const Sizechartmodel = () => {
       modalbutton={true}
       onClose={() => {}}
       openModal={false}
+      
       header={
         <Box className="flex   border-[rgba(255, 255, 255, 1)]">
           <Box>

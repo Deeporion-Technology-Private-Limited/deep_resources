@@ -24,7 +24,7 @@ export const Ratingcard = ({objData} : RatingcardProp) => {
        <div>
         <div className="flex  w-[500px] py-5 px-5 gap-7 h-fit">
         <FaverateCard
-        className="w-[100px] h-[150px]"
+        className="w-[100px] h-[135px] rounded-md "
         imageSrc={objData.imageUrl}
                 />
 <div className="w-[300px] font-bold py-2 text-3xl">

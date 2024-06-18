@@ -1,10 +1,10 @@
 import { Box } from "@/components"
-import ProductCard from "@/components/Cards/ProductCards/Product_card"
 import ProgressBar from "@/components/ProgressBar";
 import { variants } from "@/components/ProgressBar/type";
 import { cva } from "class-variance-authority";
 import { StarIcon } from "./ReviewCardIcon/icon";
 import { Elevation } from "@/components";
+import FaverateCard from "@/components/Cards/FaverateCard";
 
 type RatingcardProp = {
     objData : any
@@ -23,8 +23,8 @@ export const Ratingcard = ({objData} : RatingcardProp) => {
        <Elevation className="w-fit h-fit py-4 px-4">
        <div>
         <div className="flex  w-[500px] py-5 px-5 gap-7 h-fit">
-        <ProductCard
-        imageClass="w-[100px] h-[150px]"
+        <FaverateCard
+        className="w-[100px] h-[150px]"
         imageSrc={objData.imageUrl}
                 />
 <div className="w-[300px] font-bold py-2 text-3xl">

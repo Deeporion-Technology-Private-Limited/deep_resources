@@ -15,6 +15,10 @@ const PhoneVerify = () => {
     }
   };
 
+  const handleVerify = () => {
+    const otp = inputRefs.current.map(input => input?.value).join('');
+  };
+
   const inputs = Array(6).fill(null).map((_, index) => (
     <Input
       key={index}
@@ -48,7 +52,6 @@ const PhoneVerify = () => {
                 {Login.EnterCode}
               </Text>
             </Box>
-
             <Box className="flex justify-center gap-6">{inputs}</Box>
             <Box className="text-center">
               <Text
@@ -67,7 +70,7 @@ const PhoneVerify = () => {
               </Text>
             </Box>
             <Box className="w-full">
-              <Button hover>{Login.Verify}</Button>
+              <Button hover  onClick={handleVerify}>{Login.Verify}</Button>
             </Box>
           </Box>
         </Box>

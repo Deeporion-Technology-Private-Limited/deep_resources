@@ -118,7 +118,6 @@ const webstyle = {
     height: "56px",
     border: "1px solid #C9CDD2",
     borderRadius: "8px",
-    color: "white",
     padding: "10px 8px",
   },
   loginButton: {
@@ -129,7 +128,6 @@ const webstyle = {
     background: "linear-gradient(to right, #BFA59A, #3F271E)",
     fontWeight: 600,
     fontSize: "16px",
-    fontFamily: "poppins",
     color: "#FFFFFF",
     lineHeight: "24px",
     align: "center",

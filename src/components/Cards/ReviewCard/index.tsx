@@ -1,9 +1,10 @@
 import { Box, Text } from "@/components";
+import ProfileAvatar from "@/components/Avatar/Basic";
 import { cn } from "@/utils";
 import { cva, VariantProps } from "class-variance-authority";
 import { ComponentProps, forwardRef } from "react";
 const reviewCardStyles = cva(
-  "flex flex-col items-center p-4 bg-white shadow-md rounded-lg  mx-auto  hover:shadow-xl",
+  "flex flex-col p-4 bg-white shadow-md rounded-lg  mx-auto  w-[40rem] gap-6 rounded-[8,8,12,16]",
   {
     variants: {
       size: {
@@ -13,31 +14,49 @@ const reviewCardStyles = cva(
       },
     },
     defaultVariants: {
-      size: "medium"
+      size: "medium",
     },
   }
 );
 
-const textStyles = cva("text-center text-gray-800 mb-2 capitalize");
+const textStyles = cva("text-center text-gray-800 mb-2 capitalize font-bold text-xl");
 const starStyles = cva(
-  "flex justify-center mb-2 h-full w-full text-yellow-500 bg-yellow"
+  "flex mb-2 h-fit w-full text-yellow-500 bg-yellow"
 );
 
 type ReviewCardProps = ComponentProps<"div"> &
   VariantProps<typeof reviewCardStyles> & {
     imageSrc: string;
-    reviewerName?: string;
+    reviewerName: string;
     reviewText?: string;
     rating: number;
-    StarRating?:boolean;
-    image?:boolean;
-    avatar?:boolean;
-    imageStyle?:string;
+    avatarImage?: string;
+    StarRating?: boolean;
+    image?: boolean;
+    avatar?: boolean;
+    imageStyle?: string;
+    textStyle?:string;
+    starStyle?:string;
   };
 
 const ReviewCard = forwardRef<HTMLDivElement, ReviewCardProps>(
   (
-    { imageSrc, reviewerName,imageStyle, reviewText,image,avatar, rating, size, StarRating, className, ...props },
+    {
+      imageSrc,
+      reviewerName,
+      imageStyle,
+      avatarImage,
+      reviewText,
+      image,
+      avatar,
+      rating,
+      starStyle,
+      textStyle,
+      size,
+      StarRating,
+      className,
+      ...props
+    },
     ref
   ) => {
     return (
@@ -46,32 +65,23 @@ const ReviewCard = forwardRef<HTMLDivElement, ReviewCardProps>(
         className={cn(reviewCardStyles({ size }), className)}
         {...props}
       >
-        { image && (
-        <Box className="relative mb-4">
-          <img
-            src={imageSrc}
-            alt={`${reviewerName}'s picture`}
-            className={imageStyle}
-          />
-        </Box>)
-  }
+        {image && (
+          <Box className="relative mb-4">
+            <img
+              src={imageSrc}
+              alt={`${reviewerName}'s picture`}
+              className={imageStyle}
+            />
+          </Box>
+        )}
         {
           <>
-            <Box className="flex items-center justify-center mb-2">
-                {avatar && (
-              <Box className="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center p-8 text-xl font-bold text-gray-600">
-                {reviewerName
-                  ?.split(" ")
-                  .map((name) => name[0])
-                  .join("")}
-              </Box>)}
+            <Box className="flex w-full gap-4 items-end h-fit">
+              <ProfileAvatar name={reviewerName} src={avatarImage} className="h-[6rem] w-[6rem] text-2xl"  />
+              <Text className="w-max font-extrabold text-2xl">{reviewerName}</Text>
             </Box>
-            <Box className={textStyles()}>
-              <Text className="font-bold">{reviewerName}</Text>
-            </Box>
-            <Box className={textStyles()}>{reviewText}</Box>
-            {StarRating &&(
-              <Box className={starStyles()}>
+            {StarRating && (
+              <Box className={starStyle? starStyle : starStyles()}>
                 {Array.from({ length: 5 }).map((_, i) => (
                   <svg
                     key={i}
@@ -94,8 +104,8 @@ const ReviewCard = forwardRef<HTMLDivElement, ReviewCardProps>(
                   </svg>
                 ))}
               </Box>
-            )
-            }
+            )}
+            <Box className={textStyle ? textStyle : textStyles()}>{reviewText}</Box>
           </>
         }
       </div>
@@ -103,6 +113,6 @@ const ReviewCard = forwardRef<HTMLDivElement, ReviewCardProps>(
   }
 );
 
-ReviewCard.displayName = "ReviewCard";
+// ReviewCard.displayName = "ReviewCard";
 
 export default ReviewCard;

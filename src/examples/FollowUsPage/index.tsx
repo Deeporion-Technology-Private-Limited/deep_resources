@@ -6,6 +6,7 @@ import { useState } from "react";
 import img01 from "./images/3897062800_1_1_1 1-1.png";
 
 import UrlIcon from "./images/Hoverbutton.svg";
+import FaverateCard from "@/components/Cards/FaverateCard";
 export const FollowPage = () => {
   const [demo, setData] = useState([
     { name: "first", imgSrc: img01 },
@@ -14,8 +15,8 @@ export const FollowPage = () => {
     { name: "fourth", imgSrc: img01 },
   ]);
   const IconClick = (values: any) => {
-    alert(`You have ${values.name}`);
-    console.log("dssss", values.name);
+    alert(`You have clicked ${values.name}`);
+    console.log("dssss",values);
   };
   return (
     <Box>
@@ -40,16 +41,14 @@ export const FollowPage = () => {
           demo.map((values, index) => {
             return (
               <Box className="mx-1 my-1" key={index}>
-                <img src={values.imgSrc} height={500} width={300} />
-                <img
-                  onClick={() => IconClick(values)}
-                  src={UrlIcon}
-                  style={{
-                    position: "relative",
-                    float: "inline-end",
-                    marginTop: "-300px",
-                    marginRight: "20px",
-                  }}
+                <FaverateCard
+                  key={index}
+                  imageSrc={values.imgSrc}
+                  favorite
+                  iconUrl={UrlIcon}
+                  starRating={false}
+                  isDescription={false}
+                  onIconClick={()=>{IconClick(values)}}
                 />
               </Box>
             );
@@ -62,14 +61,17 @@ export const FollowPage = () => {
 {
   /* <ProductCard  favorite imageSrc={values.imgSrc} /> */
 }
+
 {
-  /* <FaverateCard  key={index}
-imageSrc={values.imgSrc}
-
-favorite
-iconUrl={UrlIcon}
-
-iconclick={()=>IconClick()} 
-
+  /* <img src={values.imgSrc} height={500} width={300} />
+<img
+  onClick={() => IconClick(values)}
+  src={UrlIcon}
+  style={{
+    position: "relative",
+    float: "inline-end",
+    marginTop: "-300px",
+    marginRight: "20px",
+  }}
 /> */
 }

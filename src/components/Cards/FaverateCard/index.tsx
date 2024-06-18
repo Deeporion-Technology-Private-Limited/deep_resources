@@ -21,6 +21,7 @@ type CardProps = ComponentProps<typeof Box> &
     imageStyle?: string;
     iconUrl?: string;
     isDescription?: boolean;
+    onIconClick?: () => void;
   };
 
 const cardStyles = cva("max-w-sm rounded overflow-hidden shadow-lg");
@@ -42,6 +43,7 @@ const FaverateCard = forwardRef<HTMLDivElement, CardProps>(
       children,
       iconUrl,
       isDescription=true,
+      onIconClick=()=> {}
     },
     ref
   ) => {
@@ -69,7 +71,7 @@ const FaverateCard = forwardRef<HTMLDivElement, CardProps>(
                 onClick={toggleFavorite}
               >
                 {iconUrl ? (
-                  <img src={iconUrl} className="w" />
+                  <img src={iconUrl} className="w"  onClick={() => onIconClick()} />
                 ) : (
                   <svg
                     className="w-6 h-6 fill-current border-b"

@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from "@storybook/react";
-import { Sizechartmodel } from ".";
+import { Sizechartmodel } from "./";
 
 const meta: Meta<typeof Sizechartmodel> = {
     title: "Examples/Sizechartmodel",

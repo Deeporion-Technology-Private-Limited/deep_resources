@@ -1,5 +1,5 @@
 import { Box, BreadCrumb, Button, Text } from "@/components"
-import ProductCard from "@/components/Cards/ProductCards/Product_card";
+import ProductCard from "@/components/Cards/ProductCards";
 import Chips from "@/components/Chips";
 
 const Data = [

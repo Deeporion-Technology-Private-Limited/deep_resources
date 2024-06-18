@@ -89,7 +89,7 @@ export const Checkbox = forwardRef<HTMLInputElement, InputProps>(
     );
 
     return (
-      <div className="flex items-center gap-4 text-center">
+      <div className="flex items-center justify-between gap-4 text-center py-[10px] px-[8px]">
         {labelPosition === "before" && labelElement}
         {inputElement}
         {labelPosition === "after" && labelElement}

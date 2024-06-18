@@ -1,29 +1,31 @@
 import { cn } from "@/utils";
 import { VariantProps, cva } from "class-variance-authority";
 import React, { ComponentProps, forwardRef, useState } from "react";
-import { AccordionTypes } from "./AccordionTypes";
+import { AccordionTypes } from "../AccordionTypes";
 
-const accordionStyle = cva(
+const coustomizeAccordioStyle = cva(
   [
     "h-fit",
+    "border",
+    "py-2",
+    "shadow-sm",
     "text-sm",
+    "px-2",
+    "flex",
+    "justify-between",
     "items-center",
-    "w-[400px]",
+    "w-full",
   ],
   {
     variants: {
       variant: {
         [AccordionTypes.Arrow]: "",
-        [AccordionTypes.Cursor]: "",
       },
     },
     compoundVariants: [
       {
         variant: AccordionTypes.Arrow,
-      },
-      {
-        variant: AccordionTypes.Cursor,
-      },
+      }
     ],
     defaultVariants: {
       variant: AccordionTypes.Arrow,
@@ -31,26 +33,26 @@ const accordionStyle = cva(
   }
 );
 
-type AccordionProps = ComponentProps<"div"> & VariantProps<typeof accordionStyle> & {
-  variant: AccordionTypes;
+type CoustomizeAccordioProps = ComponentProps<"div"> & VariantProps<typeof coustomizeAccordioStyle> & {
+  variant?: AccordionTypes;
   children: string;
   content?: any;
   Icon: React.ReactNode;
-  childClassName?: string;
+  childClassName?: string; 
 };
 
-export const Accordion = forwardRef<HTMLDivElement, AccordionProps>(
-  ({ variant = AccordionTypes.Arrow, content, className, Icon, children, childClassName, ...props }, ref) => {
+export const CoustomizeAccordion = forwardRef<HTMLDivElement, CoustomizeAccordioProps>(
+  ({ variant, content, className, Icon, children, childClassName, ...props }, ref) => {
 
     const [handleButton, setHandleButton] = useState(false);
 
     const handleClick = () => setHandleButton(!handleButton);
 
     return (
-      <div className={cn(accordionStyle({ variant, className }))}>
+      <div className="w-full">
         <div
           ref={ref}
-          className=" border h-fit w-full px-2 py-2"
+          className={cn(coustomizeAccordioStyle({ variant, className }))}
           {...props}
           onClick={handleClick}
         >
@@ -61,15 +63,17 @@ export const Accordion = forwardRef<HTMLDivElement, AccordionProps>(
             </div>
           </div>
         </div>
+
         {handleButton && (
-          <div className={cn(" w-full top-10  left-0 border bg-white", childClassName)}>
-            <div className="px-2 py-1">{content}</div>
+          <div className={cn("mt-1 w-full border bg-white", childClassName)}>
+              <div className="px-2 py-1">
+                {content}
+              </div>
           </div>
         )}
       </div>
-
     );
   }
 );
 
-export default Accordion;
+export default CoustomizeAccordion;

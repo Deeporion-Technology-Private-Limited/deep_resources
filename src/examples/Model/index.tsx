@@ -1,12 +1,13 @@
 import { Box, Button, Headings, Menu, MenuItem, Modal } from "@/components";
 // import ProductCard from "@/components/Cards/ProductCards/Product_card";
-import ProductCard from "../../components/Cards/ProductCards"
+// import ProductCard from "../../components/Cards/ProductCards"
 import chart from "./Icons/chart.svg";
 import frmaeMeasurement from "../../images/frameMeasurement.png";
 import hearticon from "./Icons/hearticon.svg";
 import { TableHeader } from "@/components/Table/TableHeader";
 import { Product } from "./types";
 import { useState } from "react";
+import ProductCard from "@/components/Cards/ProductCards";
 
 export const Sizechartmodel = () => {
   const [isInchesSelected, setIsInchesSelected] = useState(true);

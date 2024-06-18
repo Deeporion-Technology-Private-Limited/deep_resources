@@ -1,13 +1,13 @@
-import Accordion from "@/components/Accordion"
 import { Checkbox } from "@/components"
 import { Elevation } from "@/components"
 import { staticData } from "./Staticdata"
+import CoustomizeAccordion from "@/components/Accordion/CoustmaizeAccordion"
 
 
 
 
 
-export const CoustomizeAccordion = () => {
+export const AccordionBar = () => {
 
   
 
@@ -22,14 +22,13 @@ export const CoustomizeAccordion = () => {
        {staticData?.map((item , i) => {
         return(
           <>
-        <Accordion
+        <CoustomizeAccordion
         key={i}
          Icon={item?.Icon} 
          children={item?.children} 
          content={item?.content.map((value)=> <div className="flex justify-between font-thin" >{value} <Checkbox value={value} onChange={(e)=> handleChange(e)} /></div>)}
-         variant={item?.variant}
          childClassName={item?.childClassName}
-         className="bg-gradient-to-r w-[200px] from-[#BFA59A] to-[#3F271E] text-white"
+         className="bg-gradient-to-r w-[200px] from-[#BFA59A] to-[#3F271E] text-white rounded-md"
          />
         
           </>

@@ -5,7 +5,9 @@ import Banner2 from "../../images/Banner2.svg"
 import Banner3 from "../../images/Banner3.svg"
 import Banner4 from "../../images/Banner4.svg"
 import Banner5 from "../../images/Banner5.svg"
-
+import Avatar1 from "../../images/Avatar1.svg"
+import Avatar2 from "../../images/Avatar2.svg"
+import Avatar3 from "../../images/Avatar3.svg"
 
 export const CardData: ICardData[] = [
   {
@@ -79,38 +81,74 @@ export const ReviewData: IReviewData[] = [
   {
     StarRating:true,
     avatar:true,
-    avatarImage:"https://s3-alpha-sig.figma.com/img/17d2/d1b7/f0304ba5eae93ef5a6efdf928f56da7a?Expires=1719792000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=DE2fagaP5fNbdjEsguzGLHKo00u6w2IdpBPWKYnsCE4trfb6YV9TydbXzo86AbFZ~yp36-uCBNfLWe6xOw6J5nFlv6YcnyMMjQtGNqpIQfZvAEqkiUvVo05f2Y-ySCJ1ywTySeazzhW1gsFlPiWCK1apPwnoY0yR36cuCvX6QLINbiQFn86SzGhe28naeqLBSjI4OID0CAyS9lj0U2mDFxK~xsKtX~n8~FEkrkLZm7XzXq1A68YgYonLAo5-K8~RfKvUFlQ1LMFl3k4NjK6f~8YQmQfRsX3xiaLeMuDBLPjTGQLiMCaaeNJnJMY8oJDDoDkrHBBVgk1gHYC9e8LV7A__",
+    avatarImage: Avatar1,
     imageStyle:"w-full h-full rounded-lg mb-4",
-    rating: 5,
+    rating: 4,
     reviewText:"“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. “",
-    reviewerName:"Shweta mathor",
+    reviewerName:"Sophie Allen ",
     className:"w-[25.625rem]",
     starStyle:"flex mb-2 h-fit w-full text-yellow-500 bg-yellow",
-    textStyle:"text-center text-gray-800 mb-2 capitalize font-bold text-xl",
+    textStyle:"text-center text-gray-800 mb-2 capitalize font-bold text-xs",
   },
   {
     StarRating:true,
     avatar:true,
-    avatarImage:"https://s3-alpha-sig.figma.com/img/17d2/d1b7/f0304ba5eae93ef5a6efdf928f56da7a?Expires=1719792000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=DE2fagaP5fNbdjEsguzGLHKo00u6w2IdpBPWKYnsCE4trfb6YV9TydbXzo86AbFZ~yp36-uCBNfLWe6xOw6J5nFlv6YcnyMMjQtGNqpIQfZvAEqkiUvVo05f2Y-ySCJ1ywTySeazzhW1gsFlPiWCK1apPwnoY0yR36cuCvX6QLINbiQFn86SzGhe28naeqLBSjI4OID0CAyS9lj0U2mDFxK~xsKtX~n8~FEkrkLZm7XzXq1A68YgYonLAo5-K8~RfKvUFlQ1LMFl3k4NjK6f~8YQmQfRsX3xiaLeMuDBLPjTGQLiMCaaeNJnJMY8oJDDoDkrHBBVgk1gHYC9e8LV7A__",
+    avatarImage: Avatar2,
     imageStyle:"w-full h-full rounded-lg mb-4",
-    rating: 5,
+    rating: 4,
     reviewText:"“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. “",
-    reviewerName:"Shweta mathor",
+    reviewerName:"Tessa Rain",
     className:"w-[25.625rem]",
     starStyle:"flex mb-2 h-fit w-full text-yellow-500 bg-yellow",
-    textStyle:"text-center text-gray-800 mb-2 capitalize font-bold text-xl",
+    textStyle:"text-center text-gray-800 mb-2 capitalize font-bold text-xs",
   },
   {
     StarRating:true,
     avatar:true,
-    avatarImage:"https://s3-alpha-sig.figma.com/img/17d2/d1b7/f0304ba5eae93ef5a6efdf928f56da7a?Expires=1719792000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=DE2fagaP5fNbdjEsguzGLHKo00u6w2IdpBPWKYnsCE4trfb6YV9TydbXzo86AbFZ~yp36-uCBNfLWe6xOw6J5nFlv6YcnyMMjQtGNqpIQfZvAEqkiUvVo05f2Y-ySCJ1ywTySeazzhW1gsFlPiWCK1apPwnoY0yR36cuCvX6QLINbiQFn86SzGhe28naeqLBSjI4OID0CAyS9lj0U2mDFxK~xsKtX~n8~FEkrkLZm7XzXq1A68YgYonLAo5-K8~RfKvUFlQ1LMFl3k4NjK6f~8YQmQfRsX3xiaLeMuDBLPjTGQLiMCaaeNJnJMY8oJDDoDkrHBBVgk1gHYC9e8LV7A__",
+    avatarImage: Avatar3,
     imageStyle:"w-full h-full rounded-lg mb-4",
-    rating: 5,
+    rating: 4,
     reviewText:"“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. “",
-    reviewerName:"Shweta mathor",
+    reviewerName:"Adde Jones",
     className:"w-[25.625rem]",
     starStyle:"flex mb-2 h-fit w-full text-yellow-500 bg-yellow",
-    textStyle:"text-center text-gray-800 mb-2 capitalize font-bold text-xl",
+    textStyle:"text-center text-gray-800 mb-2 capitalize font-bold text-xs",
+  },
+  {
+    StarRating:true,
+    avatar:true,
+    avatarImage: Avatar1,
+    imageStyle:"w-full h-full rounded-lg mb-4",
+    rating: 4,
+    reviewText:"“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. “",
+    reviewerName:"Sophie Allen ",
+    className:"w-[25.625rem]",
+    starStyle:"flex mb-2 h-fit w-full text-yellow-500 bg-yellow",
+    textStyle:"text-center text-gray-800 mb-2 capitalize font-bold text-xs",
+  },
+  {
+    StarRating:true,
+    avatar:true,
+    avatarImage: Avatar2,
+    imageStyle:"w-full h-full rounded-lg mb-4",
+    rating: 4,
+    reviewText:"“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. “",
+    reviewerName:"Tessa Rain",
+    className:"w-[25.625rem]",
+    starStyle:"flex mb-2 h-fit w-full text-yellow-500 bg-yellow",
+    textStyle:"text-center text-gray-800 mb-2 capitalize font-bold text-xs",
+  },
+  {
+    StarRating:true,
+    avatar:true,
+    avatarImage: Avatar3,
+    imageStyle:"w-full h-full rounded-lg mb-4",
+    rating: 4,
+    reviewText:"“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. “",
+    reviewerName:"Adde Jones",
+    className:"w-[25.625rem]",
+    starStyle:"flex mb-2 h-fit w-full text-yellow-500 bg-yellow",
+    textStyle:"text-center text-gray-800 mb-2 capitalize font-bold text-xs",
   },
 ]
 

@@ -1,22 +1,17 @@
 import { Box, Headings } from "@/components";
-
-// import FaverateCard from "../../components/Cards/FaverateCard"
-import { useState } from "react";
-// import ProductCard from "../../components/Cards/ProductCards"
-import img01 from "./images/3897062800_1_1_1 1-1.png";
-
 import UrlIcon from "./images/Hoverbutton.svg";
 import FaverateCard from "@/components/Cards/FaverateCard";
+
+import { IFollowUsData, FollowUsData } from '../../components/Data/FollowUsInsta';
+
+
+
+
+
 export const FollowPage = () => {
-  const [demo, setData] = useState([
-    { name: "first", imgSrc: img01 },
-    { name: "second", imgSrc: img01 },
-    { name: "third", imgSrc: img01 },
-    { name: "fourth", imgSrc: img01 },
-  ]);
+  
   const IconClick = (values: any) => {
     alert(`You have clicked ${values.name}`);
-    console.log("dssss",values);
   };
   return (
     <Box>
@@ -37,18 +32,17 @@ export const FollowPage = () => {
         />
       </Box>
       <Box className="flex flex-wrap justify-center mt-2">
-        {demo &&
-          demo.map((values, index) => {
+        {FollowUsData.imagedetails.map((item, index: number)  => {
             return (
               <Box className="mx-1 my-1" key={index}>
                 <FaverateCard
                   key={index}
-                  imageSrc={values.imgSrc}
+                  imageSrc={item.img}
                   favorite
                   iconUrl={UrlIcon}
                   starRating={false}
                   isDescription={false}
-                  onIconClick={()=>{IconClick(values)}}
+                  onIconClick={()=>{IconClick(item)}}
                 />
               </Box>
             );

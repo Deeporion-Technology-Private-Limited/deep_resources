@@ -17,7 +17,9 @@ import Banner from "@/components/Cards/Banners";
 import BannerImages from "../../images/BannerImages.svg";
 import Banner1 from "../../images/Banner1.svg";
 import ReviewCard from "@/components/Cards/ReviewCard";
-import {ButtonVariant } from "@/components/Button/type";
+import { ButtonVariant } from "@/components/Button/type";
+import { FollowPage } from "../FollowUsPage";
+import { FooterCart } from "../FooterCart";
 
 const dashboardStyles = cva(["w-full"]);
 
@@ -268,8 +270,19 @@ export const Dashboard = forwardRef<HTMLDivElement, DashboardProps>(
             </Box>
           </Box>
         )}
-        <Box className="w-full flex justify-center">
-          
+        <Box className="w-full h-full flex justify-center mt-[30px]">
+          <Box className="w-[82.5rem]">
+            <FollowPage />
+          </Box>
+        </Box>
+        <Box className="w-full mt-[27px]">
+          <FooterCart
+            footerCopyRights={{
+              copyright: '2024 All rights reserved',
+              copyrightBgStyle: 'bg-[#3F271E]',
+              copyrightTextStyle: 'text-[#fff]'
+            }}
+          />
         </Box>
       </Box>
     );

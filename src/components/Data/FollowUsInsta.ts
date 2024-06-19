@@ -1,8 +1,7 @@
-import images from '../../examples/FollowUsPage/images/3897062800_1_1_1 1-1.png'
-import image02 from '../../examples/ShopingCards/images/Web-_Product listing/3897062800_1_1_1 1.png'
-import image03 from '../../examples/ShopingCards/images/Web-_Product listing/Frame 1-5.png'
-import image04 from '../../examples/ShopingCards/images/Web-_Product listing/Frame 1.png'
-
+import CardImage1 from "../../examples/FollowUsPage/images/CardImage1.svg"
+import CardImage2 from "../../examples/FollowUsPage/images/CardImage2.svg"
+import CardImage3 from "../../examples/FollowUsPage/images/CardImage3.svg"
+import CardImage4 from "../../examples/FollowUsPage/images/CardImage4.svg"
 
 export interface IFollowUsData {
     
@@ -19,19 +18,19 @@ export const FollowUsData :IFollowUsData = {
     
     {
         name: "John Doe",
-        img: `${images}`
+        img: `${CardImage1}`
     },
     {
         name: "Jane Smith",
-        img: `${image02}`
+        img: `${CardImage2}`
     },
     {
         name: "Emily Johnson",
-        img: `${image03}`
+        img: `${CardImage3}`
     },
     {
         name: "Michael Brown",
-        img: `${image04}`
+        img: `${CardImage4}`
     }
 ]
 };

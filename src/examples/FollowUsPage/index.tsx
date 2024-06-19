@@ -2,11 +2,7 @@ import { Box, Headings } from "@/components";
 import UrlIcon from "./images/Hoverbutton.svg";
 import FaverateCard from "@/components/Cards/FaverateCard";
 
-import { IFollowUsData, FollowUsData } from '../../components/Data/FollowUsInsta';
-
-
-
-
+import {  FollowUsData } from '../../components/Data/FollowUsInsta';
 
 export const FollowPage = () => {
   
@@ -16,10 +12,9 @@ export const FollowPage = () => {
   return (
     <Box>
       <Box className="flex flex-col items-center justify-center mb-3">
-        {/* <Box className="grid lg:grid-cols-4 gap-5 w-full md:grid-cols-2 grid-cols-2 sm:grid-cols-1  shadow-xl p-5"> */}
         <Headings
-          FontSize="text-xl"
-          fontWeight="font-extrabold"
+          FontSize="text-3xl"
+          fontWeight="font-bold"
           text={"Follow us on Instagram"}
           style={{ padding: "5px" }}
         />
@@ -40,6 +35,7 @@ export const FollowPage = () => {
                   imageSrc={item.img}
                   favorite
                   iconUrl={UrlIcon}
+                  imageStyle=" w-[19.625rem] h-[37.1875rem]"
                   starRating={false}
                   isDescription={false}
                   onIconClick={()=>{IconClick(item)}}
@@ -52,20 +48,3 @@ export const FollowPage = () => {
   );
 };
 
-{
-  /* <ProductCard  favorite imageSrc={values.imgSrc} /> */
-}
-
-{
-  /* <img src={values.imgSrc} height={500} width={300} />
-<img
-  onClick={() => IconClick(values)}
-  src={UrlIcon}
-  style={{
-    position: "relative",
-    float: "inline-end",
-    marginTop: "-300px",
-    marginRight: "20px",
-  }}
-/> */
-}

@@ -1,4 +1,4 @@
-import React, { useState, forwardRef, ComponentProps } from "react";
+import React, { useState, forwardRef, ComponentProps, useEffect } from "react";
 import star from "../icons/start.svg";
 import { Button } from "@/components/Button/DefaultButton";
 import { Box } from "@/components/Layout";
@@ -21,6 +21,7 @@ type CardProps = ComponentProps<typeof Box> &
     imageStyle?: string;
     iconUrl?: string;
     isDescription?: boolean;
+    isChange?: () => void;
   };
 
 const cardStyles = cva("max-w-sm rounded overflow-hidden shadow-lg");
@@ -41,12 +42,12 @@ const FaverateCard = forwardRef<HTMLDivElement, CardProps>(
       imageStyle = "w-full",
       children,
       iconUrl,
-      isDescription=true,
+      isDescription = true,
+      isChange,
     },
     ref
   ) => {
     const [isFavorite, setIsFavorite] = useState(false);
-
     const toggleFavorite = () => {
       setIsFavorite(!isFavorite);
     };
@@ -66,7 +67,10 @@ const FaverateCard = forwardRef<HTMLDivElement, CardProps>(
                       : "text-gray-500 p-3"
                     : null
                 )}
-                onClick={toggleFavorite}
+                onClick={() => {
+                  isChange ? isChange() : null;
+                  toggleFavorite();
+                }}
               >
                 {iconUrl ? (
                   <img src={iconUrl} className="w" />

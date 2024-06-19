@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { CoustomizeAccordion } from ".";
+import { AccordionBar } from ".";
 
-const meta: Meta<typeof CoustomizeAccordion> = {
-  title: "Examples/CoustomizeAccordion",
-  component: CoustomizeAccordion,
+const meta: Meta<typeof AccordionBar> = {
+  title: "Examples/AccordionBar",
+  component: AccordionBar,
   parameters: {
     layout: "centered",
   }

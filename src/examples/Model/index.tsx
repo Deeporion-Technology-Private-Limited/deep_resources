@@ -1,23 +1,27 @@
 import { Box, Button, Headings, Menu, MenuItem, Modal } from "@/components";
-import ProductCard from "@/components/Cards/ProductCards/Product_card";
+// import ProductCard from "@/components/Cards/ProductCards/Product_card";
+// import ProductCard from "../../components/Cards/ProductCards"
 import chart from "./Icons/chart.svg";
 import frmaeMeasurement from "../../images/frameMeasurement.png";
 import hearticon from "./Icons/hearticon.svg";
 import { TableHeader } from "@/components/Table/TableHeader";
 import { Product } from "./types";
 import { useState } from "react";
+import ProductCard from "@/components/Cards/ProductCards";
 
 export const Sizechartmodel = () => {
   const [isInchesSelected, setIsInchesSelected] = useState(true);
   const [selectedTab, setSelectedTab] = useState("sizeChart"); 
 
   return (
+    <Box className="border border-pink-800 hhh">
     <Modal
       button01={false}
       button02={false}
       modalbutton={true}
       onClose={() => {}}
       openModal={false}
+      
       header={
         <Box className="flex   border-[rgba(255, 255, 255, 1)]">
           <Box>
@@ -139,5 +143,6 @@ export const Sizechartmodel = () => {
         </Button>
       </div>
     </Modal>
+    </Box>
   );
 };

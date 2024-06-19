@@ -19,7 +19,9 @@ type Story = StoryObj<typeof meta>;
 
 export const CustomerServices: Story = {
   args: {
-    title: "Customer Services",
+    heading: {
+      title:"Customer Services",
+    },
     services: [
       {
         name: "Phone",
@@ -35,7 +37,9 @@ export const CustomerServices: Story = {
 
 export const NeedHelp: Story = {
   args: {
-    title: "Need Help",
+    heading: {
+      title:"Need help",
+    },
     list: [
       { name: "The Pinklay Story", href: "https://www.pinklay.com" },
       { name: "The Pinklay Story", href: "https://www.pinklay.com" },
@@ -47,7 +51,9 @@ export const NeedHelp: Story = {
 
 export const NewsLetter: Story = {
   args: {
-    title: "SIGN UP FOR OUR NEWSLETTER",
+    heading: {
+      title:"The NewsLetter",
+    },
     description:
       "Be the first to know about our new collections, exclusive offers, and other perks!",
     newsLetter: true,

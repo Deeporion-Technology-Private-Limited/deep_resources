@@ -2,27 +2,19 @@ import { cn } from "@/utils";
 import { VariantProps, cva } from "class-variance-authority";
 import React, { ComponentProps, forwardRef, useState } from "react";
 import { AccordionTypes } from "./AccordionTypes";
-import { Checkbox } from "../Checkbox";
 
 const accordionStyle = cva(
   [
     "h-fit",
-    "border",
-    "py-2",
-    "shadow-sm",
     "text-sm",
-    "px-2",
-    "flex", // Use flex for dynamic width
-    "justify-between",
     "items-center",
-    "w-full", // Full width
+    "w-[400px]",
   ],
   {
     variants: {
       variant: {
         [AccordionTypes.Arrow]: "",
         [AccordionTypes.Cursor]: "",
-        [AccordionTypes.Plus]: ""
       },
     },
     compoundVariants: [
@@ -31,9 +23,6 @@ const accordionStyle = cva(
       },
       {
         variant: AccordionTypes.Cursor,
-      },
-      {
-        variant: AccordionTypes.Plus,
       },
     ],
     defaultVariants: {
@@ -47,10 +36,10 @@ type AccordionProps = ComponentProps<"div"> & VariantProps<typeof accordionStyle
   children: string;
   content?: any;
   Icon: React.ReactNode;
-  childClassName?: string; 
+  childClassName?: string;
 };
 
-export const Accordion = forwardRef<HTMLDivElement, AccordionProps>(
+const Accordion = forwardRef<HTMLDivElement, AccordionProps>(
   ({ variant = AccordionTypes.Arrow, content, className, Icon, children, childClassName, ...props }, ref) => {
 
     const [handleButton, setHandleButton] = useState(false);
@@ -58,36 +47,28 @@ export const Accordion = forwardRef<HTMLDivElement, AccordionProps>(
     const handleClick = () => setHandleButton(!handleButton);
 
     return (
-      <div className="w-full"> {/* Ensure the accordion takes full width of its parent */}
+      <div className="h-[200px]">
+        <div className={cn(accordionStyle({ variant, className }))}>
         <div
           ref={ref}
-          className={cn(accordionStyle({ variant, className }))}
+          className=" border h-fit w-full px-2 py-2"
           {...props}
-          onClick={handleClick}
+         
         >
           <div className="flex items-center justify-between w-full">
-            <div>{children}</div>
-            <div className={`duration-300 transform ${handleButton && "origin-center rotate-180"}`}>
+            <div >{children}</div>
+            <div className={`duration-300 transform rotate-180 cursor-pointer hover:shadow  ${handleButton && "origin-center rotate-[none] "} `}  onClick={handleClick}>
               {Icon}
             </div>
           </div>
         </div>
-
         {handleButton && (
-          <div className={cn("mt-1 w-full border bg-white", childClassName)}>
-            {variant !== AccordionTypes.Plus ? (
-              <div className="px-2 py-1">{content}</div>
-            ) : (
-              <div className="px-2 py-1">
-                {content.map((item: any, i: number) => (
-                  <div className="flex w-full justify-between" key={i}>
-                    {item} <Checkbox value={item} />
-                  </div>
-                ))}
-              </div>
-            )}
+          <div className={cn(` w-full ${handleButton ? "h-auto ": "h-0"}  left-0 border  bg-white`, childClassName)}>
+            <div className="px-2 py-1 ">{content}</div>
           </div>
         )}
+      </div>
+
       </div>
     );
   }

@@ -1,4 +1,3 @@
-import { AccordionTypes } from "@/components/Accordion/AccordionTypes";
 import { SmallCursor } from "./Icon/Icon";
 
 export  const staticData = [
@@ -6,21 +5,18 @@ export  const staticData = [
       Icon: <SmallCursor />,
       children: "By Brands",
       content: ["INDYA", "DressBerry", "H&M", "HERE&NOW", "Mango"],
-      variant: AccordionTypes.Cursor,
-      childClassName: "bg-[#EBE3E0] text-black rounded-md"
+      childClassName: "bg-[#EBE3E0] text-black shadow rounded-md min-h-[20px] max-h-[100px] overflow-x-hidden no-scrollbar"
     },
     {
       Icon: <SmallCursor />,
       children: "Price Range",
       content: ["₹ 200 to ₹ 500", "₹ 400 to ₹ 900", "₹ 500 to ₹ 900", "₹ 600 to ₹ 1500", "₹ 1000 to ₹ 20x00"],
-      variant: AccordionTypes.Cursor,
-      childClassName: "bg-[#EBE3E0] text-black rounded-md"
+      childClassName: "bg-[#EBE3E0] text-black shadow rounded-md min-h-[20px] max-h-[100px] overflow-x-hidden"
     },
     {
       Icon: <SmallCursor />,
       children: "By Brands",
       content: ["INDYA", "DressBerry", "H&M", "HERE&NOW", "Mango"],
-      variant: AccordionTypes.Cursor,
-      childClassName: "bg-[#EBE3E0] text-black rounded-md"
+      childClassName: "bg-[#EBE3E0] text-black shadow rounded-md min-h-[20px] max-h-[100px] overflow-x-hidden"
     }
   ]

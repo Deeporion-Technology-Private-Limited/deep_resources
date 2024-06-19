@@ -1,13 +1,34 @@
 import { Box, Button, Input, Text } from "@/components";
-import React from "react";
+import React, { useRef } from "react";
 import { Login } from "./type";
 import { Alignment, TextSize, TextWeight } from "@/utils/style";
 import { InputType } from "@/components/Input/type";
 
 const PhoneVerify = () => {
-  const inputs = Array(6)
-    .fill(null)
-    .map((_, index) => <Input key={index} quantity={6} type={InputType.Otp} />);
+
+  const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
+
+  const handleInput = (index: number, event: React.FormEvent<HTMLInputElement>) => {
+    const value = event.currentTarget.value;
+    if (value.length >= 1 && index < inputRefs.current.length - 1) {
+      inputRefs.current[index + 1]?.focus();
+    }
+  };
+
+  const handleVerify = () => {
+    const otp = inputRefs.current.map(input => input?.value).join('');
+  };
+
+  const inputs = Array(6).fill(null).map((_, index) => (
+    <Input
+      key={index}
+      type={InputType.Otp}
+      ref={(el) => (inputRefs.current[index] = el)}
+      onInput={(e) => handleInput(index, e)}
+    />
+  ));
+
+  
 
   return (
     <Box>
@@ -31,7 +52,6 @@ const PhoneVerify = () => {
                 {Login.EnterCode}
               </Text>
             </Box>
-
             <Box className="flex justify-center gap-6">{inputs}</Box>
             <Box className="text-center">
               <Text
@@ -50,7 +70,7 @@ const PhoneVerify = () => {
               </Text>
             </Box>
             <Box className="w-full">
-              <Button hover>{Login.Verify}</Button>
+              <Button hover  onClick={handleVerify}>{Login.Verify}</Button>
             </Box>
           </Box>
         </Box>

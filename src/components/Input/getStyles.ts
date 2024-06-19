@@ -64,7 +64,7 @@ export function getConditionalStyles(
   }
 
   if (type === InputType.Prefix) {
-    styles += " pl-6";
+    styles += " pl-10";
   }
 
   return styles.trim();

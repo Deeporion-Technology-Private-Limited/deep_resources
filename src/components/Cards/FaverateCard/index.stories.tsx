@@ -1,6 +1,7 @@
 import { Meta, StoryObj } from "@storybook/react";
 import FaverateCard from ".";
-import image from "@/examples/ShopingCards/images/Web-_Product listing/Frame 1-3.png"
+import image from "@/examples/ShopingCards/images/Web-_Product listing/3897062800_1_1_1 1.png"
+import image1 from "@/components/Cards/icons/image (1).svg"
 
 const meta: Meta<typeof FaverateCard> = {
   title: "Components/Cards/FaverateCard",
@@ -45,3 +46,15 @@ export const WithNew: Story = {
     isnew: "new",
   },
 };
+
+export const RowCardWithIcon: Story ={
+  args: {
+    imageSrc:image,
+    brand:"mango",
+    description:"Black Sleeveless Crepe Dress",
+    className:"flex p-4 items-end",
+    iconUrl:image1,
+    favorite:true,
+    isDescription:false,
+  }
+}

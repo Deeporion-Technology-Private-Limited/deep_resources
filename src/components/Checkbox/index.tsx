@@ -7,7 +7,6 @@ const inputStyles = cva(
   [
     "border",
     "rounded-lg",
-    "cursor-pointer",
   ],
   {
     variants: {
@@ -36,6 +35,7 @@ type InputProps = Omit<ComponentProps<"input">, "size"> & VariantProps<typeof in
   labelClassname?: string;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   labelPosition?: "before" | "after";
+  value: string;
 };
 
 export const Checkbox = forwardRef<HTMLInputElement, InputProps>(
@@ -47,6 +47,7 @@ export const Checkbox = forwardRef<HTMLInputElement, InputProps>(
     labelClassname,
     label,
     checked,
+    value,
     type = "checkbox",
     onChange,
     labelPosition = "after",
@@ -73,9 +74,11 @@ export const Checkbox = forwardRef<HTMLInputElement, InputProps>(
     const inputElement = (
         <input
           ref={ref}
+          id={value}
           type={type}
           disabled={disabled}
           checked={isChecked}
+          value={value}
           onChange={handleChange}
           className={cn(inputStyles({ variant, size, className }))}
           {...props}
@@ -83,7 +86,7 @@ export const Checkbox = forwardRef<HTMLInputElement, InputProps>(
     );
 
     const labelElement = label && (
-      <label htmlFor={props.id} className={labelClassname}>
+      <label htmlFor={value} className={`cursor-pointer ${labelClassname}`}>
         {label}
       </label>
     );

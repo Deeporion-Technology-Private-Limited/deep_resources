@@ -91,13 +91,13 @@ const SortingCard = forwardRef<HTMLDivElement, SortingProps>(
                         </Box>
 
                     </Box>
-                    {showDropdown && <Box className="flex flex-col w-[16rem] px-[16px] py-[20px] rounded-lg bg-slate-100 absolute mt-[35px]">
+                    {showDropdown && <Box className="flex flex-col w-[16rem] px-5 py-4 rounded-lg bg-white shadow absolute mt-[35px]">
                         {optionsArray.map((label) =>
                             <Checkbox
-                                onChange={(e) => onChange(e)}
+                                onChange={onChange}
                                 type="checkbox" label={label} labelPosition="before" value={label} aria-label={label}
-                                className="text-zinc-800 text-base font-normal font-['Poppins']" />)}
-                        <Box className="flex w-full h-full pt-[10px] border-t-2 px-2 gap-2">
+                                labelClassname="text-zinc-800 text-base font-normal font-['Poppins']" />)}
+                        <Box className="flex w-full h-full pt-5 border-t-2 px-2 gap-2 ">
                             <Button
                                 className=" h-fit bg-transparent text-[#3F271E]"
                             >

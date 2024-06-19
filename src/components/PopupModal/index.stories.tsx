@@ -3,7 +3,7 @@ import { Modal } from ".";
 import { Box, Checkbox, Headings, Input, Text } from "..";
 import { InputType } from "@/components/Input/type";
 import { InputType as Checkboxinput } from "@/components/Checkbox/CheckboxTypes";
-import ReviewCard from "../Cards/ReviewCard/ReviewCard";
+import ReviewCard from "../Cards/ReviewCard"
 import { LoginForm } from "../../examples/LoginForm/LoginForm";
 
 const meta = {
@@ -77,7 +77,7 @@ export const ModalInputs: Story = {
           >
             Name :
           </label>
-          <Input id="input1" placeholder="Input 1" type={InputType.Text} quantity={0} />
+          <Input id="input1" placeholder="Input 1" type={InputType.Text}  />
         </div>
         <div className="flex flex-col mb-4">
           <label
@@ -86,7 +86,7 @@ export const ModalInputs: Story = {
           >
             Email :
           </label>
-          <Input id="input1" placeholder="Input 1" type={InputType.Text} quantity={0} />
+          <Input id="input1" placeholder="Input 1" type={InputType.Text}  />
         </div>
       </>
     ),
@@ -139,8 +139,7 @@ export const ReviewModal: Story = {
           imageSrc={""}
           rating={4}
           className="shadow-none"
-          StarRating
-        />
+          StarRating reviewerName={""}        />
       </>
     ),
   },

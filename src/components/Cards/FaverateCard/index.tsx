@@ -21,6 +21,7 @@ type CardProps = ComponentProps<typeof Box> &
     imageStyle?: string;
     iconUrl?: string;
     isDescription?: boolean;
+    onIconClick?: () => void;
     isChange?: () => void;
   };
 
@@ -42,8 +43,9 @@ const FaverateCard = forwardRef<HTMLDivElement, CardProps>(
       imageStyle = "w-full",
       children,
       iconUrl,
-      isDescription = true,
+      isDescription=true,
       isChange,
+      onIconClick=()=> {}
     },
     ref
   ) => {
@@ -73,7 +75,7 @@ const FaverateCard = forwardRef<HTMLDivElement, CardProps>(
                 }}
               >
                 {iconUrl ? (
-                  <img src={iconUrl} className="w" />
+                  <img src={iconUrl} className="w"  onClick={() => onIconClick()} />
                 ) : (
                   <svg
                     className="w-6 h-6 fill-current border-b"

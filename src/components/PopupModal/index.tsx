@@ -80,7 +80,7 @@ export const Modal = forwardRef<ModalProps, ModalPropss>(
             onClick={toggleMenu}
           >
             <div
-              className="bg-white p-8 rounded rounded-br-3xl shadow-md min-w-max md:max-w-7xl w-6/12 flex flex-col"
+              className="bg-white mt-4 p-8 rounded overflow-auto my-auto  rounded-br-3xl shadow-md min-w-max md:max-w-7xl w-6/12 flex flex-col"
               onClick={(e) => e.stopPropagation()}
             >
              <Box className="flex justify-between">

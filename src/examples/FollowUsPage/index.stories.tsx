@@ -1,9 +1,9 @@
 import { Meta, StoryObj } from "@storybook/react";
-import { Sizechartmodel } from "./";
+import { FollowPage } from "./";
 
-const meta: Meta<typeof Sizechartmodel> = {
-    title: "Examples/Sizechartmodel",
-    component: Sizechartmodel,
+const meta: Meta<typeof FollowPage> = {
+    title: "Examples/FollowUsPage",
+    component: FollowPage,
     parameters: {
         layout: "centered",
     }

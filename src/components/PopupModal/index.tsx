@@ -58,8 +58,8 @@ export const Modal = forwardRef<ModalProps, ModalPropss>(
       setIsOpen(!isOpen)
     };
     useEffect(()=>{
-      toggleMenu()
-    },[])
+      setIsOpen(openModal)
+    },[openModal])
     return (
       <div>{
         modalbutton && 
@@ -76,7 +76,7 @@ export const Modal = forwardRef<ModalProps, ModalPropss>(
         
         {(isOpen) && (
           <div
-            className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-40 py-4 overflow-y-auto"
+            className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-40 overflow-y-auto z-[9999]"
             onClick={toggleMenu}
           >
             <div
@@ -85,9 +85,9 @@ export const Modal = forwardRef<ModalProps, ModalPropss>(
             >
              <Box className="flex justify-between">
              {header}
-              <div  onClick={toggleMenu}>
+              {/* <div  onClick={toggleMenu}>
               <CloseIcon /> 
-              </div>
+              </div> */}
              </Box>
              
               {children}

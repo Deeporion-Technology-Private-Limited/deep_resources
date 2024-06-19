@@ -26,10 +26,10 @@ const starStyles = cva(
 
 type ReviewCardProps = ComponentProps<"div"> &
   VariantProps<typeof reviewCardStyles> & {
-    imageSrc: string;
-    reviewerName: string;
+    imageSrc?: string;
+    reviewerName?: string;
     reviewText?: string;
-    rating: number;
+    rating?: number;
     avatarImage?: string;
     StarRating?: boolean;
     image?: boolean;

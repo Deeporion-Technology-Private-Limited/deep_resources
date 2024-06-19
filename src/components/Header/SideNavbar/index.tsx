@@ -1,6 +1,6 @@
 import { cn } from "@/utils";
 import { VariantProps, cva } from "class-variance-authority";
-import { ComponentProps, forwardRef } from "react";
+import { ComponentProps, forwardRef, useState } from "react";
 import person from "../navbarIcons/person.svg";
 import {
   Logo,
@@ -47,6 +47,8 @@ type NavItems = {
   menus: string;
   menuIcon?: string;
   menuIconComponent?: React.ReactNode;
+  path?: string;
+  submenu?: NavItems[];
 };
 
 type profile = {
@@ -87,6 +89,30 @@ export const SideNavbar = forwardRef<HTMLDivElement, LogoImageProps>(
     },
     ref
   ) => {
+    const [showSubMenuNavItem, setShowSubMenuNavItem] = useState<NavItems[]>([]);
+
+    const handleClick = (item: NavItems) => {
+      const close = handleFind(item)
+      if (close) {
+        const closeList = showSubMenuNavItem.filter(
+          (sub) => sub.menus !== item.menus
+        );
+        setShowSubMenuNavItem(closeList);
+        return;
+      }
+      if (item.path) {
+        window.location.href = item.path;
+      } else if (item.submenu && item.submenu.length > 0) {
+        setShowSubMenuNavItem([...showSubMenuNavItem, item]);
+      } else {
+        alert("there is nothing we can do");
+      }
+    };
+
+    const handleFind = (item: NavItems) => {
+      return showSubMenuNavItem.find(val => val.menus === item.menus)
+    }
+
     const renderProfileSection = () => {
       if (!isLogin) {
         return (
@@ -126,6 +152,31 @@ export const SideNavbar = forwardRef<HTMLDivElement, LogoImageProps>(
           </>
         );
       }
+    };
+
+    const renderSubMenu = (submenu: NavItems[]) => {
+      return (
+        <Box className="pl-4">
+          {submenu &&
+            submenu?.map((item) => (
+              <Box
+                className="w-full flex items-center justify-center flex-col"
+                key={item.menus}
+              >
+                <MenuItem
+                  leftIcon={item.menuIconComponent}
+                  size={MenuItemSize.Medium}
+                  label={item.menus}
+                  className="shadow-none w-full pl-[10px]"
+                  onClick={() => handleClick(item)}
+                />
+                {handleFind(item)  &&
+                  item.submenu &&
+                  renderSubMenu(item.submenu)}
+              </Box>
+            ))}
+        </Box>
+      );
     };
 
     return (
@@ -176,13 +227,20 @@ export const SideNavbar = forwardRef<HTMLDivElement, LogoImageProps>(
               <Box>
                 {navItem &&
                   navItem?.map((item) => (
-                    <Box className="w-full flex items-center justify-center">
+                    <Box
+                      className="w-full flex items-center justify-center flex-col"
+                      key={item.menus}
+                    >
                       <MenuItem
                         leftIcon={item.menuIconComponent}
                         size={MenuItemSize.Medium}
                         label={item.menus}
                         className="shadow-none w-full pl-[10px]"
+                        onClick={() => handleClick(item)}
                       />
+                      {handleFind(item) &&
+                        item.submenu &&
+                        renderSubMenu(item.submenu)}
                     </Box>
                   ))}
               </Box>

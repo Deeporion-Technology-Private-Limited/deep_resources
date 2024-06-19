@@ -14,7 +14,7 @@ const coustomizeAccordioStyle = cva(
     "flex",
     "justify-between",
     "items-center",
-    "w-full",
+    "w-[400px]",
   ],
   {
     variants: {
@@ -54,11 +54,11 @@ export const CoustomizeAccordion = forwardRef<HTMLDivElement, CoustomizeAccordio
           ref={ref}
           className={cn(coustomizeAccordioStyle({ variant, className }))}
           {...props}
-          onClick={handleClick}
+          
         >
           <div className="flex items-center justify-between w-full">
             <div>{children}</div>
-            <div className={`duration-300 transform ${handleButton && "origin-center rotate-180"}`}>
+            <div className={`duration-300 transform cursor-pointer rotate-180 hover:shadow ${handleButton && "origin-center rotate-[none]"}`} onClick={handleClick}>
               {Icon}
             </div>
           </div>
@@ -67,7 +67,7 @@ export const CoustomizeAccordion = forwardRef<HTMLDivElement, CoustomizeAccordio
         {handleButton && (
           <div className={cn("mt-1 w-full border bg-white", childClassName)}>
               <div className="px-2 py-1">
-                {content}
+                {content.map((item:any)=> <div>{item}</div>)}
               </div>
           </div>
         )}

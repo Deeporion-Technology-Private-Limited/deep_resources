@@ -1,22 +1,29 @@
 import { cn } from "@/utils";
 import { cva, VariantProps } from "class-variance-authority";
 import { ComponentProps, forwardRef } from "react";
-import { Box, Text } from "@/components";
+import { Box, Button, Text } from "@/components";
 import { Topnavbar } from "@/components/Header/TopNavbar";
 import { NavbarDirection } from "@/components/Header/type";
 import Carousel from "@/components/CarouselSlider";
 import FaverateCard from "@/components/Cards/FaverateCard";
-import { CardData } from "./data";
+import { CardData, CategoryItem, ReviewData } from "./data";
+import AutoCarousel from "@/components/InfiniteSlider";
+import Influencive from "../../images/Influencive.svg"
+import Dailyhunt from "../../images/Dailyhunt.svg"
+import Deccan from "../../images/Deccan.svg"
+import ETimes from "../../images/ETimes.svg"
+import Ent from "../../images/Ent.svg"
+import Banner from "@/components/Cards/Banners";
+import BannerImages from "../../images/BannerImages.svg"
+import Banner1 from "../../images/Banner1.svg"
+import ReviewCard from "@/components/Cards/ReviewCard";
+import { ButtonSize, ButtonVariant } from "@/components/Button/type";
+
 
 const dashboardStyles = cva(
   [
     "w-full",
-  ],
-  {
-    variants: {
-
-    },
-  }
+  ]
 );
 
 type DashboardProps = ComponentProps<"div"> & VariantProps<typeof dashboardStyles> & {
@@ -79,12 +86,12 @@ export const Dashboard = forwardRef<HTMLDivElement, DashboardProps>(
         </Box>
         <Box className="pt-[1.25rem]">
           <Carousel
-            className="max-w-7xl"
+            className="max-w-[90.125rem]"
             items={[
               {
                 button: {
                   label: 'Learn More',
-                  onClick: () => { }
+                  onClick: () => alert('Learn More!'),
                 },
                 heading: 'First Slide Heading',
                 headingClassName: 'text-3xl font-bold text-yellow-300',
@@ -95,7 +102,7 @@ export const Dashboard = forwardRef<HTMLDivElement, DashboardProps>(
               {
                 button: {
                   label: 'Shop Now',
-                  onClick: () => { }
+                  onClick: () => alert('Shop Now!'),
                 },
                 heading: 'Second Slide Heading',
                 headingClassName: 'text-3xl font-bold text-green-300',
@@ -106,7 +113,7 @@ export const Dashboard = forwardRef<HTMLDivElement, DashboardProps>(
               {
                 button: {
                   label: 'Contact Us',
-                  onClick: () => { }
+                  onClick: () => alert('Contact Us!'),
                 },
                 heading: 'Third Slide Heading',
                 headingClassName: 'text-3xl font-bold text-blue-300',
@@ -117,21 +124,23 @@ export const Dashboard = forwardRef<HTMLDivElement, DashboardProps>(
             ]}
           />
         </Box>
-        <Box className="pt-[5rem]">
-          <Box>
-            <Text className="text-xl font-bold">
-              New Arrivals
-            </Text>
-          </Box>
-          <Box className="pt-[1.25rem] flex justify-between">
-            {CardData.map((data) =>
-              <FaverateCard
-                imageSrc={data.imageSrc}
-                description={data.description}
-                brand={data.brand}
-                isnew={data.isnew}
-              />
-            )}
+        <Box className="w-full flex justify-center ">
+          <Box className="pt-[5rem]">
+            <Box>
+              <Text className="text-xl font-bold">
+                New Arrivals
+              </Text>
+            </Box>
+            <Box className="w-[82.5rem] pt-[1.25rem] flex justify-between">
+              {CardData.map((data) =>
+                <FaverateCard
+                  imageSrc={data.imageSrc}
+                  description={data.description}
+                  brand={data.brand}
+                  isnew={data.isnew}
+                />
+              )}
+            </Box>
           </Box>
         </Box>
         <Box className="w-full flex justify-center">
@@ -143,6 +152,111 @@ export const Dashboard = forwardRef<HTMLDivElement, DashboardProps>(
               Brands where out product has been featured
             </Text>
           </Box>
+        </Box>
+        <Box className="w-full flex justify-center">
+          <Box className="max-w-[82.5rem] mt-[1.125rem]">
+            <AutoCarousel
+              items=
+              {[
+                { id: 1, name: 'Influencive', logoUrl: Influencive },
+                { id: 2, name: 'Dailyhunt', logoUrl: Dailyhunt },
+                { id: 3, name: 'Deccan Chronicle', logoUrl: Deccan },
+                { id: 4, name: 'ETimes', logoUrl: ETimes },
+                { id: 5, name: 'Ent', logoUrl: Ent },
+              ]
+              }
+            />
+          </Box>
+        </Box>
+        <Box className="mt-[5rem] flex justify-center">
+          <Banner
+            boxStyle="h-[50%] p-5 flex w-[80%] flex-col text-white gap-4 justify-center items-center bg-[#3E2E28B2]"
+            buttonClass="flex justify-center w-max text-2xl"
+            buttonText="Explore more"
+            className=" h-[25rem] w-[82.5rem]"
+            description="Sleek, Modern and Classic"
+            descriptionClass="flex justify-center w-max font-normal text-2xl"
+            iconUrl="/src/components/Cards/icons/image.svg"
+            imageSrc={BannerImages}
+            title="Exclusive Kids Wear Collection"
+            titleClass="flex justify-center font-extrabold leading-10 text-3xl"
+          />
+        </Box>
+        <Box className="w-full flex justify-center">
+          <Box className="mt-[5.4rem] w-[33.81rem] flex flex-col gap-[6px] divide-y-[3px] divide-[#BFA59A]">
+            <Text className="text-3xl font-bold text-center">
+              Our top Categories
+            </Text>
+            <Text className="text-base font-normal py-[6px] text-center">
+              Explore our exclusive top categories
+            </Text>
+          </Box>
+        </Box>
+        <Box className="w-full flex justify-center pt-[1.25rem] gap-[15px]">
+          <Banner
+            imageSrc={Banner1}
+            boxStyle="h-full w-full flex flex-col justify-end text-white gap-2 p-10"
+            titleClass=" leading-10 text-2xl w-max flex"
+            descriptionClass="flex justify-center w-max font-semibold text-3xl "
+            buttonClass="flex justify-center w-max px-[10px] py-[16px] text-xl capitalize"
+            className="w-[37.75rem] h-[37.1875rem]"
+            buttonText="Explore more"
+            title="HOME COLLLECTION"
+            description="Living & Decor"
+          />
+          <Box className="max-w-[82.5rem] grid grid-cols-2 gap-[15px]">
+            {CategoryItem.map((data) =>
+              <Banner
+                imageSrc={data.imageSrc}
+                boxStyle={data.boxStyle}
+                titleClass={data.titleClass}
+                descriptionClass={data.descriptionClass}
+                className={data.className}
+                buttonClass={data.buttonClass}
+                buttonText={data.buttonText}
+                title={data.title}
+                description={data.description}
+              />
+            )}
+          </Box>
+        </Box>
+        <Box className="w-full flex justify-center">
+          <Box className="mt-[5.4rem] w-[33.81rem] flex flex-col gap-[6px] divide-y-[3px] divide-[#BFA59A]">
+            <Text className="text-3xl font-bold text-center">
+              Client Reviews
+            </Text>
+            <Text className="text-base font-normal py-[6px] text-center">
+              What my Clients say about me
+            </Text>
+          </Box>
+        </Box>
+        <Box className="w-full flex justify-center ">
+          <Box className="w-[82.5rem] pt-[1.25rem] flex gap-[44px]">
+            {ReviewData.map((data) =>
+              <ReviewCard
+                StarRating={data.StarRating}
+                avatar={data.avatar}
+                avatarImage={data.avatarImage}
+                imageStyle={data.imageStyle}
+                rating={data.rating}
+                reviewText={data.reviewText}
+                reviewerName={data.reviewerName}
+                starStyle={data.starStyle}
+                textStyle={data.textStyle}
+                className={data.className}
+              />
+            )}
+          </Box>
+        </Box>
+        <Box className="flex justify-center">
+          <Button 
+            variant={ButtonVariant.DefaultPrimary}
+            hover={true}
+            className="w-fit mt-10"
+            onClick={() => alert("View more!")}
+            >
+            View more
+          </Button>
         </Box>
       </Box>
     );

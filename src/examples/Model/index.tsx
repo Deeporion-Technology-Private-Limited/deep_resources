@@ -14,6 +14,7 @@ export const Sizechartmodel = () => {
   const [selectedTab, setSelectedTab] = useState("sizeChart"); 
 
   return (
+    <Box className="border border-pink-800 hhh">
     <Modal
       button01={false}
       button02={false}
@@ -142,5 +143,6 @@ export const Sizechartmodel = () => {
         </Button>
       </div>
     </Modal>
+    </Box>
   );
 };

@@ -32,7 +32,29 @@ const profileDetail = {
 };
 
 const navItemDetail = [
-  { menuIconComponent: <Favourite />, menuIcon: fav, menus: "Favourite" },
+  {
+    menuIconComponent: <Favourite />,
+    menuIcon: fav,
+    menus: "Favourite",
+    submenu: [
+      {
+        menus: "fav1",
+      },
+      { menus: "fav2" },
+      {
+        menus: "fav3",
+        submenu: [
+          {
+            menus: "fav3 to 1",
+          },
+          { menus: "fav3 to 2" },
+          {
+            menus: "fav3 to 3",
+          },
+        ],
+      },
+    ],
+  },
   {
     menuIconComponent: <Notification />,
     menuIcon: notification,

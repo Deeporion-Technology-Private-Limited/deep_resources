@@ -13,4 +13,7 @@ export enum SignUp {
   AlreadyAccount = "Already have an account?",
   Login = "Log in",
   NewShopping = "Your new Shopping experience.",
+  Cancel = "Cancel",
+  AgreeBtn = "Agree",
+  TermsDetail = "Terms and conditions outline what users can and cannot do with your website, products, and services. They lay out the rules to protect you in case of misuse and enable you to take action if it becomes necessary. It’s also referred to by other names such as terms of service (ToS) and terms of use (ToU). Even though they have different names, in fact – there is no difference. In order to use your website, products, or services, your customers usually must agree to abide by your terms and conditions first.",
 }

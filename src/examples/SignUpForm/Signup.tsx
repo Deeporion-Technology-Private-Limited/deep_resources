@@ -1,21 +1,21 @@
-import {
-  Box,
-  Button,
-  Checkbox,
-  Input,
-  Stack,
-  Text,
-} from "@/components";
+import { Box, Button, Checkbox, Input, Modal, Stack, Text } from "@/components";
 import { InputType, Placeholder } from "@/components/Input/type";
 import { Alignment, TextSize, TextWeight } from "@/utils/style";
-import React from "react";
+import React, { useState } from "react";
 import { ButtonVariant } from "@/components/Button/type";
 import background from "../../images/backimage.png";
 import { SignUp } from "./type";
 import CloseEye from "@/components/Input/Icons/CloseEye";
 import OpenEye from "@/components/Input/Icons/OpenEye";
+import CloseIcon from "@/components/PopupModal/Icons/CloseIcon";
 
 const Signup = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleToggle = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     <Box className=" w-[100vw] flex items-center justify-between">
       <Box className="w-[50vw] flex justify-center flex-col items-center">
@@ -103,9 +103,63 @@ const Signup = () => {
                     {SignUp.PrivacyPolicy}
                   </Text>{" "}
                   <Text>{SignUp.And}</Text>{" "}
-                  <Text weight={TextWeight.Semibold} className="text-[#BFA59A]">
+                  <Text
+                    weight={TextWeight.Semibold}
+                    className="text-[#BFA59A]"
+                    onClick={handleToggle}
+                  >
                     {SignUp.Terms}
                   </Text>
+                  <Modal
+                    onClose={handleToggle}
+                    header={undefined}
+                    button02={false}
+                    button01={false}
+                    modalbutton={false}
+                    openModal={isOpen}
+                  >
+                    <Box>
+                      <Box className="flex justify-center items-center pb-4">
+                        <Text
+                          weight={TextWeight.Bold}
+                          className="text-[#26282B] 
+                          "
+                        >
+                          {SignUp.Terms}
+                        </Text>
+                        <Button
+                          className="bg-none w-fit"
+                          onClick={() => setIsOpen(false)}
+                        >
+                          <CloseIcon />
+                        </Button>
+                      </Box>
+                      <Box className="border-t border-[#E8EBED]">
+                        <Text className="w-[32.3rem] block pb-9 pt-5">
+                          {SignUp.TermsDetail}
+                        </Text>
+                      </Box>
+
+                      <Box className="pb-9 border-b border-[#E8EBED]">
+                        <Box className="flex gap-2">
+                          <Checkbox />
+                          <Text>
+                            I have read and agree to these Terms and Conditions
+                          </Text>
+                        </Box>
+                      </Box>
+
+                      <Box
+                        className="flex justify-end
+                      gap-4 pt-3"
+                      >
+                        <Button className="w-fit bg-[#E2E8F0] text-[#72787F]">
+                          {SignUp.Cancel}
+                        </Button>
+                        <Button className="w-fit">{SignUp.AgreeBtn}</Button>
+                      </Box>
+                    </Box>
+                  </Modal>
                 </Text>
               </Box>
 

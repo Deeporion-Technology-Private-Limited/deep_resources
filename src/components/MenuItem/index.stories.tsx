@@ -95,6 +95,15 @@ export const WithBorder = generateMenuItemStory({
     onClick: () => alert("Border item clicked"),
 });
 
+export const WithLeftAndRightIcon = generateMenuItemStory({
+    variant: MenuItemVariant.LeftIcon,
+    label: "Item 6",
+    leftIcon: <RightIcon />,
+    rightIcon: <LeftIcon />,
+    size: MenuItemSize.Medium,
+    onClick: () => alert("Left icon item clicked"),
+});
+
 export const Submenu = generateMenuItemStory({
     variant: MenuItemVariant.Default,
     label: "Menu Items",

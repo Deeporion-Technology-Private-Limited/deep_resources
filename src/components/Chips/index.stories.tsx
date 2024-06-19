@@ -21,8 +21,7 @@ export const Default: Story = {
     children:chipsChildren.chipsChildren,
     addRightIcon: false,
     addLeftIcon: false,
-    className:"w-[200px] h-[100px] ",
-    handleClick : ()=>{ alert("Click on default" )}
+    handleClick : ()=>{ alert("Click on default" )},
   },
 };
 
@@ -33,7 +32,6 @@ export const Not_Active: Story = {
     addRightIcon: false,
     addLeftIcon: false,
     handleClick : ()=>{ alert("Click on not Active" )},
-    size:'md'
   },
 };
 

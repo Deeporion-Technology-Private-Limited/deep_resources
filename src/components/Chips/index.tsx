@@ -1,22 +1,17 @@
 import { cn } from "@/utils";
 import { VariantProps, cva } from "class-variance-authority";
-import { ComponentProps, ReactNode, forwardRef } from "react";
+import { ComponentProps, forwardRef } from "react";
 import { CloseBlack } from "./ChipsImage/icon";
-import { CloseBlue } from "./ChipsImage/icon";
 import { CloseWhite } from "./ChipsImage/icon";
 import { ChipsTypes, ChipsSize, chipscolour } from "./chipsTypes";
 
 const chipsStyle = cva(
   [
-    "w-full",
-    "focus:outline-none",
-    "min-w-[80px]",
-    "min-h-[20px]",
-    "disabled:cursor-not-allowed",
+    "w-fit",
+    "h-fit",
     "flex",
-    "justify-center",
-    "font-light",
     "items-center",
+    "gap-3",
   ],
   {
     variants: {
@@ -39,7 +34,7 @@ const chipsStyle = cva(
     compoundVariants: [
       {
         variant: ChipsTypes.default,
-        className: "bg-[#D0E3FF] text-[#334EAC] gap-1 ",
+        className:"bg-[#EBE3E0] text-[#3F271E]"
       },
       {
         variant: ChipsTypes.not_active,
@@ -61,8 +56,8 @@ const chipsStyle = cva(
 type ChipsProps = ComponentProps<"div"> & VariantProps<typeof chipsStyle> & {
   addRightIcon?: boolean;
   addLeftIcon?: boolean; 
-  variant?: ChipsTypes;
-  children?: ReactNode;
+  variant: ChipsTypes;
+  children?: string;
   handleClick : ()=> void
 };
 
@@ -74,11 +69,11 @@ export const Chips = forwardRef<HTMLDivElement, ChipsProps>(
 
     const iconChange =
     variant === ChipsTypes.default ? (
-      <CloseBlue className={className} handleClicked={handleClick} />
+      <CloseBlack handleClicked={handleClick} />
     ) : variant === ChipsTypes.not_active ? (
-      <CloseBlack className={className} handleClicked={handleClick} />
+      <CloseBlack handleClicked={handleClick} />
     ) : (
-      <CloseWhite className={className} handleClicked={handleClick} />
+      <CloseWhite handleClicked={handleClick} />
     )
 
     return (
@@ -87,9 +82,9 @@ export const Chips = forwardRef<HTMLDivElement, ChipsProps>(
         className={cn(chipsStyle({ variant, size, colorscheme, className }))}
         {...props}
       >
-        {addLeftIcon && iconChange}
-        <span>{children}</span>
-        {addRightIcon && iconChange}
+        {addLeftIcon && <div className="mr-auto cursor-pointer">{iconChange}</div>}
+        <div >{children}</div>
+       {addRightIcon &&<div className="ml-auto cursor-pointer">{iconChange}</div>}
       </div>
     );
   }

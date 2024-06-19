@@ -39,7 +39,7 @@ type AccordionProps = ComponentProps<"div"> & VariantProps<typeof accordionStyle
   childClassName?: string;
 };
 
-export const Accordion = forwardRef<HTMLDivElement, AccordionProps>(
+const Accordion = forwardRef<HTMLDivElement, AccordionProps>(
   ({ variant = AccordionTypes.Arrow, content, className, Icon, children, childClassName, ...props }, ref) => {
 
     const [handleButton, setHandleButton] = useState(false);
@@ -47,27 +47,29 @@ export const Accordion = forwardRef<HTMLDivElement, AccordionProps>(
     const handleClick = () => setHandleButton(!handleButton);
 
     return (
-      <div className={cn(accordionStyle({ variant, className }))}>
+      <div className="h-[200px]">
+        <div className={cn(accordionStyle({ variant, className }))}>
         <div
           ref={ref}
           className=" border h-fit w-full px-2 py-2"
           {...props}
-          onClick={handleClick}
+         
         >
           <div className="flex items-center justify-between w-full">
-            <div>{children}</div>
-            <div className={`duration-300 transform ${handleButton && "origin-center rotate-180"}`}>
+            <div >{children}</div>
+            <div className={`duration-300 transform rotate-180 cursor-pointer hover:shadow  ${handleButton && "origin-center rotate-[none] "} `}  onClick={handleClick}>
               {Icon}
             </div>
           </div>
         </div>
         {handleButton && (
-          <div className={cn(" w-full top-10  left-0 border bg-white", childClassName)}>
-            <div className="px-2 py-1">{content}</div>
+          <div className={cn(` w-full ${handleButton ? "h-auto ": "h-0"}  left-0 border  bg-white`, childClassName)}>
+            <div className="px-2 py-1 ">{content}</div>
           </div>
         )}
       </div>
 
+      </div>
     );
   }
 );

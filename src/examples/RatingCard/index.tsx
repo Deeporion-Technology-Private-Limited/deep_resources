@@ -34,8 +34,9 @@ export const Ratingcard = ({ objData }: RatingcardProp) => {
                 <div>
                     <div className="flex flex-col md:flex-row w-full py-5 px-5 gap-7 h-fit">
                         <FaverateCard
-                            className="w-full md:w-1/5 h-[23.7vh] rounded-md"
+                            className="w-full md:w-1/5 h-fit rounded-md"
                             imageSrc={objData.imageUrl}
+                            isDescription={false}
                         />
                         <div className="w-full md:w-fit h-[28vh] font-bold py-2 text-3xl">
                             <h1 className="text-lg md:text-3xl">{objData.cardHeading}</h1>
@@ -71,7 +72,7 @@ export const Ratingcard = ({ objData }: RatingcardProp) => {
                             ))}
                         </Box>
                     </div>
-                    <div className="w-full">
+                    <div>
                         {[5, 4, 3, 2, 1].map((rating, index) => (
                             <div className="flex flex-col md:flex-row gap-5 px-4" key={index}>
                                 <div className="flex items-center justify-center gap-1">
@@ -82,7 +83,7 @@ export const Ratingcard = ({ objData }: RatingcardProp) => {
                                         progress={objData[`count${6 - rating}`]}
                                         variant={variants.linear}
                                         bgColor="#3F271E"
-                                        className="w-full md:w-[600px] h-2 rounded-full"
+                                        className="w-full  h-2 rounded-full"
                                         textColor="blue"
                                         middleText={false}
                                     />

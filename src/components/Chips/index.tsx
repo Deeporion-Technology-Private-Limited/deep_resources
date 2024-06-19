@@ -2,7 +2,6 @@ import { cn } from "@/utils";
 import { VariantProps, cva } from "class-variance-authority";
 import { ComponentProps, forwardRef } from "react";
 import { CloseBlack } from "./ChipsImage/icon";
-import { CloseBlue } from "./ChipsImage/icon";
 import { CloseWhite } from "./ChipsImage/icon";
 import { ChipsTypes, ChipsSize, chipscolour } from "./chipsTypes";
 
@@ -12,7 +11,7 @@ const chipsStyle = cva(
     "h-fit",
     "flex",
     "items-center",
-    "gap-3"
+    "gap-3",
   ],
   {
     variants: {
@@ -83,9 +82,9 @@ export const Chips = forwardRef<HTMLDivElement, ChipsProps>(
         className={cn(chipsStyle({ variant, size, colorscheme, className }))}
         {...props}
       >
-        {addLeftIcon && <div className="mr-auto">{iconChange}</div>}
+        {addLeftIcon && <div className="mr-auto cursor-pointer">{iconChange}</div>}
         <div >{children}</div>
-       {addRightIcon &&<div className="ml-auto">{iconChange}</div>}
+       {addRightIcon &&<div className="ml-auto cursor-pointer">{iconChange}</div>}
       </div>
     );
   }

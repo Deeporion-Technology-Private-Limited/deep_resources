@@ -1,4 +1,4 @@
-import React, { useState, forwardRef, ComponentProps} from "react";
+import React, { useState, forwardRef, ComponentProps } from "react";
 import star from "../icons/start.svg";
 import { Button } from "@/components/Button/DefaultButton";
 import { Box } from "@/components/Layout";
@@ -27,9 +27,10 @@ type CardProps = ComponentProps<typeof Box> &
     buttonText?: string;
     handleNavigate?: () => void;
     isButton?: boolean;
+    descriptionStyle?: string;
   };
 
-const cardStyles = cva("max-w-sm rounded overflow-hidden shadow-lg");
+const cardStyles = cva("max-w-sm rounded overflow-hidden shadow-xl");
 
 const FaverateCard = forwardRef<HTMLDivElement, CardProps>(
   (
@@ -47,13 +48,14 @@ const FaverateCard = forwardRef<HTMLDivElement, CardProps>(
       imageStyle = "w-full cursor-pointer",
       children,
       iconUrl,
-      isDescription=true,
+      isDescription = true,
       isChange,
-      onIconClick=()=> {},
+      onIconClick = () => {},
       handleCart,
       buttonText = " Move to cart",
       handleNavigate,
       isButton = false,
+      descriptionStyle = "flex flex-col gap-2",
     },
     ref
   ) => {
@@ -88,7 +90,11 @@ const FaverateCard = forwardRef<HTMLDivElement, CardProps>(
                 }}
               >
                 {iconUrl ? (
-                  <img src={iconUrl} className="w"  onClick={() => onIconClick()} />
+                  <img
+                    src={iconUrl}
+                    className="w"
+                    onClick={() => onIconClick()}
+                  />
                 ) : (
                   <svg
                     className="w-6 h-6 fill-current border-b"
@@ -122,7 +128,7 @@ const FaverateCard = forwardRef<HTMLDivElement, CardProps>(
           )}
         </Box>
         {isDescription && (
-          <Box className="px-6 py-4 flex flex-col gap-2">
+          <Box className={`py-4 ${descriptionStyle}`}>
             {isButton && (
               <Button
                 className="bg-[#EBE3E0] text-black p-3"
@@ -131,16 +137,21 @@ const FaverateCard = forwardRef<HTMLDivElement, CardProps>(
                 {buttonText}
               </Button>
             )}
-            {}
-            <Text as={"p"} className="font-bold text-xl mb-2">
-              {brand}
-            </Text>
-            <Text as={"p"} className="text-gray-700 text-base">
-              {description}
-            </Text>
-            <Text as={"p"} className="text-gray-900 font-bold">
-              {price ? "₹  " + price : ""}
-            </Text>
+            {brand && (
+              <Text as={"p"} className="font-bold text-xl mb-2">
+                {brand}
+              </Text>
+            )}
+            {description && (
+              <Text as={"p"} className="text-gray-700 text-base">
+                {description}
+              </Text>
+            )}
+            {price && (
+              <Text as={"p"} className="text-gray-900 font-bold">
+                {price ? "₹  " + price : ""}
+              </Text>
+            )}
             {children}
           </Box>
         )}

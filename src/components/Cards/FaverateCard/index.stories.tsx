@@ -1,7 +1,14 @@
 import { Meta, StoryObj } from "@storybook/react";
 import FaverateCard from ".";
-import image from "@/examples/ShopingCards/images/Web-_Product listing/3897062800_1_1_1 1.png"
-import image1 from "@/components/Cards/icons/image (1).svg"
+import image from "@/examples/ShopingCards/images/Web-_Product listing/3897062800_1_1_1 1.png";
+import image1 from "@/components/Cards/icons/image (1).svg";
+import { Text } from "@/components/Text";
+import { Button } from "@/components/Button/DefaultButton";
+import { ButtonIconPosition, ButtonVariant } from "@/components/Button/type";
+import add from "../icons/new.svg";
+import { Box } from "@/components/Layout";
+import copy from "../icons/copy.svg";
+import additionIcon from "../icons/add.svg"
 
 const meta: Meta<typeof FaverateCard> = {
   title: "Components/Cards/FaverateCard",
@@ -27,7 +34,7 @@ export const Default: Story = {
 
 export const WithFavoriteAndStar: Story = {
   args: {
-    imageSrc:image,
+    imageSrc: image,
     brand: "Mango",
     description: "Black Sleeveless Crepe Dress",
     price: 3950,
@@ -35,6 +42,7 @@ export const WithFavoriteAndStar: Story = {
     starRating: true,
     rating: 4.1,
     reviews: 132,
+    descriptionStyle:"px-6"
   },
 };
 
@@ -49,12 +57,80 @@ export const WithNew: Story = {
 
 export const RowCardWithIcon: Story ={
   args: {
-    imageSrc:image,
-    brand:"mango",
-    description:"Black Sleeveless Crepe Dress",
-    className:"flex p-4 items-end",
-    iconUrl:image1,
-    favorite:true,
-    isDescription:false,
-  }
-}
+    imageSrc: image,
+    brand: "mango",
+    description: "Black Sleeveless Crepe Dress",
+    className: "flex p-4 items-end",
+    iconUrl: image1,
+    favorite: true,
+    isDescription: true,
+    descriptionStyle:"px-6"
+  },
+};
+
+export const TopDealsCard: Story = {
+  args: {
+    imageSrc: image,
+    children: (
+      <>
+        <Box className="p-2 flex flex-col gap-2">
+          <Text as="p" className="font-extrabold text-2xl loading-normal">
+            Upto ₹150
+          </Text>
+          <Box className="flex w-max gap-2">
+            <Text>Code: TRYRAREFTW10</Text>
+            <img src={copy} />
+          </Box>
+          <Text as="p">Expiry: 20 May 2024</Text>
+          <Box className="flex justify-between w-full">
+            <Text className="bg-[#EBE3E0] w-max rounded-3xl p-2"> 5% off</Text>
+            <Button
+              variant={ButtonVariant.DefaultDarkBackground}
+              className="border-none w-max p-0 text-[#7D5D4F]"
+              iconPosition={ButtonIconPosition.Right}
+              iconUrl={add}
+            >
+              View Products
+            </Button>
+          </Box>
+        </Box>
+      </>
+    ),
+    className: "p-5 w-[30rem]",
+    imageStyle: "rounded-lg w-full h-[15rem]",
+  },
+};
+
+export const AddProductCard: Story = {
+  args: {
+    imageSrc: image,
+    children: (
+      <>
+        <Box className="p-2 flex flex-col gap-2">
+          <Text as="p" className="font-extrabold text-2xl loading-normal">
+            Upto ₹150
+          </Text>
+          <Box className="flex w-max gap-2">
+            <Text>Code: TRYRAREFTW10</Text>
+          </Box>
+          <Text as="p">Expiry: 20 May 2024</Text>
+          <Box className="flex justify-between w-full">
+            <Text className="bg-[#EBE3E0] w-max rounded-3xl p-2"> 5% off</Text>
+            <Button
+              variant={ButtonVariant.DefaultDarkBackground}
+              className="border-none w-max p-0 h-7 text-[#7D5D4F]"
+              iconPosition={ButtonIconPosition.Left}
+              iconUrl={additionIcon}
+            >
+              View Products
+            </Button>
+          </Box>
+        </Box>
+      </>
+    ),
+    className: "w-[30rem]",
+    imageStyle: "rounded-lg w-full h-[15rem]",
+    descriptionStyle:"px-2",
+  },
+};
+

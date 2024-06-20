@@ -5,7 +5,7 @@ import { Logo, AnchorList, Anchor, Input, Box, LogoImg, GroupIconButton } from "
 import SearchImage from "@/components/Input/Icons/SearchImage";
 import { IconButton } from "@/components";
 import { NavbarDirection } from "../type";
-import { InputType } from "@/components/Input/type";
+import { InputType, InputVariant } from "@/components/Input/type";
 
 const navBarStyles = cva(
   ["w-full", "border", "h-[76px]", "flex", "justify-center", "items-center"],
@@ -90,6 +90,7 @@ export const Topnavbar = forwardRef<HTMLDivElement, LogoImageProps>(
           <Box className={"gap-[28px] flex"}>
             {isSearch && (
               <Input
+                variant={InputVariant.Standard}
                 type={InputType.SearchIcon}
                 search={<SearchImage />}
                 placeholder="Search here ..."

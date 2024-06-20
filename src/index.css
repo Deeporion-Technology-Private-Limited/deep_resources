@@ -1,3 +1,30 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.show {
+    display: flex; 
+}
+
+.hide {
+    display: none;
+}
+
+@media (max-width: 949px) {
+    .show {
+        display: none;
+    }
+    .hide {
+        display: flex;
+    }
+    
+}
+
+@media (max-width: 899px) and (min-width: 480px) {
+
+}
+
+@media (max-width: 479px) {
+    
+}

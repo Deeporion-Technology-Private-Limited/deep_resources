@@ -129,7 +129,7 @@ const Wishlist = forwardRef<HTMLDivElement, WishlistProps>(
           <Box className="grid lg:grid-cols-4 gap-5 w-full md:grid-cols-2 grid-cols-2 sm:grid-cols-1  shadow-xl pt-5">
             {products.length > 0 && products?.map((item) =>
               <FaverateCard
-              className="px-2"
+                className="px-2"
                 key={item.id}
                 brand={item.brand}
                 isChange={() => handleModal(item.id)}

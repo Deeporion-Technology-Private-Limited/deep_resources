@@ -3,7 +3,7 @@ import { Input } from ".";
 import SearchImage from "./Icons/SearchImage";
 import CloseEye from "./Icons/CloseEye";
 import OpenEye from "./Icons/OpenEye";
-import { InputType, Placeholder } from "../Input/type";
+import { InputType, InputVariant, Placeholder } from "../Input/type";
 
 const meta: Meta<typeof Input> = {
   title: "Components/Inputs/Input",
@@ -102,11 +102,13 @@ export const PrefixInput: Story = {
     type: InputType.Prefix,
     placeholder: Placeholder.Prefix,
     prefix: "$",
+    variant: InputVariant.Filled,
   },
 };
 
 export const OtpInput: Story = {
   args: {
     type: InputType.Otp,
+    variant: InputVariant.Standard,
   },
 };

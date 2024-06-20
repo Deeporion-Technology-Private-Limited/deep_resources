@@ -1,4 +1,4 @@
-import React, { useState, forwardRef, ComponentProps, useEffect } from "react";
+import React, { useState, forwardRef, ComponentProps} from "react";
 import star from "../icons/start.svg";
 import { Button } from "@/components/Button/DefaultButton";
 import { Box } from "@/components/Layout";
@@ -23,6 +23,10 @@ type CardProps = ComponentProps<typeof Box> &
     isDescription?: boolean;
     onIconClick?: () => void;
     isChange?: () => void;
+    handleCart?: () => void;
+    buttonText?: string;
+    handleNavigate?: () => void;
+    isButton?: boolean;
   };
 
 const cardStyles = cva("max-w-sm rounded overflow-hidden shadow-lg");
@@ -40,12 +44,16 @@ const FaverateCard = forwardRef<HTMLDivElement, CardProps>(
       starRating,
       className,
       isnew,
-      imageStyle = "w-full",
+      imageStyle = "w-full cursor-pointer",
       children,
       iconUrl,
       isDescription=true,
       isChange,
-      onIconClick=()=> {}
+      onIconClick=()=> {},
+      handleCart,
+      buttonText = " Move to cart",
+      handleNavigate,
+      isButton = false,
     },
     ref
   ) => {
@@ -57,7 +65,12 @@ const FaverateCard = forwardRef<HTMLDivElement, CardProps>(
     return (
       <Box ref={ref} className={cn(cardStyles(), className)}>
         <Box className="relative">
-          <img className={imageStyle} src={imageSrc} alt="image" />
+          <img
+            className={imageStyle}
+            src={imageSrc}
+            alt="image"
+            onClick={handleNavigate}
+          />
           {favorite && (
             <>
               <Button
@@ -109,7 +122,16 @@ const FaverateCard = forwardRef<HTMLDivElement, CardProps>(
           )}
         </Box>
         {isDescription && (
-          <Box className="px-6 py-4">
+          <Box className="px-6 py-4 flex flex-col gap-2">
+            {isButton && (
+              <Button
+                className="bg-[#EBE3E0] text-black p-3"
+                onClick={handleCart}
+              >
+                {buttonText}
+              </Button>
+            )}
+            {}
             <Text as={"p"} className="font-bold text-xl mb-2">
               {brand}
             </Text>

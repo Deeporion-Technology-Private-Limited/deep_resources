@@ -47,7 +47,7 @@ export function getConditionalStyles(
   type: string,
   value: any,
   className: string | undefined,
-  variant: InputVariant
+  variant: string
 ): string {
   let styles = className ? `${className} ` : "";
 
@@ -58,21 +58,21 @@ export function getConditionalStyles(
   } else {
     styles += inputStyles();
   }
-
   if (type === InputType.SearchIcon && !value) {
     styles += " pl-10";
   }
-
   if (type === InputType.Prefix) {
     styles += " pl-10";
   }
 
   switch (variant) {
     case InputVariant.Standard:
-      styles += " border-gray-300";
+      styles = styles.replace("border", "").trim();
+      styles += " border-b border-gray-300";
       break;
     case InputVariant.Filled:
-      styles += " bg-gray-100 border-b border-gray-400";
+      styles = styles.replace("border", "").trim();
+      styles += " bg-gray-100 border-b border-gray-300";
       break;
     case InputVariant.Outlined:
       styles += " border border-gray-300";
@@ -82,4 +82,3 @@ export function getConditionalStyles(
   }
   return styles.trim();
 }
-

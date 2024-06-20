@@ -21,6 +21,7 @@ export const Text: Story = {
   args: {
     type: InputType.Text,
     placeholder: Placeholder.Text,
+    variant: InputVariant.Outlined,
   },
 };
 
@@ -30,6 +31,7 @@ export const Password: Story = {
     placeholder: Placeholder.Password,
     eye: <CloseEye />,
     eyeOpen: <OpenEye />,
+    variant: InputVariant.Outlined,
   },
 };
 
@@ -37,6 +39,7 @@ export const Number: Story = {
   args: {
     type: InputType.Number,
     placeholder: Placeholder.Number,
+    variant: InputVariant.Outlined,
   },
 };
 
@@ -44,6 +47,7 @@ export const Numbers: Story = {
   args: {
     type: InputType.Numbers,
     placeholder: Placeholder.Number,
+    variant: InputVariant.Outlined,
   },
 };
 
@@ -51,6 +55,7 @@ export const Date: Story = {
   args: {
     type: InputType.Date,
     placeholder: Placeholder.Date,
+    variant: InputVariant.Outlined,
   },
 };
 
@@ -58,6 +63,7 @@ export const Phone: Story = {
   args: {
     type: InputType.Phones,
     placeholder: Placeholder.Phone,
+    variant: InputVariant.Standard,
   },
 };
 
@@ -65,6 +71,7 @@ export const PhoneNumber: Story = {
   args: {
     type: InputType.Phone,
     placeholder: Placeholder.PhoneNumber,
+    variant: InputVariant.Outlined,
   },
 };
 
@@ -72,6 +79,7 @@ export const SearchInput: Story = {
   args: {
     type: InputType.Search,
     placeholder: Placeholder.Search,
+    variant: InputVariant.Outlined,
   },
 };
 
@@ -80,6 +88,7 @@ export const SearchIcon: Story = {
     type: InputType.SearchIcon,
     search: <SearchImage />,
     placeholder: Placeholder.SearchIcon,
+    variant: InputVariant.Outlined,
   },
 };
 
@@ -87,6 +96,7 @@ export const EmailInput: Story = {
   args: {
     type: InputType.Email,
     placeholder: Placeholder.Email,
+    variant: InputVariant.Standard,
   },
 };
 
@@ -94,6 +104,7 @@ export const SimpleInput: Story = {
   args: {
     type: InputType.Input,
     placeholder: Placeholder.Input,
+    variant: InputVariant.Outlined,
   },
 };
 
@@ -109,6 +120,6 @@ export const PrefixInput: Story = {
 export const OtpInput: Story = {
   args: {
     type: InputType.Otp,
-    variant: InputVariant.Standard,
+    variant: InputVariant.Outlined,
   },
 };

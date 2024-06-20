@@ -56,7 +56,9 @@ type profile = {
   profilePicture?: string;
 };
 
-type LogoImageProps = {
+interface LogoImageProps
+  extends ComponentProps<typeof Box>,
+    VariantProps<typeof navBarStyles> {
   children?: React.ReactNode;
   className?: string;
   isLogin?: boolean;
@@ -68,8 +70,7 @@ type LogoImageProps = {
   profileItem: profile;
   hover: boolean;
   largeSidebar?: boolean;
-} & ComponentProps<typeof Box> &
-  VariantProps<typeof navBarStyles>;
+}
 
 export const SideNavbar = forwardRef<HTMLDivElement, LogoImageProps>(
   (
@@ -89,10 +90,12 @@ export const SideNavbar = forwardRef<HTMLDivElement, LogoImageProps>(
     },
     ref
   ) => {
-    const [showSubMenuNavItem, setShowSubMenuNavItem] = useState<NavItems[]>([]);
+    const [showSubMenuNavItem, setShowSubMenuNavItem] = useState<NavItems[]>(
+      []
+    );
 
     const handleClick = (item: NavItems) => {
-      const close = handleFind(item)
+      const close = handleFind(item);
       if (close) {
         const closeList = showSubMenuNavItem.filter(
           (sub) => sub.menus !== item.menus
@@ -110,8 +113,8 @@ export const SideNavbar = forwardRef<HTMLDivElement, LogoImageProps>(
     };
 
     const handleFind = (item: NavItems) => {
-      return showSubMenuNavItem.find(val => val.menus === item.menus)
-    }
+      return showSubMenuNavItem.find((val) => val.menus === item.menus);
+    };
 
     const renderProfileSection = () => {
       if (!isLogin) {
@@ -170,7 +173,7 @@ export const SideNavbar = forwardRef<HTMLDivElement, LogoImageProps>(
                   className="shadow-none w-full pl-[10px]"
                   onClick={() => handleClick(item)}
                 />
-                {handleFind(item)  &&
+                {handleFind(item) &&
                   item.submenu &&
                   renderSubMenu(item.submenu)}
               </Box>

@@ -1,51 +1,44 @@
-import React, { InputHTMLAttributes, forwardRef, useState } from "react";
-import { VariantProps } from "class-variance-authority";
-import { InputType, InputVariant } from "../Input/type";
-import { getConditionalStyles, inputStyles } from "../Input/getStyles";
+import React, { forwardRef, useState } from 'react';
+import { InputType, InputVariant } from '../Input/type';
+import { getConditionalStyles } from '../Input/getStyles';
 
-type InputProps = InputHTMLAttributes<HTMLInputElement> & {
+interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   search?: React.ReactNode;
   eyeOpen?: React.ReactNode;
   eye?: React.ReactNode;
   prefix?: string;
   type: InputType;
   variant: InputVariant;
-} & VariantProps<typeof inputStyles>;
+  value: string;
+}
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
   (
-    { className, type = "text", search, eyeOpen, eye, prefix, variant, ...props },
+    { className, type = 'text', search, eyeOpen, eye, prefix, variant = 'standard', value, onChange, ...props },
     ref
   ) => {
-    const [value, setValue] = useState<string>("");
     const [showPassword, setShowPassword] = useState<boolean>(false);
     const [error, setError] = useState<string | null>(null);
-    const maxLength = type === "otp" ? 1 : undefined;
+    const maxLength = type === InputType.Otp ? 1 : undefined;
 
-    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-      const newValue = event.target.value;
-      setValue(newValue);
-    };
-
-    const handleBlur = (e: any) => {
+    const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
       const newValue = e.target.value;
-      setValue(newValue);
       let validationError: string | null = null;
 
       switch (type) {
-        case "email":
+        case InputType.Email:
           if (!validateEmail(newValue)) {
-            validationError = "Please enter a valid email address";
+            validationError = 'Please enter a valid email address';
           }
           break;
-        case "phone":
+        case InputType.Phone:
           if (!validatePhoneNumber(newValue)) {
-            validationError = "Please enter a valid phone number";
-          }
+            validationError = 'Please enter a valid phone number';
+          }onChange
           break;
-        case "numbers":
+        case InputType.Numbers:
           if (!validateNumbers(newValue)) {
-            validationError = "Please enter a valid number";
+            validationError = 'Please enter a valid number';
           }
           break;
         default:
@@ -54,16 +47,12 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       setError(validationError);
     };
 
-    const handleFocus = () => {
-      setError(null);
-    };
-
     const validateEmail = (email: string): boolean => {
-      if (!email.includes("@") || !email.includes(".")) {
+      if (!email.includes('@') || !email.includes('.')) {
         return false;
       }
-      const atIndex: number = email.indexOf("@");
-      const dotIndex: number = email.lastIndexOf(".");
+      const atIndex: number = email.indexOf('@');
+      const dotIndex: number = email.lastIndexOf('.');
       if (dotIndex < atIndex) {
         return false;
       }
@@ -124,15 +113,12 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       <div className="relative">
         <input
           ref={ref}
-          type={showPassword && type === InputType.Password ? "text" : type}
-          value={value}
+          type={showPassword && type === InputType.Password ? 'text' : type}
           autoComplete="off"
           onBlur={handleBlur}
           className={classNames}
           maxLength={maxLength}
           {...props}
-          onChange={handleChange}
-          onFocus={handleFocus}
         />
         {renderAdditionalComponent()}
         {error && <p className="text-red-500 text-xs mt-1">{error}</p>}

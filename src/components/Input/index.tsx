@@ -1,28 +1,20 @@
-import React, { forwardRef, useState } from "react";
+import React, { InputHTMLAttributes, forwardRef, useState } from "react";
 import { VariantProps } from "class-variance-authority";
-import { ComponentProps } from "react";
-import { InputType } from "../Input/type";
+import { InputType, InputVariant } from "../Input/type";
 import { getConditionalStyles, inputStyles } from "../Input/getStyles";
 
-type InputProps = ComponentProps<"input"> & {
+type InputProps = InputHTMLAttributes<HTMLInputElement> & {
   search?: React.ReactNode;
   eyeOpen?: React.ReactNode;
   eye?: React.ReactNode;
   prefix?: string;
   type: InputType;
+  variant: InputVariant;
 } & VariantProps<typeof inputStyles>;
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
   (
-    {
-      className,
-      type = "text",
-      search,
-      eyeOpen,
-      eye,
-      prefix,
-      ...props
-    },
+    { className, type = "text", search, eyeOpen, eye, prefix, variant, ...props },
     ref
   ) => {
     const [value, setValue] = useState<string>("");
@@ -94,25 +86,21 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       return true;
     };
 
-    const validateOTP = (otp: string): boolean => {
-      return otp.length === 1 && !isNaN(Number(otp));
-    };
-
     const togglePasswordVisibility = () => {
       setShowPassword((prevShowPassword) => !prevShowPassword);
     };
 
-    const classNames = getConditionalStyles(type, value, className);
+    const classNames = getConditionalStyles(type, value, className, variant);
 
     const renderAdditionalComponent = () => {
       switch (type) {
-        case "search icon":
+        case InputType.SearchIcon:
           return (
             <div className="absolute left-2 top-1/2 transform -translate-y-1/2 pointer-events-none">
               {search}
             </div>
           );
-        case "password":
+        case InputType.Password:
           return (
             <div
               className="absolute right-2 top-1/2 transform -translate-y-1/2 cursor-pointer"
@@ -121,7 +109,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
               {showPassword ? eye : eyeOpen}
             </div>
           );
-        case "prefix":
+        case InputType.Prefix:
           return (
             <div className="absolute left-2 top-1/2 transform -translate-y-1/2 pointer-events-none">
               {prefix}

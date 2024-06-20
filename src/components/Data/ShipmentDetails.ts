@@ -1,3 +1,6 @@
+import product1 from "../../images/shipment_product.png";
+import product2 from "../../images/detailsimage.png";
+
 // Define an interface for the sizes object
 interface ISizes {
   XS: string;
@@ -28,6 +31,7 @@ interface IDeliveryAddress {
 interface IshipmentStatus {
   pending: string;
   processing: string;
+  confirmed: string;
   outOfDelivery: string;
   shipped: string;
   cancelled: string;
@@ -35,19 +39,37 @@ interface IshipmentStatus {
   failed: string;
 }
 
+//Define the interface for the shipment status
+interface IshipmentStatusColors {
+  Pending: string;
+  Processing: string;
+  Confirmed: string;
+  OutOfDelivery: string;
+  Shipped: string;
+  Cancelled: string;
+  Returned: string;
+  Failed: string;
+}
+
 //Define the interface for the shipment information
-interface IShipmentOrderInfo {
-  logisticsCompany: string;
-  takingId: string;
-  shipmentId: string;
+export interface IShipmentOrderInfo {
+  imageURL: string;
+  logisticsCompany?: string;
+  productName?: string;
+  productDescription?: string;
+  price?: number;
+  quantity?: number;
+  takingId?: string;
+  orderId: string;
   currentShipmentStatus: string;
-  shipmentCountry: string;
-  shipmentFrom: string;
-  shipmentTo: string;
-  currentLocation: string;
-  distanceLeft: number;
-  lastStop: number;
-  timeDuration: string;
+  shipmentCountry?: string;
+  shipmentFrom?: string;
+  shipmentTo?: string;
+  currentLocation?: string;
+  distanceLeft?: number;
+  lastStop?: number;
+  timeDuration?: string;
+  estimatedDeliveryDate?: string;
 }
 
 //Define the interface for the time duration
@@ -58,6 +80,7 @@ interface ITimeDuration {
   hour: string;
   minute: string;
   second: string;
+  justNow: string;
 }
 
 // Define the sizes object
@@ -89,11 +112,23 @@ export const DeliveryAddress: IDeliveryAddress = {
 export const ShipmentStatus: IshipmentStatus = {
   pending: "Pending",
   processing: "Processing",
-  outOfDelivery: "Out for Delivery",
+  outOfDelivery: "OutOfDelivery",
   shipped: "Shipped",
+  confirmed: "Confirmed",
   cancelled: "Cancelled",
   returned: "Returned",
   failed: "Failed",
+};
+
+export const shipmentStatusColors: IshipmentStatusColors = {
+  Pending: "#FFA500",
+  Processing: "#0000FF",
+  OutOfDelivery: "#FFD700",
+  Shipped: "#008000",
+  Confirmed: "#059669",
+  Cancelled: "#FF0000",
+  Returned: "#800080",
+  Failed: "#8B0000",
 };
 
 export const TimeDuration: ITimeDuration = {
@@ -103,12 +138,14 @@ export const TimeDuration: ITimeDuration = {
   hour: "hour",
   minute: "minute",
   second: "second",
+  justNow: "just now",
 };
 
 export const ShipmentOrderInfo: IShipmentOrderInfo = {
+  imageURL: product1,
   logisticsCompany: "United Parcel Service",
   takingId: "2X8888210546700",
-  shipmentId: "2241-83KG",
+  orderId: "2241-83KG",
   currentShipmentStatus: ShipmentStatus.shipped,
   shipmentCountry: "India",
   shipmentFrom: "Delhi",
@@ -124,3 +161,26 @@ export const ShipmentDetails = {
   DeliveryAddress: DeliveryAddress,
   ShipmentOrderInfo: ShipmentOrderInfo,
 };
+
+export const OrderListDetails: IShipmentOrderInfo[] = [
+  {
+    imageURL: product1,
+    productName: "Mango",
+    productDescription: "Woman Expire dress",
+    price: 1000,
+    quantity: 1,
+    orderId: "2241-84KG",
+    currentShipmentStatus: ShipmentStatus.confirmed,
+    estimatedDeliveryDate: "18 Aug, 2024",
+  },
+  {
+    imageURL: product2,
+    productName: "Apple",
+    productDescription: "Woman Expire dress",
+    price: 2000,
+    quantity: 2,
+    orderId: "2241-85KG",
+    currentShipmentStatus: ShipmentStatus.pending,
+    estimatedDeliveryDate: "18 Aug, 2025",
+  },
+];

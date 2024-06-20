@@ -19,6 +19,7 @@ type Story = StoryObj<typeof meta>;
 
 export const CustomerServices: Story = {
   args: {
+    className: "max-w-[320px]",
     heading: {
       title:"Customer Services",
     },
@@ -37,6 +38,7 @@ export const CustomerServices: Story = {
 
 export const NeedHelp: Story = {
   args: {
+    className: "max-w-[320px]",
     heading: {
       title:"Need help",
     },
@@ -51,6 +53,7 @@ export const NeedHelp: Story = {
 
 export const NewsLetter: Story = {
   args: {
+    className: "max-w-[320px]",
     heading: {
       title:"The NewsLetter",
     },

@@ -4,11 +4,13 @@ export interface serviceItem {
   }
   export interface socialLinks {
     iconUrl?: string;
+    onClick?: () => void;
   }
   
   export interface titleFooter {
     title?: string;
     titleColor?: string;
+    titleStyle?: string;
   }
   
   export interface listItem {
@@ -28,4 +30,7 @@ export interface serviceItem {
     footerTextColor?: string;
     customInnerBoxClass?: string;
     innerClass?: string;
+    innerUlClass?: string;
+    innerLiClass?: string;
+    descriptionClass?: string;
   }

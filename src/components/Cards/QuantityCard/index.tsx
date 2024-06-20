@@ -68,6 +68,7 @@ const QuantityCard = forwardRef<HTMLDivElement, CardProps>(
           className="bg-black absolute top-2 left-2 size-8 rounded-lg"
           checked={checked}
           onClick={handleClicked}
+          value={"check"}
         />
         <Box className="w-full sm:w-2/3 p-4 flex flex-col">
           <Button

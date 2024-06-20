@@ -11,7 +11,7 @@ type Step = {
 };
 
 const meta: Meta = {
-  title: "Example/Multi-step",
+  title: "Examples/Multi-step",
   component: Stepper,
   parameters: {
     layout: "centered",
@@ -27,32 +27,16 @@ export const Default: StoryObj<{ steps: Step[] }> = (args: any) => (
 Default.args = {
   steps: [
     {
-      component: (
-        <Step1
-          data={{ name: "" }}
-          handleChange={() => {
-          }}
-        />
-      ),
+      component: <Step1 data={{ name: "" }} handleChange={() => {}} />,
       title: "Personal Information",
     },
     {
-      component: (
-        <Step2
-          data={{ address: "" }}
-          handleChange={() => {
-          }}
-        />
-      ),
+      component: <Step2 data={{ address: "" }} handleChange={() => {}} />,
       title: "Address",
     },
     {
       component: (
-        <Step3
-          data={{ paymentDetails: "" }}
-          handleChange={() => {
-          }}
-        />
+        <Step3 data={{ paymentDetails: "" }} handleChange={() => {}} />
       ),
       title: "Payment Details",
     },

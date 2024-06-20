@@ -1,38 +1,56 @@
 import { cn } from "@/utils";
 import { cva, VariantProps } from "class-variance-authority";
-import { ComponentProps, forwardRef } from "react";
-import { Box, Button, Text } from "@/components";
+import { ComponentProps, forwardRef, useState, useEffect } from "react";
+import { Box, Button, IconButton, Text } from "@/components";
 import { Topnavbar } from "@/components/Header/TopNavbar";
 import { NavbarDirection } from "@/components/Header/type";
 import Carousel from "@/components/CarouselSlider";
 import FaverateCard from "@/components/Cards/FaverateCard";
 import { CardData, CategoryItem, ReviewData } from "./data";
 import AutoCarousel from "@/components/InfiniteSlider";
-import Influencive from "../../images/Influencive.svg"
-import Dailyhunt from "../../images/Dailyhunt.svg"
-import Deccan from "../../images/Deccan.svg"
-import ETimes from "../../images/ETimes.svg"
-import Ent from "../../images/Ent.svg"
+import Influencive from "../../images/Influencive.svg";
+import Dailyhunt from "../../images/Dailyhunt.svg";
+import Deccan from "../../images/Deccan.svg";
+import ETimes from "../../images/ETimes.svg";
+import Ent from "../../images/Ent.svg";
 import Banner from "@/components/Cards/Banners";
-import BannerImages from "../../images/BannerImages.svg"
-import Banner1 from "../../images/Banner1.svg"
+import BannerImages from "../../images/BannerImages.svg";
+import Banner1 from "../../images/Banner1.svg";
 import ReviewCard from "@/components/Cards/ReviewCard";
-import { ButtonSize, ButtonVariant } from "@/components/Button/type";
+import { ButtonVariant } from "@/components/Button/type";
+import { FollowPage } from "../FollowUsPage";
+import { FooterCart } from "../FooterCart";
 
+const dashboardStyles = cva(["w-full"]);
 
-const dashboardStyles = cva(
-  [
-    "w-full",
-  ]
-);
-
-type DashboardProps = ComponentProps<"div"> & VariantProps<typeof dashboardStyles> & {
-  children?: React.ReactNode;
-};
+type DashboardProps = ComponentProps<"div"> &
+  VariantProps<typeof dashboardStyles> & {
+    children?: React.ReactNode;
+  };
 
 export const Dashboard = forwardRef<HTMLDivElement, DashboardProps>(
   ({ className, children, ...props }, ref) => {
+    const [currentIndex, setCurrentIndex] = useState<number>(0);
 
+    const groupedReviewData = [];
+    for (let i = 0; i < ReviewData.length; i += 3) {
+      groupedReviewData.push(ReviewData.slice(i, i + 3));
+    }
+
+    const totalSlides = groupedReviewData.length;
+
+    useEffect(() => {
+      if (totalSlides > 1) {
+        const interval = setInterval(() => {
+          setCurrentIndex((prevIndex) => (prevIndex + 1) % totalSlides);
+        }, 5000);
+        return () => clearInterval(interval);
+      }
+    }, [totalSlides]);
+
+    const handleDotClick = (index: number) => {
+      setCurrentIndex(index);
+    };
 
     return (
       <Box
@@ -45,40 +63,17 @@ export const Dashboard = forwardRef<HTMLDivElement, DashboardProps>(
             direction={NavbarDirection.Row}
             isSearch
             navBarIcons={[
-              {
-                icon: '/src/components/Header/navbarIcons/person.svg',
-                iconName: 'Log in'
-              },
-              {
-                icon: '/src/components/Header/navbarIcons/notification.svg'
-              },
-              {
-                icon: '/src/components/Header/navbarIcons/favorite.svg'
-              },
-              {
-                icon: '/src/components/Header/navbarIcons/shoping_cart.svg'
-              },
-              {
-                icon: '/src/components/Header/navbarIcons/settings.svg'
-              }
+              { icon: '/src/components/Header/navbarIcons/person.svg', iconName: 'Log in' },
+              { icon: '/src/components/Header/navbarIcons/notification.svg' },
+              { icon: '/src/components/Header/navbarIcons/favorite.svg' },
+              { icon: '/src/components/Header/navbarIcons/shoping_cart.svg' },
+              { icon: '/src/components/Header/navbarIcons/settings.svg' }
             ]}
             navItem={[
-              {
-                href: '/',
-                text: 'Home'
-              },
-              {
-                href: '/women',
-                text: 'Women'
-              },
-              {
-                href: '/kid',
-                text: 'Kids'
-              },
-              {
-                href: '/giftCard',
-                text: 'Gift Cards'
-              }
+              { href: '/', text: 'Home' },
+              { href: '/women', text: 'Women' },
+              { href: '/kid', text: 'Kids' },
+              { href: '/giftCard', text: 'Gift Cards' }
             ]}
             profilePicture="/src/components/Header/navbarIcons/image.png"
             title="Logo"
@@ -89,10 +84,7 @@ export const Dashboard = forwardRef<HTMLDivElement, DashboardProps>(
             className="max-w-[90.125rem]"
             items={[
               {
-                button: {
-                  label: 'Learn More',
-                  onClick: () => alert('Learn More!'),
-                },
+                button: { label: 'Learn More', onClick: () => alert('Learn More!') },
                 heading: 'First Slide Heading',
                 headingClassName: 'text-3xl font-bold text-yellow-300',
                 image: 'https://img.lovepik.com/background/20211022/large/lovepik-taobao-tmall-e-commerce-banner-background-image_500603827.jpg',
@@ -100,10 +92,7 @@ export const Dashboard = forwardRef<HTMLDivElement, DashboardProps>(
                 textClassName: 'text-lg'
               },
               {
-                button: {
-                  label: 'Shop Now',
-                  onClick: () => alert('Shop Now!'),
-                },
+                button: { label: 'Shop Now', onClick: () => alert('Shop Now!') },
                 heading: 'Second Slide Heading',
                 headingClassName: 'text-3xl font-bold text-green-300',
                 image: 'https://t3.ftcdn.net/jpg/04/86/29/98/360_F_486299886_4aXrDh0LPy7BK4SUJvhCkKpnnExNDsLX.jpg',
@@ -111,10 +100,7 @@ export const Dashboard = forwardRef<HTMLDivElement, DashboardProps>(
                 textClassName: 'text-lg'
               },
               {
-                button: {
-                  label: 'Contact Us',
-                  onClick: () => alert('Contact Us!'),
-                },
+                button: { label: 'Contact Us', onClick: () => alert('Contact Us!') },
                 heading: 'Third Slide Heading',
                 headingClassName: 'text-3xl font-bold text-blue-300',
                 image: 'https://cdn.pixabay.com/photo/2015/08/23/09/22/banner-902589_640.jpg',
@@ -124,47 +110,42 @@ export const Dashboard = forwardRef<HTMLDivElement, DashboardProps>(
             ]}
           />
         </Box>
-        <Box className="w-full flex justify-center ">
+        <Box className="w-full flex justify-center">
           <Box className="pt-[5rem]">
             <Box>
-              <Text className="text-xl font-bold">
-                New Arrivals
-              </Text>
+              <Text className="text-xl font-bold">New Arrivals</Text>
             </Box>
             <Box className="w-[82.5rem] pt-[1.25rem] flex justify-between">
-              {CardData.map((data) =>
+              {CardData.map((data, index) => (
                 <FaverateCard
+                  key={index}
                   imageSrc={data.imageSrc}
                   description={data.description}
                   brand={data.brand}
                   isnew={data.isnew}
                 />
-              )}
+              ))}
             </Box>
           </Box>
         </Box>
         <Box className="w-full flex justify-center">
           <Box className="mt-[5.4rem] w-[33.81rem] flex flex-col gap-[6px] divide-y-[3px] divide-[#BFA59A]">
-            <Text className="text-3xl font-bold text-center">
-              Featured in
-            </Text>
+            <Text className="text-3xl font-bold text-center">Featured in</Text>
             <Text className="text-base font-normal py-[6px] text-center">
-              Brands where out product has been featured
+              Brands where our product has been featured
             </Text>
           </Box>
         </Box>
         <Box className="w-full flex justify-center">
           <Box className="max-w-[82.5rem] mt-[1.125rem]">
             <AutoCarousel
-              items=
-              {[
+              items={[
                 { id: 1, name: 'Influencive', logoUrl: Influencive },
                 { id: 2, name: 'Dailyhunt', logoUrl: Dailyhunt },
                 { id: 3, name: 'Deccan Chronicle', logoUrl: Deccan },
                 { id: 4, name: 'ETimes', logoUrl: ETimes },
                 { id: 5, name: 'Ent', logoUrl: Ent },
-              ]
-              }
+              ]}
             />
           </Box>
         </Box>
@@ -173,7 +154,7 @@ export const Dashboard = forwardRef<HTMLDivElement, DashboardProps>(
             boxStyle="h-[50%] p-5 flex w-[80%] flex-col text-white gap-4 justify-center items-center bg-[#3E2E28B2]"
             buttonClass="flex justify-center w-max text-2xl"
             buttonText="Explore more"
-            className=" h-[25rem] w-[82.5rem]"
+            className="h-[25rem] w-[82.5rem]"
             description="Sleek, Modern and Classic"
             descriptionClass="flex justify-center w-max font-normal text-2xl"
             iconUrl="/src/components/Cards/icons/image.svg"
@@ -184,9 +165,7 @@ export const Dashboard = forwardRef<HTMLDivElement, DashboardProps>(
         </Box>
         <Box className="w-full flex justify-center">
           <Box className="mt-[5.4rem] w-[33.81rem] flex flex-col gap-[6px] divide-y-[3px] divide-[#BFA59A]">
-            <Text className="text-3xl font-bold text-center">
-              Our top Categories
-            </Text>
+            <Text className="text-3xl font-bold text-center">Our top Categories</Text>
             <Text className="text-base font-normal py-[6px] text-center">
               Explore our exclusive top categories
             </Text>
@@ -196,17 +175,18 @@ export const Dashboard = forwardRef<HTMLDivElement, DashboardProps>(
           <Banner
             imageSrc={Banner1}
             boxStyle="h-full w-full flex flex-col justify-end text-white gap-2 p-10"
-            titleClass=" leading-10 text-2xl w-max flex"
-            descriptionClass="flex justify-center w-max font-semibold text-3xl "
+            titleClass="leading-10 text-2xl w-max flex"
+            descriptionClass="flex justify-center w-max font-semibold text-3xl"
             buttonClass="flex justify-center w-max px-[10px] py-[16px] text-xl capitalize"
             className="w-[37.75rem] h-[37.1875rem]"
             buttonText="Explore more"
-            title="HOME COLLLECTION"
+            title="HOME COLLECTION"
             description="Living & Decor"
           />
           <Box className="max-w-[82.5rem] grid grid-cols-2 gap-[15px]">
-            {CategoryItem.map((data) =>
+            {CategoryItem.map((data, index) => (
               <Banner
+                key={index}
                 imageSrc={data.imageSrc}
                 boxStyle={data.boxStyle}
                 titleClass={data.titleClass}
@@ -217,46 +197,92 @@ export const Dashboard = forwardRef<HTMLDivElement, DashboardProps>(
                 title={data.title}
                 description={data.description}
               />
-            )}
+            ))}
           </Box>
         </Box>
         <Box className="w-full flex justify-center">
           <Box className="mt-[5.4rem] w-[33.81rem] flex flex-col gap-[6px] divide-y-[3px] divide-[#BFA59A]">
-            <Text className="text-3xl font-bold text-center">
-              Client Reviews
-            </Text>
+            <Text className="text-3xl font-bold text-center">Client Reviews</Text>
             <Text className="text-base font-normal py-[6px] text-center">
               What my Clients say about me
             </Text>
           </Box>
         </Box>
-        <Box className="w-full flex justify-center ">
-          <Box className="w-[82.5rem] pt-[1.25rem] flex gap-[44px]">
-            {ReviewData.map((data) =>
-              <ReviewCard
-                StarRating={data.StarRating}
-                avatar={data.avatar}
-                avatarImage={data.avatarImage}
-                imageStyle={data.imageStyle}
-                rating={data.rating}
-                reviewText={data.reviewText}
-                reviewerName={data.reviewerName}
-                starStyle={data.starStyle}
-                textStyle={data.textStyle}
-                className={data.className}
-              />
-            )}
+        <Box className="w-full h-full flex justify-center relative">
+          <Box className="w-[82.375rem] h-[19rem] overflow-hidden relative">
+            <Box
+              className="flex transition-transform duration-500"
+              style={{
+                width: `${groupedReviewData.length * 100}%`,
+                transform: `translateX(-${(currentIndex * 100) / groupedReviewData.length}%)`,
+              }}
+            >
+              {groupedReviewData.map((group, slideIndex) => (
+                <Box
+                  key={slideIndex}
+                  className="flex w-full justify-center"
+                  style={{ width: `${100 / groupedReviewData.length}%` }}
+                >
+                  {group.map((data, index) => (
+                    <Box
+                      key={index}
+                      className="w-[27.375rem] flex-shrink-0"
+                    >
+                      <ReviewCard
+                        StarRating={data.StarRating}
+                        avatar={data.avatar}
+                        avatarImage={data.avatarImage}
+                        imageStyle={data.imageStyle}
+                        rating={data.rating}
+                        reviewText={data.reviewText}
+                        reviewerName={data.reviewerName}
+                        starStyle={data.starStyle}
+                        textStyle={data.textStyle}
+                        className={data.className}
+                      />
+                    </Box>
+                  ))}
+                </Box>
+              ))}
+            </Box>
           </Box>
         </Box>
-        <Box className="flex justify-center">
-          <Button 
+        <Box className="w-full flex justify-center mt-[30px]">
+          <Button
             variant={ButtonVariant.DefaultPrimary}
             hover={true}
-            className="w-fit mt-10"
-            onClick={() => alert("View more!")}
-            >
+            className="w-fit"
+          >
             View more
           </Button>
+        </Box>
+        {ReviewData.length > 3 && (
+          <Box className="w-full flex justify-center mt-[30px]">
+            <Box className="flex justify-center">
+              {Array.from({ length: totalSlides }).map((_, index) => (
+                <IconButton
+                  key={index}
+                  onClick={() => handleDotClick(index)}
+                  className={`w-2 h-2 p-0 rounded-full mx-1 ${currentIndex === index ? "bg-[#3F271E]" : "bg-[#C9CDD2]"
+                    }`}
+                ></IconButton>
+              ))}
+            </Box>
+          </Box>
+        )}
+        <Box className="w-full h-full flex justify-center mt-[30px]">
+          <Box className="w-[82.5rem]">
+            <FollowPage />
+          </Box>
+        </Box>
+        <Box className="w-full mt-[27px]">
+          <FooterCart
+            footerCopyRights={{
+              copyright: '2024 All rights reserved',
+              copyrightBgStyle: 'bg-[#3F271E]',
+              copyrightTextStyle: 'text-[#fff]'
+            }}
+          />
         </Box>
       </Box>
     );

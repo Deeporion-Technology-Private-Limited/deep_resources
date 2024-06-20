@@ -34,3 +34,10 @@ export enum Placeholder {
   YourNewPassword = "Your new password" ,
   ConfirmNew = "Confirm your new password"
 }
+
+export enum InputVariant {
+  Standard = "standard",
+  Outlined = "outlined",
+  Filled = "filled",
+}
+

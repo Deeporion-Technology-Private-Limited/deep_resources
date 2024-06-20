@@ -1,5 +1,5 @@
 import { cva } from "class-variance-authority";
-import { InputType } from "../Input/type";
+import { InputType, InputVariant } from "../Input/type";
 
 export const inputStyles = cva([
   "w-full",
@@ -43,11 +43,11 @@ export const otpInputStyles = cva([
   "focus:border-transparent",
 ]);
 
-
 export function getConditionalStyles(
   type: string,
   value: any,
-  className: string | undefined
+  className: string | undefined,
+  variant: InputVariant
 ): string {
   let styles = className ? `${className} ` : "";
 
@@ -67,5 +67,19 @@ export function getConditionalStyles(
     styles += " pl-10";
   }
 
+  switch (variant) {
+    case InputVariant.Standard:
+      styles += " border-gray-300";
+      break;
+    case InputVariant.Filled:
+      styles += " bg-gray-100 border-b border-gray-400";
+      break;
+    case InputVariant.Outlined:
+      styles += " border border-gray-300";
+      break;
+    default:
+      break;
+  }
   return styles.trim();
 }
+

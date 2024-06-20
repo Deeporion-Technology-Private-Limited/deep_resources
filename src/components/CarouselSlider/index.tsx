@@ -1,10 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, ComponentProps, forwardRef } from 'react';
 import { cn } from '@/utils';
 import { cva, VariantProps } from 'class-variance-authority';
-import { ComponentProps, forwardRef } from 'react';
 import { ArrowPosition, ButtonVariant, IndicatorType } from '../Button/type';
 import { Left, Right } from '../Button/ButtonImage/icon';
 import { Button, IconButton } from '..';
+import ReviewCard from '../Cards/ReviewCard';
 
 const carouselStyles = cva(
   ['relative', 'w-full', 'max-w-2xl', 'mx-auto', 'overflow-hidden'],
@@ -37,16 +37,31 @@ interface SlideItem {
     onClick: () => void;
     buttonClassName?: string;
   };
+  reviewData?: ReviewDataType; // Type for your review data
 }
+
+type ReviewDataType = {
+  StarRating: boolean;
+  avatar: boolean;
+  avatarImage: string;
+  imageStyle: string;
+  rating: number;
+  reviewText: string;
+  reviewerName: string;
+  className: string; 
+  starStyle: string;
+  textStyle: string;
+};
 
 type CarouselProps = ComponentProps<'div'> & VariantProps<typeof carouselStyles> & {
   items: SlideItem[];
   className?: string;
   slideInterval?: number;
+  variant?: 'default' | 'review'; // New prop to handle variants
 }
 
 const Carousel = forwardRef<HTMLDivElement, CarouselProps>(
-  ({ items, arrowPosition = ArrowPosition.Inside, indicatorType = IndicatorType.Dots, className, ...props }, ref) => {
+  ({ items, arrowPosition = ArrowPosition.Inside, indicatorType = IndicatorType.Dots, className, variant = 'default', ...props }, ref) => {
     const [currentIndex, setCurrentIndex] = useState(0);
 
     useEffect(() => {
@@ -70,29 +85,46 @@ const Carousel = forwardRef<HTMLDivElement, CarouselProps>(
         <div className="flex transition-transform duration-500" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
           {items.map((item, index) => (
             <div key={index} className="w-full flex-shrink-0 relative" style={{ flex: '0 0 100%' }}>
-              <img src={item.image} alt={`Slide ${index}`} className="w-full h-64 object-cover" />
-              <div className="absolute inset-0 flex flex-col items-center justify-center mt-6">
-                {item.heading && (
-                  <div className={cn("text-center text-white rounded", item.headingClassName)}>
-                    {item.heading}
+              {variant === 'default' ? (
+                <>
+                  <img src={item.image} alt={`Slide ${index}`} className="w-full h-64 object-cover" />
+                  <div className="absolute inset-0 flex flex-col items-center justify-center mt-6">
+                    {item.heading && (
+                      <div className={cn("text-center text-white rounded", item.headingClassName)}>
+                        {item.heading}
+                      </div>
+                    )}
+                    {item.text && (
+                      <div className={cn("text-center text-white p-2 rounded", item.textClassName)}>
+                        {item.text}
+                      </div>
+                    )}
+                    {item.button && (
+                      <Button
+                        variant={ButtonVariant.DefaultPrimary}
+                        hover={true}
+                        className={cn("w-fit", item.button.buttonClassName)}
+                        onClick={item.button.onClick}
+                      >
+                        {item.button.label}
+                      </Button>
+                    )}
                   </div>
-                )}
-                {item.text && (
-                  <div className={cn("text-center text-white p-2 rounded", item.textClassName)}>
-                    {item.text}
-                  </div>
-                )}
-                {item.button && (
-                  <Button
-                    variant={ButtonVariant.DefaultPrimary}
-                    hover={true}
-                    className={cn("w-fit", item.button.buttonClassName)}
-                    onClick={item.button.onClick}
-                  >
-                    {item.button.label}
-                  </Button>
-                )}
-              </div>
+                </>
+              ) : (
+                <ReviewCard
+                  StarRating={item.reviewData!.StarRating}
+                  avatar={item.reviewData!.avatar}
+                  avatarImage={item.reviewData!.avatarImage}
+                  imageStyle={item.reviewData!.imageStyle}
+                  rating={item.reviewData!.rating}
+                  reviewText={item.reviewData!.reviewText}
+                  reviewerName={item.reviewData!.reviewerName}
+                  starStyle={item.reviewData!.starStyle}
+                  textStyle={item.reviewData!.textStyle}
+                  className={item.reviewData!.className}
+                />
+              )}
             </div>
           ))}
         </div>
@@ -126,4 +158,4 @@ const Carousel = forwardRef<HTMLDivElement, CarouselProps>(
   }
 );
 
-export default Carousel ;
+export default Carousel;

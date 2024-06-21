@@ -30,9 +30,9 @@ type Story = StoryObj<typeof BreadCrumb>;
 export const Default: Story = {
   args: {
     breadCrumbItems: [
-      { text: 'Home' },
-      { text: 'Category' },
-      { text: 'Product' },
+      { text: 'Home', href: '/home' },  
+      { text: 'Category', href: '/category' },  
+      { text: 'Product', href: '/product' },  
     ],
     defaultSeparatorIconUrl: RightArrow,
   },
@@ -41,8 +41,8 @@ export const Default: Story = {
 export const BreadCrumbsDefaultSeparateIcon: Story = {
   args: {
     breadCrumbItems: [
-      { text: 'Home', iconUrl: HomeIcon },
-      { text: 'Category', iconUrl: CategoryIcon },
+      { text: 'Home', iconUrl: HomeIcon },  
+      { text: 'Category', iconUrl: CategoryIcon },  
     ],
     defaultSeparatorIconUrl: RightArrow,
   },
@@ -51,8 +51,8 @@ export const BreadCrumbsDefaultSeparateIcon: Story = {
 export const BreadCrumbsCustomSeparateIcon: Story = {
   args: {
     breadCrumbItems: [
-      { text: 'Home', separatorIconUrl: Divider },
-      { text: 'Category', separatorIconUrl: Divider },
+      { text: 'Home', separatorIconUrl: Divider, href: '/home' },  
+      { text: 'Category', separatorIconUrl: Divider, href: 'category' },  
     ]
   },
 };
@@ -60,12 +60,12 @@ export const BreadCrumbsCustomSeparateIcon: Story = {
 export const BreadCrumbs: Story = {
   args: {
     breadCrumbItems: [
-      { text: 'Home' },
-      { text: 'Category' },
-      { text: 'Sub-category' },
-      { text: 'Details' },
-      { text: 'Reviews' },
-      { text: 'Contact' },
+      { text: 'Home', href: '/home' },  
+      { text: 'Category', href: '/category' },  
+      { text: 'Sub-category', href: '/subCategory' },  
+      { text: 'Details', href: '/details' },  
+      { text: 'Reviews', href: '/reviews' },  
+      { text: 'Contact', href: '/contact' },  
     ],
     defaultSeparatorIconUrl: RightArrow,
   },

@@ -1,4 +1,4 @@
-import { Button, IconButton } from "@/components";
+import { Button, IconButton, Input } from "@/components";
 import React from "react";
 import bag from "../../images/bag.png";
 import like from "../../images/like.png";
@@ -7,6 +7,10 @@ import delivery from "../../images/delivery.png";
 import returnimage from "../../images/returnimage.png";
 import payment from "../../images/payment.png";
 import { Product } from "./type";
+import { InputType, InputVariant } from "@/components/Input/type";
+import Accordion from "@/components/Accordion";
+import { UpCursor } from "@/components/Accordion/Icon/Icon";
+import { AccordionTypes } from "@/components/Accordion/AccordionTypes";
 
 interface ProductData {
   brand: string;
@@ -22,6 +26,12 @@ interface ProductData {
   arrival: string;
   returnPolicy: string;
   paymentMethod: string;
+  productCode: string;
+  productDetails: string;
+  sizeFit: any;
+  materialCare: string;
+  specification: any;
+  reviews: string;
 }
 
 const ProductCard: React.FC<{ data: ProductData }> = ({ data }) => {
@@ -135,6 +145,165 @@ const ProductCard: React.FC<{ data: ProductData }> = ({ data }) => {
           </p>
           <p className="text-[#111827] font-normal ml-2 w-full max-w-[550px] h-auto">
             {data.returnPolicy}
+          </p>
+        </div>
+      </div>
+      <div
+        className="border rounded-lg p-5 w-80 font-sans flex flex-col items-center justify-between"
+        style={{ width: "614px", height: "710px" }}
+      >
+        <div className="flex items-center justify-between w-full mb-4">
+          <p className="text-[#26282B] font-medium flex-shrink-0">
+            {Product.ProductCode}
+          </p>
+          <p className="text-[#111827] font-normal ml-2 w-full max-w-[550px] h-auto">
+            {data.productCode}
+          </p>
+        </div>
+        <div className="flex flex-col items-start w-full mb-4">
+          <p className="text-gray-800 font-medium mb-2">
+            {Product.ProductDetails}
+          </p>
+          <p className="text-[#111827] font-normal w-full max-w-[550px]">
+            {data.productDetails}
+          </p>
+        </div>
+        <div className="flex flex-col items-start w-full mb-4">
+          <p className="text-gray-800 font-medium mb-2">{Product.SizeFit}</p>
+          <p className="text-[#111827] font-normal w-full max-w-[550px]">
+            {data.sizeFit}
+          </p>
+        </div>
+        <div className="flex flex-col items-start w-full mb-4">
+          <p className="text-gray-800 font-medium mb-2">{Product.Material}</p>
+          <p className="text-[#111827] font-normal w-full max-w-[550px]">
+            {data.materialCare}
+          </p>
+        </div>
+        <div className="flex items-center justify-between w-full mb-4">
+          <p className="text-gray-800 font-medium flex-shrink-0">
+            {Product.ProductSpec}
+          </p>
+        </div>
+        <div className="flex items-center justify-between w-full mb-4">
+          <p className="text-[#111827] font-normal ml-2 w-full max-w-[550px] h-auto">
+            <div className="grid grid-cols-2 gap-4">
+              <div className="col-span-1">
+                <label className="block text-[#72787F]">Fabric</label>
+                <Input
+                  placeholder="Insert text here"
+                  type={InputType.Text}
+                  variant={InputVariant.Standard}
+                  value=""
+                />
+              </div>
+              <div className="col-span-1">
+                <label className="block text-[#72787F]">Fabric type</label>
+                <Input
+                  placeholder="Insert text here"
+                  type={InputType.Text}
+                  variant={InputVariant.Standard}
+                  value=""
+                />
+              </div>
+              <div className="col-span-1">
+                <label className="block text-[#72787F]">Hemline</label>
+                <Input
+                  placeholder="Insert text here"
+                  type={InputType.Text}
+                  variant={InputVariant.Standard}
+                  value=""
+                />
+              </div>
+              <div className="col-span-1">
+                <label className="block text-[#72787F]">Knit or Woven</label>
+                <Input
+                  placeholder="Insert text here"
+                  type={InputType.Text}
+                  variant={InputVariant.Standard}
+                  value=""
+                />
+              </div>
+              <div className="col-span-1">
+                <label className="block text-[#72787F]">Length</label>
+                <Input
+                  placeholder="Insert text here"
+                  type={InputType.Text}
+                  variant={InputVariant.Standard}
+                  value=""
+                />
+              </div>
+              <div className="col-span-1">
+                <label className="block text-[#72787F]">Main Trend</label>
+                <Input
+                  placeholder="Insert text here"
+                  type={InputType.Text}
+                  variant={InputVariant.Standard}
+                  value=""
+                />
+              </div>
+              <div className="col-span-1">
+                <label className="block text-[#72787F]">Neck</label>
+                <Input
+                  placeholder="Insert text here"
+                  type={InputType.Text}
+                  variant={InputVariant.Standard}
+                  value=""
+                />
+              </div>
+              <div className="col-span-1">
+                <label className="block text-[#72787F]">Occasion</label>
+                <Input
+                  placeholder="Insert text here"
+                  type={InputType.Text}
+                  variant={InputVariant.Standard}
+                  value=""
+                />
+              </div>
+            </div>
+            {/* <div className="mt-6">
+              <button
+                type="submit"
+                className="w-full bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-600"
+              >
+                Submit
+              </button>
+            </div> */}
+          </p>
+        </div>
+
+        <div className="flex items-center justify-between w-full mb-4">
+          <p className="text-gray-800 font-medium flex items-center gap-2">
+            {" "}
+            <Accordion
+              Icon={<UpCursor />}
+              content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget."
+              variant={AccordionTypes.Cursor}
+            >
+              View More
+            </Accordion>
+          </p>
+        </div>
+      </div>
+      <div
+        className="border rounded-lg p-5 w-80 font-sans flex flex-col items-center justify-between"
+        style={{ width: "614px", height: "168px" }}
+      >
+        <div className="flex items-center justify-between w-full">
+          <p className="text-[#26282B] font-semibold text-base ml-2 w-full max-w-[550px] h-auto">
+            {data.reviews}
+          </p>
+        </div>
+        <div className="flex items-center justify-between w-full">
+          <p className="text-gray-800 font-medium">
+          </p>
+          <p className="text-[#111827] font-normal ml-2 w-full max-w-[550px] h-auto">
+          </p>
+        </div>
+        <div className="flex items-center justify-between w-full">
+          <p className="text-gray-800 font-medium">
+          </p>
+          <p className="text-[#111827] font-normal ml-2 w-full max-w-[550px] h-auto">
           </p>
         </div>
       </div>

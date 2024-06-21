@@ -4,4 +4,9 @@ export enum Product {
   AddToBag = "Add to Bag",
   Wishlist = "Wishlist",
   Change = "Change",
+  ProductCode = "Product Code :",
+  ProductDetails = "Product Details",
+  SizeFit = "Size & Fit",
+  Material = "Material & Care",
+  ProductSpec = "Product Specifications"
 }

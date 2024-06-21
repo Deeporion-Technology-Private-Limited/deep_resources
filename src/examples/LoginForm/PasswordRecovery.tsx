@@ -1,6 +1,5 @@
 import { Box, Button, Text } from "@/components";
 import { TextSize, TextWeight } from "@/utils/style";
-import React from "react";
 import { Login } from "./type";
 import background from "../../images/backimage.png";
 

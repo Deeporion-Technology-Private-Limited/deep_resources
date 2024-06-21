@@ -1,10 +1,9 @@
-import { Box, Stack, Input, Button, IconButton, Text } from "@/components";
+import { Box, Stack, Input, Button, Text } from "@/components";
 import { ButtonVariant } from "@/components/Button/type";
 import CloseEye from "@/components/Input/Icons/CloseEye";
 import OpenEye from "@/components/Input/Icons/OpenEye";
-import { InputType, Placeholder } from "@/components/Input/type";
-import { TextWeight, TextSize} from "@/utils/style";
-import React from "react";
+import { InputType, InputVariant, Placeholder } from "@/components/Input/type";
+import { TextWeight, TextSize } from "@/utils/style";
 import { Login } from "./type";
 import background from "../../images/backimage.png";
 
@@ -43,8 +42,9 @@ const NewPassword = () => {
                   placeholder={Placeholder.YourNewPassword}
                   className="mb-4 focus:outline-transparent flex"
                   style={webstyle.inputBoxDesign}
+                  variant={InputVariant.Outlined}
+                  value={""}
                 />
-
                 <Text
                   size={TextSize.Small}
                   weight={TextWeight.Medium}
@@ -59,10 +59,11 @@ const NewPassword = () => {
                   type={InputType.Password}
                   placeholder={Placeholder.ConfirmNew}
                   style={webstyle.inputBoxDesign}
+                  variant={InputVariant.Outlined}
+                  value={""}
                   className="focus:outline-transparent"
                 />
               </Box>
-
               <Box className="flex flex-col gap-6">
                 <Button
                   variant={ButtonVariant.DefaultPrimary}
@@ -86,7 +87,6 @@ const NewPassword = () => {
                   </Text>
                 </Box>
               </Box>
-
               <Box className="text-center">
                 <Button className="w-fit bg-transparent p-0 text-[#72787F] font-normal ">
                   {Login.BackTo}{" "}

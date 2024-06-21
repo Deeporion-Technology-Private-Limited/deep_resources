@@ -2,13 +2,15 @@ import { Box, Button, Input, Text } from "@/components";
 import React, { useRef } from "react";
 import { Login } from "./type";
 import { Alignment, TextSize, TextWeight } from "@/utils/style";
-import { InputType } from "@/components/Input/type";
+import { InputType, InputVariant } from "@/components/Input/type";
 
 const PhoneVerify = () => {
-
   const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
 
-  const handleInput = (index: number, event: React.FormEvent<HTMLInputElement>) => {
+  const handleInput = (
+    index: number,
+    event: React.FormEvent<HTMLInputElement>
+  ) => {
     const value = event.currentTarget.value;
     if (value.length >= 1 && index < inputRefs.current.length - 1) {
       inputRefs.current[index + 1]?.focus();
@@ -16,19 +18,22 @@ const PhoneVerify = () => {
   };
 
   const handleVerify = () => {
-    const otp = inputRefs.current.map(input => input?.value).join('');
+    const otp = inputRefs.current.map((input) => input?.value).join("");
+    console.log("otp:-", otp);
   };
 
-  const inputs = Array(6).fill(null).map((_, index) => (
-    <Input
-      key={index}
-      type={InputType.Otp}
-      ref={(el) => (inputRefs.current[index] = el)}
-      onInput={(e) => handleInput(index, e)}
-    />
-  ));
-
-  
+  const inputs = Array(6)
+    .fill(null)
+    .map((_, index) => (
+      <Input
+        key={index}
+        type={InputType.Otp}
+        ref={(el) => (inputRefs.current[index] = el)}
+        onInput={(e) => handleInput(index, e)}
+        variant={InputVariant.Outlined}
+        value={""}
+      />
+    ));
 
   return (
     <Box>
@@ -70,7 +75,9 @@ const PhoneVerify = () => {
               </Text>
             </Box>
             <Box className="w-full">
-              <Button hover  onClick={handleVerify}>{Login.Verify}</Button>
+              <Button hover onClick={handleVerify}>
+                {Login.Verify}
+              </Button>
             </Box>
           </Box>
         </Box>

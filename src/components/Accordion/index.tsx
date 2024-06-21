@@ -32,45 +32,44 @@ const accordionStyle = cva(
 );
 
 type AccordionProps = ComponentProps<"div"> & VariantProps<typeof accordionStyle> & {
-  variant: AccordionTypes;
-  children: string;
-  content?: any;
+  variant?: AccordionTypes;
+  children: any;
+  content: any;
   Icon: React.ReactNode;
   childClassName?: string;
+  status?:React.ReactNode;
+  
 };
 
 const Accordion = forwardRef<HTMLDivElement, AccordionProps>(
-  ({ variant = AccordionTypes.Arrow, content, className, Icon, children, childClassName, ...props }, ref) => {
+  ({ variant = AccordionTypes.Arrow, content, status, className, Icon, children, childClassName, ...props }, ref) => {
 
     const [handleButton, setHandleButton] = useState(false);
 
     const handleClick = () => setHandleButton(!handleButton);
 
     return (
-      <div className="h-[200px]">
         <div className={cn(accordionStyle({ variant, className }))}>
         <div
           ref={ref}
-          className=" border h-fit w-full px-2 py-2"
+          className=" border h-fit w-full px-4 py-2"
           {...props}
          
         >
           <div className="flex items-center justify-between w-full">
-            <div >{children}</div>
-            <div className={`duration-300 transform rotate-180 cursor-pointer hover:shadow  ${handleButton && "origin-center rotate-[none] "} `}  onClick={handleClick}>
+            <div className="flex items-center"  >{children}<div>{status}</div></div>
+      <div className={`duration-300 transform rotate-180 cursor-pointer hover:shadow  ${handleButton && "origin-center rotate-[none] "} `}  onClick={handleClick}>
               {Icon}
             </div>
           </div>
         </div>
         {handleButton && (
           <div className={cn(` w-full ${handleButton ? "h-auto ": "h-0"}  left-0 border  bg-white`, childClassName)}>
-            <div className="px-2 py-1 ">{content}</div>
+            <div className="px-4 py-2 ">{content}</div>
           </div>
         )}
       </div>
-
-      </div>
-    );
+          );
   }
 );
 

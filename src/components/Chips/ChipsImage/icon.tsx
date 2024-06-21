@@ -1,7 +1,7 @@
 import React from "react";
 
 interface ChipsProps {
-    handleClicked:(()=>void);
+    handleClicked?:(()=>void);
   }
 
 export const CloseBlack : React.FC<ChipsProps> = ({ handleClicked} )=>{

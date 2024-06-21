@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { ProductDescriptionReview } from ".";
+import { SubscriptionPage } from ".";
 
 
-const meta: Meta<typeof ProductDescriptionReview> = {
-  title: "Examples/ProductDescriptionReview",
-  component: ProductDescriptionReview,
+const meta: Meta<typeof SubscriptionPage> = {
+  title: "Examples/SubscriptionPage",
+  component: SubscriptionPage,
   parameters: {
     layout: "centered",
   }

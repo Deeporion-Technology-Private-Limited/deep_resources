@@ -42,7 +42,7 @@ export const cardData: ICardDetails[] = [
         // fav/orite: true,
         imageSrc: "https://www.pinklay.com/cdn/shop/files/DianaBlueCo-ordSetof2_1_800x.jpg?v=1710320001",
 
-        price: 3950,
+        price: 4950,
         rating: 4.1,
         reviews: 132,
     },
@@ -53,7 +53,7 @@ export const cardData: ICardDetails[] = [
 
         imageSrc: "https://www.pinklay.com/cdn/shop/files/DarlaSolidYellowCo-ordSetof2_300x.jpg?v=1710319152",
 
-        price: 3950,
+        price: 2950,
         rating: 4.1,
         reviews: 132,
     },
@@ -64,7 +64,7 @@ export const cardData: ICardDetails[] = [
 
         imageSrc: "https://www.pinklay.com/cdn/shop/files/LaylaModalMaxiDress_10_1800x1800.jpg?v=1701686967",
 
-        price: 3950,
+        price: 4950,
         rating: 4.1,
         reviews: 132,
     },
@@ -86,7 +86,7 @@ export const cardData: ICardDetails[] = [
 
         imageSrc: "https://www.pinklay.com/cdn/shop/files/DianaBlueCo-ordSetof2_1_800x.jpg?v=1710320001",
 
-        price: 3950,
+        price: 2950,
         rating: 4.1,
         reviews: 132,
     },
@@ -97,7 +97,7 @@ export const cardData: ICardDetails[] = [
 
         imageSrc: "https://www.pinklay.com/cdn/shop/files/BonjourMaxiDress-Pinklay_4_800x.jpg?v=1715001676",
 
-        price: 3950,
+        price: 5950,
         rating: 4.1,
         reviews: 132,
     },
@@ -108,7 +108,7 @@ export const cardData: ICardDetails[] = [
 
         imageSrc: "https://www.pinklay.com/cdn/shop/files/KiaraGreenPolkaCo-ordSetof2_1_1800x1800.jpg?v=1713276592",
 
-        price: 3950,
+        price: 6950,
         rating: 4.1,
         reviews: 132,
     },
@@ -119,7 +119,7 @@ export const cardData: ICardDetails[] = [
 
         imageSrc: "https://www.pinklay.com/cdn/shop/files/49_800x.jpg?v=1715002142",
 
-        price: 3950,
+        price: 2950,
         rating: 4.1,
         reviews: 132,
     },

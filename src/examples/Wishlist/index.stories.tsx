@@ -9,7 +9,6 @@ const meta: Meta<typeof Wishlist> = {
     parameters: {
         layout: "centered",
     },
-    // tags: ['autodocs']
 }
 
 export default meta;
@@ -19,6 +18,9 @@ type Story = StoryObj<typeof Wishlist>
 export const WishlistPage: Story = {
     args: {
         data: cardData,
-        sortingArray: sortingArray 
+        sortingArray: sortingArray,
+        handleAddToCart() {
+            alert("Added to the cart")
+        },
     }
 }

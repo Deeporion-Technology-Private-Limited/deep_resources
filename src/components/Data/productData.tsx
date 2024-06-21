@@ -1,12 +1,15 @@
+import { IProductDetails, IProductSpecifications } from "../ProductCard/type";
+
 export const productCode = "00123456";
 
-export const productDetails = {
-  productDetail: "Navy Blue printed woven empire %S, has a V-neck, three-quarter sleeves, and flared hem",
+export const productDetails: IProductDetails = {
+  productDetail:
+    "Navy Blue printed woven empire %S, has a V-neck, three-quarter sleeves, and flared hem",
   sizeAndFit: "Semi-Fit\nThe model (height 5'8\") is wearing a size S",
-  materialAndCare: "Cotton\nMachine-wash"
+  materialAndCare: "Cotton\nMachine-wash",
 };
 
-export const productSpecifications = {
+export const productSpecifications: IProductSpecifications = {
   fabric: "Cotton",
   fabricType: "Cotton",
   hemline: "Flared",
@@ -16,5 +19,5 @@ export const productSpecifications = {
   neck: "V-Neck",
   occasion: "Daily",
   color: "Black",
-  style: "Dress"
+  style: "Dress",
 };

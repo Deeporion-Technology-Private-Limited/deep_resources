@@ -2,7 +2,7 @@ import { Box, Logo, LogoImg, Text } from "@/components";
 import { Footer } from "@/components/Footer";
 import { cn } from "@/utils";
 import { VariantProps, cva } from "class-variance-authority";
-import React, { ComponentProps, forwardRef } from "react";
+import React, { ComponentProps, forwardRef, useState } from "react";
 import {
   descrip,
   footerColor,
@@ -31,15 +31,27 @@ type FooterCartProps = ComponentProps<typeof Footer> &
   };
 
 export const FooterCart = forwardRef<HTMLDivElement, FooterCartProps>(
-  ({ className, footerCopyRights={}, logoUrl = "", children, ...props }, ref) => {
+  (
+    { className, footerCopyRights = {}, logoUrl = "", children, ...props },
+    ref
+  ) => {
+    const [mailBox, setMailBox] = useState<string>("");
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      setMailBox(e.target.value);
+    };
+    const handleSubscribe = () => {
+      alert(mailBox);
+    };
+
     return (
       <Box ref={ref} className={cn(footerCartStyles({ className }))} {...props}>
         <Box className="w-full bg-[#BFA59A]">
-          <Box className="mx-[60px]">
+          <Box className="mx-[60px] max-[1000px]:mx-[24px] ">
             <Box className="py-5 border-b border-[#D7C7C1]">
               {logoUrl ? <LogoImg logo={logoUrl} /> : <Logo>Logo</Logo>}
             </Box>
-            <Box className="py-5 flex justify-between flex-wrap">
+            <Box className="py-5 flex justify-between flex-wrap gap-0 max-[1000px]:gap-2 max-[540px]:flex-col">
               <Footer
                 className="pl-[0px]"
                 heading={titleForCustomerServices}
@@ -64,7 +76,25 @@ export const FooterCart = forwardRef<HTMLDivElement, FooterCartProps>(
                 links={linksItem}
                 innerClass="items-end"
                 footerTextColor={footerColor}
-                descriptionClass="w-[240px]"
+                descriptionClass="w-[318px]"
+                className="block max-[1000px]:hidden "
+                value={mailBox}
+                handleInput={handleChange}
+                handleSubscribe={handleSubscribe}
+              />
+            </Box>
+            <Box className="hidden max-[1000px]:flex justify-end pb-5 max-[540px]:justify-center">
+              <Footer
+                newsLetter={true}
+                description={descrip}
+                links={linksItem}
+                innerClass="items-end"
+                footerTextColor={footerColor}
+                descriptionClass="w-[318px]"
+                className="pl-0"
+                value={mailBox}
+                handleInput={handleChange}
+                handleSubscribe={handleSubscribe}
               />
             </Box>
           </Box>
@@ -72,7 +102,12 @@ export const FooterCart = forwardRef<HTMLDivElement, FooterCartProps>(
         <Box
           className={` ${footerCopyRights.copyrightBgStyle} w-full py-[26px] flex justify-center items-center`}
         >
-          <Text as="p" className={` ${footerCopyRights.copyrightTextStyle} font-[400] text-center text-[#fff] text-[14px]`}>{footerCopyRights.copyright}</Text>
+          <Text
+            as="p"
+            className={` ${footerCopyRights.copyrightTextStyle} font-[400] text-center text-[#fff] text-[14px]`}
+          >
+            {footerCopyRights.copyright}
+          </Text>
         </Box>
       </Box>
     );

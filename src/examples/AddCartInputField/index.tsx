@@ -2,8 +2,9 @@ import React, { useEffect, useState } from 'react';
 import Accordion from '@/components/Accordion';
 import { AccordionTypes } from '@/components/Accordion/AccordionTypes';
 import { UpCursor } from '@/components/Accordion/Icon/Icon';
-import { AddressDetais, ContactDetails, SaveAsAddress } from './cartComponents';
 import { GreenArrow } from './CartIcon';
+import { AddressDetails, ContactDetails, SaveAsAddress, initialData } from '@/components/Data/MyCartSummaryData';
+
 
 export interface StateProp {
   first_name: string;
@@ -17,6 +18,7 @@ export interface StateProp {
   State: string;
   Address: string;
   addressType: string;
+  Checked?: boolean;
 }
 
 
@@ -31,19 +33,7 @@ export interface MyCartProp {
 export const MyCartSummary: React.FC<MyCartProp> = ({
   handleBack = () => alert('back'),
   handleChange = (e) => console.log('value', e.target.value),
-  initialState = {
-    first_name: '',
-    Last_name: '',
-    phone_Number: '',
-    email: '',
-    pincode: '',
-    Area: '',
-    Country: '',
-    city: '',
-    State: '',
-    Address: '',
-    addressType: ''
-  },
+  initialState = initialData,
   setInitialState = (prev) => ({ ...prev }),
   handleSubmit = ((e) => {e.preventDefault()
                           alert("submit")})
@@ -65,7 +55,7 @@ export const MyCartSummary: React.FC<MyCartProp> = ({
       status: ticks.tick1
     },
     {
-      content: <AddressDetais handleChange={handleChange} value={initialState} />,
+      content: <AddressDetails handleChange={handleChange} value={initialState} />,
       title: 'Address',
       status: ticks.tick2
     },

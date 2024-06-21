@@ -14,7 +14,7 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
   (
-    { className, type = 'text', search, eyeOpen, eye, prefix, variant = 'standard', value, onChange, ...props },
+    { className, type = 'text', search, eyeOpen, eye, prefix, variant = 'standard', value, ...props },
     ref
   ) => {
     const [showPassword, setShowPassword] = useState<boolean>(false);
@@ -34,7 +34,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         case InputType.Phone:
           if (!validatePhoneNumber(newValue)) {
             validationError = 'Please enter a valid phone number';
-          }onChange
+          }
           break;
         case InputType.Numbers:
           if (!validateNumbers(newValue)) {

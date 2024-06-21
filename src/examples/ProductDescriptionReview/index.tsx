@@ -9,8 +9,6 @@ import {
 import Ratingcard from "../RatingCard";
 
 export const ProductDescriptionReview = () => {
-  const { reviewDetails } = DescriptionReview;
-
   const ThumbUp = (data: any) => {
     alert(`${data.heading} Thumbs up Button Clicked`);
   };
@@ -29,7 +27,7 @@ export const ProductDescriptionReview = () => {
         <Box className="flex justify-between items-center">
           <Headings
             fontWeight="font-normal"
-            text={`${reviewDetails.length} Reviews`}
+            text={`${DescriptionReview.length} Reviews`}
             style={{ color: "#72787F", fontSize: "14px" }}
           />
 
@@ -43,8 +41,8 @@ export const ProductDescriptionReview = () => {
             />
           </Box>
         </Box>
-        {reviewDetails &&
-          reviewDetails.map((data, index) => {
+        {DescriptionReview &&
+          DescriptionReview.map((data, index) => {
             return (
               <Box className="border-t-2" key={index}>
                 <Box>

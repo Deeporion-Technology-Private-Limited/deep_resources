@@ -58,7 +58,7 @@ type ChipsProps = ComponentProps<"div"> & VariantProps<typeof chipsStyle> & {
   addLeftIcon?: boolean; 
   variant: ChipsTypes;
   children?: string;
-  handleClick : ()=> void
+  handleClick? : ()=> void;
 };
 
 

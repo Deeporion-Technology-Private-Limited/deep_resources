@@ -53,7 +53,7 @@ export const NeedHelp: Story = {
 
 export const NewsLetter: Story = {
   args: {
-    className: "max-w-[320px]",
+    className: "max-w-full",
     heading: {
       title:"The NewsLetter",
     },

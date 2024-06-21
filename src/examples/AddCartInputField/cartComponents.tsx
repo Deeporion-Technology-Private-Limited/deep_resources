@@ -179,11 +179,11 @@ export const AddressDetais: React.FC<ContactDetailsProps> = ({ handleChange, val
 };
 
 interface SaveAsAddressProps {
-  getData: Dispatch<SetStateAction<StateProp>>;
+  getData: Dispatch<SetStateAction<StateProp>> ;
   handleBack: () => void;
 }
 
-export const SaveAsAddress: React.FC<SaveAsAddressProps> = ({ getData, handleBack }) => {
+export const SaveAsAddress: React.FC<SaveAsAddressProps> = ({ getData, handleBack}) => {
   const [changeColour, setChangeColour] = useState(false);
   const [changeColour1, setChangeColour1] = useState(false);
 
@@ -212,7 +212,10 @@ export const SaveAsAddress: React.FC<SaveAsAddressProps> = ({ getData, handleBac
         />
       </div>
       <div className="flex w-full items-center pt-3 font-light">
-        <Checkbox value={"Make this my default address"} label={"Make this my default address"} onChange={(e) => (getData((prev) => ({ ...prev, Checked: e.target.checked })))} />
+        <Checkbox 
+        value={"Make this my default address"} 
+        label={"Make this my default address"} 
+        onChange={(e) => (getData((prev) => ({ ...prev, Checked: e.target.checked })))} />
       </div>
       <div className="w-full h-fit pt-4">
         <div className="ml-auto w-fit flex gap-2">

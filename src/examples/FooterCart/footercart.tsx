@@ -2,10 +2,7 @@ import instagram from "./footerIcon/instagram.png"
 import twitter from "./footerIcon/twitter.png"
 import facebook from "./footerIcon/facebook.png"
 import youtube from "./footerIcon/youtub.png"
-interface titleFooter {
-  title?: string;
-  titleColor?: string;
-}
+import { titleFooter } from "@/components/Footer/footerInterface";
 
 interface serviceItem {
   name?: string;
@@ -13,6 +10,7 @@ interface serviceItem {
 }
 interface socialLinks {
   iconUrl?: string;
+  href?: string;
 }
 
 interface listItem {
@@ -63,12 +61,15 @@ export const descrip: string =
 
 export const titleForCustomerServices : titleFooter = {
     title: "Customer Services",
+    titleStyle: "font-bold",
 }
 export const titleForNeedHelp : titleFooter = {
     title: "Need Help",
+    titleStyle: "font-bold",
 }
 export const titleForCompany : titleFooter = {
     title: "The Company",
+    titleStyle: "font-bold",
 }
 
 export const footerCopyrightItem: footerCopyright = {

@@ -33,4 +33,7 @@ export interface serviceItem {
     innerUlClass?: string;
     innerLiClass?: string;
     descriptionClass?: string;
+    handleInput?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    value?: string;
+    handleSubscribe?: () => void;
   }

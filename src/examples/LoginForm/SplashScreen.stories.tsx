@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import PhoneVerify from "./PhoneVerify";
 import SplashScreen from "./SplashScreen";
 
 const meta: Meta<typeof SplashScreen> = {

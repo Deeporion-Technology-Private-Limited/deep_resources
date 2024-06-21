@@ -17,7 +17,6 @@ import { InputType, InputVariant } from "@/components/Input/type";
 import hemburgerImg from "../navbarIcons/hamburger.png";
 import person from "../navbarIcons/person.svg";
 
-
 const navBarStyles = cva(
   ["w-[100vw]", "border", "flex", "justify-center", "items-center"],
   {
@@ -163,7 +162,7 @@ export const Topnavbar = forwardRef<HTMLDivElement, LogoImageProps>(
                   )}
                   {navBarIcons?.map((item) => (
                     <>
-                      <IconButton iconUrl={item.icon} key={item.icon}/>
+                      <IconButton iconUrl={item.icon} key={item.icon} />
                     </>
                   ))}
                 </GroupIconButton>

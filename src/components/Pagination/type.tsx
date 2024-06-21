@@ -13,8 +13,9 @@ export enum Types {
 }
 
 export enum Color {
-  Danger="red",
-  Primary="blue",
-  Success="green",
-  Secondary="gray",
+  Danger = "red",
+  Primary = "blue",
+  Success = "green",
+  Secondary = "gray",
+  Brown = "brown",
 }

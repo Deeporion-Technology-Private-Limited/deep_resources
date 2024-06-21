@@ -14,6 +14,7 @@ type BreadCrumbItem = {
   text: string;
   iconUrl?: string;
   separatorIconUrl?: string;
+  href?: string;
 };
 
 type BreadCrumbProps = ComponentProps<"div"> & VariantProps<typeof breadCrumbStyles> & {
@@ -37,17 +38,19 @@ export const BreadCrumb = forwardRef<HTMLDivElement, BreadCrumbProps>(
     const renderBreadCrumbItem = (item: BreadCrumbItem, index: number) => (
       <div
         key={index}
-        className="flex items-center cursor-pointer"
+        className="flex items-center"
         onClick={() => handleItemClick(index)}
       >
         {item.iconUrl && (
           <img src={item.iconUrl} alt={`${item.text} Icon`} className="p-2" />
         )}
-        <span
+        <a
+          href={item.href}
+          className="text-sm font-medium"
           style={{ color: activeIndex === index ? '#26282B' : '#72787F' }}
         >
           {item.text}
-        </span>
+        </a>
         {index < breadCrumbItems.length - 1 && (
           <img src={item.separatorIconUrl || defaultSeparatorIconUrl} alt="Separator Icon" className="p-4" />
         )}

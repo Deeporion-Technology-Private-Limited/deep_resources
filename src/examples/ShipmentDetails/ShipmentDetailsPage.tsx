@@ -1,4 +1,3 @@
-import detailsimage from "../../images/detailsimage.png";
 import ShipmentAddressCard from "./ShipmentAddressCard";
 import ShipmentProductCard from "./ShipmentProductCard";
 import { ProductShipmentDetails } from "./type";

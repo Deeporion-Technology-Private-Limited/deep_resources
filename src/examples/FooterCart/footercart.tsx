@@ -1,8 +1,7 @@
-import instagram from "../../components/Header/navbarIcons/Instagram.svg";
-import linkedin from "../../components/Header/navbarIcons/LinkedIn.svg";
-import facebook from "../../components/Header/navbarIcons/Facebook.svg";
-import google from "../../components/Header/navbarIcons/Google.svg";
-
+import instagram from "./footerIcon/instagram.png"
+import twitter from "./footerIcon/twitter.png"
+import facebook from "./footerIcon/facebook.png"
+import youtube from "./footerIcon/youtub.png"
 interface titleFooter {
   title?: string;
   titleColor?: string;
@@ -55,9 +54,9 @@ export const needHelpListItem: listItem[] = [
 
 export const linksItem: socialLinks[] = [
   { iconUrl: instagram },
-  { iconUrl: linkedin },
+  { iconUrl: twitter },
+  { iconUrl: youtube },
   { iconUrl: facebook },
-  { iconUrl: google },
 ];
 export const descrip: string =
   "Be the first to know about our new collections, exclusive offers, and other perks!";
@@ -73,7 +72,7 @@ export const titleForCompany : titleFooter = {
 }
 
 export const footerCopyrightItem: footerCopyright = {
-  copyright: "2024 All rights reserved",
+  copyright: "© 2024 All rights reserved",
   copyrightBgStyle: "bg-[#3F271E]",
   copyrightTextStyle: "text-[#fff]",
 }

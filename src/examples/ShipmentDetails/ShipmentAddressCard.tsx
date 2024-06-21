@@ -3,7 +3,6 @@ import {
   ShipmentOrderInfo,
   TimeDuration,
 } from "@/components/Data/ShipmentDetails";
-import React from "react";
 import compare_arrow from "../../images/compare_arrows.svg";
 import refresh from "../../images/refresh.svg";
 import { ProductShipmentDetails } from "./type";
@@ -49,7 +48,7 @@ function ShipmentAddressCard() {
         <div className="flex items-center mb-6">
           <div className="w-auto h-auto text-base font-bold leading-6 text-gray-800">
             {ProductShipmentDetails.orderId}
-            {""} {ShipmentOrderInfo.shipmentId}
+            {""} {ShipmentOrderInfo.orderId}
           </div>
           <div className="bg-[#EBE3E0] rounded-[26px] flex items-center justify-center mx-[10px] px-[12px] py-[6px]">
             <span className="text-sm font-semibold leading-[21px] text-right text-[#3F271E]">
@@ -98,7 +97,7 @@ function ShipmentAddressCard() {
             </div>
             <div className="text-base font-semibold leading-6 text-gray-800">
               {ShipmentOrderInfo.lastStop} {TimeDuration.hour}
-              {ShipmentOrderInfo.lastStop > 1 ? "s" : null}
+              {(ShipmentOrderInfo.lastStop ?? 0) > 1 ? "s" : ""}
             </div>
           </div>
         </div>

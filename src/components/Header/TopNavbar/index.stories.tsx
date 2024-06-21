@@ -6,18 +6,14 @@ import cart from "../navbarIcons/shoping_cart.svg";
 import setting from "../navbarIcons/settings.svg";
 import profile from "../navbarIcons/image.png";
 import log from "../navbarIcons/logo.svg";
-import {
-  Topnavbar,
-
-} from ".";
+import { Topnavbar } from ".";
 import { NavbarDirection } from "../type";
+import { TopHoverMenuCard } from "../ExpandedNavbar";
+import { GenderItem, TopItem } from "../ExpandedNavbar/topHoverObjects";
 
 const meta: Meta<typeof Topnavbar> = {
   title: "Components/Header/TopNavbar",
   component: Topnavbar,
-  parameters: {
-    layout: "centered",
-  },
   tags: ["autodocs"],
 };
 
@@ -35,14 +31,14 @@ export const Default: Story = {
       { text: "Contact", href: "/contact" },
     ],
     navBarIcons: [
-      {icon: person, iconName: "Logo"},
-      { icon: fav},
-      { icon: notification},
-      { icon: cart},
-      { icon: setting},
+      { icon: person, iconName: "Logo" },
+      { icon: fav },
+      { icon: notification },
+      { icon: cart },
+      { icon: setting },
     ],
     profilePicture: profile,
-    isSearch: true, 
+    isSearch: true,
   },
 };
 
@@ -56,13 +52,13 @@ export const LogedIn: Story = {
       { text: "Contact", href: "/contact" },
     ],
     navBarIcons: [
-      { icon: fav},
-      { icon: notification},
-      { icon: cart},
-      { icon: setting},
+      { icon: fav },
+      { icon: notification },
+      { icon: cart },
+      { icon: setting },
     ],
     profilePicture: profile,
-    isSearch: true, 
+    isSearch: true,
     isLogin: true,
   },
 };
@@ -78,14 +74,80 @@ export const WithLogoImage: Story = {
       { text: "Contact", href: "/contact" },
     ],
     navBarIcons: [
-      {icon: person, iconName: "Logo"},
-      { icon: fav},
-      { icon: notification},
-      { icon: cart},
-      { icon: setting},
+      { icon: fav },
+      { icon: notification },
+      { icon: cart },
+      { icon: setting },
     ],
     profilePicture: profile,
-    isSearch: true, 
+    isSearch: true,
     isLogin: true,
   },
 };
+
+export const WithHemburger: Story = {
+  args: {
+    title: "Logo",
+    LogoIcon: log,
+    direction: NavbarDirection.Row,
+    navItem: [
+      { text: "Home", href: "/" },
+      { text: "About", href: "/about" },
+      { text: "Contact", href: "/contact" },
+    ],
+    navBarIcons: [
+      { icon: person, iconName: "Logo" },
+      { icon: fav },
+      { icon: notification },
+      { icon: cart },
+      { icon: setting },
+    ],
+    profilePicture: profile,
+    isSearch: true,
+    isLogin: true,
+    hemburger : {
+      isHemburger: true,
+      hemburgerClick: () => {
+        alert("open hemburger");
+      } 
+    }
+  },
+};
+
+export const OnNavItemHover: Story = {
+  args: {
+    title: "Logo",
+    direction: NavbarDirection.Row,
+    navItem: [
+      {
+        text: "Home",
+        href: "/",
+        component: (
+          <TopHoverMenuCard TopHoverMenuItem={TopItem} title="Categories" />
+        ),
+      },
+      {
+        text: "About",
+        href: "/about",
+        component: (
+          <TopHoverMenuCard
+            TopHoverMenuItem={GenderItem}
+            listStyle="gap-[30px] py-[0px]"
+          />
+        ),
+      },
+      { text: "Contact", href: "/contact" },
+    ],
+    navBarIcons: [
+      { icon: person, iconName: "Logo" },
+      { icon: fav },
+      { icon: notification },
+      { icon: cart },
+      { icon: setting },
+    ],
+    profilePicture: profile,
+    isSearch: true,
+    isLogin: true,
+  },
+};
+

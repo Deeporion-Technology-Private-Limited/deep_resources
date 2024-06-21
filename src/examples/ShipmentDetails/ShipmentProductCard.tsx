@@ -1,5 +1,4 @@
 import React from "react";
-import shipmentImage from "../../images/shipment_product.png";
 import check_circle_outline from "../../images/check_circle_outline.svg";
 import progress_indicator_circle from "../../images/progress_indicator_circle.svg";
 import location_pin from "../../images/location_pin.svg";
@@ -13,7 +12,11 @@ import { ProductShipmentDetails } from "./type";
 const ShipmentProductCard: React.FC = () => {
   return (
     <div className="flex flex-col gap-4  bg-white rounded-lg p-6">
-      <img src={shipmentImage} alt="Product" className="rounded-[23px] " />
+      <img
+        src={ShipmentOrderInfo.imageURL}
+        alt="Product"
+        className="rounded-[23px] "
+      />
       <div className="flex flex-col gap-8">
         <div className="flex flex-col gap-2 w-[490px] h-[82px]">
           <h2 className="text-base font-bold text-[#26282B] font-poppins leading-6">

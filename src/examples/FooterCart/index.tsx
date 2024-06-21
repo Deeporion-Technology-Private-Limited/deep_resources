@@ -23,7 +23,7 @@ interface footerCopyright {
   copyrightTextStyle?: string;
 }
 
-type FooterCartProps = ComponentProps<"div"> &
+type FooterCartProps = ComponentProps<typeof Footer> &
   VariantProps<typeof footerCartStyles> & {
     children?: React.ReactNode;
     logoUrl?: string;
@@ -59,12 +59,12 @@ export const FooterCart = forwardRef<HTMLDivElement, FooterCartProps>(
                 list={needHelpListItem}
               />
               <Footer
-               
                 newsLetter={true}
                 description={descrip}
                 links={linksItem}
                 innerClass="items-end"
                 footerTextColor={footerColor}
+                descriptionClass="w-[240px]"
               />
             </Box>
           </Box>

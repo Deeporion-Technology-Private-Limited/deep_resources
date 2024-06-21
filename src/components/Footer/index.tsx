@@ -2,7 +2,7 @@ import { cn } from "@/utils";
 import { VariantProps, cva } from "class-variance-authority";
 import { ComponentProps, forwardRef } from "react";
 import { Box, Button, IconButton, Input, Text } from "@/components";
-import { InputType } from "../Input/type";
+import { InputType, InputVariant } from "../Input/type";
 import { CoreCustomerProps } from "./footerInterface";
 
 const navBarStyles = cva([
@@ -28,6 +28,9 @@ export const Footer = forwardRef<HTMLDivElement, CustomerProps>(
       footerTextColor = "",
       customInnerBoxClass = "",
       innerClass = "",
+      innerUlClass = "",
+      innerLiClass = "",
+      descriptionClass = "",
       ...props
     },
     ref
@@ -37,17 +40,17 @@ export const Footer = forwardRef<HTMLDivElement, CustomerProps>(
         {Object.keys(heading).length > 0 && (
           <Text
             as="p"
-            className={`text-[14px] mb-[15px] font-[600] text-[${!heading.titleColor ? (footerTextColor ? footerTextColor : "gray") : heading.titleColor}] tracking-[.8px]`}
+            className={`${heading.titleStyle ? heading.titleStyle : "text-[14px]"} mb-[15px] font-[600] ${!heading.titleColor ? (footerTextColor ? `text-[${footerTextColor}` : "gray") : `text-[${heading.titleColor}`}] tracking-[.8px]`}
           >
             {heading.title}
           </Text>
         )}
         <Box className={`${innerClass} flex flex-col`}>
           {list?.length > 0 && (
-            <ul className="list-none">
+            <ul className={`${innerUlClass} list-none`}>
               {list?.map((item) => (
                 <li
-                  className={`text-[12px] mb-[20px] text-[${footerTextColor ? footerTextColor : "black"}]`}
+                  className={`${innerLiClass} text-[12px] mb-[20px] text-[${footerTextColor ? footerTextColor : "black"}]`}
                 >
                   <a href={item.href} className="">
                     {item.name}
@@ -72,6 +75,7 @@ export const Footer = forwardRef<HTMLDivElement, CustomerProps>(
           {newsLetter && (
             <Box className="flex relative mb-[20px]">
               <Input
+              variant={InputVariant.Standard}
                 type={InputType.Text}
                 className="rounded-none flex-1 h-[46px]"
               />
@@ -83,7 +87,7 @@ export const Footer = forwardRef<HTMLDivElement, CustomerProps>(
           {description !== "" && (
             <Text
               as="p"
-              className={`mb-[15px] tracking-[.8px] text-[13px] text-[${footerTextColor ? footerTextColor : "black"}]`}
+              className={` ${descriptionClass} mb-[15px] tracking-[.8px] text-[13px] text-[${footerTextColor ? footerTextColor : "black"}]`}
             >
               {description}
             </Text>
@@ -92,7 +96,7 @@ export const Footer = forwardRef<HTMLDivElement, CustomerProps>(
             <Box className="justify-start flex">
               {links.map((item) => (
                 <>
-                  <IconButton iconUrl={item.iconUrl} className="w-fit" />
+                  <IconButton iconUrl={item.iconUrl} className="w-fit p-[5px]" onClick={item.onClick}/>
                 </>
               ))}
             </Box>

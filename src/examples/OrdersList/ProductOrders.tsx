@@ -1,14 +1,16 @@
 import { Button } from "@/components/Button/DefaultButton/index";
 import { ProductOrderList } from "./type";
 import {
+  IShipmentOrderInfo,
   OrderListDetails,
   shipmentStatusColors,
 } from "@/components/Data/ShipmentDetails";
+import { ButtonSize, ButtonVariant } from "@/components/Button/type";
 
 const ProductOrders: React.FC = () => {
   return (
     <div className="flex flex-col gap-16 bg-white rounded-lg w-full">
-      {OrderListDetails.map((order) => (
+      {OrderListDetails.map((order: IShipmentOrderInfo) => (
         <div
           key={order.orderId}
           className="flex flex-col gap-4 shadow-lg w-full"
@@ -33,12 +35,11 @@ const ProductOrders: React.FC = () => {
                   <div className="text-base font-semibold leading-6 text-gray-800">
                     {ProductOrderList.status}
                   </div>
+
                   <div
                     className="text-base font-semibold leading-6"
                     style={{
-                      color:
-                        order.currentShipmentStatus &&
-                        shipmentStatusColors[order.currentShipmentStatus],
+                      color: shipmentStatusColors[order.currentShipmentStatus],
                     }}
                   >
                     {order.currentShipmentStatus}
@@ -78,7 +79,11 @@ const ProductOrders: React.FC = () => {
               <div className="flex flex-1 min-w-[150px]">
                 <div>
                   <div className="text-base font-normal leading-6 text-gray-800">
-                    <Button hover size="md" variant="defaultPrimary">
+                    <Button
+                      hover
+                      size={ButtonSize.Medium}
+                      variant={ButtonVariant.DefaultPrimary}
+                    >
                       view details
                     </Button>
                   </div>

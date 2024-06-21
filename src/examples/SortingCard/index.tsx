@@ -125,17 +125,17 @@ const SortingCard = forwardRef<HTMLDivElement, SortingProps>(
         <Box className="flex gap-3 pt-4">
           {showChips.length > 0
             ? showChips.map((label) => (
-                <Chips
-                  handleClick={() => handleChip(label)}
-                  key={label}
-                  addRightIcon
-                  size="lg"
-                  className="rounded-xl w-30 h-8 bg-[#EBE3E0] text-[#3F271E]"
-                  variant={ChipsTypes.default}
-                >
-                  {label}
-                </Chips>
-              ))
+              <Chips
+                handleClick={() => handleChip(label)}
+                key={label}
+                addRightIcon
+                size="lg"
+                className="rounded-xl w-30 h-8 bg-[#EBE3E0] text-[#3F271E]"
+                variant={ChipsTypes.default}
+              >
+                {label}
+              </Chips>
+            ))
             : null}
 
           {showChips.length > 0 && (

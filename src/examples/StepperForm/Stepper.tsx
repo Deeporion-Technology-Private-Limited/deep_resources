@@ -1,4 +1,4 @@
-import React, { useState, forwardRef } from "react";
+import React, { useState, forwardRef, ReactElement } from "react";
 import { cn } from "@/utils";
 import { cva } from "class-variance-authority";
 
@@ -21,7 +21,7 @@ const stepperStyles = cva(
 );
 
 type Step = {
-  component: React.ReactNode;
+  component: ReactElement;
   title: string;
   data?: any;
 };
@@ -156,6 +156,7 @@ const Stepper = forwardRef<HTMLDivElement, StepperProps>((props, ref) => {
             ))}
           </div>
         ) : (
+          React.isValidElement(steps[activeStep].component) &&
           React.cloneElement(steps[activeStep].component, {
             onDataChange: handleStepDataChange,
             data: formData[activeStep] || {},

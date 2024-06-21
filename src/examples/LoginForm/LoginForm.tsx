@@ -4,7 +4,7 @@ import background from "../../images/backimage.png";
 import google from "../../images/Google.png";
 import phone from "../../images/phone.png";
 import { Alignment, TextSize, TextWeight } from "@/utils/style";
-import { Login } from "./type";
+import { Login  } from "./type";
 import { InputType, InputVariant, Placeholder } from "@/components/Input/type";
 import CloseEye from "@/components/Input/Icons/CloseEye";
 import OpenEye from "@/components/Input/Icons/OpenEye";

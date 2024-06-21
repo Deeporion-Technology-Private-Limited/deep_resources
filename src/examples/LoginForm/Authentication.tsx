@@ -1,12 +1,28 @@
 import { Box, Button, Input, Text } from "@/components";
 import { TextWeight, TextSize, Alignment } from "@/utils/style";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { Login } from "./type";
 import background from "../../images/backimage.png";
 import { InputType, InputVariant } from "@/components/Input/type";
 
 const Authentication = () => {
+  const [error, setError] = useState("");
+
   const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
+
+  const [values, setValues] = useState(Array(4).fill(""));
+  // const inputRefs = useRef([]);
+
+  const handleChange =
+    (index: number) => (event: { target: { value: any } }) => {
+      const value = event.target.value;
+      if (/^\d*$/.test(value)) {
+        // Only update if the value is a number
+        const newValues = [...values];
+        newValues[index] = value;
+        setValues(newValues);
+      }
+    };
 
   const inputs = Array(4)
     .fill(null)
@@ -16,10 +32,25 @@ const Authentication = () => {
         type={InputType.Otp}
         ref={(el) => (inputRefs.current[index] = el)}
         variant={InputVariant.Outlined}
-        value={""}
+        value={values[index]}
+        onChange={handleChange(index)}
       />
     ));
 
+  const handleVerify = () => {
+    // Verification logic here
+    if (values.every((value) => value !== "" && /^\d+$/.test(value))) {
+      setError("Verify Successfully");
+
+      console.log("All inputs are valid:", values);
+      // Perform further actions like API calls or state updates
+    } else {
+      setError("Some inputs are invalid or empty");
+
+      console.log("Some inputs are invalid or empty");
+      // Show error message or handle invalid inputs
+    }
+  };
   return (
     <Box className=" w-[100vw] flex items-center justify-between">
       <Box className="w-[50vw] flex justify-center flex-col items-center">
@@ -46,6 +77,7 @@ const Authentication = () => {
             >
               {Login.Code}
             </Text>
+
             <Text
               align={Alignment.Center}
               size={TextSize.Base}
@@ -71,9 +103,21 @@ const Authentication = () => {
                 {Login.Resend}
               </Text>
             </Text>
+            {error && (
+              <Text
+                size={TextSize.Small}
+                weight={TextWeight.Medium}
+                className={`font-bold mb-1.5 ${error === "Verify Successfully" ? "text-green-500 " : "text-red-500"}`}
+                align={Alignment.Center}
+              >
+                {error}
+              </Text>
+            )}
           </Box>
           <Box className="flex flex-col gap-4  items-center">
-            <Button className="font-bold text-base ">{Login.Verify}</Button>
+            <Button className="font-bold text-base " onClick={handleVerify}>
+              {Login.Verify}
+            </Button>
             <Button className="w-fit bg-transparent p-0 text-[#72787F] font-normal items-center text-sm ">
               {Login.GoBack}
             </Button>

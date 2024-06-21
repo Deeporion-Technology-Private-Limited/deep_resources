@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Modal } from ".";
 import { Box, Checkbox, Headings, Input, Text } from "..";
-import { InputType } from "@/components/Input/type";
+import { InputType, InputVariant } from "@/components/Input/type";
 import { InputType as Checkboxinput } from "@/components/Checkbox/CheckboxTypes";
-import ReviewCard from "../Cards/ReviewCard"
+import ReviewCard from "../Cards/ReviewCard";
 import { LoginForm } from "../../examples/LoginForm/LoginForm";
 
 const meta = {
@@ -28,8 +28,8 @@ export const Default: Story = {
     button02: true,
     button01: true,
     modalbutton: true,
-    openModal:true,
-    
+    openModal: true,
+    closeIcon: true,
     header: (
       <Box className="mb-3 flex justify-between  border-[rgba(255, 255, 255, 1)]">
         <Headings
@@ -59,8 +59,8 @@ export const ModalInputs: Story = {
     button02: true,
     button01: true,
     modalbutton: true,
-    openModal:true,
-    
+    openModal: true,
+    closeIcon: true,
     children: (
       <>
         <Headings
@@ -77,7 +77,13 @@ export const ModalInputs: Story = {
           >
             Name :
           </label>
-          <Input id="input1" placeholder="Input 1" type={InputType.Text}  />
+          <Input
+            id="input1"
+            placeholder="Input 1"
+            type={InputType.Text}
+            variant={InputVariant.Standard}
+            value={""}
+          />
         </div>
         <div className="flex flex-col mb-4">
           <label
@@ -86,7 +92,13 @@ export const ModalInputs: Story = {
           >
             Email :
           </label>
-          <Input id="input1" placeholder="Input 1" type={InputType.Text}  />
+          <Input
+            id="input1"
+            placeholder="Input 1"
+            variant={InputVariant.Standard}
+            type={InputType.Text}
+            value={""}
+          />
         </div>
       </>
     ),
@@ -112,8 +124,8 @@ export const ReviewModal: Story = {
     button02: true,
     button01: true,
     modalbutton: true,
-    openModal:true,
-    
+    openModal: true,
+    closeIcon: true,
     header: (
       <>
         <Box className="mb-3 flex justify-between  border-[rgba(255, 255, 255, 1)]">
@@ -139,13 +151,15 @@ export const ReviewModal: Story = {
           imageSrc={""}
           rating={4}
           className="shadow-none"
-          StarRating reviewerName={""}        />
+          StarRating
+          reviewerName={""}
+        />
       </>
     ),
   },
 };
 
-export const PivacyPolicy: Story = {
+export const PrivacyPolicy: Story = {
   args: {
     onClose: () => (isOpen: boolean) => {
       return !isOpen;
@@ -153,8 +167,8 @@ export const PivacyPolicy: Story = {
     button02: true,
     button01: true,
     modalbutton: true,
-    openModal:true,
-    
+    openModal: true,
+    closeIcon: true,
     header: (
       <>
         <Box className="mb-3 flex justify-between  border-[rgba(255, 255, 255, 1)]">
@@ -187,7 +201,8 @@ export const LoginForms: Story = {
     modalbutton: true,
     button02: false,
     button01: false,
-    openModal:true,
+    openModal: true,
+    closeIcon: false,
     children: <LoginForm />,
     header: <></>,
   },

@@ -138,6 +138,7 @@ export const Topnavbar = forwardRef<HTMLDivElement, LogoImageProps>(
             <Box className={"gap-[28px] flex show"}>
               {isSearch && (
                 <Input
+                  value=""
                   variant={InputVariant.Standard}
                   type={InputType.SearchIcon}
                   search={<SearchImage />}

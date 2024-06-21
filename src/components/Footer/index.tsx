@@ -75,6 +75,7 @@ export const Footer = forwardRef<HTMLDivElement, CustomerProps>(
           {newsLetter && (
             <Box className="flex relative mb-[20px]">
               <Input
+              value=""
               variant={InputVariant.Standard}
                 type={InputType.Text}
                 className="rounded-none flex-1 h-[46px]"

@@ -143,7 +143,6 @@ export const Topnavbar = forwardRef<HTMLDivElement, LogoImageProps>(
                   search={<SearchImage />}
                   placeholder="Search here ..."
                   className="outline-none rounded-full"
-                  value={""}
                 />
               )}
               {navBarIcons?.length > 0 && (

@@ -46,7 +46,7 @@ interface ModalPropss {
   button01: boolean;
   modalbutton: boolean;
   openModal: boolean;
-  crossIcon: boolean;
+  crossIcon?: boolean;
 }
 
 type ModalProps = ComponentProps<"div"> & VariantProps<typeof modalStyles>;

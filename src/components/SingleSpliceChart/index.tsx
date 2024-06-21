@@ -109,7 +109,7 @@ export const SingleLineChart = forwardRef<HTMLDivElement, SingleLineChartProps>(
             />
             <path d={path1} stroke={curveLineColor} strokeWidth="1" fill="none" />
             <g stroke="#E5E7EB" strokeWidth="1">
-              {yAxisLabels.map((label, index) => (
+              {yAxisLabels.map((_label, index) => (
                 index !== 0 && index !== yAxisLabels.length - 1 &&
                 <line key={index} x1="0" y1={height - (index / (yAxisLabels.length - 1)) * height} x2={width} y2={height - (index / (yAxisLabels.length - 1)) * height} />
               ))}

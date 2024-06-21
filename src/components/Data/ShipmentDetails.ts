@@ -11,7 +11,7 @@ interface ISizes {
   XXL: string;
 }
 
-//Define the interface for the Shipment dates
+// Define the interface for the Shipment dates
 interface IShipmentDates {
   shippedDate: string;
   dispatchedDate: string;
@@ -19,7 +19,7 @@ interface IShipmentDates {
   location: string;
 }
 
-//Define the interface for the delivery addtress
+// Define the interface for the delivery address
 interface IDeliveryAddress {
   customerName: string;
   phone: string;
@@ -27,20 +27,11 @@ interface IDeliveryAddress {
   pincode: number;
 }
 
-//Define the interface for the shipment status
-interface IshipmentStatus {
-  pending: string;
-  processing: string;
-  confirmed: string;
-  outOfDelivery: string;
-  shipped: string;
-  cancelled: string;
-  returned: string;
-  failed: string;
-}
+// Define the union type for the shipment status
+type ShipmentStatus = 'Pending' | 'Processing' | 'Confirmed' | 'OutOfDelivery' | 'Shipped' | 'Cancelled' | 'Returned' | 'Failed';
 
-//Define the interface for the shipment status
-interface IshipmentStatusColors {
+// Define the interface for the shipment status colors
+export interface IshipmentStatusColors {
   Pending: string;
   Processing: string;
   Confirmed: string;
@@ -51,7 +42,7 @@ interface IshipmentStatusColors {
   Failed: string;
 }
 
-//Define the interface for the shipment information
+// Define the interface for the shipment information
 export interface IShipmentOrderInfo {
   imageURL: string;
   logisticsCompany?: string;
@@ -61,7 +52,7 @@ export interface IShipmentOrderInfo {
   quantity?: number;
   takingId?: string;
   orderId: string;
-  currentShipmentStatus: string;
+  currentShipmentStatus: ShipmentStatus;
   shipmentCountry?: string;
   shipmentFrom?: string;
   shipmentTo?: string;
@@ -72,7 +63,7 @@ export interface IShipmentOrderInfo {
   estimatedDeliveryDate?: string;
 }
 
-//Define the interface for the time duration
+// Define the interface for the time duration
 interface ITimeDuration {
   year: string;
   month: string;
@@ -109,28 +100,31 @@ export const DeliveryAddress: IDeliveryAddress = {
   pincode: 560009,
 };
 
-export const ShipmentStatus: IshipmentStatus = {
+// Define the shipment status object
+export const ShipmentStatus = {
   pending: "Pending",
   processing: "Processing",
+  confirmed: "Confirmed",
   outOfDelivery: "OutOfDelivery",
   shipped: "Shipped",
-  confirmed: "Confirmed",
   cancelled: "Cancelled",
   returned: "Returned",
   failed: "Failed",
-};
+} as const;
 
+// Define the shipment status colors object
 export const shipmentStatusColors: IshipmentStatusColors = {
   Pending: "#FFA500",
   Processing: "#0000FF",
+  Confirmed: "#059669",
   OutOfDelivery: "#FFD700",
   Shipped: "#008000",
-  Confirmed: "#059669",
   Cancelled: "#FF0000",
   Returned: "#800080",
   Failed: "#8B0000",
 };
 
+// Define the time duration object
 export const TimeDuration: ITimeDuration = {
   year: "year",
   month: "month",
@@ -141,6 +135,7 @@ export const TimeDuration: ITimeDuration = {
   justNow: "just now",
 };
 
+// Define the shipment order info object
 export const ShipmentOrderInfo: IShipmentOrderInfo = {
   imageURL: product1,
   logisticsCompany: "United Parcel Service",
@@ -156,12 +151,14 @@ export const ShipmentOrderInfo: IShipmentOrderInfo = {
   timeDuration: TimeDuration.hour,
 };
 
+// Define the shipment details object
 export const ShipmentDetails = {
   ShipmentDates: ShipmentDates,
   DeliveryAddress: DeliveryAddress,
   ShipmentOrderInfo: ShipmentOrderInfo,
 };
 
+// Define the order list details array
 export const OrderListDetails: IShipmentOrderInfo[] = [
   {
     imageURL: product1,

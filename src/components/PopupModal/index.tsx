@@ -8,7 +8,7 @@ import {
 } from "react";
 
 import { ButtonVariant, ButtonSize } from "@/components/Button/type";
-import { Box, Button, Headings } from "..";
+import { Box, Button } from "..";
 import CloseIcon from "./Icons/CloseIcon";
 
 const modalStyles = cva(
@@ -46,7 +46,7 @@ interface ModalPropss {
   button01: boolean;
   modalbutton: boolean;
   openModal: boolean;
-  closeIcon: boolean;
+  crossIcon: boolean;
 }
 
 type ModalProps = ComponentProps<"div"> & VariantProps<typeof modalStyles>;
@@ -58,7 +58,7 @@ export const Modal = forwardRef<ModalProps, ModalPropss>(
     header,
     openModal,
     modalbutton,
-    closeIcon,
+    crossIcon,
   }) => {
     const [isOpen, setIsOpen] = useState(false);
     const toggleMenu = () => {
@@ -92,7 +92,7 @@ export const Modal = forwardRef<ModalProps, ModalPropss>(
             >
               <Box className="flex justify-between">
                 {header}
-                {closeIcon && (
+                {crossIcon && (
                   <div onClick={toggleMenu}>
                     <CloseIcon />
                   </div>

@@ -1,12 +1,12 @@
 import { cn } from "@/utils";
 import { VariantProps, cva } from "class-variance-authority";
 import { ComponentProps, forwardRef } from "react";
-import { Box, Button, IconButton, Input, Text } from "@/components";
-import { InputType, InputVariant } from "../Input/type";
+import { Box, Button, IconButton, Text } from "@/components";
+import mail from "../Header/navbarIcons/mail.svg"
 import { CoreCustomerProps } from "./footerInterface";
 
 const navBarStyles = cva([
-  ["pl-[30px]", "text-[#36454f]", "text-[13px]", "max-w-[320px]"],
+  ["pl-[30px]", "text-[#36454f]", "text-[13px]", "w-fit"],
 ]);
 
 interface CustomerProps
@@ -31,6 +31,9 @@ export const Footer = forwardRef<HTMLDivElement, CustomerProps>(
       innerUlClass = "",
       innerLiClass = "",
       descriptionClass = "",
+      handleInput,
+      handleSubscribe,
+      value,
       ...props
     },
     ref
@@ -73,16 +76,14 @@ export const Footer = forwardRef<HTMLDivElement, CustomerProps>(
               </Text>
             ))}
           {newsLetter && (
-            <Box className="flex relative mb-[20px]">
-              <Input
-              value=""
-              variant={InputVariant.Standard}
-                type={InputType.Text}
-                className="rounded-none flex-1 h-[46px]"
-              />
-              <Button className="absolute right-0 w-fit h-full rounded-none text-[11px] bg-[#f00]">
-                SUBSCRIBE
-              </Button>
+            <Box className="flex relative mb-[20px] p-[8px] rounded-[12px] gap-[11px] bg-[#fff]">
+              <Box className="flex gap-[8px]">
+                <IconButton iconUrl={mail}/>
+                <input type="text" value={value} placeholder="Subscribe the newsletter" className="outline-none w-[160px]" onChange={handleInput}/>
+              </Box>
+              <Box>
+                <Button className="bg-[#3F271E]" onClick={handleSubscribe}>Subscribe</Button>
+              </Box>
             </Box>
           )}
           {description !== "" && (

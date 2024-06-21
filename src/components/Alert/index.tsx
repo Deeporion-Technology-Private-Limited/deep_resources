@@ -1,7 +1,7 @@
 import { Box, Text } from "@/components";
 import { cn } from "@/utils";
 import { cva, VariantProps } from "class-variance-authority";
-import { ComponentProps, forwardRef, ReactNode } from "react";
+import { ComponentProps, forwardRef } from "react";
 import { AlertType, AlertVariant } from "./type";
 import { Error, Info, Success, Warning } from "./Icons/icon";
 

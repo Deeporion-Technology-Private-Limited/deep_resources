@@ -1,7 +1,7 @@
 import { Box, Button, Checkbox, Input, Modal, Stack, Text } from "@/components";
-import { InputType, Placeholder } from "@/components/Input/type";
+import { InputType, InputVariant, Placeholder } from "@/components/Input/type";
 import { Alignment, TextSize, TextWeight } from "@/utils/style";
-import React, { useState } from "react";
+import { useState } from "react";
 import { ButtonVariant } from "@/components/Button/type";
 import background from "../../images/backimage.png";
 import { SignUp } from "./type";
@@ -55,6 +55,8 @@ const Signup = () => {
                   placeholder={Placeholder.YourName}
                   className="mb-4 focus:outline-transparent"
                   style={webstyle.inputBoxDesign}
+                  variant={InputVariant.Outlined}
+                  value={""}
                 />
 
                 <Text
@@ -70,6 +72,8 @@ const Signup = () => {
                   placeholder={Placeholder.YourEmail}
                   className="mb-4 focus:outline-transparent"
                   style={webstyle.inputBoxDesign}
+                  variant={InputVariant.Outlined}
+                  value={""}
                 />
 
                 <Text
@@ -87,10 +91,16 @@ const Signup = () => {
                   placeholder={Placeholder.YourPassword}
                   className="mb-4 focus:outline-transparent "
                   style={webstyle.inputBoxDesign}
+                  variant={InputVariant.Outlined}
+                  value={""}
                 />
               </Box>
               <Box className="flex gap-2">
-                <Checkbox type={InputType.Checkbox} className="w-6" />
+                <Checkbox
+                  type={InputType.Checkbox}
+                  className="w-6"
+                  value={""}
+                />
                 <Text
                   emphasis={"low"}
                   size={TextSize.Base}
@@ -142,7 +152,7 @@ const Signup = () => {
 
                       <Box className="pb-9 border-b border-[#E8EBED]">
                         <Box className="flex gap-2">
-                          <Checkbox />
+                          <Checkbox value={""} />
                           <Text>
                             I have read and agree to these Terms and Conditions
                           </Text>

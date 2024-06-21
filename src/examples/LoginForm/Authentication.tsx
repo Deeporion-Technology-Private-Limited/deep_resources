@@ -1,26 +1,12 @@
 import { Box, Button, Input, Text } from "@/components";
 import { TextWeight, TextSize, Alignment } from "@/utils/style";
-import React, { useRef } from "react";
+import { useRef } from "react";
 import { Login } from "./type";
 import background from "../../images/backimage.png";
-import { InputType } from "@/components/Input/type";
+import { InputType, InputVariant } from "@/components/Input/type";
 
 const Authentication = () => {
   const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
-
-  const handleInput = (
-    index: number,
-    event: React.FormEvent<HTMLInputElement>
-  ) => {
-    const value = event.currentTarget.value;
-    if (value.length >= 1 && index < inputRefs.current.length - 1) {
-      inputRefs.current[index + 1]?.focus();
-    }
-  };
-
-  const handleVerify = () => {
-    const otp = inputRefs.current.map((input) => input?.value).join("");
-  };
 
   const inputs = Array(4)
     .fill(null)
@@ -29,7 +15,8 @@ const Authentication = () => {
         key={index}
         type={InputType.Otp}
         ref={(el) => (inputRefs.current[index] = el)}
-        onInput={(e) => handleInput(index, e)}
+        variant={InputVariant.Outlined}
+        value={""}
       />
     ));
 
@@ -86,9 +73,7 @@ const Authentication = () => {
             </Text>
           </Box>
           <Box className="flex flex-col gap-4  items-center">
-            <Button className="font-bold text-base " onClick={handleVerify}>
-              {Login.Verify}
-            </Button>
+            <Button className="font-bold text-base ">{Login.Verify}</Button>
             <Button className="w-fit bg-transparent p-0 text-[#72787F] font-normal items-center text-sm ">
               {Login.GoBack}
             </Button>

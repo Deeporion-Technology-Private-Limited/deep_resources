@@ -89,7 +89,6 @@ const DateRangeCalendar: React.FC<CalendarProps> = ({ year, month, onDateRangeSe
   };
 
   useEffect(() => {
-    console.log(startDate);
   }, [startDate]);
 
   const renderDays = () => {

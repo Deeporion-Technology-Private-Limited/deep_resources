@@ -115,7 +115,7 @@ export const Dashboard = forwardRef<HTMLDivElement, DashboardProps>(
             <Box>
               <Text className="text-xl font-bold">New Arrivals</Text>
             </Box>
-            <Box className="w-[82.5rem] pt-[1.25rem] flex justify-between">
+            <Box className="w-[82.5rem] pt-[1.25rem] flex flex-wrap justify-between">
               {CardData.map((data, index) => (
                 <FaverateCard
                   key={index}
@@ -149,7 +149,7 @@ export const Dashboard = forwardRef<HTMLDivElement, DashboardProps>(
             />
           </Box>
         </Box>
-        <Box className="mt-[5rem] flex justify-center">
+        <Box className="mt-[5rem] w-auto flex justify-center">
           <Banner
             boxStyle="h-[50%] p-5 flex w-[80%] flex-col text-white gap-4 justify-center items-center bg-[#3E2E28B2]"
             buttonClass="flex justify-center w-max text-2xl"
@@ -171,7 +171,7 @@ export const Dashboard = forwardRef<HTMLDivElement, DashboardProps>(
             </Text>
           </Box>
         </Box>
-        <Box className="w-full flex justify-center pt-[1.25rem] gap-[15px]">
+        <Box className="w-full flex flex-wrap justify-center pt-[1.25rem] gap-[15px]">
           <Banner
             imageSrc={Banner1}
             boxStyle="h-full w-full flex flex-col justify-end text-white gap-2 p-10"
@@ -211,7 +211,7 @@ export const Dashboard = forwardRef<HTMLDivElement, DashboardProps>(
         <Box className="w-full h-full flex justify-center relative">
           <Box className="w-[82.375rem] h-[19rem] overflow-hidden relative">
             <Box
-              className="flex transition-transform duration-500"
+              className="flex flex-wrap transition-transform duration-500"
               style={{
                 width: `${groupedReviewData.length * 100}%`,
                 transform: `translateX(-${(currentIndex * 100) / groupedReviewData.length}%)`,
@@ -270,7 +270,7 @@ export const Dashboard = forwardRef<HTMLDivElement, DashboardProps>(
             </Box>
           </Box>
         )}
-        <Box className="w-full h-full flex justify-center mt-[30px]">
+        <Box className="w-full h-full flex flex-wrap justify-center mt-[30px]">
           <Box className="w-[82.5rem]">
             <FollowPage />
           </Box>

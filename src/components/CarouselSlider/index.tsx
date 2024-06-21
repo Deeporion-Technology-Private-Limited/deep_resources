@@ -16,7 +16,7 @@ const carouselStyles = cva(
       },
       indicatorType: {
         [IndicatorType.Dots]: '',
-        [IndicatorType.Bars]: '',
+        [IndicatorType.Bars]: '', 
       },
     },
     defaultVariants: {
@@ -37,7 +37,7 @@ interface SlideItem {
     onClick: () => void;
     buttonClassName?: string;
   };
-  reviewData?: ReviewDataType; // Type for your review data
+  reviewData?: ReviewDataType; 
 }
 
 type ReviewDataType = {
@@ -57,7 +57,7 @@ type CarouselProps = ComponentProps<'div'> & VariantProps<typeof carouselStyles>
   items: SlideItem[];
   className?: string;
   slideInterval?: number;
-  variant?: 'default' | 'review'; // New prop to handle variants
+  variant?: 'default' | 'review';
 }
 
 const Carousel = forwardRef<HTMLDivElement, CarouselProps>(
@@ -148,7 +148,7 @@ const Carousel = forwardRef<HTMLDivElement, CarouselProps>(
               key={index}
               onClick={() => setCurrentIndex(index)}
               className={`w-2 h-2 p-0 rounded-full mx-1 ${
-                currentIndex === index ? 'bg-[#3F271E]' : 'bg-[#C9CDD2]'
+                currentIndex === index ? 'bg-[#4e2f24]' : 'bg-[#C9CDD2]'
               }`}
             ></IconButton>
           ))}

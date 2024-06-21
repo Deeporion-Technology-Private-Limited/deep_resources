@@ -8,8 +8,42 @@ import { Login  } from "./type";
 import { InputType, InputVariant, Placeholder } from "@/components/Input/type";
 import CloseEye from "@/components/Input/Icons/CloseEye";
 import OpenEye from "@/components/Input/Icons/OpenEye";
+import { useState } from "react";
 
 export const LoginForm = () => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [hasUsernameError, setHasUsernameError] = useState(false);
+  const [hasPasswordError, setHasPasswordError] = useState(false);
+  const [error, setError] = useState("");
+
+  const handleUsernameChange = (e: { target: { value: any } }) => {
+    const value = e.target.value;
+    setUsername(value);
+    setHasUsernameError(value.length === 0);
+  };
+
+  const handlePasswordChange = (e: { target: { value: any } }) => {
+    const value = e.target.value;
+    setPassword(value);
+    setHasPasswordError(value.length === 0);
+  };
+
+  const handleLogin = () => {
+    const isUsernameValid = username.length > 0;
+    const isPasswordValid = password.length > 0;
+
+    setHasUsernameError(!isUsernameValid);
+    setHasPasswordError(!isPasswordValid);
+
+    if (isUsernameValid && isPasswordValid) {
+      // proceed with login
+      setError("Login Successfully");
+    } else {
+      setError("Something went wrong");
+    }
+  };
+
   return (
     <Box className=" w-[100vw] flex items-center justify-between">
       <Box className="w-[50vw] flex justify-center flex-col items-center">
@@ -41,9 +75,13 @@ export const LoginForm = () => {
                   id="username"
                   placeholder={Placeholder.UserName}
                   className="mb-4 focus:outline-transparent "
-                  style={webstyle.inputBoxDesign}
                   variant={InputVariant.Outlined}
                   value={""}
+                  style={{
+                    ...webstyle.inputBoxDesign,
+                    ...(hasUsernameError && webstyle.errorBorder),
+                  }}
+                  onChange={handleUsernameChange}
                 />
 
                 <Text
@@ -59,10 +97,14 @@ export const LoginForm = () => {
                   eyeOpen={<OpenEye />}
                   type={InputType.Password}
                   placeholder={Placeholder.Password}
-                  style={webstyle.inputBoxDesign}
                   className="focus:outline-transparent"
                   variant={InputVariant.Outlined}
                   value={""}
+                  style={{
+                    ...webstyle.inputBoxDesign,
+                    ...(hasPasswordError && webstyle.errorBorder),
+                  }}
+                  onChange={handlePasswordChange}
                 />
                 <Text
                   size={TextSize.Small}
@@ -72,15 +114,25 @@ export const LoginForm = () => {
                   {Login.ForgotPassword}
                 </Text>
               </Box>
+              {error && (
+              <Text
+                size={TextSize.Small}
+                weight={TextWeight.Medium}
+                className={`font-bold mb-1.5 ${error === "Login Successfully" ? "text-green-500 " : "text-red-500"}`}
+                align={Alignment.Center}
+              >
+                {error}
+              </Text>
+              )}
 
               <Box className="flex flex-col gap-6">
                 <Button
                   variant={ButtonVariant.DefaultPrimary}
                   style={webstyle.loginButton}
+                  onClick={handleLogin}
                 >
                   {Login.Login}
                 </Button>
-
                 <Text
                   emphasis={"low"}
                   size={TextSize.Small}
@@ -99,7 +151,6 @@ export const LoginForm = () => {
                       {Login.Google}
                     </Text>
                   </Box>
-
                   <Box className="flex items-center justify-center border rounded-lg border-[#72787F]">
                     <IconButton iconUrl={phone} className="w-fit" />
                     <Text
@@ -112,7 +163,6 @@ export const LoginForm = () => {
                   </Box>
                 </Box>
               </Box>
-
               <Box className="text-center">
                 <Text
                   emphasis={"low"}
@@ -165,5 +215,9 @@ const webstyle = {
     color: "#FFFFFF",
     lineHeight: "24px",
     align: "center",
+  },
+
+  errorBorder: {
+    borderColor: "red",
   },
 };

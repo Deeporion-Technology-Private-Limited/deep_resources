@@ -6,8 +6,35 @@ import { InputType, InputVariant, Placeholder } from "@/components/Input/type";
 import { TextWeight, TextSize } from "@/utils/style";
 import { Login } from "./type";
 import background from "../../images/backimage.png";
+import { useState } from "react";
 
 const NewPassword = () => {
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [error, setError] = useState("");
+
+  const validatePasswords = () => {
+    if (password.length < 5 || confirmPassword.length < 5) {
+      setError("Passwords must be at least 5 characters long.");
+      return false;
+    }
+    if (password !== confirmPassword) {
+      setError("Passwords do not match.");
+      return false;
+    }
+    setError("Change Successfully");
+    return true;
+  };
+
+  const handleSubmit = () => {
+    if (validatePasswords()) {
+      // Proceed with setting the new password
+      console.log("Passwords are valid");
+      setPassword("");
+      setConfirmPassword("");
+    }
+  };
+
   return (
     <Box className=" w-[100vw] flex items-center justify-between">
       <Box className="w-[50vw] flex justify-center flex-col items-center">
@@ -17,7 +44,6 @@ const NewPassword = () => {
         >
           {Login.Logo}
         </Text>
-        <Box className="container  flex flex-col gap-6"></Box>
         <Box className="w-fit">
           <Stack className="relative">
             <Box className="flex flex-col gap-6">
@@ -43,7 +69,8 @@ const NewPassword = () => {
                   className="mb-4 focus:outline-transparent flex"
                   style={webstyle.inputBoxDesign}
                   variant={InputVariant.Outlined}
-                  value={""}
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                 />
                 <Text
                   size={TextSize.Small}
@@ -53,38 +80,50 @@ const NewPassword = () => {
                   {Login.ConfirmNew}
                 </Text>
                 <Input
-                  id="password"
+                  id="confirmPassword"
                   eye={<CloseEye />}
                   eyeOpen={<OpenEye />}
                   type={InputType.Password}
                   placeholder={Placeholder.ConfirmNew}
                   style={webstyle.inputBoxDesign}
                   variant={InputVariant.Outlined}
-                  value={""}
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
                   className="focus:outline-transparent"
                 />
-              </Box>
-              <Box className="flex flex-col gap-6">
-                <Button
-                  variant={ButtonVariant.DefaultPrimary}
-                  style={webstyle.loginButton}
-                >
-                  {Login.SetNew}
-                </Button>
+                {error && (
+                  <Text
+                    size={TextSize.Small}
+                    weight={TextWeight.Medium}
+                    className={`mb-1.5 ${error === "Change Successfully" ? "text-green-500" : "text-red-500"}`}
+                  >
+                    {error}
+                  </Text>
+                )}
+                <Box className="flex flex-col gap-6 mt-4">
+                  <Box className="flex flex-col gap-2">
+                    <Text>{Login.MustContain}</Text>
 
-                <Box className="flex flex-col">
-                  <Text emphasis={"low"} size={TextSize.Small}>
-                    {Login.CapitalLetter}
-                  </Text>
-                  <Text emphasis={"low"} size={TextSize.Small}>
-                    {Login.LowerCaseLetter}
-                  </Text>
-                  <Text emphasis={"low"} size={TextSize.Small}>
-                    {Login.OneNum}
-                  </Text>
-                  <Text emphasis={"low"} size={TextSize.Small}>
-                    {Login.Minimumcharacter}
-                  </Text>
+                    <Text emphasis={"low"} size={TextSize.Small}>
+                      {Login.CapitalLetter}
+                    </Text>
+                    <Text emphasis={"low"} size={TextSize.Small}>
+                      {Login.LowerCaseLetter}
+                    </Text>
+                    <Text emphasis={"low"} size={TextSize.Small}>
+                      {Login.OneNum}
+                    </Text>
+                    <Text emphasis={"low"} size={TextSize.Small}>
+                      {Login.Minimumcharacter}
+                    </Text>
+                  </Box>
+                  <Button
+                    variant={ButtonVariant.DefaultPrimary}
+                    style={webstyle.loginButton}
+                    onClick={handleSubmit}
+                  >
+                    {Login.SetNew}
+                  </Button>
                 </Box>
               </Box>
               <Box className="text-center">

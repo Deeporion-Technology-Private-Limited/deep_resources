@@ -12,7 +12,7 @@ import Accordion from "@/components/Accordion";
 import { UpCursor } from "@/components/Accordion/Icon/Icon";
 import { AccordionTypes } from "@/components/Accordion/AccordionTypes";
 import ReviewList from "./ReviewList";
-import { Ratingcard } from "./RatingCard";
+import Ratingcard from "./RatingCard";
 
 const ProductCard: React.FC<{ data: ProductData }> = ({ data }) => {
   return (

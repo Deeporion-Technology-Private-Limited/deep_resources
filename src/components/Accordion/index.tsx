@@ -38,11 +38,12 @@ type AccordionProps = ComponentProps<"div"> & VariantProps<typeof accordionStyle
   Icon: React.ReactNode;
   childClassName?: string;
   status?:React.ReactNode;
+  subChildren?:string
   
 };
 
 const Accordion = forwardRef<HTMLDivElement, AccordionProps>(
-  ({ variant = AccordionTypes.Arrow, content, status, className, Icon, children, childClassName, ...props }, ref) => {
+  ({ variant = AccordionTypes.Arrow, content, status, className, Icon, children,subChildren, childClassName, ...props }, ref) => {
 
     const [handleButton, setHandleButton] = useState(false);
 
@@ -57,7 +58,8 @@ const Accordion = forwardRef<HTMLDivElement, AccordionProps>(
          
         >
           <div className="flex items-center justify-between w-full">
-            <div className="flex items-center"  >{children}<div>{status}</div></div>
+            <div className="flex items-center"  > <div> {children}
+              <div className="text-[2vh] font-serif font-medium h-fit">{subChildren}</div></div> <div>{status}</div></div>
       <div className={`duration-300 transform rotate-180 cursor-pointer hover:shadow hover:border  ${handleButton && "origin-center rotate-[none] "} `}  onClick={handleClick}>
               {Icon}
             </div>
@@ -65,7 +67,8 @@ const Accordion = forwardRef<HTMLDivElement, AccordionProps>(
         </div>
         {handleButton && (
           <div className={cn(` w-full ${handleButton ? "h-auto ": "h-0"}  left-0 border  bg-white`, childClassName)}>
-            <div className="px-4 py-2 ">{content}</div>
+            <div className="px-4 py-2 ">{content} 
+            </div>
           </div>
         )}
       </div>

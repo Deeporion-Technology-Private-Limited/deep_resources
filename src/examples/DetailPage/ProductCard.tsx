@@ -6,18 +6,19 @@ import checked from "../../images/checked.jpg";
 import delivery from "../../images/delivery.png";
 import returnimage from "../../images/returnimage.png";
 import payment from "../../images/payment.png";
-import { product } from "./ProductDetailsData";
+import { buttons, product, ratingDetails } from "./ProductDetailsData";
 import { InputType, InputVariant } from "@/components/Input/type";
 import Accordion from "@/components/Accordion";
 import { UpCursor } from "@/components/Accordion/Icon/Icon";
 import { AccordionTypes } from "@/components/Accordion/AccordionTypes";
+import ReviewList from "./ReviewList";
+import { Ratingcard } from "./RatingCard";
 
 const ProductCard: React.FC<{ data: ProductData }> = ({ data }) => {
   return (
     <div className="flex flex-col gap-5">
       <div
-        className="border rounded-lg p-5 w-80 font-sans flex flex-col gap-5"
-        style={{ width: "614px", height: "431px" }}
+        className="border rounded-lg p-5 font-sans flex flex-col gap-5 w-full"
       >
         <h2 className="text-2xl font-bold">{data.brand}</h2>
         <div className="flex items-center">
@@ -76,7 +77,6 @@ const ProductCard: React.FC<{ data: ProductData }> = ({ data }) => {
               {product.AddToBag}
             </p>
           </Button>
-
           <Button className="flex-1 bg-gray-200 py-2 rounded-lg text-gray-700 font-semibold text-base font-poppins flex justify-center items-center gap-2">
             <img src={like} alt="Like" className="h-6 w-6 inline-block" />
             <p className="text-[#72787F] text-base font-semibold inline-block ml-2">
@@ -128,7 +128,7 @@ const ProductCard: React.FC<{ data: ProductData }> = ({ data }) => {
       </div>
       <div
         className="border rounded-lg p-5 w-80 font-sans flex flex-col items-center justify-between"
-        style={{ width: "614px", height: "710px" }}
+        style={{ width: "614px", height: "fit-content" }}
       >
         <div className="flex items-center justify-between w-full mb-4">
           <p className="text-[#26282B] font-medium flex-shrink-0">
@@ -241,23 +241,21 @@ const ProductCard: React.FC<{ data: ProductData }> = ({ data }) => {
             </div>
           </p>
         </div>
-
-        <div className="flex items-center justify-between w-full mb-4">
-          <p className="text-gray-800 font-medium flex items-center gap-2">
-            {" "}
+        <div className="flex items-center justify-between w-full mb-4 border-none">
+          <p className="text-[#7D5D4F] font-medium flex items-center gap-2 border-none">
             <Accordion
               Icon={<UpCursor />}
               content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget."
               variant={AccordionTypes.Cursor}
             >
-              View More
+              {buttons.viewMore}
             </Accordion>
           </p>
         </div>
       </div>
       <div
         className="border rounded-lg p-5 w-80 font-sans flex flex-col items-center justify-between"
-        style={{ width: "614px", height: "168px" }}
+        style={{ width: "614px", height: "fit-content" }}
       >
         <div className="flex items-center justify-between w-full">
           <p className="text-[#26282B] font-semibold text-base ml-2 w-full max-w-[550px] h-auto">
@@ -265,15 +263,13 @@ const ProductCard: React.FC<{ data: ProductData }> = ({ data }) => {
           </p>
         </div>
         <div className="flex items-center justify-between w-full">
-          <p className="text-gray-800 font-medium">
-          </p>
-          <p className="text-[#111827] font-normal ml-2 w-full max-w-[550px] h-auto">
+          <p className="text-[#26282B] font-semibold text-base ml-2 w-full max-w-[550px] h-auto">
+            <Ratingcard ratingDetails={ratingDetails}/>
           </p>
         </div>
         <div className="flex items-center justify-between w-full">
-          <p className="text-gray-800 font-medium">
-          </p>
-          <p className="text-[#111827] font-normal ml-2 w-full max-w-[550px] h-auto">
+          <p className="text-[#26282B] font-semibold text-base ml-2 w-full max-w-[550px] h-auto">
+            <ReviewList />
           </p>
         </div>
       </div>

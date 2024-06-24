@@ -36,3 +36,27 @@ interface Product {
   Material : string ;
   ProductSpec : string ;
 }
+
+interface ReviewItem {
+  rating: number;
+  date: string;
+  title: string;
+  content: string;
+}
+interface Buttons {
+  viewMore: string;
+  viewReviews: string;
+  review: string;
+}
+
+interface RatingDetails {
+  cardHeading: string;
+  cardTittle: string;
+  totalReview: string;
+  totalRating: string;
+  count1: number;
+  count2: number;
+  count3: number;
+  count4: number;
+  count5: number;
+}

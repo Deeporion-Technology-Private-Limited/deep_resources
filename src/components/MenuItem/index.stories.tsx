@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { LeftIcon, RightIcon, UpArrow } from "./Icon/icon";
+import { LeftIcon, RightIcon } from "./Icon/icon";
 import { MenuItem } from ".";
 import { Box } from "@/components/Layout";
 import { MenuItemSize, MenuItemVariant } from "./MenuitemTypes";

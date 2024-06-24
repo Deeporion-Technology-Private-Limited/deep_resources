@@ -58,7 +58,7 @@ const Accordion = forwardRef<HTMLDivElement, AccordionProps>(
         >
           <div className="flex items-center justify-between w-full">
             <div className="flex items-center"  >{children}<div>{status}</div></div>
-      <div className={`duration-300 transform rotate-180 cursor-pointer hover:shadow  ${handleButton && "origin-center rotate-[none] "} `}  onClick={handleClick}>
+      <div className={`duration-300 transform rotate-180 cursor-pointer hover:shadow hover:border  ${handleButton && "origin-center rotate-[none] "} `}  onClick={handleClick}>
               {Icon}
             </div>
           </div>

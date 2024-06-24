@@ -1,10 +1,10 @@
 import type { Meta, StoryObj  } from "@storybook/react";
-import { MyCartSummary } from ".";
+import { StroyAccordion } from "./StoryAccordion";
 
 
-const meta: Meta<typeof MyCartSummary> = {
+const meta: Meta<typeof StroyAccordion> = {
   title: "Examples/MyCartSummary",
-  component: MyCartSummary,
+  component: StroyAccordion,
   parameters: {
     layout: "centered",
   }

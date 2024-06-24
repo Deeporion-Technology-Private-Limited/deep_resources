@@ -20,12 +20,14 @@ export  const StroyAccordion = ()=>{
     }
    
     return(
-        <MyCartSummary 
+        <div className="w-fit h-[400px]">
+            <MyCartSummary 
         handleBack={handleBack}
          handleChange={handleChange} 
          initialState={initialState} 
          setInitialState={setInitialState}
          handleSubmit={handleSubmit}
          />
+        </div>
     )
 }

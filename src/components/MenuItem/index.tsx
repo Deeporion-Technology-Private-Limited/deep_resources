@@ -5,9 +5,8 @@ import { ComponentProps } from "react";
 import { MenuItemSize, MenuItemVariant, PrimaryType } from "./MenuitemTypes";
 import { Text } from "../Text";
 import { Box } from "@/components";
-import { Cart } from "./Icon/icon";
+import { UpArrow } from "./Icon/icon";
 
-// Define styles for MenuItem
 const menuItemStyles = cva(
   [
     "flex",
@@ -58,7 +57,7 @@ const menuItemStyles = cva(
     },
   }
 );
-// Define MenuItemProps
+
 interface MenuItemProps
   extends ComponentProps<"div">,
     VariantProps<typeof menuItemStyles> {
@@ -67,8 +66,12 @@ interface MenuItemProps
   leftSpacer?: boolean;
   label: string;
   border?: boolean;
+  iconLeftStyle?: string;
+  iconRightStyle?: string;
+  labelStyle?:string;
   onClick?: () => void;
   isSubmenu?: boolean;
+  wannaChangRightIcon?: boolean;
   children?: React.ReactNode;
 }
 
@@ -84,7 +87,11 @@ export const MenuItem = forwardRef<HTMLDivElement, MenuItemProps>(
       label,
       className,
       isSubmenu = false,
+      wannaChangRightIcon = false,
       children,
+      iconLeftStyle = "",
+      iconRightStyle = "",
+      labelStyle="",
       onClick,
       ...props
     },
@@ -92,7 +99,6 @@ export const MenuItem = forwardRef<HTMLDivElement, MenuItemProps>(
   ) => {
     const [submenuVisible, setSubmenuVisible] = useState(false);
     const [isSubMenuIcon, setIsSubMenuIcon] = useState(false);
-
 
     const handleClick = (e: React.MouseEvent) => {
       e.stopPropagation();
@@ -103,8 +109,8 @@ export const MenuItem = forwardRef<HTMLDivElement, MenuItemProps>(
       } else {
         alert("Default Click behaviour");
       }
-      if(leftIcon && rightIcon) {
-        setIsSubMenuIcon(!isSubMenuIcon)
+      if (rightIcon) {
+        setIsSubMenuIcon(!isSubMenuIcon);
       }
     };
 
@@ -120,17 +126,21 @@ export const MenuItem = forwardRef<HTMLDivElement, MenuItemProps>(
       <div ref={ref} className={classNames} onClick={handleClick} {...props}>
         {leftIcon && rightIcon ? (
           <Box className="flex justify-center items-center gap-2">
-            {leftIcon}
-            <Text>{label}</Text>
+            <Box className={iconLeftStyle}>{leftIcon}</Box>
+            <Text className={labelStyle}>{label}</Text>
           </Box>
         ) : (
           <>
-            {leftIcon}
-            <Text>{label}</Text>
+            {leftIcon && <Box className={iconLeftStyle}>{leftIcon}</Box>}
+            <Text className={labelStyle}>{label}</Text>
           </>
         )}
-
-        {isSubMenuIcon ? (<Cart/>) : rightIcon}
+        {rightIcon &&
+          (wannaChangRightIcon && isSubMenuIcon ? (
+            <UpArrow />
+          ) : (
+            <Box className={iconRightStyle}>{rightIcon}</Box>
+          ))}
         {isSubmenu && submenuVisible && (
           <div className="absolute left-[100%] top-0">{children}</div>
         )}

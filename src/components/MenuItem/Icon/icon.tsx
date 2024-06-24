@@ -116,3 +116,41 @@ export const Setting: React.FC<IconProps> = ({ className, style }) => {
     </div>
   );
 };
+
+export const UpArrow: React.FC<IconProps> = ({ className, style }) => {
+  return (
+    <div className={className} style={style}>
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M8.12656 15L12.0066 11.12L15.8866 15C16.2766 15.39 16.9066 15.39 17.2966 15C17.6866 14.61 17.6866 13.98 17.2966 13.59L12.7066 9.00001C12.5197 8.81275 12.2661 8.70752 12.0016 8.70752C11.737 8.70752 11.4834 8.81275 11.2966 9.00001L6.70656 13.59C6.31656 13.98 6.31656 14.61 6.70656 15C7.09656 15.38 7.73656 15.39 8.12656 15Z"
+          fill="#0F172A"
+        />
+      </svg>
+    </div>
+  );
+};
+
+export const DownArrow: React.FC<IconProps> = ({ className, style }) => {
+  return (
+    <div className={className} style={style}>
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M8.12655 9.00002L12.0065 12.88L15.8865 9.00002C16.2765 8.61002 16.9065 8.61002 17.2965 9.00002C17.6865 9.39002 17.6865 10.02 17.2965 10.41L12.7065 15C12.3165 15.39 11.6865 15.39 11.2965 15L6.70655 10.41C6.5193 10.2232 6.41406 9.96954 6.41406 9.70502C6.41406 9.4405 6.5193 9.18685 6.70655 9.00002C7.09655 8.62002 7.73655 8.61002 8.12655 9.00002Z"
+          fill="#26282B"
+        />
+      </svg>
+    </div>
+  );
+};

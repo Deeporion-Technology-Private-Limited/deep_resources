@@ -19,10 +19,10 @@ export const Default: Story = {
     imageSrc: image,
     brand: "Mango",
     description: "Black Sleeveless Crepe Dress",
-    subTotal: 187,
-    delivery: 4.5,
-    taxes: 3.45,
-    total: 3950,
+    subTotal: "₹ 187",
+    delivery: "₹ 4.5",
+    taxes: "₹ 3.45",
+    total: "₹ 3950",
   },
 };
 

@@ -16,9 +16,10 @@ import { NavbarDirection } from "../type";
 import { InputType, InputVariant } from "@/components/Input/type";
 import hemburgerImg from "../navbarIcons/hamburger.png";
 import person from "../navbarIcons/person.svg";
+import { TopNavbarProps } from "./topNavConst";
 
 const navBarStyles = cva(
-  ["w-[100vw]", "border", "flex", "justify-center", "items-center"],
+  ["w-full", "border", "flex", "justify-center", "items-center"],
   {
     variants: {
       direction: {
@@ -32,40 +33,12 @@ const navBarStyles = cva(
   }
 );
 
-type NavItems = {
-  text: string;
-  href: string;
-  component?: React.ReactNode;
-};
-
-type navBarIcons = {
-  icon?: string;
-  iconName?: string;
-};
-
-type HemburgerProps = {
-  hemburgerClick?: () => void;
-  isHemburger: boolean;
-};
-
-interface LogoImageProps
-  extends ComponentProps<typeof Box>,
-    VariantProps<typeof navBarStyles> {
-  children?: React.ReactNode;
-  className?: string;
-  isLogin?: boolean;
-  isSearch?: boolean;
-  direction?: NavbarDirection;
-  title?: string;
-  LogoIcon?: string;
-  navItem?: NavItems[];
-  navBarIcons?: navBarIcons[];
-  profilePicture?: string;
-  hemburger?: HemburgerProps;
-}
+type TopNavProp = TopNavbarProps &
+  ComponentProps<typeof Box> &
+  VariantProps<typeof navBarStyles>;
 // { icon: person, iconName: "Logo" },
 
-export const Topnavbar = forwardRef<HTMLDivElement, LogoImageProps>(
+export const Topnavbar = forwardRef<HTMLDivElement, TopNavProp>(
   (
     {
       className,
@@ -78,7 +51,7 @@ export const Topnavbar = forwardRef<HTMLDivElement, LogoImageProps>(
       profilePicture,
       isLogin = false,
       isSearch = false,
-      hemburger = {},
+      hemburgerClick,
       ...props
     },
     ref
@@ -102,7 +75,7 @@ export const Topnavbar = forwardRef<HTMLDivElement, LogoImageProps>(
       setIsHoverComponent(null);
     };
     return (
-      <Box className="relative">
+      <Box className="relative w-full">
         <Box
           ref={ref}
           className={cn(navBarStyles({ direction }), className, {
@@ -125,7 +98,7 @@ export const Topnavbar = forwardRef<HTMLDivElement, LogoImageProps>(
               <AnchorList className="flex-wrap show relative">
                 {navItem?.map((item) => (
                   <Anchor
-                    key={item.href}
+                    key={item.text}
                     href={item.href}
                     onMouseEnter={(e) => handleEnter(item, e)}
                   >
@@ -172,7 +145,7 @@ export const Topnavbar = forwardRef<HTMLDivElement, LogoImageProps>(
               <Box className="hide">
                 <IconButton
                   iconUrl={hemburgerImg}
-                  onClick={hemburger.hemburgerClick}
+                  onClick={hemburgerClick}
                 />
               </Box>
             }

@@ -31,7 +31,6 @@ export const Default: Story = {
       { text: "Contact", href: "/contact" },
     ],
     navBarIcons: [
-      { icon: person, iconName: "Logo" },
       { icon: fav },
       { icon: notification },
       { icon: cart },
@@ -105,12 +104,9 @@ export const WithHemburger: Story = {
     profilePicture: profile,
     isSearch: true,
     isLogin: true,
-    hemburger : {
-      isHemburger: true,
-      hemburgerClick: () => {
-        alert("open hemburger");
-      } 
-    }
+    hemburgerClick: () => {
+      alert("open hemburger");
+    } 
   },
 };
 
@@ -150,4 +146,3 @@ export const OnNavItemHover: Story = {
     isLogin: true,
   },
 };
-

@@ -38,7 +38,7 @@ export const Ratingcard = ({ objData }: RatingcardProp) => {
                             imageSrc={objData.imageUrl}
                             isDescription={false}
                         />
-                        <div className="w-full md:w-fit h-[28vh] font-bold py-2 text-3xl">
+                        <div className="w-full md:w-fit h-fit font-bold py-2 text-3xl">
                             <h1 className="text-lg md:text-3xl">{objData.cardHeading}</h1>
                             <span className="font-[100] font-serif text-sm md:text-base">{objData.cardTittle}</span>
                         </div>

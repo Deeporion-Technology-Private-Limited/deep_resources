@@ -1,10 +1,10 @@
 import type { Meta, StoryObj  } from "@storybook/react";
-import { StroyAccordion } from "./StoryAccordion";
+import { DemoAddressField } from "./DemoStoryField";
 
 
-const meta: Meta<typeof StroyAccordion> = {
-  title: "Examples/MyCartSummary",
-  component: StroyAccordion,
+const meta: Meta<typeof DemoAddressField> = {
+  title: "Examples/AddAdressDetails",
+  component: DemoAddressField,
   parameters: {
     layout: "centered",
   }

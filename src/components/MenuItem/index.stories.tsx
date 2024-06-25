@@ -22,6 +22,7 @@ const generateMenuItemStory = ({
     label,
     leftIcon,
     rightIcon,
+    wannaChangRightIcon,
     leftSpacer,
     border,
     size,
@@ -33,6 +34,7 @@ const generateMenuItemStory = ({
     label: string;
     leftIcon?: JSX.Element;
     rightIcon?: JSX.Element;
+    wannaChangRightIcon?: boolean;
     leftSpacer?: boolean;
     border?: boolean;
     size: MenuItemSize;
@@ -45,6 +47,7 @@ const generateMenuItemStory = ({
         label,
         leftIcon,
         rightIcon,
+        wannaChangRightIcon,
         leftSpacer,
         border,
         size,
@@ -100,6 +103,16 @@ export const WithLeftAndRightIcon = generateMenuItemStory({
     label: "Item 6",
     leftIcon: <RightIcon />,
     rightIcon: <LeftIcon />,
+    size: MenuItemSize.Medium,
+    onClick: () => alert("Left icon item clicked"),
+});
+
+export const ChangeRightIconOnClick = generateMenuItemStory({
+    variant: MenuItemVariant.LeftIcon,
+    label: "Item 6",
+    leftIcon: <RightIcon />,
+    rightIcon: <LeftIcon />,
+    wannaChangRightIcon: true,
     size: MenuItemSize.Medium,
     onClick: () => alert("Left icon item clicked"),
 });

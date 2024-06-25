@@ -1,9 +1,14 @@
-interface ISubscription {
+export default interface ISubscription {
   planType: string;
   price: number;
   transactionPercent: number;
   planFor: string;
   status: string;
+}
+
+interface ISubscriptionTabledata {
+  header: string[];
+  data: string[][];
 }
 
 export const SubscriptionData: ISubscription[] = [
@@ -27,5 +32,42 @@ export const SubscriptionData: ISubscription[] = [
     transactionPercent: 2,
     planFor: "Basic Plan",
     status: "notActive",
+  },
+];
+
+export const SubscriptionTableData: ISubscriptionTabledata[] = [
+  {
+    header: ["Amount", "Type of Plan", "Payment Date", "Card used to pay"],
+
+    data: [
+      [
+        "$1,080.00",
+        "Professional Plan",
+        "Apr 14, 2022",
+        "**** 8239",
+        "See Details",
+      ],
+      [
+        "$1,080.00",
+        "Professional Plan",
+        "Apr 14, 2022",
+        "**** 8239",
+        "See Details",
+      ],
+      [
+        "$1,080.00",
+        "Professional Plan",
+        "Apr 14, 2022",
+        "**** 8239",
+        "See Details",
+      ],
+      [
+        "$1,080.00",
+        "Professional Plan",
+        "Apr 14, 2022",
+        "**** 8239",
+        "See Details ",
+      ],
+    ],
   },
 ];

@@ -4,9 +4,9 @@ import Input from "@/components/Input/index";
 import AddressComponent from "../Address/AddressUpdate";
 import { Address } from "@/components/Data/Address";
 import { InputType, InputVariant } from "@/components/Input/type";
-import { Button } from "@/components";
 import { Box } from "@/components/Layout/Box/index";
 import { ButtonSize, ButtonVariant } from "@/components/Button/type";
+import { Button } from "@/components/Button/DefaultButton/index";
 
 function RefundDetails() {
   const [formData, setFormData] = useState({

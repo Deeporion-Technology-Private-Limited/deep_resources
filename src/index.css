@@ -34,10 +34,6 @@ body::-webkit-scrollbar {
   .hamburger {
     justify-content: flex-start;
   }
-  /* .anime {
-    transform: translateX(0%);
-    animation-name: animemobile;
-  } */
 }
 
 @media (max-width: 899px) and (min-width: 480px) {
@@ -47,8 +43,6 @@ body::-webkit-scrollbar {
 }
 
 .anime {
-  /* transform: translateX(100%);
-  animation-name: anime; */
   transform: translateX(0%);
   animation-name: animemobile;
   animation-duration: 0.2s;
@@ -78,20 +72,3 @@ body::-webkit-scrollbar {
 .scrollbar-white::-webkit-scrollbar {
   display: none;
 }
-/* 
-@media (max-width: 580px) {
-  .mobile {
-    flex-direction: row-reverse;
-    justify-content: flex-end;
-  }
-  .mobile1 {
-    width: 50%;
-  }
-  .hamburger {
-    justify-content: flex-start;
-  }
-  .anime {
-    transform: translateX(0%);
-    animation-name: animemobile;
-  }
-} */

@@ -5,6 +5,7 @@ import { IconButton, Button } from "@/components";
 import { ArrowPosition, ButtonVariant, IndicatorType } from "../Button/type";
 import { Left, Right } from "../Button/ButtonImage/icon";
 import ReviewCard from "../Cards/ReviewCard";
+import { SlideItem } from "./interfaces";
 
 const carouselStyles = cva(
   ["relative","w-[100vw]", "overflow-hidden"],
@@ -26,21 +27,9 @@ const carouselStyles = cva(
   }
 );
 
-interface SlideItem {
-  image: string;
-  heading?: string;
-  headingClassName?: string;
-  text?: string;
-  textClassName?: string;
-  button?: {
-    label: string;
-    onClick: () => void;
-    buttonClassName?: string;
-  };
-  reviewData?: ReviewDataType;
-}
 
-type ReviewDataType = {
+
+export type ReviewDataType = {
   StarRating: boolean;
   avatar: boolean;
   avatarImage: string;

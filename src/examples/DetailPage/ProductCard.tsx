@@ -17,9 +17,7 @@ import Ratingcard from "./RatingCard";
 const ProductCard: React.FC<{ data: ProductData }> = ({ data }) => {
   return (
     <div className="flex flex-col gap-5">
-      <div
-        className="border rounded-lg p-5 font-sans flex flex-col gap-5 w-full"
-      >
+      <div className="border rounded-lg p-5 font-sans flex flex-col gap-5 w-full">
         <h2 className="text-2xl font-bold">{data.brand}</h2>
         <div className="flex items-center">
           <p className="text-[#26282B] w-[360px] h-auto max-h-[30px] overflow-hidden">
@@ -85,10 +83,7 @@ const ProductCard: React.FC<{ data: ProductData }> = ({ data }) => {
           </Button>
         </div>
       </div>
-      <div
-        className="border rounded-lg p-5 w-80 font-sans flex items-center justify-between"
-        style={{ width: "614px", height: "56px" }}
-      >
+      <div className="border rounded-lg p-5 w-full font-sans flex items-center justify-between">
         <p className="text-gray-800 font-medium">
           <IconButton iconUrl={checked}></IconButton>
         </p>
@@ -97,10 +92,7 @@ const ProductCard: React.FC<{ data: ProductData }> = ({ data }) => {
           <IconButton>{product.Change}</IconButton>
         </p>
       </div>
-      <div
-        className="border rounded-lg p-5 w-80 font-sans flex flex-col items-center justify-between"
-        style={{ width: "614px", height: "168px" }}
-      >
+      <div className="border rounded-lg p-5 w-full font-sans flex flex-col items-center justify-between">
         <div className="flex items-center justify-between w-full">
           <p className="text-gray-800 font-medium">
             <img src={delivery} alt="Bag" className="h-6 w-6 inline-block" />
@@ -126,10 +118,7 @@ const ProductCard: React.FC<{ data: ProductData }> = ({ data }) => {
           </p>
         </div>
       </div>
-      <div
-        className="border rounded-lg p-5 w-80 font-sans flex flex-col items-center justify-between"
-        style={{ width: "614px", height: "fit-content" }}
-      >
+      <div className="border rounded-lg p-5 w-full font-sans flex flex-col items-center justify-between">
         <div className="flex items-center justify-between w-full mb-4">
           <p className="text-[#26282B] font-medium flex-shrink-0">
             {product.ProductCode}
@@ -253,10 +242,7 @@ const ProductCard: React.FC<{ data: ProductData }> = ({ data }) => {
           </p>
         </div>
       </div>
-      <div
-        className="border rounded-lg p-5 w-80 font-sans flex flex-col items-center justify-between"
-        style={{ width: "614px", height: "fit-content" }}
-      >
+      <div className="border rounded-lg p-5 w-full font-sans flex flex-col items-center justify-between">
         <div className="flex items-center justify-between w-full">
           <p className="text-[#26282B] font-semibold text-base ml-2 w-full max-w-[550px] h-auto">
             {data.reviews}
@@ -264,7 +250,7 @@ const ProductCard: React.FC<{ data: ProductData }> = ({ data }) => {
         </div>
         <div className="flex items-center justify-between w-full">
           <p className="text-[#26282B] font-semibold text-base ml-2 w-full max-w-[550px] h-auto">
-            <Ratingcard ratingDetails={ratingDetails}/>
+            <Ratingcard ratingDetails={ratingDetails} />
           </p>
         </div>
         <div className="flex items-center justify-between w-full">

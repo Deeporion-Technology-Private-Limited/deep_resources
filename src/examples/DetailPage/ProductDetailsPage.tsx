@@ -10,8 +10,8 @@ import { BreadCrumb } from "@/components";
 
 const ProductDetails = () => {
   return (
-    <div>
-      <div className="flex items-center gap-40 py-4 width-[100%]">
+    <div className="container mx-auto px-4">
+      <div className="py-4">
         <Topnavbar
           direction={NavbarDirection.Row}
           isLogin
@@ -193,17 +193,19 @@ const ProductDetails = () => {
           defaultSeparatorIconUrl="/src/components/BreadCrumb/icon/RightArrow.svg"
         />
       </div>
-      <div className="flex justify-center">
-        <div className="flex space-x-12">
+      <div className="flex flex-col md:flex-row justify-center gap-4 md:gap-12 py-4">
+        <div className="w-full md:w-1/2">
           <img
             src={detailsimage}
             alt="Product"
-            className="h-auto w-1/2 max-h-[812px] sticky top-0"
+            className="h-auto w-full max-h-[812px] sticky top-0"
           />
+        </div>
+        <div className="w-full md:w-1/2">
           <ProductCard data={productData} />
         </div>
       </div>
-      <div>
+      <div className="py-4">
         <Cards
           item={[
             {

@@ -6,7 +6,7 @@ import setting from "../navbarIcons/settings.svg";
 import profile from "../navbarIcons/image.png";
 
 import log from "../navbarIcons/logo.svg";
-import { SideNavbar } from ".";
+import { NavItems, SideNavbar } from ".";
 import { NavbarDirection } from "../type";
 import {
   Cart,
@@ -31,7 +31,7 @@ const profileDetail = {
   profilePicture: profile,
 };
 
-const navItemDetail = [
+const navItemDetail: NavItems[] = [
   {
     menuIconComponent: <Favourite />,
     menuIcon: fav,

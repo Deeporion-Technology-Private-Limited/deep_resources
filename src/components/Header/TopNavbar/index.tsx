@@ -85,14 +85,14 @@ export const Topnavbar = forwardRef<HTMLDivElement, TopNavProp>(
           {...props}
         >
           <Box
-            className={` w-full flex justify-between items-center topgap ${
+            className={` w-full flex justify-between items-center ${
               direction === "column" ? "flex-col h-full" : ""
-            }`}
+            } mobile`}
           >
             {LogoIcon !== "" ? (
-              <LogoImg logo={LogoIcon} className="w-[45px]" />
+              <LogoImg logo={LogoIcon} className="w-[45px] mobile1" />
             ) : (
-              <Logo>{title}</Logo>
+              <Logo className="mobile1">{title}</Logo>
             )}
             {navItem && navItem?.length > 0 && (
               <AnchorList className="flex-wrap show relative">
@@ -135,14 +135,14 @@ export const Topnavbar = forwardRef<HTMLDivElement, TopNavProp>(
                   )}
                   {navBarIcons?.map((item) => (
                     <>
-                      <IconButton iconUrl={item.icon} key={item.icon} />
+                      <IconButton iconUrl={item.icon} key={item.icon} onClick={item.onClick}/>
                     </>
                   ))}
                 </GroupIconButton>
               )}
             </Box>
             {
-              <Box className="hide">
+              <Box className="hide mobile1">
                 <IconButton
                   iconUrl={hemburgerImg}
                   onClick={hemburgerClick}

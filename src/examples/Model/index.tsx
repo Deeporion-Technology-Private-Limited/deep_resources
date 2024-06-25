@@ -63,8 +63,8 @@ export const Sizechartmodel = () => {
         </Box>
 
         {selectedTab === "sizeChart" ? (
-          <div className="flex justify-end">
-            <div className="flex items-center border border-[#E8EBED] rounded-[50px] p-[6px] w-[91px] h-[40px]">
+          <Box className="flex justify-end">
+            <Box className="flex items-center border border-[#E8EBED] rounded-[50px] p-[6px] w-[91px] h-[40px]">
               <button
                 className={`${
                   isInchesSelected
@@ -85,20 +85,20 @@ export const Sizechartmodel = () => {
               >
                 cm
               </button>
-            </div>
-          </div>
+            </Box>
+          </Box>
         ) : (
           <>
             <span className="font-poppins font-normal text-[14px] leading-[21px] text-center text-[#26282B]">
               {Product.MeasureDescription}
             </span>
-            <div className="flex justify-center">
+            <Box className="flex justify-center">
               <img
                 src={frmaeMeasurement}
                 className="w-auto h-auto"
                 alt="Measurement"
               />
-            </div>
+            </Box>
           </>
         )}
 
@@ -118,7 +118,7 @@ export const Sizechartmodel = () => {
           ]}
           variant="solid"
         />
-        <div className="flex w-full  py-4  justify-center items-center gap-2 ">
+        <Box className="flex w-full  py-4  justify-center items-center gap-2 ">
           <Button
             className="flex-1 py-3 rounded-lg mr-2 flex justify-center items-center gap-2"
             style={{
@@ -137,7 +137,7 @@ export const Sizechartmodel = () => {
               {Product.Wishlist}
             </p>
           </Button>
-        </div>
+        </Box>
       </Modal>
     </Box>
   );

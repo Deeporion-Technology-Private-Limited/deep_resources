@@ -134,3 +134,22 @@ export const AddProductCard: Story = {
   },
 };
 
+export const AddProduct: Story = {
+    args: {
+      children: (
+        <>
+          <Box className="p-2 flex flex-col gap-5 flex-wrap">
+            <Text as="p" className="font-extrabold text-[2.5rem] loading-normal w-full">
+            Active Orders
+            </Text>
+            <Box className="flex w-max gap-2 ">
+              <Text className="font-extrabold text-[4rem]">79</Text>
+            </Box>
+          </Box>
+        </>
+      ),
+      className: "max-w-none max-w-[35rem] bg-[#3F271E] text-white rounded-2xl",
+      descriptionStyle:"px-2",
+    },
+  };
+  

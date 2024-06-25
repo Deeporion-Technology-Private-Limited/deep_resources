@@ -9,6 +9,7 @@ export type NavItems = {
   export type navBarIcons = {
     icon?: string;
     iconName?: string;
+    onClick?: () => void;
   };
   
   export interface TopNavbarProps {

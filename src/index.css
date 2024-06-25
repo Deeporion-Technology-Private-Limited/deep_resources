@@ -2,13 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-
 body {
-    min-height: 100vh;
+  min-height: 100vh;
 }
 
 body::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 .show {
   display: flex;
@@ -25,6 +24,20 @@ body::-webkit-scrollbar {
   .hide {
     display: flex;
   }
+  .mobile {
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+  }
+  .mobile1 {
+    width: 50%;
+  }
+  .hamburger {
+    justify-content: flex-start;
+  }
+  /* .anime {
+    transform: translateX(0%);
+    animation-name: animemobile;
+  } */
 }
 
 @media (max-width: 899px) and (min-width: 480px) {
@@ -34,8 +47,10 @@ body::-webkit-scrollbar {
 }
 
 .anime {
-  transform: translateX(100%);
-  animation-name: anime;
+  /* transform: translateX(100%);
+  animation-name: anime; */
+  transform: translateX(0%);
+  animation-name: animemobile;
   animation-duration: 0.2s;
   animation-fill-mode: forwards;
   animation-timing-function: ease-in;
@@ -50,7 +65,33 @@ body::-webkit-scrollbar {
     transform: translateX(0%);
   }
 }
+@keyframes animemobile {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(0%);
+  }
+}
 
 .scrollbar-white::-webkit-scrollbar {
   display: none;
 }
+/* 
+@media (max-width: 580px) {
+  .mobile {
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+  }
+  .mobile1 {
+    width: 50%;
+  }
+  .hamburger {
+    justify-content: flex-start;
+  }
+  .anime {
+    transform: translateX(0%);
+    animation-name: animemobile;
+  }
+} */

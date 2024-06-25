@@ -43,7 +43,7 @@ const notLogin = {
   profile: person,
 };
 
-type NavItems = {
+export type NavItems = {
   menus: string;
   menuIcon?: string;
   menuIconComponent?: React.ReactNode;
@@ -51,7 +51,7 @@ type NavItems = {
   submenu?: NavItems[];
 };
 
-type profile = {
+export type profile = {
   profileName?: string;
   profilePicture?: string;
 };

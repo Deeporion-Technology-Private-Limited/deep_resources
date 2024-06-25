@@ -18,11 +18,11 @@ type Story = StoryObj<typeof Checkbox>;
 export const Default: Story = {
   args: {
     label: "Default Checkbox",
+    value: "Default Checkbox",
     checked: false,
     size: ButtonSize.Medium,
     variant: "Basic",
     labelClassname: "",
-    className: "",
     onChange: () => { },
   },
 };
@@ -32,7 +32,6 @@ export const Checked: Story = {
     label: "Checked Checkbox",
     checked: true,
     size: ButtonSize.Medium,
-    variant: "Basic",
     onChange: () => { },
   },
 };
@@ -42,7 +41,6 @@ export const Disabled: Story = {
     label: "Disabled Checkbox",
     checked: false,
     size: ButtonSize.Medium,
-    variant: "Disable",
     disabled: true,
     onChange: () => { },
   },
@@ -70,24 +68,59 @@ export const LabelBefore: Story = {
   },
 };
 
-export const CustomClassName: Story = {
+export const ToogleSwitch: Story = {
   args: {
-    label: "Custom Styled Checkbox",
+    type: "toggle",
     checked: false,
     size: ButtonSize.Medium,
     variant: "Basic",
-    className: "bg-red-500 border-blue-500",
+    labelPosition: "before",
     onChange: () => { },
   },
 };
 
-export const CustomContainer: Story = {
+export const CustomCheckbox: Story = {
   args: {
-    label: "Custom Container Style",
-    checked: false,
-    size: ButtonSize.Medium,
-    variant: "Basic",
-    // containerClassName: "p-4 bg-gray-100 border border-gray-300 rounded",
-    onChange: () => { },
-  },
+    type: "checkbox",
+    label: "Custom Checkbox",
+    checked: true,
+    containerClassName: "w-10 h-10 rounded-lg border-2 border-blue-500 bg-blue-100",
+    inputClassName: "cursor-pointer",
+    checkedClassName: "",
+    // inputClassName: ""
+  }
+}
+
+export const CustomeRadio: Story = {
+  args: {
+    type: "radio",
+    label: "Custom Radio",
+    containerClassName: "w-10 h-10 rounded-full border-2 border-green-500 bg-teal-200 ",
+    inputClassName: "cursor-pointer",
+    checkedClassName: "bg-red-500",
+  }
 };
+
+export const CustomToggle: Story = {
+  args: {
+
+    type: "toggle",
+    label: "Custom Toggle",
+    containerClassName: "w-[4.2rem] h-9 rounded-full border-2 border-purple-500 bg-white",
+    inputClassName: "cursor-pointer",
+    checkedClassName: "bg-teal-500",
+  }
+};
+
+export const DisabledToggle: Story = {
+
+  args: {
+    type: "toggle",
+    label: "Disabled Toggle",
+    checked: false,
+    disabled: true,
+    containerClassName: "w-16 h-9 rounded-full border-2 border-gray-500 bg-gray-200 cursor-not-allowed opacity-50",
+    inputClassName: "cursor-not-allowed",
+    checkedClassName: "bg-gray-500",
+  }
+}

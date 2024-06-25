@@ -3,28 +3,54 @@
 @tailwind utilities;
 
 
+body {
+    min-height: 100vh;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
 .show {
-    display: flex; 
+  display: flex;
 }
 
 .hide {
-    display: none;
+  display: none;
 }
 
 @media (max-width: 949px) {
-    .show {
-        display: none;
-    }
-    .hide {
-        display: flex;
-    }
-    
+  .show {
+    display: none;
+  }
+  .hide {
+    display: flex;
+  }
 }
 
 @media (max-width: 899px) and (min-width: 480px) {
-
 }
 
 @media (max-width: 479px) {
-    
+}
+
+.anime {
+  transform: translateX(100%);
+  animation-name: anime;
+  animation-duration: 0.2s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in;
+}
+
+@keyframes anime {
+  0% {
+    transform: translateX(100%);
+  }
+
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.scrollbar-white::-webkit-scrollbar {
+  display: none;
 }

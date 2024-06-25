@@ -1,4 +1,4 @@
-import { Button, IconButton } from "@/components";
+import { Button, IconButton, Input } from "@/components";
 import React from "react";
 import bag from "../../images/bag.png";
 import like from "../../images/like.png";
@@ -6,30 +6,19 @@ import checked from "../../images/checked.jpg";
 import delivery from "../../images/delivery.png";
 import returnimage from "../../images/returnimage.png";
 import payment from "../../images/payment.png";
-import { Product } from "./type";
-
-interface ProductData {
-  brand: string;
-  name: string;
-  rating: number;
-  price: number;
-  discount: string;
-  isTaxInclusive: boolean;
-  sizes: string[];
-  selectedSize: string;
-  image: string;
-  description: string;
-  arrival: string;
-  returnPolicy: string;
-  paymentMethod: string;
-}
+import { buttons, product, ratingDetails } from "./ProductDetailsData";
+import { InputType, InputVariant } from "@/components/Input/type";
+import Accordion from "@/components/Accordion";
+import { UpCursor } from "@/components/Accordion/Icon/Icon";
+import { AccordionTypes } from "@/components/Accordion/AccordionTypes";
+import ReviewList from "./ReviewList";
+import Ratingcard from "./RatingCard";
 
 const ProductCard: React.FC<{ data: ProductData }> = ({ data }) => {
   return (
     <div className="flex flex-col gap-5">
       <div
-        className="border rounded-lg p-5 w-80 font-sans flex flex-col gap-5"
-        style={{ width: "614px", height: "431px" }}
+        className="border rounded-lg p-5 font-sans flex flex-col gap-5 w-full"
       >
         <h2 className="text-2xl font-bold">{data.brand}</h2>
         <div className="flex items-center">
@@ -53,13 +42,13 @@ const ProductCard: React.FC<{ data: ProductData }> = ({ data }) => {
         </div>
         {data.isTaxInclusive && (
           <p className="text-gray-500 text-xs font-poppins mt-5 mb-0">
-            {Product.Taxes}
+            {product.Taxes}
           </p>
         )}
         <div className="border-t border-dotted border-gray-600"></div>
         <div>
           <span className="block mb-2 w-74 h-21 text-gray-600">
-            {Product.Size}
+            {product.Size}
           </span>
           <div className="flex flex-wrap p-1">
             {data.sizes.map((size) => (
@@ -85,14 +74,13 @@ const ProductCard: React.FC<{ data: ProductData }> = ({ data }) => {
           >
             <img src={bag} alt="Bag" className="h-6 w-6 inline-block" />
             <p className="text-white text-base font-semibold inline-block ml-2">
-              {Product.AddToBag}
+              {product.AddToBag}
             </p>
           </Button>
-
           <Button className="flex-1 bg-gray-200 py-2 rounded-lg text-gray-700 font-semibold text-base font-poppins flex justify-center items-center gap-2">
             <img src={like} alt="Like" className="h-6 w-6 inline-block" />
             <p className="text-[#72787F] text-base font-semibold inline-block ml-2">
-              {Product.Wishlist}
+              {product.Wishlist}
             </p>
           </Button>
         </div>
@@ -106,7 +94,7 @@ const ProductCard: React.FC<{ data: ProductData }> = ({ data }) => {
         </p>
         <p className="text-[#111827] font-medium">{data.description}</p>
         <p className="text-[#3F271E] font-medium">
-          <IconButton>{Product.Change}</IconButton>
+          <IconButton>{product.Change}</IconButton>
         </p>
       </div>
       <div
@@ -135,6 +123,153 @@ const ProductCard: React.FC<{ data: ProductData }> = ({ data }) => {
           </p>
           <p className="text-[#111827] font-normal ml-2 w-full max-w-[550px] h-auto">
             {data.returnPolicy}
+          </p>
+        </div>
+      </div>
+      <div
+        className="border rounded-lg p-5 w-80 font-sans flex flex-col items-center justify-between"
+        style={{ width: "614px", height: "fit-content" }}
+      >
+        <div className="flex items-center justify-between w-full mb-4">
+          <p className="text-[#26282B] font-medium flex-shrink-0">
+            {product.ProductCode}
+          </p>
+          <p className="text-[#111827] font-normal ml-2 w-full max-w-[550px] h-auto">
+            {data.productCode}
+          </p>
+        </div>
+        <div className="flex flex-col items-start w-full mb-4">
+          <p className="text-gray-800 font-medium mb-2">
+            {product.ProductDetails}
+          </p>
+          <p className="text-[#111827] font-normal w-full max-w-[550px]">
+            {data.productDetails}
+          </p>
+        </div>
+        <div className="flex flex-col items-start w-full mb-4">
+          <p className="text-gray-800 font-medium mb-2">{product.SizeFit}</p>
+          <p className="text-[#111827] font-normal w-full max-w-[550px]">
+            {data.sizeFit}
+          </p>
+        </div>
+        <div className="flex flex-col items-start w-full mb-4">
+          <p className="text-gray-800 font-medium mb-2">{product.Material}</p>
+          <p className="text-[#111827] font-normal w-full max-w-[550px]">
+            {data.materialCare}
+          </p>
+        </div>
+        <div className="flex items-center justify-between w-full mb-4">
+          <p className="text-gray-800 font-medium flex-shrink-0">
+            {product.ProductSpec}
+          </p>
+        </div>
+        <div className="flex items-center justify-between w-full mb-4">
+          <p className="text-[#111827] font-normal ml-2 w-full max-w-[550px] h-auto">
+            <div className="grid grid-cols-2 gap-4">
+              <div className="col-span-1">
+                <label className="block text-[#72787F]">Fabric</label>
+                <Input
+                  placeholder="Insert text here"
+                  type={InputType.Text}
+                  variant={InputVariant.Standard}
+                  value=""
+                />
+              </div>
+              <div className="col-span-1">
+                <label className="block text-[#72787F]">Fabric type</label>
+                <Input
+                  placeholder="Insert text here"
+                  type={InputType.Text}
+                  variant={InputVariant.Standard}
+                  value=""
+                />
+              </div>
+              <div className="col-span-1">
+                <label className="block text-[#72787F]">Hemline</label>
+                <Input
+                  placeholder="Insert text here"
+                  type={InputType.Text}
+                  variant={InputVariant.Standard}
+                  value=""
+                />
+              </div>
+              <div className="col-span-1">
+                <label className="block text-[#72787F]">Knit or Woven</label>
+                <Input
+                  placeholder="Insert text here"
+                  type={InputType.Text}
+                  variant={InputVariant.Standard}
+                  value=""
+                />
+              </div>
+              <div className="col-span-1">
+                <label className="block text-[#72787F]">Length</label>
+                <Input
+                  placeholder="Insert text here"
+                  type={InputType.Text}
+                  variant={InputVariant.Standard}
+                  value=""
+                />
+              </div>
+              <div className="col-span-1">
+                <label className="block text-[#72787F]">Main Trend</label>
+                <Input
+                  placeholder="Insert text here"
+                  type={InputType.Text}
+                  variant={InputVariant.Standard}
+                  value=""
+                />
+              </div>
+              <div className="col-span-1">
+                <label className="block text-[#72787F]">Neck</label>
+                <Input
+                  placeholder="Insert text here"
+                  type={InputType.Text}
+                  variant={InputVariant.Standard}
+                  value=""
+                />
+              </div>
+              <div className="col-span-1">
+                <label className="block text-[#72787F]">Occasion</label>
+                <Input
+                  placeholder="Insert text here"
+                  type={InputType.Text}
+                  variant={InputVariant.Standard}
+                  value=""
+                />
+              </div>
+            </div>
+          </p>
+        </div>
+        <div className="flex items-center justify-between w-full mb-4 border-none">
+          <p className="text-[#7D5D4F] font-medium flex items-center gap-2 border-none">
+            <Accordion
+              Icon={<UpCursor />}
+              content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget."
+              variant={AccordionTypes.Cursor}
+            >
+              {buttons.viewMore}
+            </Accordion>
+          </p>
+        </div>
+      </div>
+      <div
+        className="border rounded-lg p-5 w-80 font-sans flex flex-col items-center justify-between"
+        style={{ width: "614px", height: "fit-content" }}
+      >
+        <div className="flex items-center justify-between w-full">
+          <p className="text-[#26282B] font-semibold text-base ml-2 w-full max-w-[550px] h-auto">
+            {data.reviews}
+          </p>
+        </div>
+        <div className="flex items-center justify-between w-full">
+          <p className="text-[#26282B] font-semibold text-base ml-2 w-full max-w-[550px] h-auto">
+            <Ratingcard ratingDetails={ratingDetails}/>
+          </p>
+        </div>
+        <div className="flex items-center justify-between w-full">
+          <p className="text-[#26282B] font-semibold text-base ml-2 w-full max-w-[550px] h-auto">
+            <ReviewList />
           </p>
         </div>
       </div>

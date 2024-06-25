@@ -20,7 +20,7 @@ const stepperStyles = cva(
   }
 );
 
-type Step = {
+export type Step = {
   component: ReactElement;
   title: string;
   data?: any;

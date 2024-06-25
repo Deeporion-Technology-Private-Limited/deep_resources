@@ -6,9 +6,6 @@ function AddressPage() {
   const [pickupAddress, setPickupAddress] = useState(Address);
 
   const handleUpdateAddress = (newAddress: any) => {
-    console.log(newAddress);
-
-    console.log(newAddress);
     setPickupAddress(newAddress);
   };
   return (

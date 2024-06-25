@@ -2,7 +2,7 @@ import { Box, Button, Headings, Modal } from "@/components";
 import chart from "./Icons/chart.svg";
 import frmaeMeasurement from "../../images/frameMeasurement.png";
 import hearticon from "./Icons/hearticon.svg";
-import { TableHeader } from "@/components/Table/TableHeader";
+import { Table } from "@/components/Table/Table";
 import { Product } from "./types";
 import { useState } from "react";
 import ProductCard from "@/components/Cards/ProductCards";
@@ -12,7 +12,7 @@ export const Sizechartmodel = () => {
   const [selectedTab, setSelectedTab] = useState("sizeChart");
 
   return (
-    <Box className="border border-pink-800 hhh">
+    <Box className="border border-pink-800">
       <Modal
         button01={false}
         button02={false}
@@ -21,7 +21,7 @@ export const Sizechartmodel = () => {
         openModal={false}
         crossIcon={true}
         header={
-          <Box className="flex   border-[rgba(255, 255, 255, 1)]">
+          <Box className="flex border-[rgba(255, 255, 255, 1)]">
             <Box>
               <ProductCard
                 style={{ width: "56px", height: "56px" }}
@@ -32,7 +32,7 @@ export const Sizechartmodel = () => {
                 sizes={[]}
               />
             </Box>
-            <Box className="p-2">
+            <Box className="p-2 ">
               <Headings
                 FontSize="text-base"
                 fontWeight="font-normal"
@@ -49,13 +49,19 @@ export const Sizechartmodel = () => {
       >
         <Box className="flex justify-center mb-3">
           <button
-            className={`w-3/6 border-b pb-2 pt-2 hover:border-b-[#3F271E] hover:font-bold ${selectedTab === "sizeChart" ? "border-b-[#3F271E] font-bold" : ""}`}
+            className={`w-3/6 border-b pb-2 pt-2 hover:border-b-[#3F271E] hover:font-bold ${
+              selectedTab === "sizeChart" ? "border-b-[#3F271E] font-bold" : ""
+            }`}
             onClick={() => setSelectedTab("sizeChart")}
           >
             {Product.SizeChart}
           </button>
           <button
-            className={`w-3/6 border-b pb-2 pt-2 hover:border-b-[#3F271E] hover:font-bold ${selectedTab === "howToMeasure" ? "border-b-[#3F271E] font-bold" : ""}`}
+            className={`w-3/6 border-b pb-2 pt-2 hover:border-b-[#3F271E] hover:font-bold ${
+              selectedTab === "howToMeasure"
+                ? "border-b-[#3F271E] font-bold"
+                : ""
+            }`}
             onClick={() => setSelectedTab("howToMeasure")}
           >
             {Product.HowToMeasure}
@@ -70,7 +76,7 @@ export const Sizechartmodel = () => {
                   isInchesSelected
                     ? "bg-[#BFA59A] text-white w-[38px] h-[28px]"
                     : "bg-white text-black w-[48px] h-[28px]"
-                } rounded-[50px] px-[12px] py-[4px]`}
+                } rounded-[50px] `}
                 onClick={() => setIsInchesSelected(true)}
               >
                 in
@@ -80,7 +86,7 @@ export const Sizechartmodel = () => {
                   !isInchesSelected
                     ? "bg-[#BFA59A] text-white w-[48px] h-[28px]"
                     : "bg-white text-black w-[38px] h-[28px]"
-                } rounded-[50px] px-[12px] py-[4px] ml-2`}
+                } rounded-[50px] `}
                 onClick={() => setIsInchesSelected(false)}
               >
                 cm
@@ -102,37 +108,57 @@ export const Sizechartmodel = () => {
           </>
         )}
 
-        <TableHeader
+        <Table
           data={[
-            ["XS", "35.0", "24.0", "13.0"],
-            ["S", "37.0", "26.0", "13.5"],
-            ["M", "39.0", "28.0", "14.0"],
-            ["L", "41.0", "30.0", "14.5"],
-            ["XL", "43.0", "32.0", "15.0"],
-          ]}
-          header={[
-            "Size",
-            "Hips(cm)",
-            "To fit waist (cm)",
-            "In Seam Length (cm)",
+            {
+              Size: "XS",
+              "Hips(cm)": "35.0",
+              "To fit waist (cm)": "24.0",
+              "In Seam Length (cm)": "13.0",
+            },
+            {
+              Size: "S",
+              "Hips(cm)": "37.0",
+              "To fit waist (cm)": "26.0",
+              "In Seam Length (cm)": "13.5",
+            },
+            {
+              Size: "M",
+              "Hips(cm)": "39.0",
+              "To fit waist (cm)": "28.0",
+              "In Seam Length (cm)": "14.0",
+            },
+            {
+              Size: "L",
+              "Hips(cm)": "41.0",
+              "To fit waist (cm)": "30.0",
+              "In Seam Length (cm)": "14.5",
+            },
+            {
+              Size: "XL",
+              "Hips(cm)": "43.0",
+              "To fit waist (cm)": "32.0",
+              "In Seam Length (cm)": "15.0",
+            },
           ]}
           variant="solid"
         />
-        <Box className="flex w-full  py-4  justify-center items-center gap-2 ">
+
+        <Box className="flex w-full py-4 justify-center items-center gap-2 mb-4">
           <Button
             className="flex-1 py-3 rounded-lg mr-2 flex justify-center items-center gap-2"
             style={{
               background: "linear-gradient(to right, #BFA59A, #3F271E)",
             }}
           >
-            <img src={chart} alt="Bag" className="h-6 w-6  inline-block" />
+            <img src={chart} alt="Bag" className="h-6 w-6 inline-block" />
             <p className="text-white text-base font-semibold inline-block ml-2">
               {Product.AddToCart}
             </p>
           </Button>
 
           <Button className="flex-1 bg-gray-200 py-3 rounded-lg text-gray-700 font-semibold text-base font-poppins flex justify-center items-center gap-2">
-            <img src={hearticon} alt="Like" className="h-6 w-6  inline-block" />
+            <img src={hearticon} alt="Like" className="h-6 w-6 inline-block" />
             <p className="text-[#72787F] text-base font-semibold inline-block ml-2">
               {Product.Wishlist}
             </p>

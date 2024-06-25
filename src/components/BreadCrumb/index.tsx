@@ -3,12 +3,10 @@ import { cva, VariantProps } from "class-variance-authority";
 import { ComponentProps, forwardRef, useState } from "react";
 import { Box } from "@/components";
 
-const breadCrumbStyles = cva(
-  [
-    "flex",
-    "items-center",
-  ]
-);
+const breadCrumbStyles = cva([
+  "flex",
+  "items-center",
+]);
 
 type BreadCrumbItem = {
   text: string;
@@ -46,7 +44,7 @@ export const BreadCrumb = forwardRef<HTMLDivElement, BreadCrumbProps>(
         )}
         <a
           href={item.href}
-          className="text-sm font-medium"
+          className={cn("text-sm font-medium", className)}
           style={{ color: activeIndex === index ? '#26282B' : '#72787F' }}
         >
           {item.text}

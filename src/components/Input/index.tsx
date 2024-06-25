@@ -18,62 +18,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
     ref
   ) => {
     const [showPassword, setShowPassword] = useState<boolean>(false);
-    const [error, setError] = useState<string | null>(null);
     const maxLength = type === InputType.Otp ? 1 : undefined;
-
-    const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
-      const newValue = e.target.value;
-      let validationError: string | null = null;
-
-      switch (type) {
-        case InputType.Email:
-          if (!validateEmail(newValue)) {
-            validationError = 'Please enter a valid email address';
-          }
-          break;
-        case InputType.Phone:
-          if (!validatePhoneNumber(newValue)) {
-            validationError = 'Please enter a valid phone number';
-          }
-          break;
-        case InputType.Numbers:
-          if (!validateNumbers(newValue)) {
-            validationError = 'Please enter a valid number';
-          }
-          break;
-        default:
-          break;
-      }
-      setError(validationError);
-    };
-
-    const validateEmail = (email: string): boolean => {
-      if (!email.includes('@') || !email.includes('.')) {
-        return false;
-      }
-      const atIndex: number = email.indexOf('@');
-      const dotIndex: number = email.lastIndexOf('.');
-      if (dotIndex < atIndex) {
-        return false;
-      }
-      return true;
-    };
-
-    const validatePhoneNumber = (phoneNumber: string): boolean => {
-      if (phoneNumber.length !== 10 || isNaN(Number(phoneNumber))) {
-        return false;
-      }
-      return true;
-    };
-
-    const validateNumbers = (numbers: string): boolean => {
-      for (const char of numbers) {
-        if (isNaN(Number(char))) {
-          return false;
-        }
-      }
-      return true;
-    };
 
     const togglePasswordVisibility = () => {
       setShowPassword((prevShowPassword) => !prevShowPassword);
@@ -115,13 +60,11 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           ref={ref}
           type={showPassword && type === InputType.Password ? 'text' : type}
           autoComplete="off"
-          onBlur={handleBlur}
           className={classNames}
           maxLength={maxLength}
           {...props}
         />
         {renderAdditionalComponent()}
-        {error && <p className="text-red-500 text-xs mt-1">{error}</p>}
       </div>
     );
   }

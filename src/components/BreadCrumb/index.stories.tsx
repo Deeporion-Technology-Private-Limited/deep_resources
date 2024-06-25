@@ -30,10 +30,11 @@ type Story = StoryObj<typeof BreadCrumb>;
 export const Default: Story = {
   args: {
     breadCrumbItems: [
-      { text: 'Home', href: '/home' },  
+      { text: 'Home', href: '/home'},  
       { text: 'Category', href: '/category' },  
       { text: 'Product', href: '/product' },  
     ],
+    className:"text-xl",
     defaultSeparatorIconUrl: RightArrow,
   },
 };

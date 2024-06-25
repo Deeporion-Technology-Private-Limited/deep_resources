@@ -39,7 +39,7 @@ type ReviewCardProps = ComponentProps<"div"> &
     starStyle?:string;
   };
 
-const ReviewCard = forwardRef<HTMLDivElement, ReviewCardProps>(
+const   ReviewCard = forwardRef<HTMLDivElement, ReviewCardProps>(
   (
     {
       imageSrc,

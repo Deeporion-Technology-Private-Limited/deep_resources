@@ -1,6 +1,7 @@
 import { useState } from "react"
-import { MyCartSummary, StateProp } from "."
+import { MyCartSummary } from "."
 import { initialData } from "@/components/Data/MyCartSummaryData"
+import { StateProp } from "./interfaceAddCart"
 
 
 export  const StroyAccordion = ()=>{
@@ -14,12 +15,14 @@ export  const StroyAccordion = ()=>{
 
     const handleChange = (e:any)=>{
      const {name , value} = e.target
-     setInitialState((pev)=>({...pev , [name]:value}))
+     setInitialState((pev:any)=>({...pev , [name]:value}))
     }
 
-    const handleSubmit = ()=>{
+    const handleSubmit = (e:any)=>{
+        e.preventDefault()
         alert("Submit Button")
     }
+    
     return(
 
         <div className="w-fit h-[400px]">

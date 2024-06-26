@@ -24,7 +24,7 @@ type CardProps = ComponentProps<typeof Box> &
     handleClose?: () => void;
     checked?: boolean;
     iconStyle?: string;
-    handleClicked?: () => void;
+    handleChange?: (name : any) => void;
     isReturn?: boolean;
     isQuantity?: boolean;
   };
@@ -47,10 +47,9 @@ const QuantityCard = forwardRef<HTMLDivElement, CardProps>(
       returnPolicy = "14 days return available",
       deliveryText = "Delivery by 7 June 2024",
       handleClose,
-      checked,
       iconStyle = "size-8",
       children,
-      handleClicked,
+      handleChange,
       isReturn = false,
       isQuantity = false,
     },
@@ -61,16 +60,17 @@ const QuantityCard = forwardRef<HTMLDivElement, CardProps>(
 
     return (
       <Box ref={ref} className={cn(cardStyles(), className)}>
-        <Box className="relative w-full sm:w-1/3">
+        <Box className="relative sm:w-1/3">
           <img className={imageStyle} src={imageSrc} alt="product" />
+          <Box>
+            <Checkbox
+              className="absolute bg-white h-fit w-fit top-2 left-2 size-8 rounded-lg "
+              onChange={handleChange}
+              value={"check"}
+            />
+          </Box>
         </Box>
-        <Checkbox
-          className="bg-black absolute top-2 left-2 size-8 rounded-lg"
-          checked={checked}
-          onClick={handleClicked}
-          value={"check"}
-        />
-        <Box className="w-full sm:w-2/3 p-4 flex flex-col">
+        <Box className="w-full xs:w-2/3 p-4 flex flex-col">
           <Button
             className="absolute top-2 right-2 bg-gray-200 rounded-lg p-1 w-max"
             onClick={handleClose}
@@ -89,7 +89,7 @@ const QuantityCard = forwardRef<HTMLDivElement, CardProps>(
             </Text>
             {children}
             {isQuantity && (
-              <Box className="flex flex-col sm:flex-row gap-5">
+              <Box className="flex flex-wrap gap-5">
                 <Box className="flex items-center space-x-2 mb-2 w-max rounded-lg bg-[#e5e7eb] p-2">
                   <Text as={"label"} className="font-semibold">
                     Size:

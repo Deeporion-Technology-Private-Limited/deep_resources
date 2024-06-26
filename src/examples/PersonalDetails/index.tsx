@@ -3,23 +3,10 @@ import Accordion from '@/components/Accordion';
 import { AccordionTypes } from '@/components/Accordion/AccordionTypes';
 import { UpCursor } from '@/components/Accordion/Icon/Icon';
 import { GreenArrow } from './CartIcon';
-import { AddressDetails, ContactDetails, SaveAsAddress, initialData } from '@/components/Data/MyCartSummaryData';
+import { AddressDetails, ContactDetails, SaveAsAddress, initialData } from '@/components/Data/PersonalDetailsData';
+import { StateProp } from './interfaceAddCart';
 
 
-export interface StateProp {
-  first_name: string;
-  Last_name: string;
-  phone_Number: string;
-  email: string;
-  pincode: string;
-  Area: string;
-  Country: string;
-  city: string;
-  State: string;
-  Address: string;
-  addressType: string;
-  Checked?: boolean;
-}
 
 
 export interface MyCartProp {
@@ -30,7 +17,7 @@ export interface MyCartProp {
   handleSubmit: (e: any) => void;
 }
 
-export const MyCartSummary: React.FC<MyCartProp> = ({
+export const PersonalDetails: React.FC<MyCartProp> = ({
   handleBack = () => alert('back'),
   handleChange = (e) => console.log('value', e.target.value),
   initialState = initialData,
@@ -47,6 +34,7 @@ export const MyCartSummary: React.FC<MyCartProp> = ({
       tick3: initialState.addressType.length > 0
     });
   }, [initialState]);
+   
 
   const sections = [
     {
@@ -67,15 +55,15 @@ export const MyCartSummary: React.FC<MyCartProp> = ({
   ];
 
   return (
-    <form className="flex-row" onSubmit={handleSubmit}>
+    <form className="flex-row h-fit" onSubmit={handleSubmit}  >
       {sections.map((section, index) => (
         <Accordion
           key={index}
           variant={AccordionTypes.Cursor}
           content={section.content}
           children={section.title}
-          className="bg-[#EBE3E0] text-[#26282B] font-sans font-bold w-[600px] mt-2"
-          childClassName="border-none"
+          className="bg-[#EBE3E0] text-[#26282B] font-sans font-bold w-[60vw] mt-2"
+          childClassName="border-none h-fit"
           Icon={<UpCursor />}
           status={section.status && <GreenArrow />}
         />

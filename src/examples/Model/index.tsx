@@ -6,6 +6,7 @@ import { Table } from "@/components/Table/Table";
 import { Product } from "./types";
 import { useState } from "react";
 import ProductCard from "@/components/Cards/ProductCards";
+import { womanSizeFormatted } from "@/components/Data/SizeDataForWomen";
 
 export const Sizechartmodel = () => {
   const [isInchesSelected, setIsInchesSelected] = useState(true);
@@ -108,41 +109,7 @@ export const Sizechartmodel = () => {
           </>
         )}
 
-        <Table
-          data={[
-            {
-              Size: "XS",
-              "Hips(cm)": "35.0",
-              "To fit waist (cm)": "24.0",
-              "In Seam Length (cm)": "13.0",
-            },
-            {
-              Size: "S",
-              "Hips(cm)": "37.0",
-              "To fit waist (cm)": "26.0",
-              "In Seam Length (cm)": "13.5",
-            },
-            {
-              Size: "M",
-              "Hips(cm)": "39.0",
-              "To fit waist (cm)": "28.0",
-              "In Seam Length (cm)": "14.0",
-            },
-            {
-              Size: "L",
-              "Hips(cm)": "41.0",
-              "To fit waist (cm)": "30.0",
-              "In Seam Length (cm)": "14.5",
-            },
-            {
-              Size: "XL",
-              "Hips(cm)": "43.0",
-              "To fit waist (cm)": "32.0",
-              "In Seam Length (cm)": "15.0",
-            },
-          ]}
-          variant="solid"
-        />
+        <Table data={womanSizeFormatted} />
 
         <Box className="flex w-full py-4 justify-center items-center gap-2 mb-4">
           <Button

@@ -10,7 +10,6 @@ import {
 import { ButtonVariant, ButtonSize } from "@/components/Button/type";
 import { Box, Button } from "..";
 import CloseIcon from "./Icons/CloseIcon";
-import { cn } from "@/utils";
 
 const modalStyles = cva(
   [
@@ -48,7 +47,6 @@ interface ModalPropss {
   openModal: boolean;
   crossIcon?: boolean;
   handleClose?: () => void;
-  className?: string;
 }
 
 type ModalProps = ComponentProps<"div"> & VariantProps<typeof modalStyles>;
@@ -62,7 +60,6 @@ export const Modal = forwardRef<ModalProps, ModalPropss>(
     modalbutton,
     crossIcon,
     handleClose,
-    className,
   }) => {
     const [isOpen, setIsOpen] = useState(false);
     const toggleMenu = () => {
@@ -72,7 +69,7 @@ export const Modal = forwardRef<ModalProps, ModalPropss>(
       setIsOpen(openModal);
     }, [openModal]);
     return (
-      <div className={cn(modalStyles({ className }))}>
+      <div>
         {modalbutton && (
           <Button
             type="button"

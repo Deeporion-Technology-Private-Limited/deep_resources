@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { ChooseAddress } from "."
+import { PaymentDetails } from "."
 
 export const DemoAddressField = ()=>{
     const [userData , setUserData]= useState( {Name:"Nitesh",email:"Niteshnm123456@",State:"Bangalore"
@@ -38,7 +38,7 @@ export const DemoAddressField = ()=>{
 
     return(
         <div className="w-fit h-[500px]">
-            <ChooseAddress 
+            <PaymentDetails 
            userData={userData} 
            setUserData={setUserData} 
           handleSubmit={handleSubmit} 

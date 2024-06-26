@@ -137,6 +137,7 @@ export const AddressDetails: React.FC<ContactDetailsProps> = ({ handleChange, va
         <Input
           type={InputType.Text}
           variant={InputVariant.Outlined}
+          name="city"
           placeholder="Enter city"
           className="p-2 border rounded-md w-full font-light outline-none focus:outline-[grey] mt-2"
           value={value.city}

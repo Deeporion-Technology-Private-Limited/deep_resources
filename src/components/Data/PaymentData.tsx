@@ -1,4 +1,4 @@
-import React from "react";
+import React, { HTMLInputTypeAttribute } from "react";
 import { Button } from "../Button/DefaultButton";
 import {
   ModileIcon,
@@ -15,7 +15,7 @@ import { Checkbox } from "../Checkbox";
 import { ButtonSize } from "../Button/type";
 import Input from "../Input";
 import { InputType, InputVariant } from "../Input/type";
-import { stateProp } from "@/examples/AddressInputField/AddressInterFace";
+import { stateProp } from "@/examples/PaymentPage/AddressInterFace";
 
 
 
@@ -72,17 +72,10 @@ export const AddressContactDetail: React.FC<userProps> = ({ userData }) => {
 
 
 
-export const CardDetails: React.FC<userProps> = ({ userData, setUserData }) => {
-  const handleChange = (e: any) => {
-    const { name, value } = e.target
-    setUserData((prev) => ({ ...prev, [name]: value }))
-
-    const sanitizedValue = value.replace(/\D/g, '');
-      setUserData((prev) => ({ ...prev, [name]: sanitizedValue }));
-  }
+export const CardDetails: React.FC<userProps> = ({ userData, handleChange ,setUserData }) => {
 
 
-  const formatDate = (dateString:any) => {
+  const formatDate = (dateString:HTMLInputTypeAttribute) => {
     if (!dateString) return ''; 
   
     const year = dateString.substring(0, 4);
@@ -105,7 +98,8 @@ export const CardDetails: React.FC<userProps> = ({ userData, setUserData }) => {
         name="Card_Name"
         value={userData.Card_Name}
         placeholder="Enter Card Name"
-       className="p-2 border rounded-md w-full outline-none mt-2 bg-transparent focus:outline-[grey]"
+        className="p-2 border rounded-md w-full outline-none mt-2 
+                   bg-transparent focus:outline-[grey]"
         onChange={handleChange}
          />
       </div>
@@ -132,7 +126,14 @@ export const CardDetails: React.FC<userProps> = ({ userData, setUserData }) => {
         name="Expiry_Date"
         placeholder="MM/YY"
         value={formatDate(userData.Expiry_Date)}
-        onChange={handleChange}
+        onChange={(e)=>{ 
+          const {name , value}= e.target
+        
+    if (name === "Expiry_Date") {
+        const sanitizedValue = value.replace(/\D/g, '');
+      setUserData((prev) => ({ ...prev, [name]: sanitizedValue }));
+    }
+        }}
       /> 
       <input type="text"
                placeholder="MM/YY" 

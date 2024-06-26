@@ -1,6 +1,6 @@
 import { useState } from "react"
-import { MyCartSummary } from "."
-import { initialData } from "@/components/Data/MyCartSummaryData"
+import { PersonalDetails } from "."
+import { initialData } from "@/components/Data/PersonalDetailsData"
 import { StateProp } from "./interfaceAddCart"
 
 
@@ -26,7 +26,7 @@ export  const StroyAccordion = ()=>{
     return(
 
         <div className="w-fit h-[400px]">
-            <MyCartSummary  
+            <PersonalDetails  
          handleBack={handleBack} 
          handleChange={handleChange} 
          initialState={initialState} 

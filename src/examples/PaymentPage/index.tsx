@@ -1,7 +1,7 @@
 import Accordion from "@/components/Accordion";
 import { AccordionTypes } from "@/components/Accordion/AccordionTypes";
 import { UpCursor } from "@/components/Accordion/Icon/Icon";
-import { AddressContactDetail, PaymentComp} from "@/components/Data/AddressField";
+import { AddressContactDetail, PaymentComp} from "@/components/Data/PaymentData";
 import { stateProp } from "./AddressInterFace";
 
 export interface Props {
@@ -13,7 +13,7 @@ export interface Props {
 
 }
 
-export const ChooseAddress : React.FC<Props> = ({ handleSubmit ,userData ,setUserData ,handleBack , handleChange})=>{
+export const PaymentDetails : React.FC<Props> = ({ handleSubmit ,userData ,setUserData ,handleBack , handleChange})=>{
 
     const sections = [
         {
@@ -26,6 +26,8 @@ export const ChooseAddress : React.FC<Props> = ({ handleSubmit ,userData ,setUse
           subChildren:" All transactions are secure and encrypted",
         }
       ];
+      console.log("userData",userData);
+      
 
     return(
         <form className="flex-row" onSubmit={handleSubmit}>

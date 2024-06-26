@@ -3,7 +3,7 @@ import Accordion from '@/components/Accordion';
 import { AccordionTypes } from '@/components/Accordion/AccordionTypes';
 import { UpCursor } from '@/components/Accordion/Icon/Icon';
 import { GreenArrow } from './CartIcon';
-import { AddressDetails, ContactDetails, SaveAsAddress, initialData } from '@/components/Data/MyCartSummaryData';
+import { AddressDetails, ContactDetails, SaveAsAddress, initialData } from '@/components/Data/PersonalDetailsData';
 import { StateProp } from './interfaceAddCart';
 
 
@@ -17,7 +17,7 @@ export interface MyCartProp {
   handleSubmit: (e: any) => void;
 }
 
-export const MyCartSummary: React.FC<MyCartProp> = ({
+export const PersonalDetails: React.FC<MyCartProp> = ({
   handleBack = () => alert('back'),
   handleChange = (e) => console.log('value', e.target.value),
   initialState = initialData,
@@ -34,6 +34,7 @@ export const MyCartSummary: React.FC<MyCartProp> = ({
       tick3: initialState.addressType.length > 0
     });
   }, [initialState]);
+   
 
   const sections = [
     {

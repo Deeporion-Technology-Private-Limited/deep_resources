@@ -3,7 +3,7 @@ import { DemoAddressField } from "./DemoStoryField";
 
 
 const meta: Meta<typeof DemoAddressField> = {
-  title: "Examples/AddAdressDetails",
+  title: "Examples/PaymentPage",
   component: DemoAddressField,
   parameters: {
     layout: "centered",

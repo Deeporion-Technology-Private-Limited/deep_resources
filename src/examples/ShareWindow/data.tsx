@@ -12,6 +12,9 @@ export interface IconValues {
   text?: string;
   Click?: () => void;
 }
+export interface ShareItem{
+  item:IconValues[];
+}
 
 export const socialIcons: IconValues[] = [
   {

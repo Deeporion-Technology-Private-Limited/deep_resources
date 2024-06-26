@@ -3,7 +3,7 @@ import { StroyAccordion } from "./StoryAccordion";
 
 
 const meta: Meta<typeof StroyAccordion> = {
-  title: "Examples/MyCartSummary",
+  title: "Examples/PersonalDetailsPage",
   component: StroyAccordion,
   parameters: {
     layout: "centered",

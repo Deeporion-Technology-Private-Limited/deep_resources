@@ -15,6 +15,8 @@ type CardProps = ComponentProps<typeof Box> &
     taxes?: string;
     delivery?: string;
     total?: string;
+    handleClick?:()=>void;
+    buttonText?:string;
   };
 
 const cardStyles = cva(
@@ -32,6 +34,8 @@ const OrderSummary = forwardRef<HTMLDivElement, CardProps>(
       taxes,
       delivery,
       total,
+      handleClick,
+      buttonText="checkout",
     },
     ref
   ) => {
@@ -93,7 +97,7 @@ const OrderSummary = forwardRef<HTMLDivElement, CardProps>(
               </Text>
             </Box>
           </Box>
-          <Button iconUrl={checkout}>Checkout</Button>
+          <Button iconUrl={checkout} onClick={handleClick}>{buttonText}</Button>
         </Box>
       </Box>
     );

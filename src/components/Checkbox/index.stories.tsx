@@ -1,6 +1,7 @@
 import { Meta, StoryObj } from "@storybook/react";
 import { Checkbox } from ".";
 import { ButtonSize } from "../Button/type";
+import { useState } from "react";
 
 const meta: Meta<typeof Checkbox> = {
   title: "Components/Checkbox",
@@ -87,7 +88,7 @@ export const CustomCheckbox: Story = {
     containerClassName: "w-10 h-10 rounded-lg border-2 border-blue-500 bg-blue-100",
     inputClassName: "cursor-pointer",
     checkedClassName: "",
-    // inputClassName: ""
+    fillColor: 'red'
   }
 }
 
@@ -124,3 +125,45 @@ export const DisabledToggle: Story = {
     checkedClassName: "bg-gray-500",
   }
 }
+
+export const RadioGroup: Story = {
+
+  args: {
+
+  },
+
+  render: () => {
+    const [checkedValue, setCheckedValue] = useState<string>("option1"); // State to track checked value
+
+    return (
+      <div>
+        <Checkbox
+          label="Option 1"
+          type="radio"
+          value="option1"
+          name="radioGroup"
+          checked={checkedValue === "option1"}
+          onChange={() => setCheckedValue("option1")}
+        />
+        <Checkbox
+          label="Option 2"
+          type="radio"
+          value="option2"
+          name="radioGroup"
+          checked={checkedValue === "option2"}
+          onChange={() => setCheckedValue("option2")}
+        />
+        <Checkbox
+          label="Option 3"
+          type="radio"
+          value="option3"
+          name="radioGroup"
+          checked={checkedValue === "option3"}
+          onChange={() => setCheckedValue("option3")}
+        />
+      </div>
+    );
+  }
+
+
+};

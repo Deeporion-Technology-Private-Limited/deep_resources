@@ -58,9 +58,10 @@ export const Dashboard = forwardRef<HTMLDivElement, DashboardProps>(
         className={cn(dashboardStyles({}), className)}
         {...props}
       >
-        <Box>
+        <Box className="w-full flex justify-center">
           <Topnavbar
             direction={NavbarDirection.Row}
+            className="max-w-[90rem]"
             isSearch
             navBarIcons={[
               { icon: '/src/components/Header/navbarIcons/person.svg', iconName: 'Log in' },
@@ -79,9 +80,9 @@ export const Dashboard = forwardRef<HTMLDivElement, DashboardProps>(
             title="Logo"
           />
         </Box>
-        <Box className="pt-[1.25rem]">
+        <Box className="pt-[1.25rem] w-full flex justify-center">
           <Carousel
-            className="max-w-[90.125rem]"
+            className="max-w-[90rem]"
             items={[
               {
                 button: { label: 'Learn More', onClick: () => alert('Learn More!') },
@@ -111,11 +112,9 @@ export const Dashboard = forwardRef<HTMLDivElement, DashboardProps>(
           />
         </Box>
         <Box className="w-full flex justify-center">
-          <Box className="pt-[5rem]">
-            <Box>
-              <Text className="text-xl font-bold">New Arrivals</Text>
-            </Box>
-            <Box className="w-[82.5rem] pt-[1.25rem] flex flex-wrap justify-between">
+          <Box className="max-w-[82.5rem] flex justify-center pt-[5rem]">
+            <Box className="w-[100vw] flex flex-wrap justify-between">
+              <Text className="text-xl text-start font-bold pb-[1.25rem]">New Arrivals</Text>
               {CardData.map((data, index) => (
                 <FaverateCard
                   key={index}
@@ -129,16 +128,19 @@ export const Dashboard = forwardRef<HTMLDivElement, DashboardProps>(
           </Box>
         </Box>
         <Box className="w-full flex justify-center">
-          <Box className="mt-[5.4rem] w-[33.81rem] flex flex-col gap-[6px] divide-y-[3px] divide-[#BFA59A]">
-            <Text className="text-3xl font-bold text-center">Featured in</Text>
-            <Text className="text-base font-normal py-[6px] text-center">
-              Brands where our product has been featured
-            </Text>
+          <Box className="mt-[5.4rem] max-w-[33.81rem]  flex justify-center">
+            <Box className="w-[100vw] flex flex-col gap-[6px] divide-y-[3px] divide-[#BFA59A]">
+              <Text className="text-3xl font-bold text-center">Featured in</Text>
+              <Text className="text-base font-normal py-[6px] text-center">
+                Brands where our product has been featured
+              </Text>
+            </Box>
           </Box>
         </Box>
-        <Box className="w-full flex justify-center">
-          <Box className="max-w-[82.5rem] mt-[1.125rem]">
+        <Box className="w-full flex justify-center mt-[1.125rem]">
+          <Box className="flex justify-center">
             <AutoCarousel
+              className="max-w-[82.5rem]"
               items={[
                 { id: 1, name: 'Influencive', logoUrl: Influencive },
                 { id: 2, name: 'Dailyhunt', logoUrl: Dailyhunt },
@@ -149,67 +151,85 @@ export const Dashboard = forwardRef<HTMLDivElement, DashboardProps>(
             />
           </Box>
         </Box>
-        <Box className="mt-[5rem] w-auto flex justify-center">
-          <Banner
-            boxStyle="h-[50%] p-5 flex w-[80%] flex-col text-white gap-4 justify-center items-center bg-[#3E2E28B2]"
-            buttonClass="flex justify-center w-max text-2xl"
-            buttonText="Explore more"
-            className="h-[25rem] w-[82.5rem]"
-            description="Sleek, Modern and Classic"
-            descriptionClass="flex justify-center w-max font-normal text-2xl"
-            iconUrl="/src/components/Cards/icons/image.svg"
-            imageSrc={BannerImages}
-            title="Exclusive Kids Wear Collection"
-            titleClass="flex justify-center font-extrabold leading-10 text-3xl"
-          />
-        </Box>
+
         <Box className="w-full flex justify-center">
-          <Box className="mt-[5.4rem] w-[33.81rem] flex flex-col gap-[6px] divide-y-[3px] divide-[#BFA59A]">
-            <Text className="text-3xl font-bold text-center">Our top Categories</Text>
-            <Text className="text-base font-normal py-[6px] text-center">
-              Explore our exclusive top categories
-            </Text>
+          <Box className="mt-[5rem] max-w-[82.5rem] flex justify-center">
+            <Banner
+              boxStyle="h-[50%] p-5 flex w-[80%] flex-col text-white gap-4 justify-center items-center bg-[#3E2E28B2]"
+              buttonClass="flex justify-center w-max text-2xl"
+              buttonText="Explore more"
+              className="h-[25rem] w-[100vw]"
+              description="Sleek, Modern and Classic"
+              descriptionClass="flex justify-center w-max font-normal text-2xl"
+              iconUrl="/src/components/Cards/icons/image.svg"
+              imageSrc={BannerImages}
+              title="Exclusive Kids Wear Collection"
+              titleClass="flex justify-center font-extrabold leading-10 text-3xl"
+            />
           </Box>
         </Box>
-        <Box className="w-full flex flex-wrap justify-center pt-[1.25rem] gap-[15px]">
-          <Banner
-            imageSrc={Banner1}
-            boxStyle="h-full w-full flex flex-col justify-end text-white gap-2 p-10"
-            titleClass="leading-10 text-2xl w-max flex"
-            descriptionClass="flex justify-center w-max font-semibold text-3xl"
-            buttonClass="flex justify-center w-max px-[10px] py-[16px] text-xl capitalize"
-            className="w-[37.75rem] h-[37.1875rem]"
-            buttonText="Explore more"
-            title="HOME COLLECTION"
-            description="Living & Decor"
-          />
-          <Box className="max-w-[82.5rem] grid grid-cols-2 gap-[15px]">
-            {CategoryItem.map((data, index) => (
+
+        <Box className="w-full flex justify-center">
+          <Box className="mt-[5.4rem] max-w-[33.81rem]  flex justify-center">
+            <Box className="w-[100vw] flex flex-col gap-[6px] divide-y-[3px] divide-[#BFA59A]">
+              <Text className="text-3xl font-bold text-center">Our top Categories</Text>
+              <Text className="text-base font-normal py-[6px] text-center">
+                Explore our exclusive top categories
+              </Text>
+            </Box>
+          </Box>
+        </Box>
+
+        <Box className="w-full flex justify-center pt-[1.25rem] gap-[15px]">
+          <Box className="w-full grid sm:grid-cols-1 md:grid-cols-2 lg:flex justify-center gap-[15px]">
+
+            <Box className="max-w-[37.75rem] flex justify-center mb-8">
               <Banner
-                key={index}
-                imageSrc={data.imageSrc}
-                boxStyle={data.boxStyle}
-                titleClass={data.titleClass}
-                descriptionClass={data.descriptionClass}
-                className={data.className}
-                buttonClass={data.buttonClass}
-                buttonText={data.buttonText}
-                title={data.title}
-                description={data.description}
+                imageSrc={Banner1}
+                boxStyle="h-full w-full flex flex-col justify-end text-white gap-2 p-10"
+                titleClass="leading-10 text-2xl w-max flex"
+                descriptionClass="flex justify-center w-max font-semibold text-3xl"
+                buttonClass="flex justify-center w-max px-[10px] py-[16px] text-xl capitalize"
+                className="w-[100vw] h-[37.1875rem]"
+                buttonText="Explore more"
+                title="HOME COLLECTION"
+                description="Living & Decor"
               />
-            ))}
+            </Box>
+
+            <Box className="max-w-[82.5rem] grid md:grid-cols-1 lg:grid-cols-2 justify-center ">
+              {CategoryItem.map((data, index) => (
+                <Banner
+                  key={index}
+                  imageSrc={data.imageSrc}
+                  boxStyle={data.boxStyle}
+                  titleClass={data.titleClass}
+                  descriptionClass={data.descriptionClass}
+                  className={data.className}
+                  buttonClass={data.buttonClass}
+                  buttonText={data.buttonText}
+                  title={data.title}
+                  description={data.description}
+                />
+              ))}
+            </Box>
           </Box>
         </Box>
+
         <Box className="w-full flex justify-center">
-          <Box className="mt-[5.4rem] w-[33.81rem] flex flex-col gap-[6px] divide-y-[3px] divide-[#BFA59A]">
-            <Text className="text-3xl font-bold text-center">Client Reviews</Text>
-            <Text className="text-base font-normal py-[6px] text-center">
-              What my Clients say about me
-            </Text>
+          <Box className="mt-[5.4rem] max-w-[33.81rem]  flex justify-center">
+            <Box className="w-[100vw] flex flex-col gap-[6px] divide-y-[3px] divide-[#BFA59A]">
+              <Text className="text-3xl font-bold text-center">Client Reviews</Text>
+              <Text className="text-base font-normal py-[6px] text-center">
+                What my Clients say about me
+              </Text>
+            </Box>
           </Box>
         </Box>
+
         <Box className="w-full h-full flex justify-center relative">
-          <Box className="w-[82.375rem] h-[19rem] overflow-hidden relative">
+          
+          <Box className="w-[82.375rem] overflow-hidden relative">  
             <Box
               className="flex flex-wrap transition-transform duration-500"
               style={{
@@ -220,14 +240,16 @@ export const Dashboard = forwardRef<HTMLDivElement, DashboardProps>(
               {groupedReviewData.map((group, slideIndex) => (
                 <Box
                   key={slideIndex}
-                  className="flex w-full justify-center"
+                  className=" w-full justify-center grid sm:grid-cols-1 md:grid-cols-2 lg:flex"
                   style={{ width: `${100 / groupedReviewData.length}%` }}
                 >
                   {group.map((data, index) => (
                     <Box
                       key={index}
-                      className="w-[27.375rem] flex-shrink-0"
+                      className="w-[27.375rem] flex justify-center"
                     >
+                      <Box className="w-[100vw] flex justify-center">
+
                       <ReviewCard
                         StarRating={data.StarRating}
                         avatar={data.avatar}
@@ -240,6 +262,7 @@ export const Dashboard = forwardRef<HTMLDivElement, DashboardProps>(
                         textStyle={data.textStyle}
                         className={data.className}
                       />
+                    </Box>
                     </Box>
                   ))}
                 </Box>
@@ -271,18 +294,23 @@ export const Dashboard = forwardRef<HTMLDivElement, DashboardProps>(
           </Box>
         )}
         <Box className="w-full h-full flex flex-wrap justify-center mt-[30px]">
-          <Box className="w-[82.5rem]">
-            <FollowPage />
+          <Box className="w-[82.5rem] flex justify-center">
+            <Box className="w-[100vw]">
+              <FollowPage />
+            </Box>
           </Box>
         </Box>
-        <Box className="w-full mt-[27px]">
+        <Box className="w-full mt-[27px] flex justify-center">
+          <Box className="w-[100vw] flex justify-center">
           <FooterCart
+            className="mt-[27px]"
             footerCopyRights={{
               copyright: '2024 All rights reserved',
               copyrightBgStyle: 'bg-[#3F271E]',
               copyrightTextStyle: 'text-[#fff]'
             }}
           />
+          </Box>
         </Box>
       </Box>
     );

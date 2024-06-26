@@ -4,7 +4,7 @@ import { cn } from "@/utils";
 import { SlideVariant } from '../Button/type';
 
 const slideStyles = cva(
-  ["flex-shrink-0", "w-48", "text-center"],
+  ["w-[100vw]","flex-shrink-0", "text-center"],
   {
     variants: {
       variant: {
@@ -55,12 +55,12 @@ const AutoCarousel = forwardRef<HTMLDivElement, SlideProps>(
             {duplicatedItems.map((item, index) => (
               <div
                 key={index}
-                className={cn(slideStyles({ variant }), className)}
+                className={cn(slideStyles({ variant }), className, "w-24 sm:w-32 md:w-48 lg:w-64")}
               >
                 {item.logoUrl ? (
                   <img src={item.logoUrl} alt={item.name} className="w-full h-auto" />
                 ) : (
-                  <p className="text-lg font-semibold">{item.name}</p>
+                  <p className="text-sm sm:text-lg md:text-xl lg:text-2xl font-semibold">{item.name}</p>
                 )}
               </div>
             ))}
@@ -69,12 +69,12 @@ const AutoCarousel = forwardRef<HTMLDivElement, SlideProps>(
             {duplicatedItems.map((item, index) => (
               <div
                 key={index}
-                className={cn(slideStyles({ variant }), className)}
+                className={cn(slideStyles({ variant }), className, "w-24 sm:w-32 md:w-48 lg:w-64")}
               >
                 {item.logoUrl ? (
                   <img src={item.logoUrl} alt={item.name} className="w-full h-auto" />
                 ) : (
-                  <p className="text-lg font-semibold">{item.name}</p>
+                  <p className="text-sm sm:text-lg md:text-xl lg:text-2xl font-semibold">{item.name}</p>
                 )}
               </div>
             ))}

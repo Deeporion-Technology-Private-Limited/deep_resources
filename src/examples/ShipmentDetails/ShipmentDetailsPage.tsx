@@ -1,10 +1,11 @@
+import { Box } from "@/components/Layout/Box/index";
 import ShipmentAddressCard from "./ShipmentAddressCard";
 import ShipmentProductCard from "./ShipmentProductCard";
 import { ProductShipmentDetails } from "./type";
 
 export const ShipmentDetails = () => {
   return (
-    <div
+    <Box
       className="flex justify-center"
       style={{
         width: "100%",
@@ -14,11 +15,11 @@ export const ShipmentDetails = () => {
         marginLeft: "60px",
       }}
     >
-      <div className="flex flex-col w-full space-y-3">
+      <Box className="flex flex-col w-full space-y-3">
         <h2 className="text-xl font-bold">{ProductShipmentDetails.title} </h2>
-        <div>
-          <div className="flex flex-col lg:flex-row gap-4">
-            <div
+        <Box>
+          <Box className="flex flex-col lg:flex-row gap-4">
+            <Box
               className="w-full lg:w-1/2 shadow-lg"
               style={{
                 width: "538px",
@@ -29,8 +30,8 @@ export const ShipmentDetails = () => {
               }}
             >
               <ShipmentProductCard />
-            </div>
-            <div
+            </Box>
+            <Box
               className="w-full lg:w-1/2"
               style={{
                 width: "762px",
@@ -38,10 +39,10 @@ export const ShipmentDetails = () => {
               }}
             >
               <ShipmentAddressCard />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+            </Box>
+          </Box>
+        </Box>
+      </Box>
+    </Box>
   );
 };

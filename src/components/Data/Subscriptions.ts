@@ -35,39 +35,33 @@ export const SubscriptionData: ISubscription[] = [
   },
 ];
 
-export const SubscriptionTableData: ISubscriptionTabledata[] = [
+export const SubscriptionTableData = [
   {
-    header: ["Amount", "Type of Plan", "Payment Date", "Card used to pay"],
-
-    data: [
-      [
-        "$1,080.00",
-        "Professional Plan",
-        "Apr 14, 2022",
-        "**** 8239",
-        "See Details",
-      ],
-      [
-        "$1,080.00",
-        "Professional Plan",
-        "Apr 14, 2022",
-        "**** 8239",
-        "See Details",
-      ],
-      [
-        "$1,080.00",
-        "Professional Plan",
-        "Apr 14, 2022",
-        "**** 8239",
-        "See Details",
-      ],
-      [
-        "$1,080.00",
-        "Professional Plan",
-        "Apr 14, 2022",
-        "**** 8239",
-        "See Details ",
-      ],
-    ],
+    amount: "$1,080.00",
+    typeOfPlan: "Professional Plan",
+    paymentDate: "Apr 14, 2022",
+    cardUsed: "**** 8239",
+    details: "See Details",
+  },
+  {
+    amount: "$1,080.00",
+    typeOfPlan: "Professional Plan",
+    paymentDate: "Apr 14, 2022",
+    cardUsed: "**** 8239",
+    details: "See Details",
+  },
+  {
+    amount: "$1,080.00",
+    typeOfPlan: "Professional Plan",
+    paymentDate: "Apr 14, 2022",
+    cardUsed: "**** 8239",
+    details: "See Details",
+  },
+  {
+    amount: "$1,080.00",
+    typeOfPlan: "Professional Plan",
+    paymentDate: "Apr 14, 2022",
+    cardUsed: "**** 8239",
+    details: "See Details",
   },
 ];

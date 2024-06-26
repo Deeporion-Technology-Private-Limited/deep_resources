@@ -72,7 +72,7 @@ export const Modal = forwardRef<ModalProps, ModalPropss>(
       setIsOpen(openModal);
     }, [openModal]);
     return (
-      <div className={cn(modalStyles({ className }))}>
+      <div>
         {modalbutton && (
           <Button
             type="button"

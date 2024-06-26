@@ -5,7 +5,7 @@ interface ISizeDataForWomen {
   lengthCm: number;
 }
 
-export const myData: ISizeDataForWomen[] = [
+export const womanSize: ISizeDataForWomen[] = [
   {
     size: "XS",
     hipCm: 35.0,

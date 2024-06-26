@@ -1,11 +1,12 @@
 import { Box, Headings, IconButton, Modal, Text } from "@/components";
-import { IconValues, socialIcons } from "./data";
+import { IconValues, ShareItem } from "./data";
+import { forwardRef } from "react";
 
-const ShareWindow = () => {
+const ShareWindow = forwardRef<HTMLDivElement, ShareItem>(({ item }, ref) => {
   const buttons = (
     iconurl: string | undefined,
     btext: string | undefined,
-    click: any
+    click: (() => void) | undefined
   ) => {
     return (
       <Box className="flex flex-col justify-center items-center">
@@ -22,26 +23,28 @@ const ShareWindow = () => {
     );
   };
   return (
-    <Modal
-      crossIcon
-      header={
-        <Box className="mb-3 flex justify-between  border-[rgba(255, 255, 255, 1)]">
-          <Headings FontSize="text-xl" fontWeight="font-bold" text="Share" />
-        </Box>
-      }
-      modalbutton
-      button02={false}
-      button01={false}
-      onClose={() => {}}
-      openModal
-      children={
-        <Box className="grid lg:grid-cols-4 w-full md:grid-cols-2  gap-1 p-2">
-          {socialIcons?.map((value: IconValues) =>
-            buttons(value.icon, value.text, value.Click)
-          )}
-        </Box>
-      }
-    />
+    <Box ref={ref}>
+      <Modal
+        crossIcon
+        header={
+          <Box className="mb-3 flex justify-between  border-[rgba(255, 255, 255, 1)]">
+            <Headings FontSize="text-xl" fontWeight="font-bold" text="Share" />
+          </Box>
+        }
+        modalbutton
+        button02={false}
+        button01={false}
+        onClose={() => {}}
+        openModal
+        children={
+          <Box className="grid lg:grid-cols-4 w-full md:grid-cols-2  gap-1 p-2">
+            {item?.map((value: IconValues) =>
+              buttons(value.icon, value.text, value.Click)
+            )}
+          </Box>
+        }
+      />
+    </Box>
   );
-};
+});
 export default ShareWindow;

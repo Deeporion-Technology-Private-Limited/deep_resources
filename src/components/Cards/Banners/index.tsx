@@ -65,13 +65,15 @@ const Banner = forwardRef<HTMLDivElement, ProductCardProps>(
           <Text as="p" className={descriptionClass}>
             {description}
           </Text>
-          <Button
-            className={buttonClass}
-            iconUrl={iconUrl}
-            iconPosition={ButtonIconPosition.Right}
-          >
-            {buttonText}
-          </Button>
+          {buttonText &&
+            <Button
+              className={buttonClass}
+              iconUrl={iconUrl}
+              iconPosition={ButtonIconPosition.Right}
+            >
+              {buttonText}
+            </Button>}
+
           {children}
         </div>
       </Box>

@@ -8,7 +8,7 @@ import ProductCard from "@/components/Cards/ProductCards";
 import { forwardRef, useState } from "react";
 import { cardData } from "../Wishlist/Data";
 
-const Cart = forwardRef<HTMLDivElement, CardItem>(({ item }, ref)  => {
+const Cart = forwardRef<HTMLDivElement, CardItem>(({ item,handleCart }, ref)  => {
   const [openModal, setOpenModal] = useState(false);
   const arr = demo || [];
 
@@ -142,6 +142,7 @@ const Cart = forwardRef<HTMLDivElement, CardItem>(({ item }, ref)  => {
             className="w-full "
             taxes="₹ 3.45"
             total="₹ 3950"
+            handleClick={handleCart}
           />
         </Box>
       </Box>

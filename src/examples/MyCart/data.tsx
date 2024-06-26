@@ -14,6 +14,7 @@ export interface CardObj {
 }
 export interface CardItem {
   item: CardObj[];
+  handleCart:() =>void;
 }
 
 export const demo: CardObj[] = [

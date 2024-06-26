@@ -1,4 +1,4 @@
-import React, { HTMLInputTypeAttribute } from "react";
+import React, { HTMLInputTypeAttribute, useState } from "react";
 import { Button } from "../Button/DefaultButton";
 import {
   ModileIcon,
@@ -27,9 +27,16 @@ interface userProps {
   setUserData: React.Dispatch<React.SetStateAction<stateProp>>,
 }
 
-export const AddressContactDetail: React.FC<userProps> = ({ userData }) => {
+export const AddressContactDetail: React.FC<userProps> = ({ userData ,setUserData }) => {
 
-
+    const [handleShow , setHandleShow]=useState(false)
+    const [handleEditShow , setHandleEditShow] = useState(false)
+       
+    const handleChange = (e:any)=>{
+      const {name , value}=e.target
+      setUserData((pev)=> ({...pev , [name]:value}))
+    }
+  
   return (
     <div className="w-full">
       <div className="w-full border px-2 py-1 flex">
@@ -41,13 +48,61 @@ export const AddressContactDetail: React.FC<userProps> = ({ userData }) => {
             <div className="font-normal">{userData.Name}</div>
             <div className="font-medium">{userData.email}</div>
           </div>
-          <div className="h-full justify-center items-center flex">
+          <div className="h-full justify-center items-center flex cursor-pointer hover:shadow" onClick={()=> setHandleShow(!handleShow)}>
             <div className="w-8 h-8">
               <EditIcon />
             </div>
           </div>
         </div>
       </div>
+      {handleShow && 
+   (
+    <>
+     <div className="w-full flex flex-col md:flex-row px-2 py-3 gap-5">
+        <div className="w-full md:w-1/2">
+            <label htmlFor="Name" className="block">Name</label>
+            <Input 
+              variant={InputVariant.Outlined} 
+              type={InputType.Text} 
+              name="Name"
+              value={userData.Name}
+              onChange={handleChange}
+              placeholder="Enter Your Name" 
+              className="w-full"
+            />
+        </div>
+        <div className="w-full md:w-1/2">
+            <label htmlFor="email" className="block">Email</label>
+            <Input
+              variant={InputVariant.Outlined}
+              name="email" 
+              type={InputType.Text} 
+              value={userData.email} 
+              onChange={handleChange}
+              placeholder="Enter Your email" 
+              className="w-full"
+            />
+        </div>
+    </div>
+    <div className="w-full pt-3 pb-3 flex flex-col md:flex-row gap-2 md:mt-0">
+        <Button
+          type="button"
+          className="bg-[#E8EBED] text-[#72787F] font-medium h-8 w-full md:w-fit px-4 ml-auto"
+          onClick={()=> setHandleShow(false)}
+        >
+          Cancel
+        </Button>
+        <Button 
+          className="w-full md:w-auto font-medium h-8 px-4"
+          onClick={()=> setHandleShow(false)}
+          type="button"
+        >
+          Save
+        </Button>
+    </div>
+    </>
+   )}
+
       <div className="w-full border px-2 py-1 flex mt-2">
         <div className="p-4 bg-[#E8EBED] rounded">
           <HomeIcon />
@@ -59,13 +114,63 @@ export const AddressContactDetail: React.FC<userProps> = ({ userData }) => {
             </div>
             {userData.Address}
           </div>
-          <div className="h-full justify-center items-center flex">
+          <div className="h-full justify-center items-center flex cursor-pointer hover:shadow"
+           onClick={()=> setHandleEditShow(!handleEditShow)}>
             <div className="w-8 h-8">
               <EditIcon />
             </div>
           </div>
         </div>
+        
       </div>
+      {handleEditShow && 
+   (
+    <>
+     <div className="w-full flex flex-col md:flex-row px-2 py-3 gap-5">
+        <div className="w-full md:w-1/2">
+            <label htmlFor="State" className="block">State</label>
+            <Input 
+              variant={InputVariant.Outlined} 
+              type={InputType.Text} 
+              name="State"
+              value={userData.State}
+              onChange={handleChange}
+              placeholder="Enter Your State" 
+              className="w-full"
+            />
+        </div>
+        <div className="w-full md:w-1/2">
+            <label htmlFor="Address" className="block">Address</label>
+            <Input
+              variant={InputVariant.Outlined}
+              name="Address" 
+              type={InputType.Text} 
+              value={userData.Address} 
+              onChange={handleChange}
+              placeholder="Enter Your Address" 
+              className="w-full"
+            />
+        </div>
+    </div>
+    <div className="w-full pt-3 pb-3 flex flex-col md:flex-row gap-2 md:mt-0">
+        <Button
+          type="button"
+          className="bg-[#E8EBED] text-[#72787F] font-medium h-8 w-full md:w-fit px-4 ml-auto"
+          onClick={() => setHandleEditShow(false)}
+        >
+          Cancel
+        </Button>
+        <Button 
+          className="w-full md:w-auto font-medium h-8 px-4"
+          onClick={() => setHandleEditShow(false)}
+          type="button"
+        >
+          Save
+        </Button>
+    </div>
+    </>
+   )}
+
     </div>
   )
 }

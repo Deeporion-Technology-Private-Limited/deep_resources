@@ -26,9 +26,7 @@ export const PaymentDetails : React.FC<Props> = ({ handleSubmit ,userData ,setUs
           subChildren:" All transactions are secure and encrypted",
         }
       ];
-      console.log("userData",userData);
-      
-
+  
     return(
         <form className="flex-row" onSubmit={handleSubmit}>
         {sections.map((section, index) => (

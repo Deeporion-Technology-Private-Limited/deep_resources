@@ -3,11 +3,10 @@ import { ButtonSize, ButtonVariant } from "@/components/Button/type";
 import Check_Filled from "../../images/Check_filled.svg";
 import {
   SubscriptionData,
-  SubscriptionTableData,
+  PaymentHistoryFormatted,
 } from "@/components/Data/Subscriptions";
 import { useState } from "react";
 import { InputType, InputVariant } from "@/components/Input/type";
-import { TableHeader } from "@/components/Table/TableHeader";
 import payPal from "../../images/Paypal.svg";
 import MasterCard from "../../images/MasterCard.svg";
 import AppleIcon from "../../images/Apple.png";
@@ -182,7 +181,7 @@ export const SubscriptionPage = () => {
             />
             <hr className="w-full" />
 
-            <Table data={SubscriptionTableData} variant="solid" />
+            <Table data={PaymentHistoryFormatted} />
           </Box>
         </Box>
       )}

@@ -45,7 +45,7 @@ const tableStyles = cva(
 
 type TableProps = ComponentProps<"thead"> &
   VariantProps<typeof tableStyles> & {
-    data: Array<{ [key: string]: string }>;
+    data: Array<{ [key: string]: string | number }>;
   };
 
 export const Table = forwardRef<HTMLTableSectionElement, TableProps>(

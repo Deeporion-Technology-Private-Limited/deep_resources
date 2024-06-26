@@ -6,7 +6,7 @@ import { Table } from "@/components/Table/Table";
 import { Product } from "./types";
 import { useState } from "react";
 import ProductCard from "@/components/Cards/ProductCards";
-import { womanSize } from "@/components/Data/SizeDataForWomen";
+import { womanSizeFormatted } from "@/components/Data/SizeDataForWomen";
 
 export const Sizechartmodel = () => {
   const [isInchesSelected, setIsInchesSelected] = useState(true);
@@ -109,7 +109,7 @@ export const Sizechartmodel = () => {
           </>
         )}
 
-        <Table data={womanSize} variant="solid" />
+        <Table data={womanSizeFormatted} />
 
         <Box className="flex w-full py-4 justify-center items-center gap-2 mb-4">
           <Button

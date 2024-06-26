@@ -1,4 +1,4 @@
-export default interface ISubscription {
+export interface ISubscription {
   planType: string;
   price: number;
   transactionPercent: number;
@@ -6,11 +6,13 @@ export default interface ISubscription {
   status: string;
 }
 
-interface ISubscriptionTabledata {
-  header: string[];
-  data: string[][];
+export interface IPaymentHistory {
+  amount: string;
+  typeOfPlan: string;
+  paymentDate: string;
+  cardUsed: string;
+  details: string;
 }
-
 export const SubscriptionData: ISubscription[] = [
   {
     planType: "Yearly",
@@ -35,7 +37,7 @@ export const SubscriptionData: ISubscription[] = [
   },
 ];
 
-export const SubscriptionTableData = [
+export const PaymentHistory: IPaymentHistory[] = [
   {
     amount: "$1,080.00",
     typeOfPlan: "Professional Plan",
@@ -65,3 +67,11 @@ export const SubscriptionTableData = [
     details: "See Details",
   },
 ];
+
+export const PaymentHistoryFormatted = PaymentHistory.map((item) => ({
+  amount: item.amount,
+  typeOfPlan: item.typeOfPlan,
+  paymentDate: item.paymentDate,
+  cardUsed: item.cardUsed,
+  details: item.details,
+}));

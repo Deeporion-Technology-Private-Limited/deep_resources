@@ -37,3 +37,10 @@ export const womanSize: ISizeDataForWomen[] = [
     lengthCm: 15.0,
   },
 ];
+
+export const womanSizeFormatted = womanSize.map((item) => ({
+  size: item.size,
+  hipCm: item.hipCm,
+  waistCm: item.waistCm,
+  lengthCm: item.lengthCm,
+}));

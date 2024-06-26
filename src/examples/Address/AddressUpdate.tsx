@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { indianStates } from "../../components/Data/Address";
-import { countries } from "../../components/AutoComplete/index.stories";
+import { countries, indianStates } from "../../components/Data/Address";
 import { IAddress } from "@/components/Data/Address";
 import { Button } from "@/components/Button/DefaultButton/index";
 import { Box } from "@/components/Layout/Box/index";

@@ -2,6 +2,8 @@ import { cn } from "@/utils";
 import { cva, VariantProps } from "class-variance-authority";
 import { ComponentProps, forwardRef } from "react";
 
+
+
 const tableStyles = cva(
   [
     "w-full",
@@ -45,11 +47,14 @@ const tableStyles = cva(
 
 type TableProps = ComponentProps<"thead"> &
   VariantProps<typeof tableStyles> & {
-    data: Array<{ [key: string]: string | number }>;
+    data: Array<{ [key: string]: string | React.ReactNode }> | [];
+    tableStyle?: string;
+    tHeadStyle?: string;
+    tDataStyle?: string;
   };
 
 export const Table = forwardRef<HTMLTableSectionElement, TableProps>(
-  ({ variant, size, colorscheme, className, data }, ref) => {
+  ({ variant, size, colorscheme, className, data, tableStyle, tDataStyle, tHeadStyle }, ref) => {
     const headers = Object.keys(data[0]);
 
     return (
@@ -63,7 +68,7 @@ export const Table = forwardRef<HTMLTableSectionElement, TableProps>(
           fontFamily: "Poppins, sans-serif",
         }}
       >
-        <table className="w-full">
+        <table className={cn("w-full h-full text-[#26282B] font-[Poppins] font-[14px]", tableStyle)}>
           <thead
             ref={ref}
             className={cn(
@@ -75,7 +80,7 @@ export const Table = forwardRef<HTMLTableSectionElement, TableProps>(
               {headers.map((header, index) => (
                 <th
                   key={index}
-                  className="px-4 py-2 text-left bg-[#FFFFFF] border-b-2"
+                  className={cn("px-4 py-2  text-left h-fit border-b-2 capitalize", tHeadStyle)}
                   style={{
                     whiteSpace: "nowrap",
                     textAlign: "left",
@@ -87,12 +92,12 @@ export const Table = forwardRef<HTMLTableSectionElement, TableProps>(
             </tr>
           </thead>
           <tbody>
-            {data.map((row, rowIndex) => (
-              <tr key={rowIndex}>
-                {headers.map((header, colIndex) => (
+            {data?.map((row, rowIndex) => (
+              <tr key={rowIndex} className="py-4 h-[4.25rem]">
+                {headers?.map((header, colIndex) => (
                   <td
                     key={colIndex}
-                    className="px-4 py-2 text-left"
+                    className={cn("px-4 py-2 h-full border-b border-gray-200 text-left", tDataStyle)}
                     style={{ width: "auto" }}
                   >
                     {row[header]}

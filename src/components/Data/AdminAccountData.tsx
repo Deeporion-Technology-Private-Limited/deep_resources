@@ -2,6 +2,7 @@ import { AdminProp } from "@/examples/AdminAccount/AdminInterFace";
 import { Button } from "../Button/DefaultButton";
 import Input from "../Input";
 import { InputType, InputVariant } from "../Input/type";
+import { DeleteIcon, ExitIcon } from "../Icons";
 
 
 export const AdminAccountDetails: React.FC<AdminProp> = ({
@@ -94,8 +95,8 @@ export const AdminAccountDetails: React.FC<AdminProp> = ({
           <div className="w-full flex flex-col md:flex-row gap-4 pt-6 justify-between pr-5">
             <div className="font-bold">Personal details</div>
             <div>
-              <div className="font-bold cursor-pointer" onClick={Logout}>Logout</div>
-              <div className="text-red-500 mt-2 cursor-pointer" onClick={DeleteAccount}>Delete account</div>
+              <div className="font-bold cursor-pointer flex" onClick={Logout}><ExitIcon/>Logout</div>
+              <div className="text-red-500 mt-2 cursor-pointer flex" onClick={DeleteAccount}><DeleteIcon/>Delete account</div>
             </div>
           </div>
         </div>

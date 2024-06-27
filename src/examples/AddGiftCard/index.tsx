@@ -9,7 +9,7 @@ import { ButtonSize, ButtonVariant } from "@/components/Button/type";
 import { initialData, RateData } from "./data";
 import { InputType, InputVariant } from "@/components/Input/type";
 
-const addgiftStyles = cva(["w-full "]);
+const addgiftStyles = cva(["w-full"]);
 
 type AddGiftCardProps = ComponentProps<"div"> & VariantProps<typeof addgiftStyles> & {
   children?: React.ReactNode;
@@ -71,7 +71,7 @@ export const AddGiftCard = forwardRef<HTMLDivElement, AddGiftCardProps>(
           </Elevation>
         </Box>
         <Box className=" w-full h-full bg-[#EBE3E0] mt-5 flex items-center rounded-[4px]">
-          <Text className="w-[81.25rem] py-[0.75rem] ml-5">Personalize your E- Gift Card</Text>
+          <Text className="py-[0.75rem] ml-[10px]">Personalize your E- Gift Card</Text>
         </Box>
         <Box className="w-full mt-5">
           <Elevation className="w-full h-full flex justify-start items-start ">
@@ -88,7 +88,7 @@ export const AddGiftCard = forwardRef<HTMLDivElement, AddGiftCardProps>(
               </Box>
               <Box className="w-full md:w-1/2 px-2 mb-4">
                 <label htmlFor="dob" className="font-medium">DOB</label>
-                <Input className="mt-[4px]" value={initialState.dob} type={InputType.Date} variant={InputVariant.Outlined} onChange={handleChange} />
+                <Input className="mt-[4px]" placeholder="DD-MM-YY" value={initialState.dob} type={InputType.Date} variant={InputVariant.Outlined} onChange={handleChange} />
 
               </Box>
               <Box className="w-full md:w-1/2 px-2 mb-4">
@@ -102,14 +102,14 @@ export const AddGiftCard = forwardRef<HTMLDivElement, AddGiftCardProps>(
               </Box>
               <Box className="w-full flex justify-end gap-4 mb-6 mr-[10px]">
                 <Button
-                  className="w-fit mt-5 font-semibold text-base bg-[#E8EBED] text-[#72787F]"
+                  className="w-fit h-fit mt-5 font-semibold text-base bg-[#E8EBED] text-[#72787F]"
                   variant={ButtonVariant.DefaultPrimary}
                   size={ButtonSize.Large}
                   children="Add to Cart"
                   onClick={() => alert("Add to Cart")}
                 />
                 <Button
-                  className="w-fit font-semibold text-base mt-5"
+                  className="w-fit h-fit font-semibold text-base mt-5"
                   variant={ButtonVariant.DefaultPrimary}
                   size={ButtonSize.Large}
                   children="Preview"

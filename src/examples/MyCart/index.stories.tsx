@@ -14,6 +14,9 @@ type Story = StoryObj<typeof meta>;
 
 export const View: Story = {
   args:{
-      item:demo
+      item:demo,
+      handleCart:()=>{
+        alert("checkout clicked")
+      }
   }
 };

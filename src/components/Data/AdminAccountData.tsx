@@ -44,7 +44,7 @@ export const AdminAccountDetails: React.FC<AdminProp> = ({
             </select>
           </div>
         </div>
-        <div className="w-full border-b pb-3">
+        <div className="w-full border-b pb-3  font-sans">
           <div className="w-full flex flex-col md:flex-row gap-4 pt-6">
             <div className="font-bold md:w-[200px]">Personal details</div>
             <div className="w-full">

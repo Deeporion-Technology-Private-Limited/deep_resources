@@ -142,3 +142,34 @@ export const AmexIcon = ()=>{
         </div>
     )
 }
+
+
+export const ExitIcon =()=>{
+    return(
+        <div>
+<svg width="24" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="exit_to_app_24px">
+<path id="icon/action/exit_to_app_24px" fill-rule="evenodd" clip-rule="evenodd" d="M5 3H19C20.1 3 21 3.9 21 5V19C21 20.1 20.1 21 19 21H5C3.9 21 3 20.1 3 19V16C3 15.45 3.45 15 4 15C4.55 15 5 15.45 5 16V18C5 18.55 5.45 19 6 19H18C18.55 19 19 18.55 19 18V6C19 5.45 18.55 5 18 5H6C5.45 5 5 5.45 5 6V8C5 8.55 4.55 9 4 9C3.45 9 3 8.55 3 8V5C3 3.9 3.89 3 5 3ZM15.79 12.7L12.2 16.29C11.81 16.68 11.18 16.68 10.79 16.29C10.41 15.91 10.4 15.27 10.79 14.88L12.67 13H4C3.45 13 3 12.55 3 12C3 11.45 3.45 11 4 11H12.67L10.79 9.11C10.4 8.72 10.4 8.09 10.79 7.7C10.9768 7.51275 11.2305 7.40751 11.495 7.40751C11.7595 7.40751 12.0132 7.51275 12.2 7.7L15.79 11.29C16.18 11.68 16.18 12.31 15.79 12.7Z" fill="#0F172A"/>
+</g>
+</svg>
+
+
+        </div>
+    )
+}
+
+
+export const DeleteIcon = ()=>{
+
+    return(
+        <div>
+            <svg width="24" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="delete_outline_24px">
+<path id="icon/action/delete_outline_24px" fill-rule="evenodd" clip-rule="evenodd" d="M14.79 3.29L15.5 4H18C18.55 4 19 4.45 19 5C19 5.55 18.55 6 18 6H6C5.45 6 5 5.55 5 5C5 4.45 5.45 4 6 4H8.5L9.21 3.29C9.39 3.11 9.65 3 9.91 3H14.09C14.35 3 14.61 3.11 14.79 3.29ZM6 19C6 20.1 6.9 21 8 21H16C17.1 21 18 20.1 18 19V9C18 7.9 17.1 7 16 7H8C6.9 7 6 7.9 6 9V19ZM9 9H15C15.55 9 16 9.45 16 10V18C16 18.55 15.55 19 15 19H9C8.45 19 8 18.55 8 18V10C8 9.45 8.45 9 9 9Z" 
+fill="#DC2626"/>
+</g>
+</svg>
+
+        </div>
+    )
+}

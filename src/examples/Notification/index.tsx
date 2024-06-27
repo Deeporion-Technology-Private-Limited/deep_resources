@@ -15,7 +15,7 @@ interface NotifyProps
 
 export const Notification = forwardRef<HTMLDivElement, NotifyProps>(
   ({ value=[], className, ...props }, ref) => {
-    const [initailValue, setInitailValue] = useState<singleNotification[]>(value)
+    const [initailValue] = useState<singleNotification[]>(value)
     return (
       <Box ref={ref} className={cn(notificationStyle(), className)} {...props}>
         <Box className="py-[24px]">

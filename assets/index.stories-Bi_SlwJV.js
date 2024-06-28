@@ -1,0 +1,5 @@
+import{C as m,a as p}from"./data-DRReTuSI.js";import"./jsx-runtime-DWbWqHZ-.js";import"./index-l2PZgWEW.js";import"./index-Xez1tONa.js";import"./index-EdoPz0t3.js";import"./index-Bb4qSo10.js";import"./type-CninyjiE.js";import"./index-Ccr_5eeb.js";import"./index-CEXuD1xl.js";import"./index-CXqPxUVV.js";import"./index-DQvjorRN.js";import"./index-BouTX4n_.js";import"./index-CzcUTvj8.js";import"./index-avE5IJUA.js";import"./index-D673b99b.js";import"./index-D19_gley.js";import"./index-CvjtUvXf.js";import"./type-Djapa02M.js";import"./index-DuKMShiw.js";import"./index-Ka7pLT58.js";import"./index-BiUH8Pgz.js";import"./index-Du1pcn1V.js";const q={title:"Components/Catelog",component:m,parameters:{layout:"centered"},tags:["autodocs"]},r={args:{data:p}};var t,o,a;r.parameters={...r.parameters,docs:{...(t=r.parameters)==null?void 0:t.docs,source:{originalSource:`{
+  args: {
+    data: arr
+  }
+}`,...(a=(o=r.parameters)==null?void 0:o.docs)==null?void 0:a.source}}};const v=["Default"];export{r as Default,v as __namedExportsOrder,q as default};

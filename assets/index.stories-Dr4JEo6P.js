@@ -1,0 +1,7 @@
+import{j as r}from"./jsx-runtime-DWbWqHZ-.js";import{S as s}from"./index-CXqPxUVV.js";import{B as e}from"./index-CEXuD1xl.js";import"./index-l2PZgWEW.js";import"./index-Xez1tONa.js";import"./index-EdoPz0t3.js";import"./index-Bb4qSo10.js";import"./type-CninyjiE.js";import"./index-Ccr_5eeb.js";import"./index-DQvjorRN.js";import"./index-BouTX4n_.js";import"./index-CzcUTvj8.js";import"./index-avE5IJUA.js";import"./index-D673b99b.js";import"./index-D19_gley.js";import"./index-CvjtUvXf.js";import"./type-Djapa02M.js";import"./index-DuKMShiw.js";import"./index-Ka7pLT58.js";import"./index-BiUH8Pgz.js";import"./index-Du1pcn1V.js";const L={title:"Layout/Stack",component:s,parameters:{layout:"centered"}},a={render:m=>r.jsxs(s,{className:"gap-4 p-4 bg-gray-300",...m,children:[r.jsx(e,{className:"w-[100px] h-[100px] bg-blue-500"}),r.jsx(e,{className:"w-[100px] h-[100px] bg-red-500"}),r.jsx(e,{className:"w-[100px] h-[100px] bg-green-500"})]})};var t,p,o;a.parameters={...a.parameters,docs:{...(t=a.parameters)==null?void 0:t.docs,source:{originalSource:`{
+  render: args => <Stack className="gap-4 p-4 bg-gray-300" {...args}>
+      <Box className="w-[100px] h-[100px] bg-blue-500" />
+      <Box className="w-[100px] h-[100px] bg-red-500" />
+      <Box className="w-[100px] h-[100px] bg-green-500" />
+    </Stack>
+}`,...(o=(p=a.parameters)==null?void 0:p.docs)==null?void 0:o.source}}};const O=["Default"];export{a as Default,O as __namedExportsOrder,L as default};

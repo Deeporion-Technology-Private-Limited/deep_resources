@@ -1,0 +1,5 @@
+import{L as p}from"./index-CXqPxUVV.js";import"./jsx-runtime-DWbWqHZ-.js";import"./index-l2PZgWEW.js";import"./index-Xez1tONa.js";import"./index-EdoPz0t3.js";import"./index-Bb4qSo10.js";import"./type-CninyjiE.js";import"./index-Ccr_5eeb.js";import"./index-DQvjorRN.js";import"./index-BouTX4n_.js";import"./index-CzcUTvj8.js";import"./index-CEXuD1xl.js";import"./index-avE5IJUA.js";import"./index-D673b99b.js";import"./index-D19_gley.js";import"./index-CvjtUvXf.js";import"./type-Djapa02M.js";import"./index-DuKMShiw.js";import"./index-Ka7pLT58.js";import"./index-BiUH8Pgz.js";import"./index-Du1pcn1V.js";const b={title:"Components/Header/Logo",component:p,tags:["autodocs"]},o={args:{children:"Logo"}};var r,t,m;o.parameters={...o.parameters,docs:{...(r=o.parameters)==null?void 0:r.docs,source:{originalSource:`{
+  args: {
+    children: "Logo"
+  }
+}`,...(m=(t=o.parameters)==null?void 0:t.docs)==null?void 0:m.source}}};const j=["Default"];export{o as Default,j as __namedExportsOrder,b as default};

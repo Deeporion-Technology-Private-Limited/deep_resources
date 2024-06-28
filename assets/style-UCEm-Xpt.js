@@ -1,0 +1,1 @@
+var r=(l=>(l.Center="center",l.Left="left",l.Right="right",l))(r||{}),a=(l=>(l.Bold="bold",l.Thin="thin",l.Medium="medium",l.Normal="normal",l.Semibold="semibold",l.Black="black",l))(a||{}),m=(l=>(l.Base="base",l.Small="sm",l.Large="lg",l.Xl="xl",l.XXl="2xl",l.XXXl="3xl",l))(m||{});export{r as A,a as T,m as a};

@@ -1,0 +1,1 @@
+import{j as s}from"./jsx-runtime-DWbWqHZ-.js";import{r as t}from"./index-l2PZgWEW.js";const e=t.forwardRef(({...o},r)=>s.jsx("div",{ref:r,...o}));e.__docgenInfo={description:"",methods:[],displayName:"Box"};export{e as B};

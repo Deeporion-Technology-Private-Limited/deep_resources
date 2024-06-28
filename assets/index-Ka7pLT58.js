@@ -1,0 +1,1 @@
+import{j as s}from"./jsx-runtime-DWbWqHZ-.js";import{r as i}from"./index-l2PZgWEW.js";const n=i.forwardRef(e=>{const{text:t,FontSize:r,fontWeight:o,className:d="",...a}=e;return s.jsx("div",{children:s.jsx("h1",{className:`${r} ${o}`,...a,children:t})})});n.__docgenInfo={description:"",methods:[],displayName:"Headings"};export{n as H};

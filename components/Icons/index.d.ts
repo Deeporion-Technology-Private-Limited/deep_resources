@@ -1,0 +1,11 @@
+export declare const ModileIcon: () => import("react/jsx-runtime").JSX.Element;
+export declare const EditIcon: () => import("react/jsx-runtime").JSX.Element;
+export declare const HomeIcon: () => import("react/jsx-runtime").JSX.Element;
+export declare const PayPalIcon: () => import("react/jsx-runtime").JSX.Element;
+export declare const GooglePayIcon: () => import("react/jsx-runtime").JSX.Element;
+export declare const VisaIcon: () => import("react/jsx-runtime").JSX.Element;
+export declare const DiscoverIcon: () => import("react/jsx-runtime").JSX.Element;
+export declare const MasterCardIcon: () => import("react/jsx-runtime").JSX.Element;
+export declare const AmexIcon: () => import("react/jsx-runtime").JSX.Element;
+export declare const ExitIcon: () => import("react/jsx-runtime").JSX.Element;
+export declare const DeleteIcon: () => import("react/jsx-runtime").JSX.Element;

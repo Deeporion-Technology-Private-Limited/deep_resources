@@ -1,0 +1,5 @@
+import{F as m,f as i}from"./index-BjfgNDh2.js";import"./jsx-runtime-DWbWqHZ-.js";import"./index-l2PZgWEW.js";import"./index-Xez1tONa.js";import"./index-EdoPz0t3.js";import"./index-Bb4qSo10.js";import"./type-CninyjiE.js";import"./index-Ccr_5eeb.js";import"./index-DQvjorRN.js";import"./index-BouTX4n_.js";import"./index-CzcUTvj8.js";import"./index-CEXuD1xl.js";import"./index-CXqPxUVV.js";import"./index-avE5IJUA.js";import"./index-D673b99b.js";import"./index-D19_gley.js";import"./index-CvjtUvXf.js";import"./type-Djapa02M.js";import"./index-DuKMShiw.js";import"./index-Ka7pLT58.js";import"./index-BiUH8Pgz.js";import"./index-Du1pcn1V.js";import"./index-BvEfEy-U.js";const j={title:"Examples/FooterCart",component:m,tags:["autodocs"]},o={args:{footerCopyRights:i}};var t,r,p;o.parameters={...o.parameters,docs:{...(t=o.parameters)==null?void 0:t.docs,source:{originalSource:`{
+  args: {
+    footerCopyRights: footerCopyrightItem
+  }
+}`,...(p=(r=o.parameters)==null?void 0:r.docs)==null?void 0:p.source}}};const k=["Default"];export{o as Default,k as __namedExportsOrder,j as default};

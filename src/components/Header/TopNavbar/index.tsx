@@ -90,7 +90,7 @@ export const Topnavbar = forwardRef<HTMLDivElement, TopNavProp>(
             } mobile`}
           >
             {LogoIcon !== "" ? (
-              <LogoImg logo={LogoIcon} className="w-[45px] mobile1" />
+              <LogoImg logo={LogoIcon} className="w-[45px]" />
             ) : (
               <Logo className="mobile1">{title}</Logo>
             )}

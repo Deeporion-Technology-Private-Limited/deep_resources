@@ -47,7 +47,6 @@ const SocialMediaPopup = forwardRef<HTMLDivElement, PopupItem>(
       <Box ref={ref}>
         <Modal
           crossIcon
-          className="w-max rounded-lg"
           header={
             <Box className="mb-3 flex justify-between  border-[rgba(255, 255, 255, 1)]">
               <Headings

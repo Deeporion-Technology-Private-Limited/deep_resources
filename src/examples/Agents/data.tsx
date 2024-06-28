@@ -1,4 +1,4 @@
-import { Button } from "@/components";
+import { Box, Button } from "@/components";
 import { Profile } from ".";
 import { ButtonIconPosition } from "@/components/Button/type";
 
@@ -39,6 +39,82 @@ const profileDetails = [
     {
         agentName: "Stan Dupp",
 
+    }
+]
+
+
+export const AgentDetails = [
+    {
+        "Warehouse (Pickup)": "Malviya Nagar, Jaipur",
+        "Date": "22/04/24",
+        "Delivered To": "Tessa Rain",
+        "Delivery Address": "1/0 Malviya Nagar",
+        "Contact Number": "985674839",
+        "Status": <Box className="rounded-2xl bg-green-50 text-green-600 px-5 text-center ">Delivered</Box>
+    },
+    {
+        "Warehouse (Pickup)": "Malviya Nagar, Jaipur",
+        "Date": "22/04/24",
+        "Delivered To": "Tessa Rain",
+        "Delivery Address": "1/0 Malviya Nagar",
+        "Contact Number": "985674839",
+        "Status": <Box className="rounded-2xl bg-amber-100 text-amber-600 px-5 text-center ">On the way</Box>
+    },
+    {
+        "Warehouse (Pickup)": "Malviya Nagar, Jaipur",
+        "Date": "22/04/24",
+        "Delivered To": "Tessa Rain",
+        "Delivery Address": "1/0 Malviya Nagar",
+        "Contact Number": "985674839",
+        "Status": <Box className="rounded-2xl bg-red-50 px-5 text-center text-[red] ">Cancelled</Box>
+    },
+    {
+        "Warehouse (Pickup)": "Malviya Nagar, Jaipur",
+        "Date": "22/04/24",
+        "Delivered To": "Tessa Rain",
+        "Delivery Address": "1/0 Malviya Nagar",
+        "Contact Number": "985674839",
+        "Status": <Box className="rounded-2xl bg-green-50 text-green-600 px-5 text-center ">Delivered</Box>
+    },
+    {
+        "Warehouse (Pickup)": "Malviya Nagar, Jaipur",
+        "Date": "22/04/24",
+        "Delivered To": "Tessa Rain",
+        "Delivery Address": "1/0 Malviya Nagar",
+        "Contact Number": "985674839",
+        "Status": <Box className="rounded-2xl bg-green-50 text-green-600 px-5 text-center ">Delivered</Box>
+    },
+    {
+        "Warehouse (Pickup)": "Malviya Nagar, Jaipur",
+        "Date": "22/04/24",
+        "Delivered To": "Tessa Rain",
+        "Delivery Address": "1/0 Malviya Nagar",
+        "Contact Number": "985674839",
+        "Status": <Box className="rounded-2xl bg-green-50 text-green-600 px-5 text-center ">Delivered</Box>
+    },
+    {
+        "Warehouse (Pickup)": "Malviya Nagar, Jaipur",
+        "Date": "22/04/24",
+        "Delivered To": "Tessa Rain",
+        "Delivery Address": "1/0 Malviya Nagar",
+        "Contact Number": "985674839",
+        "Status": <Box className="rounded-2xl bg-green-50 text-green-600 px-5 text-center ">Delivered</Box>
+    },
+    {
+        "Warehouse (Pickup)": "Malviya Nagar, Jaipur",
+        "Date": "22/04/24",
+        "Delivered To": "Tessa Rain",
+        "Delivery Address": "1/0 Malviya Nagar",
+        "Contact Number": "985674839",
+        "Status": <Box className="rounded-2xl bg-green-50 text-green-600 px-5 text-center ">Delivered</Box>
+    },
+    {
+        "Warehouse (Pickup)": "Malviya Nagar, Jaipur",
+        "Date": "22/04/24",
+        "Delivered To": "Tessa Rain",
+        "Delivery Address": "1/0 Malviya Nagar",
+        "Contact Number": "985674839",
+        "Status": <Box className="rounded-2xl bg-green-50 text-green-600 px-5 text-center ">Delivered</Box>
     }
 ]
 

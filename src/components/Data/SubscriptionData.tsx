@@ -108,7 +108,7 @@ export const AdminSubscriptionPage: React.FC<AdminSubscriptionProp> = ({initialP
           </div>
         </div>
         <div className="pt-3 px-4 w-full">
-          <div className="overflow-x-auto">
+          <div >
             <table className="w-full">
               <thead className="font-bold text-sm">
                 <tr>

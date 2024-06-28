@@ -49,8 +49,8 @@ interface ModalPropss {
   handleClose?: () => void;
 }
 
-type ModalProps = ComponentProps<"div"> & VariantProps<typeof modalStyles>;
-export const Modal = forwardRef<ModalProps, ModalPropss>(
+type ModalProps = ModalPropss & ComponentProps<"div"> & VariantProps<typeof modalStyles>;
+export const Modal = forwardRef<HTMLDivElement, ModalProps>(
   ({
     button02,
     button01,

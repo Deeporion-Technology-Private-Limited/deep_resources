@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import Cateloges from ".";
 
 const meta: Meta<typeof Cateloges> = {
-  title: "Examples/Dash",
+  title: "Examples/CatelogesExample",
   component: Cateloges,
   parameters: {
     layout: "centered",
@@ -14,6 +14,4 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const DashboardView: Story = {
-
-};
+export const View: Story = {};

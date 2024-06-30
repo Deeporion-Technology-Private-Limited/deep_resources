@@ -1,12 +1,15 @@
 import { useState } from "react";
 import Product1 from "../../images/shipment_product.png";
-import Input from "@/components/Input/index";
 import AddressComponent from "../Address/AddressUpdate";
 import { Address } from "@/components/Data/Address";
-import { InputType, InputVariant } from "@/components/Input/type";
 import { Box } from "@/components/Layout/Box/index";
 import { ButtonSize, ButtonVariant } from "@/components/Button/type";
 import { Button } from "@/components/Button/DefaultButton/index";
+import FormInput from "@/components/Form/FormInput/index";
+import {
+  FormInputType,
+  FormInputVariant,
+} from "@/components/Data/FormInputData";
 
 function RefundDetails() {
   const [formData, setFormData] = useState({
@@ -190,17 +193,18 @@ function RefundDetails() {
           </Box>
         </Box>
         <Box className="rounded-lg shadow-lg bg-white p-5">
-          <Box className="text-base font-bold leading-6 text-gray-800 mb-2">
-            Provide more info (optional)
-          </Box>
           <Box className="space-y-3">
-            <Input
-              placeholder="Comment"
-              type={InputType.Text}
-              variant={InputVariant.Outlined}
+            <FormInput
+              className="FormInput-class"
+              label=" Provide more info (optional)"
               name="comment"
+              placeholder="Comment"
+              required
+              size={30}
+              type={FormInputType.Text}
               value={formData.comment}
               onChange={handleChange}
+              variant={FormInputVariant.Outlined}
             />
           </Box>
         </Box>

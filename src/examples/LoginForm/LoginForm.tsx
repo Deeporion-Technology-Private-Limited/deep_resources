@@ -4,11 +4,11 @@ import background from "../../images/backimage.png";
 import google from "../../images/Google.png";
 import phone from "../../images/phone.png";
 import { Alignment, TextSize, TextWeight } from "@/utils/style";
-import { Login  } from "./type";
+import { Login } from "./type";
 import { InputType, InputVariant, Placeholder } from "@/components/Input/type";
-import CloseEye from "@/components/Input/Icons/CloseEye";
-import OpenEye from "@/components/Input/Icons/OpenEye";
 import { useState } from "react";
+import CloseEye from "@/images/InputIcons/CloseEye";
+import OpenEye from "@/images/InputIcons/OpenEye";
 
 export const LoginForm = () => {
   const [username, setUsername] = useState("");
@@ -115,14 +115,14 @@ export const LoginForm = () => {
                 </Text>
               </Box>
               {error && (
-              <Text
-                size={TextSize.Small}
-                weight={TextWeight.Medium}
-                className={`font-bold mb-1.5 ${error === "Login Successfully" ? "text-green-500 " : "text-red-500"}`}
-                align={Alignment.Center}
-              >
-                {error}
-              </Text>
+                <Text
+                  size={TextSize.Small}
+                  weight={TextWeight.Medium}
+                  className={`font-bold mb-1.5 ${error === "Login Successfully" ? "text-green-500 " : "text-red-500"}`}
+                  align={Alignment.Center}
+                >
+                  {error}
+                </Text>
               )}
 
               <Box className="flex flex-col gap-6">

@@ -10,13 +10,13 @@ import {
   LogoImg,
   GroupIconButton,
 } from "@/components";
-import SearchImage from "@/components/Input/Icons/SearchImage";
 import { IconButton } from "@/components";
 import { NavbarDirection } from "../type";
 import { InputType, InputVariant } from "@/components/Input/type";
 import hemburgerImg from "../navbarIcons/hamburger.png";
 import person from "../navbarIcons/person.svg";
 import { TopNavbarProps } from "./topNavConst";
+import SearchImage from "@/images/InputIcons/SearchImage";
 
 const navBarStyles = cva(
   ["w-full", "border", "flex", "justify-center", "items-center"],
@@ -135,7 +135,11 @@ export const Topnavbar = forwardRef<HTMLDivElement, TopNavProp>(
                   )}
                   {navBarIcons?.map((item) => (
                     <>
-                      <IconButton iconUrl={item.icon} key={item.icon} onClick={item.onClick}/>
+                      <IconButton
+                        iconUrl={item.icon}
+                        key={item.icon}
+                        onClick={item.onClick}
+                      />
                     </>
                   ))}
                 </GroupIconButton>
@@ -143,10 +147,7 @@ export const Topnavbar = forwardRef<HTMLDivElement, TopNavProp>(
             </Box>
             {
               <Box className="hide mobile1">
-                <IconButton
-                  iconUrl={hemburgerImg}
-                  onClick={hemburgerClick}
-                />
+                <IconButton iconUrl={hemburgerImg} onClick={hemburgerClick} />
               </Box>
             }
           </Box>

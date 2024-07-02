@@ -19,12 +19,10 @@ const PersonalInfo = () => {
   };
 
   const handleUploadImage = () => {
-    console.log("Upload image logic goes here");
     setShowPopup(false);
   };
 
   const handleRemoveImage = () => {
-    console.log("Remove image logic goes here");
     setShowPopup(false);
   };
 

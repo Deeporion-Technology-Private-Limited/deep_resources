@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 
 interface ImagePopupProps {
   onClose: () => void;
@@ -7,26 +7,38 @@ interface ImagePopupProps {
 }
 
 const ImagePopup: React.FC<ImagePopupProps> = ({ onClose, onUpload, onRemove }) => {
+  const popupRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (popupRef.current && !popupRef.current.contains(event.target as Node)) {
+        onClose();
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [onClose]);
+
   return (
     <div className="absolute top-[4.3rem] left-[3.4rem] z-50 flex items-center justify-center bg-black bg-opacity-50">
-      <div className="bg-white p-6 rounded-lg max-w-md">
+      <div ref={popupRef} className="bg-white p-2 rounded-lg max-w-md flex flex-col gap-2">
         <button
           onClick={onUpload}
-          className="block w-full text-left py-2 px-4 hover:bg-gray-200 rounded"
+          className="flex items-center hover:bg-gray-300 rounded px-1 py-1"
         >
-          Upload Image
+          <img src="camera_icon_url" alt="Upload" className="w-6 h-6 mr-2" />
+          <span className="text-sm text-black truncate font-poppins font-normal">Upload Image</span>
         </button>
         <button
           onClick={onRemove}
-          className="block w-full text-left py-2 px-4 hover:bg-gray-200 rounded mt-2"
+          className="flex items-center hover:bg-gray-300 rounded px-1 py-1"
         >
-          Remove Image
-        </button>
-        <button
-          onClick={onClose}
-          className="block w-full text-left py-2 px-4 hover:bg-gray-200 rounded mt-2"
-        >
-          Close
+          <img src="camera_icon_url" alt="Remove" className="w-6 h-6 mr-2" />
+          <span className="text-sm text-black truncate font-poppins font-normal">Remove Image</span>
         </button>
       </div>
     </div>

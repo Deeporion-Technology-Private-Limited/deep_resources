@@ -4,13 +4,7 @@ import { ButtonDirection } from "../type";
 import { cn } from "@/utils";
 
 const IconButtonStyles = cva(
-  [
-    "flex",
-    "items-center",
-    "justify-start",
-    "bg-transparent",
-    "p-[10px]",
-  ],
+  ["flex", "items-center", "justify-start", "bg-transparent", "p-[10px]"],
   {
     variants: {
       direction: {
@@ -19,30 +13,50 @@ const IconButtonStyles = cva(
       },
     },
     defaultVariants: {
-      direction : ButtonDirection.Row,
+      direction: ButtonDirection.Row,
     },
   }
 );
 
-type IconButtonProps = ComponentProps<"button"> & VariantProps<typeof IconButtonStyles> & {
-  iconUrl?: string;
-  text?: string;
-  backgroundColor?: string;
-  className?: string;
-  direction?: ButtonDirection;
-  children?: React.ReactNode;
-};
+type IconButtonProps = ComponentProps<"button"> &
+  VariantProps<typeof IconButtonStyles> & {
+    iconUrl?: string;
+    text?: string;
+    backgroundColor?: string;
+    className?: string;
+    direction?: ButtonDirection;
+    children?: React.ReactNode;
+  };
 
 export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
-  ({ iconUrl, text, backgroundColor, className,children, direction = ButtonDirection.Row, ...props }, ref) => {
-
+  (
+    {
+      iconUrl,
+      text,
+      backgroundColor,
+      className,
+      children,
+      direction = ButtonDirection.Row,
+      ...props
+    },
+    ref
+  ) => {
     return (
       <button
         ref={ref}
-        className={cn(IconButtonStyles({ direction }), backgroundColor, className)}
+        className={cn(
+          IconButtonStyles({ direction }),
+          backgroundColor,
+          className
+        )}
         {...props}
-      >
-        {iconUrl && <img src={iconUrl} alt="Icon"  />}
+        data-testid="click-me">
+        {iconUrl && (
+          <img
+            src={iconUrl}
+            alt="Icon"
+          />
+        )}
         {text}
         {children}
       </button>

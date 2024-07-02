@@ -1,6 +1,6 @@
 import { Box, IconButton, Input, Text } from "@/components";
 import { Table } from "@/components/Table/Table";
-import { ComponentProps, forwardRef, useEffect, useState } from "react";
+import { ComponentProps, forwardRef, useState } from "react";
 import { VariantProps, cva } from "class-variance-authority";
 import SearchImage from "@/images/InputIcons/SearchImage";
 import { InputType, InputVariant } from "@/components/Input/type";

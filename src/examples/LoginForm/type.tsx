@@ -39,4 +39,19 @@ export enum Login {
   Code = "Enter Verification Code",
   Email = "Email@gmail.com",
   GoBack = "Go back",
+  TalkToUs = "Talk To Us",
+  TalkToUsHeadline = "Fill in the form below, and we will get back to you as soon as possible!",
+  Name = "Name",
+  EmailAddress = "Email Address",
+  Subject = "Subject",
+  Details = "Details",
+  SendMessage = "Send message",
+}
+
+export interface FormDetail {
+  name: string;
+  email: string;
+  phoneNo: string;
+  subject: string;
+  details: string;
 }

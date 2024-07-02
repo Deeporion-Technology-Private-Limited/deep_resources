@@ -51,6 +51,7 @@ export type NavItems = {
   path?: string;
   submenu?: NavItems[];
   navComponent?: React.ReactNode;
+  onClick?: () => void;
 };
 
 export type profile = {
@@ -71,6 +72,7 @@ interface LogoImageProps
   showNavItemName?: boolean;
   showProfile?: boolean;
   profileItem?: profile;
+  logoStyle?: string;
   hover?: boolean;
   largeSidebar?: boolean;
 }
@@ -90,6 +92,7 @@ export const SideNavbar = forwardRef<HTMLDivElement, LogoImageProps>(
       isLogin = false,
       showProfile = false,
       largeSidebar,
+      logoStyle="",
       ...props
     },
     ref
@@ -112,7 +115,7 @@ export const SideNavbar = forwardRef<HTMLDivElement, LogoImageProps>(
       } else if (item.submenu && item.submenu.length > 0) {
         setShowSubMenuNavItem([...showSubMenuNavItem, item]);
       } else {
-        alert("there is nothing we can do");
+        item.onClick ? item.onClick :alert("there is nothing we can do");
       }
     };
 
@@ -216,7 +219,7 @@ export const SideNavbar = forwardRef<HTMLDivElement, LogoImageProps>(
             className={`gap-[28px] w-full flex flex-col justify-center group-hover:items-start items-center`}
           >
             {LogoIcon !== "" ? (
-              <LogoImg logo={LogoIcon} />
+              <LogoImg logo={LogoIcon} className={logoStyle}/>
             ) : (
               <Logo>{title}</Logo>
             )}

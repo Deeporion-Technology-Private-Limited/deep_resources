@@ -1,6 +1,7 @@
 import { Cart, Favourite, Notification, Setting } from "../MenuItem/Icon/icon";
 import { TopHoverMenuCard } from "../Header/ExpandedNavbar";
 import { GenderItem, TopItem } from "../Header/ExpandedNavbar/topHoverObjects";
+import { NavItems, profile } from "../Header/SideNavbar";
 
 export const navItemSideBar: NavItems[] = [
   { menus: "Home" },
@@ -41,21 +42,6 @@ export const navItemSideBar: NavItems[] = [
     menus: "Setting",
   },
 ];
-
-export type NavItems = {
-  menus: string;
-  menuIcon?: string;
-  menuLeftIcon?: React.ReactNode;
-  path?: string;
-  submenu?: NavItems[];
-  navComponent?: React.ReactNode;
-};
-
-export interface profile {
-  profileName?: string;
-  profilePicture?: string;
-}
-
 export interface SidbarProps {
   children?: React.ReactNode;
   className?: string;

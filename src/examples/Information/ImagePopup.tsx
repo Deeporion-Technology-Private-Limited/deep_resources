@@ -1,4 +1,6 @@
 import React, { useRef, useEffect } from 'react';
+import upload from '../../images/upperArrow.png';
+import remove from '../../images/Delete.svg';
 
 interface ImagePopupProps {
   onClose: () => void;
@@ -28,16 +30,16 @@ const ImagePopup: React.FC<ImagePopupProps> = ({ onClose, onUpload, onRemove }) 
       <div ref={popupRef} className="bg-white p-2 rounded-lg max-w-md flex flex-col gap-2">
         <button
           onClick={onUpload}
-          className="flex items-center hover:bg-gray-300 rounded px-1 py-1"
+          className="flex items-center rounded px-1 py-1"
         >
-          <img src="camera_icon_url" alt="Upload" className="w-6 h-6 mr-2" />
+          <img src={upload} alt="Upload" className="w-6 h-6 mr-2" />
           <span className="text-sm text-black truncate font-poppins font-normal">Upload Image</span>
         </button>
         <button
           onClick={onRemove}
-          className="flex items-center hover:bg-gray-300 rounded px-1 py-1"
+          className="flex items-center rounded px-1 py-1"
         >
-          <img src="camera_icon_url" alt="Remove" className="w-6 h-6 mr-2" />
+          <img src={remove} alt="Remove" className="w-6 h-6 mr-2" />
           <span className="text-sm text-black truncate font-poppins font-normal">Remove Image</span>
         </button>
       </div>

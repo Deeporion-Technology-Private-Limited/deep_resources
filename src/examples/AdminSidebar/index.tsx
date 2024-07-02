@@ -6,7 +6,7 @@ import { VariantProps, cva } from "class-variance-authority";
 import { ComponentProps, forwardRef } from "react";
 import { Box } from "@/components";
 
-const userSideStyle = cva(["flex", "items-center"]);
+const userSideStyle = cva(["flex", "item-start"]);
 interface usersideProps
   extends ComponentProps<typeof Box>,
     VariantProps<typeof userSideStyle> {

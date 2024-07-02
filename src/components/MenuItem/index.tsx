@@ -68,7 +68,7 @@ interface MenuItemProps
   border?: boolean;
   iconLeftStyle?: string;
   iconRightStyle?: string;
-  labelStyle?:string;
+  labelStyle?: string;
   onClick?: () => void;
   isSubmenu?: boolean;
   wannaChangRightIcon?: boolean;
@@ -91,7 +91,7 @@ export const MenuItem = forwardRef<HTMLDivElement, MenuItemProps>(
       children,
       iconLeftStyle = "",
       iconRightStyle = "",
-      labelStyle="",
+      labelStyle = "",
       onClick,
       ...props
     },
@@ -135,12 +135,12 @@ export const MenuItem = forwardRef<HTMLDivElement, MenuItemProps>(
             <Text className={labelStyle}>{label}</Text>
           </>
         )}
-        {rightIcon &&
-          (wannaChangRightIcon && isSubMenuIcon ? (
-            <UpArrow />
-          ) : (
-            <Box className={iconRightStyle}>{rightIcon}</Box>
-          ))}
+        {rightIcon && (
+          <Box className={iconRightStyle}>
+            {(wannaChangRightIcon && isSubMenuIcon ? (
+            <UpArrow />) : (rightIcon))}
+          </Box>
+        )}
         {isSubmenu && submenuVisible && (
           <div className="absolute left-[100%] top-0">{children}</div>
         )}

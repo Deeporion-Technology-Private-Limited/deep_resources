@@ -1,12 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import Cateloges from ".";
+import Warehouses from ".";
 
-const meta: Meta<typeof Cateloges> = {
-  title: "Examples/CatelogesExample",
-  component: Cateloges,
-  parameters: {
-    layout: "centered",
-  },
+const meta: Meta<typeof Warehouses> = {
+  title: "Examples/Warehouse",
+  component: Warehouses,
   tags: ["autodocs"],
 };
 

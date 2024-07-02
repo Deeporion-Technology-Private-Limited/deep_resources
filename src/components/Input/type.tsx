@@ -28,11 +28,14 @@ export enum Placeholder {
   Input = "Enter Something",
   Prefix = "Enter Your Values",
   UserName = "Username",
+  Name = "Name",
   YourName = "Your name",
   YourEmail = "Your email",
   YourPassword = "Your password",
   YourNewPassword = "Your new password" ,
-  ConfirmNew = "Confirm your new password"
+  ConfirmNew = "Confirm your new password",
+  Subject = "what would you like to talk about?",
+  Details = "Any details you would like to share?",
 }
 
 export enum InputVariant {

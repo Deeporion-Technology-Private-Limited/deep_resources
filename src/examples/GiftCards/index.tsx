@@ -8,8 +8,8 @@ import Banner from "@/components/Cards/Banners";
 type GiftCardProps = ComponentProps<typeof Box> & {
     cardsArray: ICards[];
     labelsArray: ILabels[];
-    addNew: () => void;
-    viewMore: () => void;
+    addNew?: () => void;
+    viewMore?: () => void;
     className?: string;
 };
 

@@ -97,7 +97,7 @@ export interface ICards {
 export const Cards: ICards[] = [
     {
         id: 1,
-        img: "https://s3-alpha-sig.figma.com/img/1f0c/a368/cef007aff70c3a4b5ff2f7b97f635512?Expires=1719792000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=AvMna1TEn337~8qFDBuSSypkUIapNZORWN41TSqJ7~g-3U8f2ZD4DKWrSDfuOxWZvJfOW8LTBhhz3zuaTVHVojXRo0GI2QKUecPLv3xrKGcS2rRK2Cs9ORwJg-KD3s-8K3Q5K4sywzwOckatDC5Fev3MIiIiV9Wu9bQInLbRlmB5MSBHeIITfH8FJp7ZIl7obqMuxCHZb85saP-nyWN1-36Nwz5zNvtxGEeKQ3fICEHieo-~9ZXEYueno1YRaSIg1~B6j4I9qNynm~5L7DG-RMPwwBBkO6KIsZ-UHRNi7guyfN6CYPXE~NL~Vi-dyHU1F9UJk7EG5fddJQcDrI36-Q__",
+        img: "https://www.pinklay.com/cdn/shop/files/HappyBirthday-PinklayGiftCard_1024x.jpg?v=1696830874",
         category: "birthday",
     },
     {

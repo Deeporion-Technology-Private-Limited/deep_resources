@@ -1,4 +1,4 @@
-import { Box, Button, Input, Stack, Text } from "@/components";
+import { Box, Button, Input, Text } from "@/components";
 import { ButtonVariant } from "@/components/Button/type";
 import background from "../../images/backimage.png";
 import { TextSize, TextWeight, Alignment } from "@/utils/style";
@@ -56,148 +56,146 @@ export const TalkToUsForm = () => {
   };
 
   return (
-    <Box className="w-[100vw] flex items-center justify-between">
-      <Box className="w-[50vw] flex justify-center flex-col items-center">
-        <Text
-          weight={TextWeight.Bold}
-          className="absolute left-7 top-5 text-2xl"
-        >
-          {Login.Logo}
-        </Text>
-        <Box className="w-fit">
-          <Stack className="relative">
-            <Box className="flex flex-col gap-6">
-              <Box>
-                <Text as="h2" weight={TextWeight.Bold} size={TextSize.XXl}>
-                  {Login.TalkToUs}
-                </Text>
-                <Text
-                  emphasis={"low"}
-                  size={TextSize.Small}
-                  align={Alignment.Left}
-                  className="w-[22rem] block"
-                >
-                  {Login.TalkToUsHeadline}
-                </Text>
-              </Box>
-              <Box>
-                <Text
-                  size={TextSize.Small}
-                  weight={TextWeight.Medium}
-                  className="mb-1.5 text-black"
-                >
-                  {Login.Name}
-                </Text>
-                <Input
-                  type={InputType.Text}
-                  name="name"
-                  placeholder={Placeholder.Name}
-                  className={`mb-4 focus:outline-transparent ${errors.name ? "border-red-500" : ""}`}
-                  variant={InputVariant.Outlined}
-                  value={formDetail.name}
-                  onChange={handleInputChange}
-                />
-
-                <Text
-                  size={TextSize.Small}
-                  weight={TextWeight.Medium}
-                  className="mb-1.5 text-black"
-                >
-                  {Login.EmailAddress}
-                </Text>
-                <Input
-                  type={InputType.Text}
-                  name="email"
-                  placeholder={Placeholder.Email}
-                  className={`mb-4 focus:outline-transparent ${errors.email ? "border-red-500" : ""}`}
-                  variant={InputVariant.Outlined}
-                  value={formDetail.email}
-                  onChange={handleInputChange}
-                />
-                <Box>
-                  <Text
-                    size={TextSize.Small}
-                    weight={TextWeight.Medium}
-                    className="mb-1.5"
-                  >
-                    {Login.PhoneNum}
-                  </Text>
-                  <Input
-                    prefix="+91"
-                    name="phoneNo"
-                    className={`focus:outline-transparent ${errors.phoneNo ? "border-red-500" : ""}`}
-                    type={InputType.Prefix}
-                    placeholder={Placeholder.PhoneNumber}
-                    variant={InputVariant.Outlined}
-                    value={formDetail.phoneNo}
-                    onChange={handleInputChange}
-                  />
-                </Box>
-                <Text
-                  size={TextSize.Small}
-                  weight={TextWeight.Medium}
-                  className="mb-1.5 text-black"
-                >
-                  {Login.Subject}
-                </Text>
-                <Input
-                  type={InputType.Text}
-                  name="subject"
-                  placeholder={Placeholder.Subject}
-                  className={`mb-4 focus:outline-transparent ${errors.subject ? "border-red-500" : ""}`}
-                  variant={InputVariant.Outlined}
-                  value={formDetail.subject}
-                  onChange={handleInputChange}
-                />
-
-                <Text
-                  size={TextSize.Small}
-                  weight={TextWeight.Medium}
-                  className="mb-1.5 text-black"
-                >
-                  {Login.Details}
-                </Text>
-                <Input
-                  type={InputType.Text}
-                  name="details"
-                  placeholder={Placeholder.Details}
-                  className={`mb-4 focus:outline-transparent ${errors.details ? "border-red-500" : ""}`}
-                  variant={InputVariant.Outlined}
-                  value={formDetail.details}
-                  onChange={handleInputChange}
-                />
-              </Box>
-              {errorMessage && (
-                <Text
-                  size={TextSize.Small}
-                  weight={TextWeight.Medium}
-                  className={`font-bold mb-1.5 ${errorMessage === "Form submitted successfully!" ? "text-green-500" : "text-red-500"}`}
-                  align={Alignment.Center}
-                >
-                  {errorMessage}
-                </Text>
-              )}
-              <Box className="flex flex-col gap-6">
-                <Button
-                  variant={ButtonVariant.DefaultPrimary}
-                  style={webstyle.loginButton}
-                  onClick={handleSubmit}
-                >
-                  {Login.SendMessage}
-                </Button>
-              </Box>
+    <Box className="w-[100vw] h-[100vh] flex flex-col md:flex-row items-center justify-between">
+      <Box className="w-full flex-[1] h-full flex justify-center flex-col items-center">
+        <Box className="w-[70%] h-[83%] flex flex-col gap-6">
+          <Box className="h-[14%] flex flex-col justify-between">
+            <Text as="h2" weight={TextWeight.Bold} size={TextSize.XXl}>
+              {Login.TalkToUs}
+            </Text>
+            <Text
+              emphasis={"low"}
+              size={TextSize.Small}
+              align={Alignment.Left}
+              className="w-full md:w-[22rem] block"
+            >
+              {Login.TalkToUsHeadline}
+            </Text>
+          </Box>
+          <Box>
+            <Box className="mb-4">
+              <Text
+                size={TextSize.Small}
+                weight={TextWeight.Medium}
+                className="mb-1.5 text-black"
+              >
+                {Login.Name}
+              </Text>
+              <Input
+                type={InputType.Text}
+                name="name"
+                placeholder={Placeholder.Name}
+                className={`focus:outline-transparent ${errors.name ? "border-red-500 h-13" : "h-14"}`}
+                variant={InputVariant.Outlined}
+                value={formDetail.name}
+                onChange={handleInputChange}
+              />
             </Box>
-          </Stack>
+            <Box className="mb-4">
+              <Text
+                size={TextSize.Small}
+                weight={TextWeight.Medium}
+                className="mb-1.5 text-black"
+              >
+                {Login.EmailAddress}
+              </Text>
+              <Input
+                type={InputType.Text}
+                name="email"
+                placeholder={Placeholder.Email}
+                className={`focus:outline-transparent ${errors.email ? "border-red-500 h-13" : "h-14"}`}
+                variant={InputVariant.Outlined}
+                value={formDetail.email}
+                onChange={handleInputChange}
+              />
+            </Box>
+            <Box className="mb-4">
+              <Text
+                size={TextSize.Small}
+                weight={TextWeight.Medium}
+                className="mb-1.5"
+              >
+                {Login.PhoneNum}
+              </Text>
+              <Input
+                prefix="+91"
+                name="phoneNo"
+                className={`focus:outline-transparent ${errors.phoneNo ? "border-red-500 h-13" : "h-14"}`}
+                type={InputType.Prefix}
+                placeholder={Placeholder.PhoneNumber}
+                variant={InputVariant.Outlined}
+                value={formDetail.phoneNo}
+                onChange={handleInputChange}
+              />
+            </Box>
+            <Box className="mb-4">
+              <Text
+                size={TextSize.Small}
+                weight={TextWeight.Medium}
+                className="mb-1.5 text-black"
+              >
+                {Login.Subject}
+              </Text>
+              <Input
+                type={InputType.Text}
+                name="subject"
+                placeholder={Placeholder.Subject}
+                className={`flex justify-center focus:outline-transparent ${errors.subject ? "border-red-500 h-13" : "h-14"}`}
+                variant={InputVariant.Outlined}
+                value={formDetail.subject}
+                onChange={handleInputChange}
+              />
+            </Box>
+            <Box className="mb-4">
+              <Text
+                size={TextSize.Small}
+                weight={TextWeight.Medium}
+                className="mb-1.5 text-black"
+              >
+                {Login.Details}
+              </Text>
+              <Input
+                type={InputType.Text}
+                name="details"
+                placeholder={Placeholder.Details}
+                className={`focus:outline-transparent ${errors.details ? "border-red-500 h-13" : "h-14"}`}
+                variant={InputVariant.Outlined}
+                value={formDetail.details}
+                onChange={handleInputChange}
+              />
+            </Box>
+          </Box>
+          {errorMessage && (
+            <Text
+              size={TextSize.Small}
+              weight={TextWeight.Medium}
+              className={`font-bold mb-1.5 ${errorMessage === "Form submitted successfully!" ? "text-green-500" : "text-red-500"}`}
+              align={Alignment.Center}
+            >
+              {errorMessage}
+            </Text>
+          )}
+          <Box className="flex flex-col gap-6">
+            <Button
+              variant={ButtonVariant.DefaultPrimary}
+              style={webstyle.loginButton}
+              onClick={handleSubmit}
+            >
+              {Login.SendMessage}
+            </Button>
+          </Box>
         </Box>
       </Box>
-      <Box className="relative">
-        <img src={background} alt="img" />
-        <Text
-          className="absolute bottom-28 left-56 w-96 text-center text-white text-3xl"
-          weight={TextWeight.Bold}
-        >
-          {Login.NewShopping}
-        </Text>
+      <Box className="relative flex-[1] w-full md:w-auto">
+        <img src={background} alt="img" className="w-full md:w-auto" />
+        <Box className="absolute left-1/2 bottom-[7rem] transform -translate-x-1/2 flex items-center justify-center w-full md:w-auto">
+          <Text
+            className="text-white text-3xl text-center"
+            weight={TextWeight.Bold}
+          >
+            {Login.NewShopping}
+          </Text>
+        </Box>
       </Box>
     </Box>
   );
@@ -212,7 +210,7 @@ const webstyle = {
     padding: "10px 8px",
   },
   loginButton: {
-    width: "360px",
+    width: "100%",
     height: "56px",
     borderRadius: "8px",
     padding: "16px",

@@ -3,7 +3,7 @@ import { ComponentProps, forwardRef, useState } from "react";
 import { ButtonIconPosition } from "@/components/Button/type";
 import { ICards, ILabels } from "./data";
 import { cn } from "@/utils";
-import Banner from "@/components/Cards/Banners";
+import FaverateCard from "@/components/Cards/FaverateCard";
 
 type GiftCardProps = ComponentProps<typeof Box> & {
     cardsArray: ICards[];
@@ -56,10 +56,10 @@ const GiftCard = forwardRef<HTMLDivElement, GiftCardProps>(
                 </Box>
                 <Box className="items-start justify-center gap-5 py-1 inline-flex flex-wrap">
                     {filteredCards.length > 0 ? filteredCards?.map((item) => (
-                        <Banner
+                        <FaverateCard
                             key={item.id}
-                            className="w-[35rem] h-[30rem]"
-                            imageSrc={item.img}
+                            className="h-fit"
+                            imageSrc={item?.img}
                         />
                     )) : "No data present"}
                 </Box>

@@ -8,6 +8,7 @@ const meta: Meta<typeof Heading> = {
   parameters: {
     layout: "centered",
   },
+  tags:['autodocs']
 };
 
 export default meta;

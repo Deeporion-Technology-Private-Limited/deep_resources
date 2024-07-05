@@ -39,6 +39,7 @@ const LinearLoader = forwardRef<HTMLDivElement, LinearLoaderProps>(
           position: 'relative',
           overflow: 'hidden', 
          }}
+
       >
         <div
           className="linear-loader-bar"
@@ -54,6 +55,7 @@ const LinearLoader = forwardRef<HTMLDivElement, LinearLoaderProps>(
             animationIterationCount: 'infinite',
             animationDirection: 'normal',            
           }}
+          data-testid="LinearLoader"
         />
         {children}
       </Box>

@@ -50,7 +50,7 @@ const FaverateCard = forwardRef<HTMLDivElement, CardProps>(
       iconUrl,
       isDescription = true,
       isChange,
-      onIconClick = () => {},
+      onIconClick = () => { },
       handleCart,
       buttonText = " Move to cart",
       handleNavigate,
@@ -67,14 +67,14 @@ const FaverateCard = forwardRef<HTMLDivElement, CardProps>(
     return (
       <Box ref={ref} className={cn(cardStyles(), className)}>
         <Box className="relative">
-          {imageSrc &&(
-          <img
-            className={imageStyle}
-            src={imageSrc}
-            alt="image"
-            onClick={handleNavigate}
-          />)
-  }
+          {imageSrc && (
+            <img
+              className={imageStyle}
+              src={imageSrc}
+              alt="image"
+              onClick={handleNavigate}
+            />)
+          }
           {favorite && (
             <>
               <Button

@@ -10,29 +10,12 @@ import {
   Setting,
 } from "@/components/MenuItem/Icon/icon";
 
+
 export const navItemDetail: NavItems[] = [
     {
       menuLeftIcon: <Favourite />,
       menuIcon: fav,
       menus: "Favourite",
-      submenu: [
-        {
-          menus: "fav1",
-        },
-        { menus: "fav2" },
-        {
-          menus: "fav3",
-          submenu: [
-            {
-              menus: "fav3 to 1",
-            },
-            { menus: "fav3 to 2" },
-            {
-              menus: "fav3 to 3",
-            },
-          ],
-        },
-      ],
     },
     {
       menuLeftIcon: <Notification />,
@@ -42,3 +25,4 @@ export const navItemDetail: NavItems[] = [
     { menuLeftIcon: <Cart />, menuIcon: cart, menus: "Cart" },
     { menuLeftIcon: <Setting />, menuIcon: setting, menus: "Setting" },
   ];
+

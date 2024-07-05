@@ -2,13 +2,13 @@ import { cn } from "@/utils";
 import { VariantProps, cva } from "class-variance-authority";
 import { ComponentProps, forwardRef } from "react";
 import { Box, Button, IconButton, Text } from "@/components";
-import mail from "../Header/navbarIcons/mail.svg"
+import   MailIcon  from './Images/mail'
 import { CoreCustomerProps } from "./footerInterface";
-
 const navBarStyles = cva([
   ["pl-[30px]", "text-[#36454f]", "text-[13px]", "w-fit"],
 ]);
 
+ 
 interface CustomerProps
   extends CoreCustomerProps,
     ComponentProps<typeof Box>,
@@ -78,7 +78,7 @@ export const Footer = forwardRef<HTMLDivElement, CustomerProps>(
           {newsLetter && (
             <Box className="flex relative mb-[20px] p-[8px] rounded-[12px] gap-[11px] bg-[#fff]">
               <Box className="flex gap-[8px]">
-                <IconButton iconUrl={mail}/>
+                <IconButton iconUrl={<MailIcon />}/>
                 <input type="text" value={value} placeholder="Subscribe the newsletter" className="outline-none w-[160px]" onChange={handleInput}/>
               </Box>
               <Box>

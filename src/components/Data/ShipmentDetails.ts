@@ -28,7 +28,15 @@ interface IDeliveryAddress {
 }
 
 // Define the union type for the shipment status
-type ShipmentStatus = 'Pending' | 'Processing' | 'Confirmed' | 'OutOfDelivery' | 'Shipped' | 'Cancelled' | 'Returned' | 'Failed';
+type ShipmentStatus =
+  | "Pending"
+  | "Processing"
+  | "Confirmed"
+  | "OutOfDelivery"
+  | "Shipped"
+  | "Cancelled"
+  | "Returned"
+  | "Failed";
 
 // Define the interface for the shipment status colors
 export interface IshipmentStatusColors {

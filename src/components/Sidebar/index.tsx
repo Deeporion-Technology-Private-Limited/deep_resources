@@ -13,7 +13,8 @@ import {
 import close from "../Header/navbarIcons/Vector.svg";
 import { MenuItemSize } from "../MenuItem/MenuitemTypes";
 import { DownArrow } from "../MenuItem/Icon/icon";
-import { NavItems, SidbarProps } from "./sidebarConst";
+import {SidbarProps } from "./sidebarConst";
+import { NavItems } from "../Header/SideNavbar";
 
 const navBarStyles = cva([
   "w-[320px] bg-[#D7C7C1] p-[30px_12px] min-h-screen flex flex-col gap-[30px] scrollbar-white",
@@ -63,7 +64,7 @@ export const Sidebar = forwardRef<HTMLDivElement, Prop>(
       ) {
         setShowSubMenuNavItem([...showSubMenuNavItem, item]);
       } else {
-        alert("there is nothing we can do");
+        item.onClick ? item.onClick(): alert("We can't do anything");
       }
     };
 

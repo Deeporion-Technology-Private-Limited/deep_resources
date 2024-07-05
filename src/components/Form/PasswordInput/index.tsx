@@ -89,6 +89,7 @@ const PasswordInput = forwardRef<HTMLInputElement, InputProps>(
           <div
             className="absolute right-2 top-1/2 transform -translate-y-1/2 cursor-pointer"
             onClick={togglePasswordVisibility}
+            data-testid="PasswordToggleIcon"
           >
             {showPassword ? <OpenEye /> : <CloseEye />}
           </div>
@@ -133,6 +134,7 @@ const PasswordInput = forwardRef<HTMLInputElement, InputProps>(
             onFocus={onFocus}
             {...register}
             {...otherProps}
+            data-testid="Passwordtest"
           />
           {renderAdditionalComponent()}
         </div>

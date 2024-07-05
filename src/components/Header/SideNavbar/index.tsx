@@ -1,7 +1,7 @@
 import { cn } from "@/utils";
 import { VariantProps, cva } from "class-variance-authority";
 import { ComponentProps, forwardRef, useState } from "react";
-import person from "../navbarIcons/person.svg";
+// import person from "../navbarIcons/person.svg";
 import {
   Logo,
   Box,
@@ -40,7 +40,7 @@ const navBarStyles = cva(
 
 const notLogin = {
   profileName: "profile",
-  profile: person,
+  // profile: person,
 };
 
 export type NavItems = {
@@ -120,7 +120,7 @@ export const SideNavbar = forwardRef<HTMLDivElement, LogoImageProps>(
       if (!isLogin) {
         return (
           <IconButton
-            iconUrl={notLogin.profile}
+            // iconUrl={notLogin.profile}
             text={notLogin.profileName}
             className="font-bold"
             direction={ButtonDirection.Column}
@@ -130,24 +130,25 @@ export const SideNavbar = forwardRef<HTMLDivElement, LogoImageProps>(
         return (
           <>
             <Box
-              className={` group-hover:hidden ${largeSidebar ? "hidden" : "block"}`}
-            >
+              className={` group-hover:hidden ${largeSidebar ? "hidden" : "block"}`}>
               <img
                 className="w-[38px] h-[38px] rounded-full"
                 src={profileItem.profilePicture}
                 alt="profile"
+                data-testid="profile"
               />
             </Box>
             <Box
-              className={`group-hover:block w-full ${largeSidebar ? "block" : "hidden"}`}
-            >
+              className={`group-hover:block w-full ${largeSidebar ? "block" : "hidden"}`}>
               <Box className="flex items-center gap-2">
                 <img
                   className="w-[38px] h-[38px] rounded-full"
                   src={profileItem.profilePicture}
                   alt="profile"
                 />
-                <Text as="h2" className="font-[600]">
+                <Text
+                  as="h2"
+                  className="font-[600]">
                   {profileItem.profileName}
                 </Text>
               </Box>
@@ -164,8 +165,7 @@ export const SideNavbar = forwardRef<HTMLDivElement, LogoImageProps>(
             submenu?.map((item) => (
               <Box
                 className="w-full flex items-center justify-center flex-col"
-                key={item.menus}
-              >
+                key={item.menus}>
                 <MenuItem
                   leftIcon={item.menuIconComponent}
                   size={MenuItemSize.Medium}
@@ -192,24 +192,23 @@ export const SideNavbar = forwardRef<HTMLDivElement, LogoImageProps>(
           largeSidebar && "w-52, items-start",
           hover && !largeSidebar && " group hover:w-52 hover:items-start"
         )}
-        {...props}
-      >
+        {...props}>
         <Box
           className={`w-full flex justify-between gap-16 flex-col h-full 
-            group-hover:items-start px-[10px] ${largeSidebar ? "items-start" : "items-center"}`}
-        >
+            group-hover:items-start px-[10px] ${largeSidebar ? "items-start" : "items-center"}`}>
           <Box
             className={`gap-[28px] w-full flex flex-col justify-center group-hover:items-start
-              ${largeSidebar ? "items-start" : "items-center"}`}
-          >
+              ${largeSidebar ? "items-start" : "items-center"}`}>
             {LogoIcon !== "" ? (
-              <LogoImg logo={LogoIcon} />
+              <LogoImg
+                logo={LogoIcon}
+                data-testid="logo"
+              />
             ) : (
               <Logo>{title}</Logo>
             )}
             <Box
-              className={`${largeSidebar ? "hidden" : "block"} group-hover:hidden w-full`}
-            >
+              className={`${largeSidebar ? "hidden" : "block"} group-hover:hidden w-full`}>
               <GroupIconButton direction={ButtonDirection.Column}>
                 {navItem &&
                   navItem?.map((item) => (
@@ -225,15 +224,13 @@ export const SideNavbar = forwardRef<HTMLDivElement, LogoImageProps>(
               </GroupIconButton>
             </Box>
             <Box
-              className={`group-hover:block w-full ${largeSidebar ? "block" : "hidden"}`}
-            >
+              className={`group-hover:block w-full ${largeSidebar ? "block" : "hidden"}`}>
               <Box>
                 {navItem &&
                   navItem?.map((item) => (
                     <Box
                       className="w-full flex items-center justify-center flex-col"
-                      key={item.menus}
-                    >
+                      key={item.menus}>
                       <MenuItem
                         leftIcon={item.menuIconComponent}
                         size={MenuItemSize.Medium}

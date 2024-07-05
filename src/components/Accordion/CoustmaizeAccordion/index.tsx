@@ -25,7 +25,7 @@ const coustomizeAccordioStyle = cva(
     compoundVariants: [
       {
         variant: AccordionTypes.Arrow,
-      }
+      },
     ],
     defaultVariants: {
       variant: AccordionTypes.Arrow,
@@ -33,17 +33,23 @@ const coustomizeAccordioStyle = cva(
   }
 );
 
-type CoustomizeAccordioProps = ComponentProps<"div"> & VariantProps<typeof coustomizeAccordioStyle> & {
-  variant?: AccordionTypes;
-  children: string;
-  content?: any;
-  Icon: React.ReactNode;
-  childClassName?: string; 
-};
+type CoustomizeAccordioProps = ComponentProps<"div"> &
+  VariantProps<typeof coustomizeAccordioStyle> & {
+    variant?: AccordionTypes;
+    children: string;
+    content?: any;
+    Icon: React.ReactNode;
+    childClassName?: string;
+  };
 
-export const CoustomizeAccordion = forwardRef<HTMLDivElement, CoustomizeAccordioProps>(
-  ({ variant, content, className, Icon, children, childClassName, ...props }, ref) => {
-
+export const CoustomizeAccordion = forwardRef<
+  HTMLDivElement,
+  CoustomizeAccordioProps
+>(
+  (
+    { variant, content, className, Icon, children, childClassName, ...props },
+    ref
+  ) => {
     const [handleButton, setHandleButton] = useState(false);
 
     const handleClick = () => setHandleButton(!handleButton);
@@ -53,12 +59,14 @@ export const CoustomizeAccordion = forwardRef<HTMLDivElement, CoustomizeAccordio
         <div
           ref={ref}
           className={cn(coustomizeAccordioStyle({ variant, className }))}
-          {...props}
-          
-        >
+          data-testid="custom-variant"
+          {...props}>
           <div className="flex items-center justify-between w-full">
             <div>{children}</div>
-            <div className={`duration-300 transform cursor-pointer rotate-180 hover:shadow ${handleButton && "origin-center rotate-[none]"}`} onClick={handleClick}>
+            <div
+              className={`duration-300 transform cursor-pointer rotate-180 hover:shadow ${handleButton && "origin-center rotate-[none]"}`}
+              onClick={handleClick}
+              data-testid="icon">
               {Icon}
             </div>
           </div>
@@ -66,9 +74,11 @@ export const CoustomizeAccordion = forwardRef<HTMLDivElement, CoustomizeAccordio
 
         {handleButton && (
           <div className={cn("mt-1 w-full border bg-white", childClassName)}>
-              <div className="px-2 py-1">
-                {content.map((item:any)=> <div>{item}</div>)}
-              </div>
+            <div className="px-2 py-1">
+              {content.map((item: any) => (
+                <div>{item}</div>
+              ))}
+            </div>
           </div>
         )}
       </div>

@@ -14,8 +14,8 @@ import SearchImage from "@/components/Input/Icons/SearchImage";
 import { IconButton } from "@/components";
 import { NavbarDirection } from "../type";
 import { InputType, InputVariant } from "@/components/Input/type";
-import hemburgerImg from "../navbarIcons/hamburger.png";
-import person from "../navbarIcons/person.svg";
+// import hemburgerImg from "../navbarIcons/hamburger.png";
+// import person from "../navbarIcons/person.svg";
 import { TopNavbarProps } from "./topNavConst";
 
 const navBarStyles = cva(
@@ -83,16 +83,22 @@ export const Topnavbar = forwardRef<HTMLDivElement, TopNavProp>(
             "px-[40px]": direction === "row",
           })}
           {...props}
-        >
+          data-testid="direction">
           <Box
             className={` w-full flex justify-between items-center ${
               direction === "column" ? "flex-col h-full" : ""
-            } mobile`}
-          >
+            } mobile`}>
             {LogoIcon !== "" ? (
-              <LogoImg logo={LogoIcon} className="w-[45px] mobile1" />
+              <LogoImg
+                logo={LogoIcon}
+                className="w-[45px] mobile1"
+              />
             ) : (
-              <Logo className="mobile1">{title}</Logo>
+              <Logo
+                className="mobile1"
+                data-testid="logo">
+                {title}
+              </Logo>
             )}
             {navItem && navItem?.length > 0 && (
               <AnchorList className="flex-wrap show relative">
@@ -100,8 +106,7 @@ export const Topnavbar = forwardRef<HTMLDivElement, TopNavProp>(
                   <Anchor
                     key={item.text}
                     href={item.href}
-                    onMouseEnter={(e) => handleEnter(item, e)}
-                  >
+                    onMouseEnter={(e) => handleEnter(item, e)}>
                     {item.text}
                   </Anchor>
                 ))}
@@ -122,9 +127,10 @@ export const Topnavbar = forwardRef<HTMLDivElement, TopNavProp>(
                 <GroupIconButton className="gap-[0px] flex-wrap">
                   {!isLogin ? (
                     <IconButton
-                      iconUrl={person}
+                      // iconUrl={person}
                       text="Logo"
                       className="font-bold"
+                      data-testid="logo"
                     />
                   ) : (
                     <img
@@ -135,7 +141,11 @@ export const Topnavbar = forwardRef<HTMLDivElement, TopNavProp>(
                   )}
                   {navBarIcons?.map((item) => (
                     <>
-                      <IconButton iconUrl={item.icon} key={item.icon} onClick={item.onClick}/>
+                      <IconButton
+                        iconUrl={item.icon}
+                        key={item.icon}
+                        onClick={item.onClick}
+                      />
                     </>
                   ))}
                 </GroupIconButton>
@@ -144,7 +154,7 @@ export const Topnavbar = forwardRef<HTMLDivElement, TopNavProp>(
             {
               <Box className="hide mobile1">
                 <IconButton
-                  iconUrl={hemburgerImg}
+                  // iconUrl={hemburgerImg}
                   onClick={hemburgerClick}
                 />
               </Box>
@@ -156,7 +166,7 @@ export const Topnavbar = forwardRef<HTMLDivElement, TopNavProp>(
             className="hovered-component absolute z-20 top-[110%]"
             style={{ left: hoverX - 10 }}
             onMouseLeave={handleMouseOut}
-          >
+            data-testid="mouseout">
             {isHoverComponent}
           </div>
         )}

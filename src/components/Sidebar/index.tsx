@@ -10,7 +10,7 @@ import {
   MenuItem,
   Text,
 } from "@/components";
-import close from "../Header/navbarIcons/Vector.svg";
+// import close from "../Header/navbarIcons/Vector.svg";
 import { MenuItemSize } from "../MenuItem/MenuitemTypes";
 import { DownArrow } from "../MenuItem/Icon/icon";
 import { NavItems, SidbarProps } from "./sidebarConst";
@@ -18,7 +18,6 @@ import { NavItems, SidbarProps } from "./sidebarConst";
 const navBarStyles = cva([
   "w-[320px] bg-[#D7C7C1] p-[30px_12px] min-h-screen flex flex-col gap-[30px] scrollbar-white",
 ]);
-
 
 interface Prop
   extends SidbarProps,
@@ -84,6 +83,7 @@ export const Sidebar = forwardRef<HTMLDivElement, Prop>(
             onClick={() => handleClick(item)}
             iconLeftStyle={`${item.menuLeftIcon ? "p-[10px_12px]" : ""} `}
             wannaChangRightIcon={true}
+            data-testid="close-icon"
           />
           {handleFind(item) &&
             (item.navComponent ? (
@@ -104,8 +104,7 @@ export const Sidebar = forwardRef<HTMLDivElement, Prop>(
             Obj.submenu?.map((item) => (
               <Box
                 className="w-full pl-4 flex items-center justify-center flex-col mb-[4px] gap-[4px]"
-                key={item.menus}
-              >
+                key={item.menus}>
                 {commonCode(item)}
               </Box>
             ))}
@@ -113,9 +112,17 @@ export const Sidebar = forwardRef<HTMLDivElement, Prop>(
       );
     };
     return (
-      <Box ref={ref} className={cn(navBarStyles(), className)} {...props}>
+      <Box
+        ref={ref}
+        className={cn(navBarStyles(), className)}
+        {...props}>
         <Box className="flex justify-between px-2">
-          <IconButton iconUrl={close} className="p-0" onClick={handleClose} />
+          <IconButton
+            // iconUrl={close}
+            className="p-0"
+            onClick={handleClose}
+            data-testid="close-button"
+          />
           {LogoIcon !== "" ? (
             <LogoImg logo={LogoIcon} />
           ) : (
@@ -124,10 +131,16 @@ export const Sidebar = forwardRef<HTMLDivElement, Prop>(
         </Box>
         {!userLogedIn && (
           <Box className="p-[10px_12px] bg-[#EBE3E0] flex items-center rounded-[8px]">
-            <Text as="p" className="text-[14px] font-[500]">
+            <Text
+              as="p"
+              className="text-[14px] font-[500]">
               Hey, Let’s Get Started
             </Text>
-            <Button className="bg-[#3F271E] w-[85px]" onClick={handleLogin}>Login</Button>
+            <Button
+              className="bg-[#3F271E] w-[85px]"
+              onClick={handleLogin}>
+              Login
+            </Button>
           </Box>
         )}
         <Box className={`w-full block`}>
@@ -136,8 +149,7 @@ export const Sidebar = forwardRef<HTMLDivElement, Prop>(
               navItem?.map((item) => (
                 <Box
                   className="w-full flex items-center justify-center flex-col mb-[4px] gap-[4px]"
-                  key={item.menus}
-                >
+                  key={item.menus}>
                   {commonCode(item)}
                 </Box>
               ))}

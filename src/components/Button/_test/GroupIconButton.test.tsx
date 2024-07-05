@@ -2,6 +2,7 @@ import { render, screen } from "@testing-library/react";
 import { GroupIconButton } from "../GroupIconButton";
 import "@testing-library/jest-dom";
 import { ButtonDirection } from "../type";
+import { Translations } from "@/components/translations";
 
 describe("GroupIconButton component", () => {
   test("should render the icon div", () => {
@@ -13,12 +14,14 @@ describe("GroupIconButton component", () => {
   test("should render children correctly", () => {
     render(
       <GroupIconButton>
-        <h1>Hello Child!</h1>
-        <div data-testid="child2">I am Child!</div>
+        <h1>{Translations.TestText1}</h1>
+        <div data-testid="child2">{Translations.TestText2}</div>
       </GroupIconButton>
     );
 
-    const childElement1 = screen.getByRole("heading", { name: "Hello Child!" });
+    const childElement1 = screen.getByRole("heading", {
+      name: Translations.TestText1,
+    });
     const childElement2 = screen.getByTestId("child2");
 
     expect(childElement1).toBeInTheDocument();
@@ -51,11 +54,9 @@ describe("GroupIconButton component", () => {
   });
 
   test("should apply a custom class if passed", () => {
-    render(
-      <GroupIconButton className="test-class1 test-class2, test-class3" />
-    );
+    render(<GroupIconButton className="test-class1 test-class2 test-class3" />);
 
     const divElement = screen.getByTestId("groupicon");
-    expect(divElement).toHaveClass("test-class1 test-class2, test-class3");
+    expect(divElement).toHaveClass("test-class1 test-class2 test-class3");
   });
 });

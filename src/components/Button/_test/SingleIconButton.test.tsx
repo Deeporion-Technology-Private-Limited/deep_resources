@@ -1,23 +1,26 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import { IconButton } from "../SingleIconButton/index";
 import "@testing-library/jest-dom";
+import { Translations } from "@/components/translations";
 
 describe("SingleIconButton", () => {
   test("should render a button", () => {
-    render(<IconButton>Click Me</IconButton>);
-    const buttonElement = screen.getByRole("button", { name: "Click Me" });
+    render(<IconButton>{Translations.ClickMe}</IconButton>);
+    const buttonElement = screen.getByRole("button", {
+      name: Translations.ClickMe,
+    });
     expect(buttonElement).toBeInTheDocument();
   });
 
   test("should render an icon image inside button", () => {
-    render(<IconButton iconUrl="/dummyIcon.png" />);
+    render(<IconButton iconUrl={Translations.TestImageUrl} />);
     const iconImageElement = screen.getByAltText("Icon");
     expect(iconImageElement).toBeInTheDocument();
   });
 
   test("should execute onClick event handler function", () => {
     const onMockFn = jest.fn();
-    render(<IconButton onClick={onMockFn}>Click Me</IconButton>);
+    render(<IconButton onClick={onMockFn}>{Translations.ClickMe}</IconButton>);
 
     const buttonElement = screen.getByTestId("click-me");
     fireEvent.click(buttonElement);

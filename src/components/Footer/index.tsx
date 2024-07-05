@@ -2,7 +2,7 @@ import { cn } from "@/utils";
 import { VariantProps, cva } from "class-variance-authority";
 import { ComponentProps, forwardRef } from "react";
 import { Box, Button, IconButton, Text } from "@/components";
-import mail from "../Header/navbarIcons/mail.svg"
+// import mail from "../Header/navbarIcons/mail.svg"
 import { CoreCustomerProps } from "./footerInterface";
 
 const navBarStyles = cva([
@@ -39,12 +39,14 @@ export const Footer = forwardRef<HTMLDivElement, CustomerProps>(
     ref
   ) => {
     return (
-      <Box ref={ref} className={cn(navBarStyles({ className }))} {...props}>
+      <Box
+        ref={ref}
+        className={cn(navBarStyles({ className }))}
+        {...props}>
         {Object.keys(heading).length > 0 && (
           <Text
             as="p"
-            className={`${heading.titleStyle ? heading.titleStyle : "text-[14px]"} mb-[15px] font-[600] ${!heading.titleColor ? (footerTextColor ? `text-[${footerTextColor}` : "gray") : `text-[${heading.titleColor}`}] tracking-[.8px]`}
-          >
+            className={`${heading.titleStyle ? heading.titleStyle : "text-[14px]"} mb-[15px] font-[600] ${!heading.titleColor ? (footerTextColor ? `text-[${footerTextColor}` : "gray") : `text-[${heading.titleColor}`}] tracking-[.8px]`}>
             {heading.title}
           </Text>
         )}
@@ -53,9 +55,10 @@ export const Footer = forwardRef<HTMLDivElement, CustomerProps>(
             <ul className={`${innerUlClass} list-none`}>
               {list?.map((item) => (
                 <li
-                  className={`${innerLiClass} text-[12px] mb-[20px] text-[${footerTextColor ? footerTextColor : "black"}]`}
-                >
-                  <a href={item.href} className="">
+                  className={`${innerLiClass} text-[12px] mb-[20px] text-[${footerTextColor ? footerTextColor : "black"}]`}>
+                  <a
+                    href={item.href}
+                    className="">
                     {item.name}
                   </a>
                 </li>
@@ -66,9 +69,10 @@ export const Footer = forwardRef<HTMLDivElement, CustomerProps>(
             services?.map((item) => (
               <Text
                 as="p"
-                className={`mb-[20px] text-[13px] tracking-[.8px] text-[${footerTextColor ? footerTextColor : "black"}]`}
-              >
-                <Text as="b" className="text-[13px]">
+                className={`mb-[20px] text-[13px] tracking-[.8px] text-[${footerTextColor ? footerTextColor : "black"}]`}>
+                <Text
+                  as="b"
+                  className="text-[13px]">
                   {item.name}
                 </Text>
                 {": "}
@@ -78,19 +82,28 @@ export const Footer = forwardRef<HTMLDivElement, CustomerProps>(
           {newsLetter && (
             <Box className="flex relative mb-[20px] p-[8px] rounded-[12px] gap-[11px] bg-[#fff]">
               <Box className="flex gap-[8px]">
-                <IconButton iconUrl={mail}/>
-                <input type="text" value={value} placeholder="Subscribe the newsletter" className="outline-none w-[160px]" onChange={handleInput}/>
+                {/* <IconButton iconUrl={mail}/> */}
+                <input
+                  type="text"
+                  value={value}
+                  placeholder="Subscribe the newsletter"
+                  className="outline-none w-[160px]"
+                  onChange={handleInput}
+                />
               </Box>
               <Box>
-                <Button className="bg-[#3F271E]" onClick={handleSubscribe}>Subscribe</Button>
+                <Button
+                  className="bg-[#3F271E]"
+                  onClick={handleSubscribe}>
+                  Subscribe
+                </Button>
               </Box>
             </Box>
           )}
           {description !== "" && (
             <Text
               as="p"
-              className={` ${descriptionClass} mb-[15px] tracking-[.8px] text-[13px] text-[${footerTextColor ? footerTextColor : "black"}]`}
-            >
+              className={` ${descriptionClass} mb-[15px] tracking-[.8px] text-[13px] text-[${footerTextColor ? footerTextColor : "black"}]`}>
               {description}
             </Text>
           )}
@@ -98,7 +111,11 @@ export const Footer = forwardRef<HTMLDivElement, CustomerProps>(
             <Box className="justify-start flex">
               {links.map((item) => (
                 <>
-                  <IconButton iconUrl={item.iconUrl} className="w-fit p-[5px]" onClick={item.onClick}/>
+                  <IconButton
+                    iconUrl={item.iconUrl}
+                    className="w-fit p-[5px]"
+                    onClick={item.onClick}
+                  />
                 </>
               ))}
             </Box>

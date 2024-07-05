@@ -64,7 +64,7 @@ const ProfileAvatar = forwardRef<HTMLDivElement, ProfileAvatarProps>(
       bgImgColor = "",
       className = "",
       textColor = "white",
-      size=ButtonSize.Medium,
+      size = ButtonSize.Medium,
       ...props
     },
     ref
@@ -87,7 +87,7 @@ const ProfileAvatar = forwardRef<HTMLDivElement, ProfileAvatarProps>(
               color: textColor,
             }}
             {...props}
-          >
+            data-testid="size">
             {profileName(name)}
           </Box>
         )}

@@ -2,6 +2,7 @@ import { render, screen } from "@testing-library/react";
 import { Button } from "../DefaultButton";
 import { ButtonVariant } from "../type";
 import "@testing-library/jest-dom";
+import { Translations } from "@/components/translations";
 
 describe("DefaultButton", () => {
   // should render a button without a children
@@ -13,9 +14,9 @@ describe("DefaultButton", () => {
 
   // should render a button with a dummy children text "Hello"
   test("should render the button with a dummy children text", () => {
-    render(<Button>Hello</Button>);
+    render(<Button>{Translations.ClickMe}</Button>);
     const buttonElement = screen.getByRole("button");
-    expect(buttonElement).toHaveTextContent("Hello");
+    expect(buttonElement).toHaveTextContent(Translations.ClickMe);
   });
 
   // should render correct color classes for background & text
@@ -33,9 +34,11 @@ describe("DefaultButton", () => {
     expect(buttonElement).toHaveClass("bg-[#EBE3E0] text-[#3F271E]");
   });
 
-  test("should have a desabled background bg-[#E8EBED] and text color text-[#72787F] classes", () => {
-    render(<Button disabled>Click Me</Button>);
-    const buttonElement = screen.getByRole("button", { name: "Click Me" });
+  test("should have a disabled background bg-[#E8EBED] and text color text-[#72787F] classes", () => {
+    render(<Button disabled>{Translations.ClickMe}</Button>);
+    const buttonElement = screen.getByRole("button", {
+      name: Translations.ClickMe,
+    });
     expect(buttonElement).toHaveClass("text-[#72787F] bg-[#E8EBED]");
   });
 });

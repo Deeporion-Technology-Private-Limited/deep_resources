@@ -14,7 +14,9 @@ import NotificationData from "@/components/Data/NotificationSettingsData";
   
    return(
     <>
-    <NotificationData setInitialState={setInitialState}/>
+   <div className="w-[95vw]">
+   <NotificationData setInitialState={setInitialState}/>
+   </div>
     </>
 )
 }

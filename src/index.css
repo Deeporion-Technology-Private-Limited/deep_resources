@@ -72,3 +72,7 @@ body::-webkit-scrollbar {
 .scrollbar-white::-webkit-scrollbar {
   display: none;
 }
+
+.sb-show-main.sb-main-centered #storybook-root{
+  margin: 0;
+}

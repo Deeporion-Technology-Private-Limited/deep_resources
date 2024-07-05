@@ -15,7 +15,7 @@ const Heading = forwardRef<HTMLDivElement, heading>(
     ref
   ) => {
     return (
-      <Box className={`flex items-center justify-between w-full h-full p-5 ${className}`} ref={ref}>
+      <Box className={`flex items-center justify-between w-full h-fit p-5 ${className}`} ref={ref}>
         <Box>{headingItem}</Box>
         <Box>
           <Box className="flex items-center">

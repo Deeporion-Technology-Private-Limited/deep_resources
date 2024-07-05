@@ -116,3 +116,79 @@ export const data = [
     },
 
 ]
+
+export const data2 = [
+    {
+        "OrderId": "#272",
+        "Products": <Profile data={profileDetails[0]} />,
+        "Customer Name": "Tessa Rain",
+        "Contact Number": "985674839",
+        "Address":  "1/0 Malviya Nagar",
+        "Order Placed": "4/25/2024",
+        "Status": <Box className="rounded-2xl bg-yellow-50 text-yellow-500 p-[4px_12px] text-center ">Pending</Box>
+    },
+    {
+        "OrderId": "#272",
+        "Products": <Profile data={profileDetails[1]} />,
+        "Customer Name": "Tessa Rain",
+        "Contact Number": "985674839",
+        "Address":  "1/0 Malviya Nagar",
+        "Order Placed": "4/25/2024",
+        "Status": <Box className="rounded-2xl bg-yellow-50 text-yellow-500  p-[4px_12px] text-center ">Pending</Box>
+    },
+    {
+        "OrderId": "#272",
+        "Products": <Profile data={profileDetails[2]} />,
+        "Customer Name": "Tessa Rain",
+        "Contact Number": "985674839",
+        "Address":  "1/0 Malviya Nagar",
+        "Order Placed": "4/25/2024",
+        "Status": <Box className="rounded-2xl bg-yellow-50 text-yellow-500  p-[4px_12px] text-center ">Pending</Box>
+    },
+    {
+        "OrderId": "#272",
+        "Products": <Profile data={profileDetails[3]} />,
+        "Customer Name": "Tessa Rain",
+        "Contact Number": "985674839",
+        "Address":  "1/0 Malviya Nagar",
+        "Order Placed": "4/25/2024",
+        "Status": <Box className="rounded-2xl  bg-yellow-50 text-yellow-500  p-[4px_12px] text-center ">Pending</Box>
+    },
+    {
+        "OrderId": "#272",
+        "Products": <Profile data={profileDetails[4]} />,
+        "Customer Name": "Tessa Rain",
+        "Contact Number": "985674839",
+        "Address":  "1/0 Malviya Nagar",
+        "Order Placed": "4/25/2024",
+        "Status": <Box className="rounded-2xl  bg-yellow-50 text-yellow-500  p-[4px_12px] text-center ">Pending</Box>
+    },
+    {
+        "OrderId": "#272",
+        "Products": <Profile data={profileDetails[5]} />,
+        "Customer Name": "Tessa Rain",
+        "Contact Number": "985674839",
+        "Address":  "1/0 Malviya Nagar",
+        "Order Placed": "4/25/2024",
+        "Status": <Box className="rounded-2xl  bg-yellow-50 text-yellow-500  p-[4px_12px] text-center ">Pending</Box>
+    },
+    {
+        "OrderId": "#272",
+        "Products": <Profile data={profileDetails[6]} />,
+        "Customer Name": "Tessa Rain",
+        "Contact Number": "985674839",
+        "Address":  "1/0 Malviya Nagar",
+        "Order Placed": "4/25/2024",
+        "Status": <Box className="rounded-2xl  bg-yellow-50 text-yellow-500  p-[4px_12px] text-center ">Pending</Box>
+    },
+    {
+        "OrderId": "#272",
+        "Products": <Profile data={profileDetails[7]} />,
+        "Customer Name": "Tessa Rain",
+        "Contact Number": "985674839",
+        "Address":  "1/0 Malviya Nagar",
+        "Order Placed": "4/25/2024",
+        "Status": <Box className="rounded-2xl  bg-yellow-50 text-yellow-500  p-[4px_12px] text-center ">Pending</Box>
+    },
+
+]

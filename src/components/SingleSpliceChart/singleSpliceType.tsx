@@ -1,4 +1,3 @@
 export enum singleSpliceType {
-      SingleLineChart  = "Singe Line Chart"
-
+  SingleLineChart = "Singe Line Chart",
 }

@@ -21,8 +21,7 @@ const Heading = forwardRef<HTMLDivElement, heading>(
           <Box className="flex items-center">
             <ProfileAvatar
               className="rounded-full h-12 w-12"
-              src={imageSrc}
-            />
+              src={imageSrc} name={""}  />
             <IconButton
               iconUrl={notification}
               onClick={handleNotification}

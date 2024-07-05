@@ -13,7 +13,7 @@ interface Barprop
     }
 
 export const BarChart = forwardRef<HTMLDivElement, Barprop>(
-  ({ svgW,svgH,dYMax,data,...props }, ref) => {
+  ({ svgW,svgH,dYMax,data }) => {
     const SVG_WIDTH = svgW;
   const SVG_HEIGHT = svgH;
   const x0 = 50;
@@ -34,7 +34,7 @@ export const BarChart = forwardRef<HTMLDivElement, Barprop>(
   const barPlotWidth = xAxisLength / data.length;
 
   return (
-    <svg width={SVG_WIDTH} height={SVG_HEIGHT}>
+    <svg width={SVG_WIDTH} height={SVG_HEIGHT} >
       {/* X axis */}
       <line
         x1={x0}
@@ -43,6 +43,7 @@ export const BarChart = forwardRef<HTMLDivElement, Barprop>(
         y2={xAxisY}
         stroke="grey"
         strokeWidth=".2"
+        
       />
       {Array.from({ length: numYTicks }).map((_, index) => {
         const y = y0 + index * (yAxisLength / numYTicks);

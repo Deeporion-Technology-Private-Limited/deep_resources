@@ -1,19 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import notification from "../navbarIcons/notification.svg";
-import fav from "../navbarIcons/favorite.svg";
-import cart from "../navbarIcons/shoping_cart.svg";
-import setting from "../navbarIcons/settings.svg";
+
 import profile from "../navbarIcons/image.png";
 
 import log from "../navbarIcons/logo.svg";
-import { NavItems, SideNavbar } from ".";
+import {SideNavbar } from ".";
 import { NavbarDirection } from "../type";
-import {
-  Cart,
-  Favourite,
-  Notification,
-  Setting,
-} from "@/components/MenuItem/Icon/icon";
+
+import { navItemDetail } from "./sidenavbarconst";
 
 const meta: Meta<typeof SideNavbar> = {
   title: "Components/Header/SideNavbar",
@@ -31,39 +24,6 @@ const profileDetail = {
   profilePicture: profile,
 };
 
-const navItemDetail: NavItems[] = [
-  {
-    menuIconComponent: <Favourite />,
-    menuIcon: fav,
-    menus: "Favourite",
-    submenu: [
-      {
-        menus: "fav1",
-      },
-      { menus: "fav2" },
-      {
-        menus: "fav3",
-        submenu: [
-          {
-            menus: "fav3 to 1",
-          },
-          { menus: "fav3 to 2" },
-          {
-            menus: "fav3 to 3",
-          },
-        ],
-      },
-    ],
-  },
-  {
-    menuIconComponent: <Notification />,
-    menuIcon: notification,
-    menus: "Notifications",
-  },
-  { menuIconComponent: <Cart />, menuIcon: cart, menus: "Cart" },
-  { menuIconComponent: <Setting />, menuIcon: setting, menus: "Setting" },
-];
-
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
@@ -72,6 +32,7 @@ export const Default: Story = {
     direction: NavbarDirection.Column,
     navItem: navItemDetail,
     profileItem: profileDetail,
+    showProfile: true,
   },
 };
 
@@ -82,6 +43,7 @@ export const LogedIn: Story = {
     navItem: navItemDetail,
     isLogin: true,
     profileItem: profileDetail,
+    showProfile: true,
   },
 };
 
@@ -93,6 +55,7 @@ export const WithLogoIcon: Story = {
     isLogin: true,
     LogoIcon: log,
     profileItem: profileDetail,
+    showProfile: true,
   },
 };
 
@@ -105,20 +68,20 @@ export const WithMenuItemName: Story = {
     LogoIcon: log,
     showNavItemName: true,
     profileItem: profileDetail,
+    showProfile: true,
   },
 };
 
 export const LargeSideBar: Story = {
   args: {
     title: "Logo",
+    className: "min-w-[260px]",
     direction: NavbarDirection.Column,
     navItem: navItemDetail,
     isLogin: true,
     LogoIcon: log,
     showNavItemName: true,
-    profileItem: profileDetail,
     largeSidebar: true,
-    hover: false,
   },
 };
 
@@ -133,5 +96,6 @@ export const HoverSideBar: Story = {
     profileItem: profileDetail,
     largeSidebar: false,
     hover: true,
+    showProfile: true,
   },
 };

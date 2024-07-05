@@ -1,12 +1,12 @@
 import { Box, Stack, Input, Button, Text } from "@/components";
 import { ButtonVariant } from "@/components/Button/type";
-import CloseEye from "@/components/Input/Icons/CloseEye";
-import OpenEye from "@/components/Input/Icons/OpenEye";
 import { InputType, InputVariant, Placeholder } from "@/components/Input/type";
 import { TextWeight, TextSize } from "@/utils/style";
 import { Login } from "./type";
 import background from "../../images/backimage.png";
 import { useState } from "react";
+import CloseEye from "@/images/InputIcons/CloseEye";
+import OpenEye from "@/images/InputIcons/OpenEye";
 
 const NewPassword = () => {
   const [password, setPassword] = useState("");

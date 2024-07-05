@@ -107,7 +107,7 @@ const Cart = forwardRef<HTMLDivElement, CardItem>(({ item,handleCart }, ref)  =>
   return (
     <Box ref={ref}>
       <Box className="flex flex-col lg:flex-row p-5 w-full justify-between gap-10 lg:gap-10">
-        <Box className="flex flex-col gap-5 shadow-lg w-full lg:w-[60%]">
+        <Box className="flex flex-col gap-5 shadow-lg w-full lg:w-[65%]">
           {item?.map((value: CardObj) => (
             <QuantityCard
               imageStyle="w-full lg:w-[15rem] h-full rounded-lg"
@@ -115,7 +115,7 @@ const Cart = forwardRef<HTMLDivElement, CardItem>(({ item,handleCart }, ref)  =>
               price={3900}
               isQuantity={true}
               isReturn={true}
-              className="lg:h-[18rem] h-fit w-full lg:w-[60rem] p-8"
+              className="lg:h-[18rem] h-fit w-full p-8"
               quantityOptions={[1, 2, 3, 4]}
               sizeOptions={["S", "M", "L", "Xl", "2Xl", "3Xl", "4Xl", "5Xl"]}
               imageSrc={value.imageSrc}

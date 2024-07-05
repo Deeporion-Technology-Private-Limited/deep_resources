@@ -31,10 +31,11 @@ type IconButtonProps = ComponentProps<"button"> & VariantProps<typeof IconButton
   className?: string;
   direction?: ButtonDirection;
   children?: React.ReactNode;
+  iconStyle?:string;
 };
 
 export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
-  ({ iconUrl, text, backgroundColor, className,children, direction = ButtonDirection.Row, ...props }, ref) => {
+  ({ iconUrl, text, backgroundColor, className,children,iconStyle, direction = ButtonDirection.Row, ...props }, ref) => {
 
     return (
       <button
@@ -50,6 +51,6 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
         {text}
         {children}
       </button>
-    );
+    ); 
   }
 );

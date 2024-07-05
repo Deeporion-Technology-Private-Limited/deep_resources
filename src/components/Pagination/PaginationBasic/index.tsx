@@ -6,6 +6,7 @@ import Right from "../icon/Right.svg";
 import { Box, Text } from "@/components";
 import { ButtonSize } from "@/components/Button/type";
 import { Color, Shape, Variants } from "../type";
+
 const paginationContainerStyles = cva(
   "flex items-center justify-center space-x-2",
   {

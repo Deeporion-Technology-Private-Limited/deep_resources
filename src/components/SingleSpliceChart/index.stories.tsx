@@ -25,6 +25,6 @@ export const Default: Story = {
     region: "Region1",
     curveLineColor: "#EC4899",
     gradientStartColor: "rgba(236, 72, 153, 0.3)",
-    gradientEndColor: "rgba(236, 72, 153, 0)"
+    gradientEndColor: "rgba(236, 72, 153, 0)",
   },
 };

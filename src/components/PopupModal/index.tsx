@@ -48,7 +48,9 @@ interface ModalPropss {
   handleClose?: () => void;
 }
 
-type ModalProps = ModalPropss & ComponentProps<"div"> & VariantProps<typeof modalStyles>;
+type ModalProps = ModalPropss &
+  ComponentProps<"div"> &
+  VariantProps<typeof modalStyles>;
 export const Modal = forwardRef<HTMLDivElement, ModalProps>(
   ({
     button02,
@@ -76,7 +78,7 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(
             variant={ButtonVariant.DefaultPrimary}
             size={ButtonSize.Small}
             onClick={toggleMenu}
-            test-id = "ToggleBtn"
+            test-id="ToggleBtn"
           >
             Open Modal
           </Button>
@@ -85,12 +87,11 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(
         {isOpen && (
           <div
             className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-40 overflow-y-auto z-[9999]"
-           
             onClick={toggleMenu}
           >
             <div
               className="bg-white  p-8 rounded overflow-auto my-auto  rounded-br-3xl shadow-md min-w-max md:max-w-7xl w-6/12 flex flex-col"
-               data-testid="Open-toggle"
+              data-testid="Open-toggle"
               onClick={(e) => e.stopPropagation()}
             >
               <Box className="flex justify-between">
@@ -101,7 +102,7 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(
                       toggleMenu();
                       handleClose ? handleClose() : null;
                     }}
-                     data-testid="close-icon"
+                    data-testid="close-icon"
                     className="cursor-pointer"
                   >
                     <CloseIcon />
@@ -118,7 +119,7 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(
                     className="w-1/4 mr-2 ml-2"
                     variant={ButtonVariant.DefaultPrimary}
                     onClick={toggleMenu}
-                      data-testid="button01"
+                    data-testid="button01"
                   >
                     button
                   </Button>
@@ -130,7 +131,7 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(
                     size={ButtonSize.Small}
                     className="w-1/4 mr-2 ml-2"
                     onClick={toggleMenu}
-                       data-testid="button02"
+                    data-testid="button02"
                   >
                     button
                   </Button>

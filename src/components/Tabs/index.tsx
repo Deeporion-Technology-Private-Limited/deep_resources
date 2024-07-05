@@ -5,7 +5,7 @@ import { cn } from "@/utils";
 
 const Tabs = forwardRef<HTMLDivElement, TabsProps>(
   ({ tabs, className }, ref) => {
-    const [activeTabIndex, setActiveTabIndex] = useState(0);
+    const [activeTabIndex, setActiveTabIndex] = useState<number>(0);
 
     return (
       <Box className={cn(Tabstyles(), className)} ref={ref}>

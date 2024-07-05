@@ -1,6 +1,11 @@
-
 import type { Meta, StoryObj } from "@storybook/react";
-import { Skeleton, SkeletonImage, SkeletonLayout, SkeletonLoginForm, SkeletonShoppingCard } from ".";
+import {
+  Skeleton,
+  SkeletonImage,
+  SkeletonLayout,
+  SkeletonLoginForm,
+  SkeletonShoppingCard,
+} from ".";
 import { ButtonSize, SkeletonVariant } from "../Button/type";
 
 const meta: Meta<typeof Skeleton> = {
@@ -12,11 +17,15 @@ const meta: Meta<typeof Skeleton> = {
   tags: ["autodocs"],
   argTypes: {
     variant: {
-      control: 'select',
-      options: [SkeletonVariant.Circle, SkeletonVariant.Text, SkeletonVariant.Card],
+      control: "select",
+      options: [
+        SkeletonVariant.Circle,
+        SkeletonVariant.Text,
+        SkeletonVariant.Card,
+      ],
     },
     size: {
-      control: 'select',
+      control: "select",
       options: [ButtonSize.Small, ButtonSize.Medium, ButtonSize.Large],
     },
   },

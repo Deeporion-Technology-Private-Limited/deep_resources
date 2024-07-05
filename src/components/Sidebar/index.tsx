@@ -20,7 +20,6 @@ const navBarStyles = cva([
   "w-[320px] bg-[#D7C7C1] p-[30px_12px] min-h-screen flex flex-col gap-[30px] scrollbar-white",
 ]);
 
-
 interface Prop
   extends SidbarProps,
     ComponentProps<typeof Box>,

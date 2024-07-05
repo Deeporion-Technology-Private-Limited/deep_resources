@@ -33,9 +33,9 @@ type StepperProps = {
 
 const Stepper = forwardRef<HTMLDivElement, StepperProps>((props, ref) => {
   const { steps } = props;
-  const [activeStep, setActiveStep] = useState(0);
+  const [activeStep, setActiveStep] = useState<number>(0);
   const [skipped, setSkipped] = useState(new Set<number>());
-  const [submissionCompleted, setSubmissionCompleted] = useState(false);
+  const [submissionCompleted, setSubmissionCompleted] = useState<boolean>(false);
 
   const isStepOptional = (step: number) => {
     return step === 1;

@@ -1,6 +1,7 @@
 import React, { useState, forwardRef, useRef } from 'react';
 import { VariantProps, cva } from 'class-variance-authority';
 import { cn } from '@/utils';
+import { PositionType } from './type';
 
 const tooltipStyles = cva(
     [
@@ -13,22 +14,68 @@ const tooltipStyles = cva(
         "text-black",
         "shadow-lg",
         "absolute",
-        "z-10"
-
-    ]
+        "z-10",
+    ],
+    {
+        variants: {
+            type: {
+                [PositionType.Top]: "",
+                [PositionType.Bottom]: "",
+                [PositionType.Left]: "",
+                [PositionType.Right]: "",
+            },
+        },
+        defaultVariants: {
+            type: PositionType.Top,
+        },
+        compoundVariants: [
+            {
+                type: PositionType.Top,
+                className: "transform -translate-x-1/2 left-1/2 bottom-full mb-2",
+            },
+            {
+                type: PositionType.Bottom,
+                className: "transform -translate-x-1/2 left-1/2 top-full mt-2",
+            },
+            {
+                type: PositionType.Left,
+                className: "transform -translate-y-1/2 top-1/2 right-full mr-2",
+            },
+            {
+                type: PositionType.Right,
+                className: "transform -translate-y-1/2 top-1/2 left-full ml-2",
+            },
+        ],
+    }
 );
+
+const arrowClasses = (placement?: PositionType) => {
+    const baseArrowClasses = "absolute w-0 h-0 border-8";
+    switch (placement) {
+        case PositionType.Top:
+            return `${baseArrowClasses} border-t-slate-300 border-transparent border-b-0 bottom-[-8px] left-1/2 transform -translate-x-1/2`;
+        case PositionType.Bottom:
+            return `${baseArrowClasses} border-b-slate-300 border-transparent border-t-0 top-[-8px] left-1/2 transform -translate-x-1/2`;
+        case PositionType.Left:
+            return `${baseArrowClasses} border-l-slate-300 border-transparent border-r-0 right-[-8px] top-1/2 transform -translate-y-1/2`;
+        case PositionType.Right:
+            return `${baseArrowClasses} border-r-slate-300 border-transparent border-l-0 left-[-8px] top-1/2 transform -translate-y-1/2`;
+        default:
+            return `${baseArrowClasses} border-b-slate-300 border-transparent border-t-0 top-[-8px] left-1/2 transform -translate-x-1/2`; // default to bottom
+    }
+};
 
 interface TooltipProps extends VariantProps<typeof tooltipStyles> {
     content: string;
     children: React.ReactNode;
-    placement?: 'top' | 'bottom' | 'left' | 'right';
+    placement?: PositionType;
     arrow?: boolean;
     trigger: "click" | "hover";
     className?: string;
 }
 
 const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
-    ({ children, content = "tooltip", placement, arrow = false, trigger, className, ...props }, ref) => {
+    ({ children, content = "tooltip", placement = PositionType.Top, arrow = false, trigger, className, ...props }, ref) => {
         const [visible, setVisible] = useState(false);
         const timeoutRef = useRef<number | null>(null);
 
@@ -59,11 +106,11 @@ const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
         };
 
         return (
-            <div className="relative " onMouseLeave={trigger === 'hover' ? hideTooltip : undefined}>
+            <div className="relative" onMouseLeave={trigger === 'hover' ? hideTooltip : undefined}>
                 <div
                     onMouseEnter={trigger === 'hover' ? showTooltip : undefined}
                     onClick={trigger === 'click' ? toggleTooltip : undefined}
-                    className="inline-flex"
+                    className="inline-flex cursor-pointer"
                 >
                     {children}
                 </div>
@@ -72,50 +119,17 @@ const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
                     <div>
                         <div
                             ref={ref}
-                            className={cn(tooltipStyles({ className }), placementClasses(placement))}
+                            className={cn(tooltipStyles({ type: placement }), className)}
                             {...props}
                         >
                             {content}
                             {arrow && <div className={arrowClasses(placement)} />}
                         </div>
                     </div>
-
                 )}
             </div>
         );
     }
 );
-
-const placementClasses = (placement?: TooltipProps['placement']) => {
-    const baseClasses = "transform -translate-x-1/2 left-1/2";
-    switch (placement) {
-        case 'top':
-            return `${baseClasses} bottom-full mb-2 translate-y-0`;
-        case 'bottom':
-            return `${baseClasses} top-full mt-2 translate-y-0`;
-        case 'left':
-            return `transform -translate-y-1/2 top-1/2 right-full mr-2 translate-x-0`;
-        case 'right':
-            return `transform -translate-y-1/2 top-1/2 left-full ml-2 translate-x-0`;
-        default:
-            return `${baseClasses} top-full mt-2 translate-y-0`; // default to bottom
-    }
-};
-
-const arrowClasses = (placement?: TooltipProps['placement']) => {
-    const baseArrowClasses = "absolute w-0 h-0 border-8";
-    switch (placement) {
-        case 'top':
-            return `${baseArrowClasses} border-t-slate-300 border-transparent border-b-0 bottom-[-8px] left-1/2 transform -translate-x-1/2`;
-        case 'bottom':
-            return `${baseArrowClasses} border-b-slate-300 border-transparent border-t-0 top-[-8px] left-1/2 transform -translate-x-1/2`;
-        case 'left':
-            return `${baseArrowClasses} border-l-slate-300 border-transparent border-r-0 right-[-8px] top-1/2 transform -translate-y-1/2`;
-        case 'right':
-            return `${baseArrowClasses} border-r-slate-300 border-transparent border-l-0 left-[-8px] top-1/2 transform -translate-y-1/2`;
-        default:
-            return `${baseArrowClasses} border-b-slate-300 border-transparent border-t-0 top-[-8px] left-1/2 transform -translate-x-1/2`; // default to bottom
-    }
-};
 
 export default Tooltip;

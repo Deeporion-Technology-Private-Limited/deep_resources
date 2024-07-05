@@ -77,6 +77,8 @@ export function getConditionalStyles(
     case InputVariant.Outlined:
       styles += " border border-gray-300";
       break;
+
+    // Unreachable code as of now since we are not getting any other variant which is not present in `InputVariant`
     default:
       break;
   }

@@ -3,6 +3,7 @@ import { cva, VariantProps } from "class-variance-authority";
 import { ComponentProps, forwardRef } from "react";
 import { Box } from "@/components";
 import "./circularLoader.css";
+// import "@/components/Loader/CircularLoader/circularLoader.css";
 
 const circularLoadertyles = cva(["flex", "items-center"]);
 

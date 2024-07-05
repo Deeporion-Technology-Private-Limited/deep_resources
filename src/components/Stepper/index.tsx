@@ -80,9 +80,14 @@ const Stepper = forwardRef<HTMLDivElement, StepperProps>((props, ref) => {
               <span className="text-xs text-gray-400">Optional</span>
             );
           }
+
+          // Unreachable "code/Branch" as of now since skipped is empty set and there is no function to update this set.
+          // Start
           if (isStepSkipped(index)) {
             stepProps["aria-completed"] = false;
           }
+          // End
+
           if (index < activeStep || (isLastStep && index === activeStep)) {
             stepProps["aria-completed"] = true;
           }

@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import DashboardAdmin from "./DashboardAdmin";
+import AdminDasboardStory from ".";
 
-const meta: Meta<typeof DashboardAdmin> = {
+const meta: Meta<typeof AdminDasboardStory> = {
   title: "Examples/DashboardAdmin",
-  component: DashboardAdmin,
+  component: AdminDasboardStory,
   parameters: {
     layout: "centered",
   },

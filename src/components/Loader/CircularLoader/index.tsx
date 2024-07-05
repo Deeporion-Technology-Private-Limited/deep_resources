@@ -37,6 +37,7 @@ const CircularLoader = forwardRef<HTMLDivElement, CircularLoaderProps>(
         ref={ref}
         className={cn(circularLoadertyles(), className)}
         {...props}
+        data-testid="circularLoader"
       >
         <div
           style={{

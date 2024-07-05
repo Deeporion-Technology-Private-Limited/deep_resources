@@ -92,6 +92,7 @@ const Paginations = forwardRef<HTMLDivElement, PaginationProps>(
               buttonStyles({ shape, variant, disabled: currentPage === 1 })
             )}
             style={{ width:  customButtonSize, height:  customButtonSize }}
+            data-testid="previousPage"
           >
             <img src={Left}  className={iconStyle}/>
           </button>
@@ -114,6 +115,7 @@ const Paginations = forwardRef<HTMLDivElement, PaginationProps>(
               })
             )}
             style={{ width:  customButtonSize, height:  customButtonSize }}
+            data-testid="nextPage"
           >
             <img src={Right} className={iconStyle} />
           </button>

@@ -6,7 +6,7 @@ import right from "./notificationIcon/right.svg";
 import dot from "./notificationIcon/threedot.svg";
 import { NotificationProp, singleNotification } from "./notificationConst";
 
-const notificationStyle = cva(["w-full px-[60px] bg-[#F7F8F9]"]);
+const notificationStyle = cva(["w-full px-[60px] max-[620px]:px-[0px] bg-[#F7F8F9]"]);
 
 interface NotifyProps
   extends NotificationProp,
@@ -15,17 +15,22 @@ interface NotifyProps
 
 export const Notification = forwardRef<HTMLDivElement, NotifyProps>(
   ({ value=[], className, ...props }, ref) => {
-    const [initailValue] = useState<singleNotification[]>(value)
+    const [initailValue, setInitialValue] = useState<singleNotification[]>(value)
+
+    const handleAllread = () => {
+      const updatedValue = initailValue.map((item) => ({...item, isRead: true }));
+      setInitialValue(updatedValue);
+    };
     return (
       <Box ref={ref} className={cn(notificationStyle(), className)} {...props}>
-        <Box className="py-[24px]">
+        <Box className="py-[24px] max-[620px]:px-[10px]">
           <Text as="h1" className="font-bold text-[24px]">
             Notification
           </Text>
         </Box>
-        <Box className="bg-[#fff] px-[24px]">
+        <Box className="bg-[#fff] px-[24px] max-[620px]:px-[10px]">
           <Box className=" w-full p-[16px_8px] flex justify-end border-b-[1px] border-[#C9CDD2]">
-            <Box className="flex gap-2">
+            <Box className="flex gap-2 cursor-pointer" onClick={handleAllread}>
               <img src={right} />
               <Text className="text-[#334155] font-bold text-[14px]">
                 Mark all as read
@@ -46,7 +51,7 @@ export const Notification = forwardRef<HTMLDivElement, NotifyProps>(
                     <Box className="w-full">
                       <Text as="h2" className="text-[14px] font-bold text-[#26282B] flex items-center gap-2">
                         {item.title}
-                        {item.isRead && (
+                        {!item.isRead && (
                           <Box className="w-[10px] h-[10px] rounded-full bg-[#26282B]"></Box>
                         )}
                       </Text>

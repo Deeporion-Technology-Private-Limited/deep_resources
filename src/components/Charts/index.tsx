@@ -94,7 +94,7 @@ export const Chart = forwardRef<HTMLDivElement, ChartProps>(
 
     const height = 170;
     const maxValue = Math.max(...xAxisValues, ...yAxisValues);
-    const fixedMaxValue = parseFloat(yAxisLabels[0].replace(/[^0-9.]/g, ''));
+    const fixedMaxValue = parseFloat(yAxisLabels[0]?.replace(/[^0-9.]/g, ''));
     
     const mapToFixedYAxis = (values: number[]) => values.map(val => (val / maxValue) * fixedMaxValue);
 
@@ -107,11 +107,12 @@ export const Chart = forwardRef<HTMLDivElement, ChartProps>(
     return (
       <div
         ref={ref}
+         data-testid="chart-container"
         className={cn(chartStyle({ variant, className }))}
         {...props}
       >
         <div className="relative w-[610px] h-[238px]">
-          <svg xmlns="http://www.w3.org/2000/svg" width={width} height={height} viewBox={`0 0 ${width} ${height}`} fill="none" style={{ overflow: 'visible' }}>
+          <svg  data-testid="chart-svg" xmlns="http://www.w3.org/2000/svg" width={width} height={height} viewBox={`0 0 ${width} ${height}`} fill="none" style={{ overflow: 'visible' }}>
             <defs>
               <linearGradient id="gradient1" x1="0" y1="0" x2="0" y2="0.5">
                 <stop offset="0%" stopColor={gradientColor1Start} />

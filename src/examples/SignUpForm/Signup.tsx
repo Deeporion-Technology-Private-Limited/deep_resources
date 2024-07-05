@@ -5,9 +5,9 @@ import { useState } from "react";
 import { ButtonVariant } from "@/components/Button/type";
 import background from "../../images/backimage.png";
 import { SignUp } from "./type";
-import CloseEye from "@/components/Input/Icons/CloseEye";
-import OpenEye from "@/components/Input/Icons/OpenEye";
 import CloseIcon from "@/components/PopupModal/Icons/CloseIcon";
+import CloseEye from "@/images/InputIcons/CloseEye";
+import OpenEye from "@/images/InputIcons/OpenEye";
 
 const Signup = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -132,7 +132,7 @@ const Signup = () => {
                       <Box className="flex justify-center items-center pb-4">
                         <Text
                           weight={TextWeight.Bold}
-                          className="text-[#26282B] 
+                          className="text-[#26282B]
                           "
                         >
                           {SignUp.Terms}

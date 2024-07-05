@@ -28,6 +28,7 @@ export enum Placeholder {
   Input = "Enter Something",
   Prefix = "Enter Your Values",
   UserName = "Username",
+  Name = "Name",
   YourName = "Your name",
   YourEmail = "Your email",
   YourPassword = "Your password",

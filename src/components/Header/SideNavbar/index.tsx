@@ -14,6 +14,7 @@ import { IconButton } from "@/components";
 import { ButtonDirection } from "@/components/Button/type";
 import { NavbarDirection } from "../type";
 import { MenuItemSize } from "@/components/MenuItem/MenuitemTypes";
+import { DownArrow } from "@/components/MenuItem/Icon/icon";
 
 const navBarStyles = cva(
   [
@@ -46,9 +47,11 @@ const notLogin = {
 export type NavItems = {
   menus: string;
   menuIcon?: string;
-  menuIconComponent?: React.ReactNode;
+  menuLeftIcon?: React.ReactNode;
   path?: string;
   submenu?: NavItems[];
+  navComponent?: React.ReactNode;
+  onClick?: () => void;
 };
 
 export type profile = {
@@ -67,8 +70,10 @@ interface LogoImageProps
   LogoIcon?: string;
   navItem?: NavItems[];
   showNavItemName?: boolean;
-  profileItem: profile;
-  hover: boolean;
+  showProfile?: boolean;
+  profileItem?: profile;
+  logoStyle?: string;
+  hover?: boolean;
   largeSidebar?: boolean;
 }
 
@@ -81,11 +86,13 @@ export const SideNavbar = forwardRef<HTMLDivElement, LogoImageProps>(
       LogoIcon = "",
       direction = NavbarDirection.Column,
       navItem,
-      profileItem,
-      hover,
+      profileItem = {},
+      hover = false,
       showNavItemName = false,
       isLogin = false,
+      showProfile = false,
       largeSidebar,
+      logoStyle="",
       ...props
     },
     ref
@@ -108,7 +115,7 @@ export const SideNavbar = forwardRef<HTMLDivElement, LogoImageProps>(
       } else if (item.submenu && item.submenu.length > 0) {
         setShowSubMenuNavItem([...showSubMenuNavItem, item]);
       } else {
-        alert("there is nothing we can do");
+        item.onClick ? item.onClick :alert("there is nothing we can do");
       }
     };
 
@@ -157,26 +164,35 @@ export const SideNavbar = forwardRef<HTMLDivElement, LogoImageProps>(
       }
     };
 
+    const common = (item: NavItems) => {
+      return (
+        <Box
+          className="w-full flex items-center justify-center flex-col"
+          key={item.menus}
+        >
+          <MenuItem
+            leftIcon={item.menuLeftIcon}
+            rightIcon={(item.navComponent || item.submenu) && <DownArrow />}
+            size={MenuItemSize.Medium}
+            label={item.menus}
+            labelStyle={`${handleFind(item) && "font-[600]"}`}
+            className={`p-[10px_12px] ${item.menuLeftIcon && "p-0"} border-l-[4px]  border-transparent hover:border-[#3F271E] bg-transparent justify-between ${showSubMenuNavItem.some((val) => val.menus === item.menus) ? "bg-[#E8EBED] border-[#3F271E]" : ""} active:bg-[#E8EBED] shadow-none w-full rounded-none`}
+            onClick={() => handleClick(item)}
+            iconLeftStyle={`${item.menuLeftIcon ? "p-[10px_12px]" : ""} `}
+            wannaChangRightIcon={true}
+            
+          />
+          {handleFind(item) && item.submenu && renderSubMenu(item.submenu)}
+        </Box>
+      );
+    };
+
     const renderSubMenu = (submenu: NavItems[]) => {
       return (
-        <Box className="pl-4">
+        <Box className="w-full pl-4">
           {submenu &&
             submenu?.map((item) => (
-              <Box
-                className="w-full flex items-center justify-center flex-col"
-                key={item.menus}
-              >
-                <MenuItem
-                  leftIcon={item.menuIconComponent}
-                  size={MenuItemSize.Medium}
-                  label={item.menus}
-                  className="shadow-none w-full pl-[10px]"
-                  onClick={() => handleClick(item)}
-                />
-                {handleFind(item) &&
-                  item.submenu &&
-                  renderSubMenu(item.submenu)}
-              </Box>
+              common(item)
             ))}
         </Box>
       );
@@ -187,23 +203,23 @@ export const SideNavbar = forwardRef<HTMLDivElement, LogoImageProps>(
         ref={ref}
         className={cn(
           navBarStyles({ direction }),
-          className,
+
           "transition-width duration-300 flex flex-col items-center",
-          largeSidebar && "w-52, items-start",
-          hover && !largeSidebar && " group hover:w-52 hover:items-start"
+          largeSidebar && "w-[260px] items-start",
+          hover && !largeSidebar && " group hover:w-[260px] hover:items-start",
+          className
         )}
         {...props}
       >
         <Box
           className={`w-full flex justify-between gap-16 flex-col h-full 
-            group-hover:items-start px-[10px] ${largeSidebar ? "items-start" : "items-center"}`}
+            group-hover:items-start  ${largeSidebar ? "items-start px-[0px]" : "items-center px-[10px]"}`}
         >
           <Box
-            className={`gap-[28px] w-full flex flex-col justify-center group-hover:items-start
-              ${largeSidebar ? "items-start" : "items-center"}`}
+            className={`gap-[28px] w-full flex flex-col justify-center group-hover:items-start items-center`}
           >
             {LogoIcon !== "" ? (
-              <LogoImg logo={LogoIcon} />
+              <LogoImg logo={LogoIcon} className={logoStyle}/>
             ) : (
               <Logo>{title}</Logo>
             )}
@@ -227,33 +243,18 @@ export const SideNavbar = forwardRef<HTMLDivElement, LogoImageProps>(
             <Box
               className={`group-hover:block w-full ${largeSidebar ? "block" : "hidden"}`}
             >
-              <Box>
-                {navItem &&
-                  navItem?.map((item) => (
-                    <Box
-                      className="w-full flex items-center justify-center flex-col"
-                      key={item.menus}
-                    >
-                      <MenuItem
-                        leftIcon={item.menuIconComponent}
-                        size={MenuItemSize.Medium}
-                        label={item.menus}
-                        className="shadow-none w-full pl-[10px]"
-                        onClick={() => handleClick(item)}
-                      />
-                      {handleFind(item) &&
-                        item.submenu &&
-                        renderSubMenu(item.submenu)}
-                    </Box>
-                  ))}
+              <Box className="flex flex-col gap-[8px]">
+                {navItem && navItem?.map((item) => common(item))}
               </Box>
             </Box>
           </Box>
-          <Box className={`gap-[28px] pl-[0px] flex-col`}>
-            <GroupIconButton direction={ButtonDirection.Column}>
-              {renderProfileSection()}
-            </GroupIconButton>
-          </Box>
+          {showProfile && (
+            <Box className={`gap-[28px] pl-[0px] flex-col`}>
+              <GroupIconButton direction={ButtonDirection.Column}>
+                {renderProfileSection()}
+              </GroupIconButton>
+            </Box>
+          )}
         </Box>
       </Box>
     );

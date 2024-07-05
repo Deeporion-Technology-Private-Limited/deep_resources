@@ -6,7 +6,7 @@ import { InputType as Checkboxinput } from "@/components/Checkbox/CheckboxTypes"
 import ReviewCard from "../Cards/ReviewCard";
 import { LoginForm } from "../../examples/LoginForm/LoginForm";
 
-const meta = {
+const meta: Meta<typeof Modal> = {
   title: "Components/PopupModal/Modal",
   component: Modal,
   parameters: {
@@ -14,7 +14,7 @@ const meta = {
   },
   argTypes: {},
   tags: ["autodocs"],
-} satisfies Meta<typeof Modal>;
+};
 
 export default meta;
 

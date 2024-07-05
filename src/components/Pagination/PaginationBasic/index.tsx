@@ -144,6 +144,7 @@ const Pagination = forwardRef<HTMLDivElement, PaginationProps>(
             })
           )}
           style={{ width: customButtonSize, height: customButtonSize }}
+          data-testid="previouspage"
         >
           <img src={Left} className={iconStyle} />
         </button>
@@ -162,7 +163,7 @@ const Pagination = forwardRef<HTMLDivElement, PaginationProps>(
                     disabled: typeof page === "string" ? true : false,
                   })
                 )}
-                style={{ width: customButtonSize, height: customButtonSize }}
+                style={{ width: customButtonSize, height: customButtonSize }}           
               >
                 {page}
               </button>
@@ -183,6 +184,7 @@ const Pagination = forwardRef<HTMLDivElement, PaginationProps>(
             })
           )}
           style={{ width: customButtonSize, height: customButtonSize }}
+          data-testid="nextPage"
         >
           <img src={Right} className={iconStyle} />
         </button>

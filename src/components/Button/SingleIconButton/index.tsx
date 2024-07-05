@@ -25,7 +25,7 @@ const IconButtonStyles = cva(
 );
 
 type IconButtonProps = ComponentProps<"button"> & VariantProps<typeof IconButtonStyles> & {
-  iconUrl?: string;
+  iconUrl?: string| React.ReactNode ;
   text?: string;
   backgroundColor?: string;
   className?: string;
@@ -42,7 +42,11 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
         className={cn(IconButtonStyles({ direction }), backgroundColor, className)}
         {...props}
       >
-        {iconUrl && <img src={iconUrl} alt="Icon"  />}
+       {typeof iconUrl === 'string' ? (
+        <img src={iconUrl} alt="icon" />
+      ) : (
+        iconUrl
+      )}
         {text}
         {children}
       </button>

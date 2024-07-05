@@ -6,6 +6,7 @@ const CrossIcon = ({ onClick }: { onClick: () => void }) => (
   <div
     onClick={onClick}
     className="cursor-pointer absolute top-1/2 transform -translate-y-1/2 right-6"
+     data-testid="Crossicon"
   >
     <svg
       width="24"
@@ -26,6 +27,7 @@ const DropDownArrowIcon = ({ onClick }: { onClick: () => void }) => (
   <div
     onClick={onClick}
     className="cursor-pointer absolute top-1/2 transform -translate-y-1/2 right-2"
+     data-testid="DropDownArrowIcon"
   >
     <svg
       width="21"
@@ -124,14 +126,14 @@ export const AutoComplete = forwardRef<HTMLInputElement, AutoCompleteProps>(
       <div className="relative">
         <div className="relative">
           {type === "multivalues" && (
-            <div className="flex flex-wrap gap-1 mb-1">
+            <div className="flex flex-wrap gap-1 mb-1" >
               {selectedValues.map((value, index) => (
                 <div
                   key={index}
                   className="flex items-center bg-gray-200 rounded px-2 py-1"
                 >
                   <span className="mr-2">{value}</span>
-                  <CrossIcon onClick={() => removeSelectedItem(value)} />
+                  <CrossIcon  onClick={() => removeSelectedItem(value)} />
                 </div>
               ))}
             </div>

@@ -1,15 +1,38 @@
-import React from 'react';
-import { Label } from './label';
-import { Step3Props } from './StepProps';
+import { Input } from "@/components";
+import { InputType, InputVariant } from "@/components/Input/type";
+import React from "react";
+import { stepperData } from "./StepperData";
 
-const Step3: React.FC<Step3Props> = ({ data, handleChange }) => (
-  <div>
-    <h2>{Label.StepDetls}</h2>
-    <label>
-      {Label.StepPay}
-      <input type="text" name="paymentDetails" value={data.paymentDetails} onChange={handleChange} />
-    </label>
-  </div>
-);
+interface Step3CardProps {
+  data: { paymentMethod: string };
+  onDataChange: (data: { paymentMethod: string }) => void;
+}
 
-export default Step3;
+const Step3Card: React.FC<Step3CardProps> = ({ data, onDataChange }) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    onDataChange({ ...data, [name]: value });
+  };
+
+  return (
+    <div className="card p-4 border rounded-lg">
+      <h2 className="text-xl font-bold mb-4">{stepperData.payMode}</h2>
+      <div className="mb-4">
+        <label className="block text-sm font-medium text-gray-700">
+          {stepperData.payMode}
+        </label>
+        <Input
+          name="paymentMethod"
+          placeholder="Insert Payment Method here"
+          type={InputType.Text}
+          variant={InputVariant.Standard}
+          value={data.paymentMethod}
+          onChange={handleChange}
+          className="pt-2 mt-2"
+        />
+      </div>
+    </div>
+  );
+};
+
+export default Step3Card;

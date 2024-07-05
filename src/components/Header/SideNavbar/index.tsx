@@ -1,7 +1,7 @@
 import { cn } from "@/utils";
 import { VariantProps, cva } from "class-variance-authority";
 import { ComponentProps, forwardRef, useState } from "react";
-import person from "../navbarIcons/person.svg";
+// import person from "../navbarIcons/person.svg";
 import {
   Logo,
   Box,
@@ -41,7 +41,7 @@ const navBarStyles = cva(
 
 const notLogin = {
   profileName: "profile",
-  profile: person,
+  // profile: person,
 };
 
 export type NavItems = {
@@ -92,7 +92,7 @@ export const SideNavbar = forwardRef<HTMLDivElement, LogoImageProps>(
       isLogin = false,
       showProfile = false,
       largeSidebar,
-      logoStyle="",
+      logoStyle = "",
       ...props
     },
     ref
@@ -115,7 +115,7 @@ export const SideNavbar = forwardRef<HTMLDivElement, LogoImageProps>(
       } else if (item.submenu && item.submenu.length > 0) {
         setShowSubMenuNavItem([...showSubMenuNavItem, item]);
       } else {
-        item.onClick ? item.onClick :alert("there is nothing we can do");
+        item.onClick ? item.onClick : alert("there is nothing we can do");
       }
     };
 
@@ -127,7 +127,7 @@ export const SideNavbar = forwardRef<HTMLDivElement, LogoImageProps>(
       if (!isLogin) {
         return (
           <IconButton
-            iconUrl={notLogin.profile}
+            // iconUrl={notLogin.profile}
             text={notLogin.profileName}
             className="font-bold"
             direction={ButtonDirection.Column}
@@ -137,24 +137,25 @@ export const SideNavbar = forwardRef<HTMLDivElement, LogoImageProps>(
         return (
           <>
             <Box
-              className={` group-hover:hidden ${largeSidebar ? "hidden" : "block"}`}
-            >
+              className={` group-hover:hidden ${largeSidebar ? "hidden" : "block"}`}>
               <img
                 className="w-[38px] h-[38px] rounded-full"
                 src={profileItem.profilePicture}
                 alt="profile"
+                data-testid="profile"
               />
             </Box>
             <Box
-              className={`group-hover:block w-full ${largeSidebar ? "block" : "hidden"}`}
-            >
+              className={`group-hover:block w-full ${largeSidebar ? "block" : "hidden"}`}>
               <Box className="flex items-center gap-2">
                 <img
                   className="w-[38px] h-[38px] rounded-full"
                   src={profileItem.profilePicture}
                   alt="profile"
                 />
-                <Text as="h2" className="font-[600]">
+                <Text
+                  as="h2"
+                  className="font-[600]">
                   {profileItem.profileName}
                 </Text>
               </Box>
@@ -168,8 +169,7 @@ export const SideNavbar = forwardRef<HTMLDivElement, LogoImageProps>(
       return (
         <Box
           className="w-full flex items-center justify-center flex-col"
-          key={item.menus}
-        >
+          key={item.menus}>
           <MenuItem
             leftIcon={item.menuLeftIcon}
             rightIcon={(item.navComponent || item.submenu) && <DownArrow />}
@@ -180,7 +180,6 @@ export const SideNavbar = forwardRef<HTMLDivElement, LogoImageProps>(
             onClick={() => handleClick(item)}
             iconLeftStyle={`${item.menuLeftIcon ? "p-[10px_12px]" : ""} `}
             wannaChangRightIcon={true}
-            
           />
           {handleFind(item) && item.submenu && renderSubMenu(item.submenu)}
         </Box>
@@ -190,10 +189,7 @@ export const SideNavbar = forwardRef<HTMLDivElement, LogoImageProps>(
     const renderSubMenu = (submenu: NavItems[]) => {
       return (
         <Box className="w-full pl-4">
-          {submenu &&
-            submenu?.map((item) => (
-              common(item)
-            ))}
+          {submenu && submenu?.map((item) => common(item))}
         </Box>
       );
     };
@@ -209,23 +205,22 @@ export const SideNavbar = forwardRef<HTMLDivElement, LogoImageProps>(
           hover && !largeSidebar && " group hover:w-[260px] hover:items-start",
           className
         )}
-        {...props}
-      >
+        {...props}>
         <Box
           className={`w-full flex justify-between gap-16 flex-col h-full 
-            group-hover:items-start  ${largeSidebar ? "items-start px-[0px]" : "items-center px-[10px]"}`}
-        >
+            group-hover:items-start  ${largeSidebar ? "items-start px-[0px]" : "items-center px-[10px]"}`}>
           <Box
-            className={`gap-[28px] w-full flex flex-col justify-center group-hover:items-start items-center`}
-          >
+            className={`gap-[28px] w-full flex flex-col justify-center group-hover:items-start items-center`}>
             {LogoIcon !== "" ? (
-              <LogoImg logo={LogoIcon} className={logoStyle}/>
+              <LogoImg
+                logo={LogoIcon}
+                className={logoStyle}
+              />
             ) : (
               <Logo>{title}</Logo>
             )}
             <Box
-              className={`${largeSidebar ? "hidden" : "block"} group-hover:hidden w-full`}
-            >
+              className={`${largeSidebar ? "hidden" : "block"} group-hover:hidden w-full`}>
               <GroupIconButton direction={ButtonDirection.Column}>
                 {navItem &&
                   navItem?.map((item) => (
@@ -241,8 +236,7 @@ export const SideNavbar = forwardRef<HTMLDivElement, LogoImageProps>(
               </GroupIconButton>
             </Box>
             <Box
-              className={`group-hover:block w-full ${largeSidebar ? "block" : "hidden"}`}
-            >
+              className={`group-hover:block w-full ${largeSidebar ? "block" : "hidden"}`}>
               <Box className="flex flex-col gap-[8px]">
                 {navItem && navItem?.map((item) => common(item))}
               </Box>

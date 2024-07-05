@@ -32,20 +32,21 @@ export const TopHoverMenuCard = forwardRef<
     ref
   ) => {
     return (
-      <Box ref={ref} className={cn(topHoverStyle())} {...props}>
+      <Box
+        ref={ref}
+        className={cn(topHoverStyle())}
+        {...props}>
         {title && (
           <Box>
             <Text
               as="h1"
-              className={` ${headingStyle} text-[#3F271E] font-bold text-[14px]`}
-            >
+              className={` ${headingStyle} text-[#3F271E] font-bold text-[14px]`}>
               {title}
             </Text>
           </Box>
         )}
         <Box
-          className={` ${listStyle} gap-10 py-5 flex justify-between flex-wrap`}
-        >
+          className={` ${listStyle} gap-10 py-5 flex justify-between flex-wrap`}>
           {TopHoverMenuItem.map((item) => {
             return (
               <Footer
@@ -63,6 +64,7 @@ export const TopHoverMenuCard = forwardRef<
                 innerClass={item.innerClass}
                 innerLiClass={item.innerLiClass}
                 innerUlClass={item.innerUlClass}
+                data-testid="footer"
               />
             );
           })}

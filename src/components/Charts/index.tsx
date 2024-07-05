@@ -74,8 +74,7 @@ export const Chart = forwardRef<HTMLDivElement, ChartProps>(
       gradientColor2Start = "rgba(236, 72, 153, 0.3)",
       gradientColor2End = "rgba(236, 72, 153, 0)",
       ...props
-    },
-    ref
+    }
   ) => {
     const [width, setWidth] = useState(0);
     const containerRef = useRef<HTMLDivElement>(null);
@@ -97,7 +96,7 @@ export const Chart = forwardRef<HTMLDivElement, ChartProps>(
 
     const height = 170;
     const maxValue = Math.max(...xAxisValues, ...yAxisValues);
-    const fixedMaxValue = parseFloat(yAxisLabels[0]?.replace(/[^0-9.]/g, ''));
+    const fixedMaxValue = parseFloat(yAxisLabels[0].replace(/[^0-9.]/g, ''));
 
     const mapToFixedYAxis = (values: number[]) => values.map(val => (val / maxValue) * fixedMaxValue);
 
@@ -108,42 +107,9 @@ export const Chart = forwardRef<HTMLDivElement, ChartProps>(
     const path2 = createCurvedPath(adjustedYAxis, fixedMaxValue, width, height);
 
     return (
-      <div
-        ref={ref}
-         data-testid="chart-container"
-        className={cn(chartStyle({ variant, className }))}
-        {...props}
-      >
-        <div className="relative w-[610px] h-[238px]">
-          <svg  data-testid="chart-svg" xmlns="http://www.w3.org/2000/svg" width={width} height={height} viewBox={`0 0 ${width} ${height}`} fill="none" style={{ overflow: 'visible' }}>
-            <defs>
-              <linearGradient id="gradient1" x1="0" y1="0" x2="0" y2="0.5">
-                <stop offset="0%" stopColor={gradientColor1Start} />
-                <stop offset="100%" stopColor={gradientColor1End} />
-              </linearGradient>
-              <linearGradient id="gradient2" x1="0" y1="0" x2="0" y2="0.5">
-                <stop offset="0%" stopColor={gradientColor2Start} />
-                <stop offset="100%" stopColor={gradientColor2End} />
-              </linearGradient>
-            </defs>
-            <path
-              d={`M0,${height} ${path1} L${width},${height} Z`}
-              fill="url(#gradient1)"
-            />
-            <path
-              d={`M0,${height} ${path2} L${width},${height} Z`}
-              fill="url(#gradient2)"
-            />
-            <path d={path1} stroke={lineColor1} strokeWidth="1" fill="none" />
-            <path d={path2} stroke={lineColor2} strokeWidth="1" fill="none" />
-            <g stroke="#E5E7EB" strokeWidth="1">
-              {yAxisLabels.map((_label, index) => (
-                index !== 0 && index !== yAxisLabels.length - 1 &&
-                <line key={index} x1="0" y1={height - (index / (yAxisLabels.length - 1)) * height} x2={width} y2={height - (index / (yAxisLabels.length - 1)) * height} />
-              ))}
-            </g>
-          </svg>
-          <div style={{ position: 'absolute', top: 0, left: -70, height: '185px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+      <div ref={containerRef} className={cn(chartStyle({ variant, className }))} {...props}>
+        <div className="w-full rounded gap-2 bg-white flex">
+          <div className="flex flex-col justify-between">
             {yAxisLabels.map((label, index) => (
               <div key={index} className="w-fit text-[#6B7280] text-sm">
                 {label}
@@ -151,7 +117,7 @@ export const Chart = forwardRef<HTMLDivElement, ChartProps>(
             ))}
           </div>
           <div>
-            <svg xmlns="http://www.w3.org/2000/svg" width="" height={height} viewBox={`0 0 ${width} ${height}`} fill="none" style={{ overflow: 'visible' }}>
+            <svg xmlns="http://www.w3.org/2000/svg" width={width} height={height} viewBox={`0 0 ${width} ${height}`} fill="none" style={{ overflow: 'visible' }}>
               <defs>
                 <linearGradient id="gradient1" x1="0" y1="0" x2="0" y2="0.5">
                   <stop offset="0%" stopColor={gradientColor1Start} />

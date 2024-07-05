@@ -51,6 +51,7 @@ const ProgressBar = forwardRef<HTMLDivElement, ProgressBarProps>(
           {...props}
         >
           <Box
+            data-testid="place"
             className="h-full flex items-center justify-end pr-2 bg-blue-400 rounded-xl"
             style={{
               width: `${validProgress}%`,
@@ -62,7 +63,7 @@ const ProgressBar = forwardRef<HTMLDivElement, ProgressBarProps>(
           </Box>
         </Box>
       );
-    } else{
+    } else {
       const radius = (size - strokeWidth) / 2;
       const circumference = 2 * Math.PI * radius;
       const offset = circumference - (validProgress / 100) * circumference;
@@ -74,6 +75,7 @@ const ProgressBar = forwardRef<HTMLDivElement, ProgressBarProps>(
           {...props}
         >
           <svg
+            data-testid="place1"
             width={size}
             height={size}
             className="relative"
@@ -81,6 +83,7 @@ const ProgressBar = forwardRef<HTMLDivElement, ProgressBarProps>(
           >
             <g transform={`rotate(-90 ${size / 2} ${size / 2})`}>
               <circle
+                data-testid="place2"
                 stroke="#e6e6e6"
                 fill="transparent"
                 strokeWidth={strokeWidth}
@@ -102,6 +105,7 @@ const ProgressBar = forwardRef<HTMLDivElement, ProgressBarProps>(
             </g>
             {middleText && (
               <text
+                data-testid="place3"
                 x="50%"
                 y="50%"
                 dominantBaseline="middle"

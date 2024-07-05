@@ -150,7 +150,10 @@ export const Alert = forwardRef<HTMLDivElement, ProductCardProps>(
         {...props}
       >
         {showIcon && (
-          <span className={cn("mr-2", iconStyles({ type, variant }))}>
+          <span
+            data-testid="icon"
+            className={cn("mr-2", iconStyles({ type, variant }))}
+          >
             {getIcon(type, variant)}
           </span>
         )}

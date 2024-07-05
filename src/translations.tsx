@@ -1,0 +1,15 @@
+export enum Translations {
+  Message = "Success Message",
+  label = "Menu Label",
+  linear = "linear",
+  blue = "blue",
+  circle = "circular",
+  Red = "red",
+  HiThere = "hi there",
+  Click = "click",
+  Hover = "hover",
+  Top = "top",
+  Bottom = "bottom",
+  Left = "left",
+  Right = "right",
+}

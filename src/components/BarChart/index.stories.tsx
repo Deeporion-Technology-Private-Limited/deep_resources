@@ -3,7 +3,7 @@ import { BarChart } from ".";
 import { graphdata } from "./barConst";
 
 const meta: Meta<typeof BarChart> = {
-  title: "Examples/BarChart",
+  title: "Components/BarChart",
   component: BarChart,
   parameters: {
     layout: "centered",
@@ -19,6 +19,7 @@ export const Default: Story = {
     data: graphdata,
     svgW: 400,
     svgH: 300,
-    dYMax: 100,
+    YRangeMax: 100,
+    PeddingBwtBar:15,
   }
 };

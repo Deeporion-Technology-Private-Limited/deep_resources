@@ -12,7 +12,7 @@ export enum InputType {
   Input = "input",
   Prefix = "prefix",
   Checkbox = "checkbox",
-  Otp = "otp"
+  Otp = "otp",
 }
 
 export enum Placeholder {
@@ -32,10 +32,8 @@ export enum Placeholder {
   YourName = "Your name",
   YourEmail = "Your email",
   YourPassword = "Your password",
-  YourNewPassword = "Your new password" ,
+  YourNewPassword = "Your new password",
   ConfirmNew = "Confirm your new password",
-  Subject = "what would you like to talk about?",
-  Details = "Any details you would like to share?",
 }
 
 export enum InputVariant {
@@ -43,4 +41,3 @@ export enum InputVariant {
   Outlined = "outlined",
   Filled = "filled",
 }
-

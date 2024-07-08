@@ -16,7 +16,7 @@ interface Barprop
 }
 
 export const BarChart = forwardRef<HTMLDivElement, Barprop>(
-  ({ svgW, svgH, YRangeMax, YRangeMin = 0, PeddingBwtBar = 0, data, className, ...props}) => {
+  ({ svgW, svgH, YRangeMax, YRangeMin = 0, PeddingBwtBar = 10, data, className, ...props}) => {
     const SVG_WIDTH = svgW;
     const SVG_HEIGHT = svgH;
     const x0 = 50;

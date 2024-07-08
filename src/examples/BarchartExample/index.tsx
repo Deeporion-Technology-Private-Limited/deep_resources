@@ -24,7 +24,7 @@ export const BarChartExp = forwardRef<HTMLDivElement, Barprop>(
       svgHeight,
       dataYRangeMax,
       dataYRangeMin = 0,
-      peddingBetweenBar = 0,
+      peddingBetweenBar = 10,
       barData,
       ...props
     },

@@ -98,6 +98,7 @@ export const SingleLineChart = forwardRef<HTMLDivElement, SingleLineChartProps>(
         <div className="relative w-[610px] h-[238px]">
           <svg
             xmlns="http://www.w3.org/2000/svg"
+            data-testid="graph"
             width={width}
             height={height}
             viewBox={`0 0 ${width} ${height}`}

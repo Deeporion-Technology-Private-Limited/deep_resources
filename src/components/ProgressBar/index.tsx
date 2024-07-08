@@ -1,7 +1,7 @@
 import { cva, VariantProps } from "class-variance-authority";
 import { ComponentProps, forwardRef } from "react";
 import { cn } from "@/utils";
-import { IProgressBar, variants } from "./type";
+import { variants } from "./type";
 import { Box } from "..";
 
 const progressBarStyles = cva(" ", {
@@ -12,10 +12,18 @@ const progressBarStyles = cva(" ", {
     },
   },
 });
-
 type ProgressBarProps = ComponentProps<"div"> &
-  VariantProps<typeof progressBarStyles> &
-  IProgressBar;
+  VariantProps<typeof progressBarStyles> & {
+    progress: number;
+    variant?: string;
+    size?: number;
+    strokeWidth?: number;
+    bgColor: string;
+    textFont?: string;
+    textColor?: string;
+    rotate?: string;
+    middleText?: boolean;
+  };
 
 const ProgressBar = forwardRef<HTMLDivElement, ProgressBarProps>(
   (
@@ -54,7 +62,7 @@ const ProgressBar = forwardRef<HTMLDivElement, ProgressBarProps>(
           </Box>
         </Box>
       );
-    } else {
+    } else{
       const radius = (size - strokeWidth) / 2;
       const circumference = 2 * Math.PI * radius;
       const offset = circumference - (validProgress / 100) * circumference;

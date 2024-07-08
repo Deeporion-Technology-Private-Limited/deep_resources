@@ -36,7 +36,12 @@ const navBarStyles = cva(
 type TopNavProp = TopNavbarProps &
   ComponentProps<typeof Box> &
   VariantProps<typeof navBarStyles>;
-// { icon: person, iconName: "Logo" },
+{
+  icon: {
+    person;
+  }
+  iconName: "Logo";
+}
 
 export const Topnavbar = forwardRef<HTMLDivElement, TopNavProp>(
   (
@@ -83,16 +88,22 @@ export const Topnavbar = forwardRef<HTMLDivElement, TopNavProp>(
             "px-[40px]": direction === "row",
           })}
           {...props}
-        >
+          data-testid="direction">
           <Box
             className={` w-full flex justify-between items-center ${
               direction === "column" ? "flex-col h-full" : ""
-            } mobile`}
-          >
+            } mobile`}>
             {LogoIcon !== "" ? (
-              <LogoImg logo={LogoIcon} className="w-[45px]" />
+              <LogoImg
+                logo={LogoIcon}
+                className="w-[45px] mobile1"
+              />
             ) : (
-              <Logo className="mobile1">{title}</Logo>
+              <Logo
+                className="mobile1"
+                data-testid="logo">
+                {title}
+              </Logo>
             )}
             {navItem && navItem?.length > 0 && (
               <AnchorList className="flex-wrap show relative">
@@ -100,8 +111,7 @@ export const Topnavbar = forwardRef<HTMLDivElement, TopNavProp>(
                   <Anchor
                     key={item.text}
                     href={item.href}
-                    onMouseEnter={(e) => handleEnter(item, e)}
-                  >
+                    onMouseEnter={(e) => handleEnter(item, e)}>
                     {item.text}
                   </Anchor>
                 ))}
@@ -125,6 +135,7 @@ export const Topnavbar = forwardRef<HTMLDivElement, TopNavProp>(
                       iconUrl={person}
                       text="Logo"
                       className="font-bold"
+                      data-testid="logo"
                     />
                   ) : (
                     <img
@@ -147,7 +158,10 @@ export const Topnavbar = forwardRef<HTMLDivElement, TopNavProp>(
             </Box>
             {
               <Box className="hide mobile1">
-                <IconButton iconUrl={hemburgerImg} onClick={hemburgerClick} />
+                <IconButton
+                  iconUrl={hemburgerImg}
+                  onClick={hemburgerClick}
+                />
               </Box>
             }
           </Box>
@@ -157,7 +171,7 @@ export const Topnavbar = forwardRef<HTMLDivElement, TopNavProp>(
             className="hovered-component absolute z-20 top-[110%]"
             style={{ left: hoverX - 10 }}
             onMouseLeave={handleMouseOut}
-          >
+            data-testid="mouseout">
             {isHoverComponent}
           </div>
         )}

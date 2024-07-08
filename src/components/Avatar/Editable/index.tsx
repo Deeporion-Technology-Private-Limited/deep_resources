@@ -25,21 +25,30 @@ export interface ProfileAvatarProps
   extends ComponentProps<typeof Box>,
     VariantProps<typeof profileStyles> {
   src?: string;
-  size?:ButtonSize;
+  size?: ButtonSize;
   className?: string;
   textColor?: string;
-  iconStyle?:string;
-  textStyle?:string;
+  iconStyle?: string;
+  textStyle?: string;
 }
 
 const Profile = forwardRef<HTMLDivElement, ProfileAvatarProps>(
-  ({ src,textStyle="text-[#ffffff]", className = "", size=ButtonSize.Medium,iconStyle="size-16", ...props }, ref) => {
+  (
+    {
+      src,
+      textStyle = "text-[#ffffff]",
+      className = "",
+      size = ButtonSize.Medium,
+      iconStyle = "size-16",
+      ...props
+    },
+    ref
+  ) => {
     return (
       <Box
         className={cn(profileStyles({ size }), className)}
         ref={ref}
-        {...props}
-      >
+        {...props}>
         <img
           className="h-full w-full rounded-full"
           src={src}
@@ -47,10 +56,13 @@ const Profile = forwardRef<HTMLDivElement, ProfileAvatarProps>(
         />
         <Box
           className="absolute bg-[#000000BF] bg-opacity-60 h-full w-full flex
-                               justify-center items-center rounded-full"
-        >
+                               justify-center items-center rounded-full">
           <Box className="flex flex-col items-center justify-center ">
-            <img src={Cam} className={iconStyle}/>
+            <img
+              src={Cam}
+              className={iconStyle}
+              data-testid="icon"
+            />
             <Text className={textStyle}>Edit Picture</Text>
           </Box>
         </Box>

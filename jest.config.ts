@@ -7,6 +7,7 @@ export default {
     // "^.+\\.css$": "jest-css-transform",
   },
   moduleNameMapper: {
+       "^.+.(css|styl|less|sass|scss|svg|png|jpg|ttf|woff|woff2)$": "jest-transform-stub",
     "\\.(gif|ttf|eot|svg|png)$": "<rootDir>/test/__ mocks __/fileMock.js",
     "^@/(.*)$": "<rootDir>/src/$1",
     // "\\.(css|scss|sass)$": "<rootDir>/jest/mock-css.js",

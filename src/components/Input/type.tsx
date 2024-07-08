@@ -13,6 +13,7 @@ export enum InputType {
   Prefix = "prefix",
   Checkbox = "checkbox",
   Otp = "otp",
+ 
 }
 
 export enum Placeholder {
@@ -34,6 +35,8 @@ export enum Placeholder {
   YourPassword = "Your password",
   YourNewPassword = "Your new password",
   ConfirmNew = "Confirm your new password",
+   Subject="subject",
+  Details="details"
 }
 
 export enum InputVariant {

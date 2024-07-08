@@ -1,6 +1,6 @@
-import { Box, Button, IconButton, Input, Stack, Text } from "@/components";
+import { Box, Button, Input,IconButton, Stack, Text } from "@/components";
 import { ButtonVariant } from "@/components/Button/type";
-import background from "../../images/backimage.png";
+import background from "@/images/backimage.png"
 import google from "../../images/Google.png";
 import phone from "../../images/phone.png";
 import { Alignment, TextSize, TextWeight } from "@/utils/style";
@@ -82,6 +82,7 @@ export const LoginForm = () => {
                     ...(hasUsernameError && webstyle.errorBorder),
                   }}
                   onChange={handleUsernameChange}
+                  data-testid="UserNameInput"
                 />
 
                 <Text
@@ -105,6 +106,7 @@ export const LoginForm = () => {
                     ...(hasPasswordError && webstyle.errorBorder),
                   }}
                   onChange={handlePasswordChange}
+                  data-testid="OpenEyeClick"
                 />
                 <Text
                   size={TextSize.Small}
@@ -130,6 +132,7 @@ export const LoginForm = () => {
                   variant={ButtonVariant.DefaultPrimary}
                   style={webstyle.loginButton}
                   onClick={handleLogin}
+                  data-testid="LoginButton"
                 >
                   {Login.Login}
                 </Button>

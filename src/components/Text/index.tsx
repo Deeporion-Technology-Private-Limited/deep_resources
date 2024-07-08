@@ -4,7 +4,7 @@ import {
   PolymorphicRef,
 } from "@/utils/types";
 import { VariantProps, cva } from "class-variance-authority";
-import { forwardRef } from "react";
+import { ForwardRefExoticComponent, forwardRef } from "react";
 
 const textStyles = cva("w-full", {
   variants: {
@@ -50,11 +50,11 @@ type TextProps<C extends React.ElementType> = PolymorphicComponentPropsWithRef<
   VariantProps<typeof textStyles>
 >;
 
-type TextComponent = <C extends React.ElementType = "span">(
-  props: TextProps<C>
-) => React.ReactElement | null;
+// type TextComponent = <C extends React.ElementType = "span">(
+//   props: TextProps<C>
+// ) => React.ReactElement | null;
 
-export const Text: TextComponent = forwardRef(
+export const Text: ForwardRefExoticComponent<TextProps<any>> = forwardRef(
   <C extends React.ElementType = "span">(
     {
       as,

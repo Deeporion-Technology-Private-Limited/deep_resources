@@ -12,7 +12,7 @@ export default defineConfig({
   },
   build: {
     lib: {
-      entry: path.resolve(__dirname, "./src/components/index.tsx"),
+      entry: path.resolve(__dirname, "./src/components/index.ts"),
       name: "DeepResources",
       fileName: "deep-resources",
     },

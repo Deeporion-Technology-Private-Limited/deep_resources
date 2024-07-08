@@ -2,9 +2,9 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import { Input } from "@/components/Input/index";
 import { InputType, InputVariant } from "../type";
-import SearchImage from "../Icons/SearchImage";
-import CloseEye from "../Icons/CloseEye";
-import OpenEye from "../Icons/OpenEye";
+import SearchImage from "@/images/InputIcons/SearchImage";
+import CloseEye from "@/images/InputIcons/CloseEye";
+import OpenEye from "@/images/InputIcons/OpenEye";
 
 describe("Input component", () => {
   it(`renders textbox type-${InputType.Checkbox}`, () => {

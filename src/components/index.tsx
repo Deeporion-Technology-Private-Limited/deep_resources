@@ -29,3 +29,8 @@ export * from "./Cards/ProductCards";
 export * from "./Cards/ReviewCard";
 export * from "./Cards/ReviewCard";
 export * from "./Cards/Banners";
+export * from "./BarChart"
+export * from "./../examples/BarchartExample"
+export * from "./../examples/Orders"
+export * from "./../examples/AdminSidebar"
+export * from "./../examples/Hemburger"

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Box, Input, Text } from "@/components";
+import { BarChart, Box, Input, Text } from "@/components";
 import FaverateCard from "@/components/Cards/FaverateCard";
 import Heading from "@/examples/Heading";
 import image from "./image_luxgo cities-03 3.png"
@@ -7,10 +7,9 @@ import { InputType, InputVariant } from "../Input/type";
 import { GreenArrow } from "../Icons";
 import { Chart } from "../Charts";
 import { ChartsType } from "../Charts/ChartsTypes";
-import { BarChart } from "@/examples/BarChart";
-import { graphdata } from "@/examples/BarChart/barConst";
 import { Table } from "../Table/Table";
 import { AdminProps } from "@/examples/AdminDasboard/AdminInterface";
+import { graphdata } from "../BarChart/barConst";
 
 
 const DashboardAdmin: React.FC<AdminProps> = ({ UsersData, TableData, PendingData, DayOption }) => {
@@ -101,7 +100,7 @@ const DashboardAdmin: React.FC<AdminProps> = ({ UsersData, TableData, PendingDat
                                 data={graphdata}
                                 svgW={400}
                                 svgH={300}
-                                dYMax={100}
+                                YRangeMax={100}
                             />
                         </div>
 

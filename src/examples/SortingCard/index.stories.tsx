@@ -1,6 +1,7 @@
 import { Meta, StoryObj } from "@storybook/react";
 import SortingCard from ".";
 import { Data, breadCrumbsData, chipsArray, optionsArray } from "./data";
+import { FindIconUrl } from "@/utils/Constant";
 
 const meta: Meta<typeof SortingCard> = {
     title: "Examples/Sorting Card",
@@ -21,6 +22,6 @@ export const SortCard: Story = {
         data: Data,
         options: optionsArray,
         chips: chipsArray,
-        breadCrumbIcon: "/src/components/BreadCrumb/icon/RightArrow.svg",
+        breadCrumbIcon: FindIconUrl("ArrowRight.svg"),
     },
 }

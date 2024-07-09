@@ -14,7 +14,7 @@ export * from "./Header/Logo";
 export * from "./Calendar/SelectedDateCalendar";
 export * from "./Calendar/RangeCalendar";
 export * from "./Elevation";
-export * from "./PopupModal";
+export * from "./PopupModal ";
 export * from "./Headings";
 //Some One can use
 // export * from "./Header/LogImg";

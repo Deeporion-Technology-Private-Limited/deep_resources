@@ -4,10 +4,8 @@ import { Text } from "@/components/Text";
 import { VariantProps, cva } from "class-variance-authority";
 import { cn } from "@/utils";
 import { Button } from "@/components/Button/DefaultButton";
-import close from "../icons/close.svg";
-import exchange from "../icons/image_ (1).svg";
-import delivery from "../icons/image_.svg";
 import { Checkbox } from "@/components/Checkbox";
+import { FindIconUrl } from "@/utils/Constant";
 
 type CardProps = ComponentProps<typeof Box> &
   VariantProps<typeof cardStyles> & {
@@ -75,7 +73,7 @@ const QuantityCard = forwardRef<HTMLDivElement, CardProps>(
             className="absolute top-2 right-2 bg-gray-200 rounded-lg p-1 w-max"
             onClick={handleClose}
           >
-            <img src={close} className={iconStyle} />
+            <img src={FindIconUrl("Close.svg")} className={iconStyle} />
           </Button>
           <Box>
             <Text as={"p"} className="font-bold text-xl mb-2">
@@ -130,13 +128,13 @@ const QuantityCard = forwardRef<HTMLDivElement, CardProps>(
           {isReturn && (
             <Box className="mt-4 flex flex-col space-y-2">
               <Box className="flex items-center space-x-2">
-                <img src={exchange} className={iconStyle} />
+                <img src={FindIconUrl("Return.svg")} className={iconStyle} />
                 <Text as={"p"} className="text-gray-600">
                   {returnPolicy}
                 </Text>
               </Box>
               <Box className="flex items-center space-x-2">
-                <img src={delivery} className={iconStyle} />
+                <img src={FindIconUrl("RightTrue.svg")} className={iconStyle} />
                 <Text as={"p"} className="text-gray-600 font-semibold">
                   {deliveryText}
                 </Text>

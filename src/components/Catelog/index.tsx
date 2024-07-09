@@ -11,6 +11,7 @@ import right from "./icons/right.svg";
 import search from "./icons/search.svg";
 import { forwardRef, useState } from "react";
 import { Items, user } from "./data";
+import { FindIconUrl } from "@/utils/Constant";
 const Cateloge = forwardRef<HTMLDivElement, Items>(
   ({ data, handleClick, userType }, ref) => {
     const additem = () => {
@@ -56,7 +57,7 @@ const Cateloge = forwardRef<HTMLDivElement, Items>(
           <Box>
             <Button
               className="bg-[#D7C7C1] text-black  text-xl font-semibold rounded-[12px] capitalize p-4"
-              iconUrl={add}
+              iconUrl={FindIconUrl("Add.svg")}
               iconPosition={ButtonIconPosition.Right}
               onClick={() => {
                 setItem(!item);
@@ -85,7 +86,7 @@ const Cateloge = forwardRef<HTMLDivElement, Items>(
                   <IconButton
                     backgroundColor="transparent"
                     direction={ButtonDirection.Row}
-                    iconUrl={edit}
+                    iconUrl={FindIconUrl("edit.svg")}
                     onClick={(e) => {
                       e.stopPropagation();
                       handleValue(val);
@@ -94,7 +95,7 @@ const Cateloge = forwardRef<HTMLDivElement, Items>(
                   />
                   <IconButton
                     backgroundColor="transparent"
-                    iconUrl={deleteIcon}
+                    iconUrl={FindIconUrl("delete_outline_24px.svg")}
                     onClick={(e) => {
                       e.stopPropagation();
                       handleDelete(val);
@@ -108,7 +109,7 @@ const Cateloge = forwardRef<HTMLDivElement, Items>(
           {item && (
             <Box className="flex p-2 gap-4">
               <Box className="border-4 flex justify-around items-center pl-4 pr-4 gap-1 rounded-2xl">
-                <img src={search} className="size-6 text-[#9EA4AA]" />
+                <img src={FindIconUrl("search.svg")} className="size-6 text-[#9EA4AA]" />
                 <input
                   type="text"
                   className="text-[#9EA4AA] pl-2 pr-2 w-full outline-none capitalize"
@@ -122,7 +123,7 @@ const Cateloge = forwardRef<HTMLDivElement, Items>(
               <Box className="flex">
                 <IconButton
                   backgroundColor="transparent"
-                  iconUrl={right}
+                  iconUrl={FindIconUrl("right.svg")}
                   className="justify-center text-[4rem]"
                   onClick={() => {
                     additem();
@@ -130,7 +131,7 @@ const Cateloge = forwardRef<HTMLDivElement, Items>(
                 />
                 <IconButton
                   backgroundColor="transparent"
-                  iconUrl={cancel}
+                  iconUrl={FindIconUrl("wrong.svg")}
                   onClick={() => {
                     setItem(false);
                   }}

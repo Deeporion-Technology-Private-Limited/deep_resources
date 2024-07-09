@@ -4,8 +4,8 @@ import { IAddress } from "@/components/Data/Address";
 import { Button } from "@/components/Button/DefaultButton/index";
 import { Box } from "@/components/Layout/Box/index";
 import { Headings } from "@/components/Headings/index";
-import { Modal } from "@/components/PopupModal/index";
 import { ButtonSize, ButtonVariant } from "@/components/Button/type";
+import { Modal } from "@/components";
 
 type AddressProps = {
   userName: string;

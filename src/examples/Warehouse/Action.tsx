@@ -1,8 +1,6 @@
 import { Box, IconButton, Text } from "@/components";
 import { useState } from "react";
-import edit from "./edit_24px.svg";
-import deleteIcon from "./delete_outline_24px.svg";
-import Vector from "./Vector (3).svg";
+import { FindIconUrl } from "@/utils/Constant";
 
 export const Action = () => {
   const [show, setShow] = useState(false);
@@ -14,7 +12,7 @@ export const Action = () => {
     <Box className="z-20 w-[8rem]">
       <IconButton
         backgroundColor="transparent"
-        iconUrl={Vector}
+        iconUrl={FindIconUrl("Dots.svg")}
         className="text-[4rem]"
         onClick={toggle}
       />
@@ -31,7 +29,7 @@ export const Action = () => {
             </Text>
             <IconButton
               backgroundColor="transparent"
-              iconUrl={deleteIcon}
+              iconUrl={FindIconUrl("delete_outline_24px")}
               onClick={() => {
                 alert("Removed");
                 toggle();
@@ -45,9 +43,9 @@ export const Action = () => {
             </Text>
             <IconButton
               backgroundColor="transparent"
-              iconUrl={edit}
+              iconUrl={FindIconUrl("edit.svg")}
               onClick={() => {
-                alert("Edited");
+                alert("edit_24px.svg");
                 toggle();
               }}
               iconStyle="size-6 text-[#ffffff]"

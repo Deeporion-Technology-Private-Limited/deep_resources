@@ -57,12 +57,13 @@ const ProgressBar = forwardRef<HTMLDivElement, ProgressBarProps>(
               backgroundColor: bgColor,
               color: textColor,
             }}
+            data-testid="linerProgressTextBox"
           >
             {middleText ? <>{validProgress + "%"}</> : null}
           </Box>
         </Box>
       );
-    } else{
+    } else {
       const radius = (size - strokeWidth) / 2;
       const circumference = 2 * Math.PI * radius;
       const offset = circumference - (validProgress / 100) * circumference;
@@ -109,6 +110,7 @@ const ProgressBar = forwardRef<HTMLDivElement, ProgressBarProps>(
                 fontSize={textFont}
                 fill={textColor}
                 style={{ transform: "rotate(-90)", transformOrigin: "center" }}
+                data-testid="progressText"
               >
                 {`${validProgress}%`}
               </text>

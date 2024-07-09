@@ -14,8 +14,10 @@ describe("ProgressBar component", () => {
       />
     );
 
-    expect(getByTestId("place")).toBeInTheDocument();
-    expect(getByTestId("place")).toHaveStyle({ width: `${StringHalf}` });
+    expect(getByTestId("linerProgressTextBox")).toBeInTheDocument();
+    expect(getByTestId("linerProgressTextBox")).toHaveStyle({
+      width: `${StringHalf}`,
+    });
   });
 
   test("renders circular progress bar with correct progress", () => {
@@ -27,12 +29,7 @@ describe("ProgressBar component", () => {
         middleText
       />
     );
-
-    expect(getByTestId("place1")).toBeInTheDocument();
-
-    expect(getByTestId("place2")).toBeInTheDocument();
-
-    expect(getByTestId("place3")).toHaveTextContent(`${StringHalf}`);
+    expect(getByTestId("progressText")).toHaveTextContent(`${StringHalf}`);
   });
 
   test("renders middle text in linear progress bar", () => {

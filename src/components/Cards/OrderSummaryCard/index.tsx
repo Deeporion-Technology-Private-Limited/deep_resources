@@ -4,7 +4,7 @@ import { VariantProps, cva } from "class-variance-authority";
 import { cn } from "@/utils";
 import { Button, Text } from "@/components";
 import { Arrow, Return, Secure } from "./Icons/icons";
-import checkout from "./Icons/image (2).svg";
+import { FindIconUrl } from "@/utils/Constant";
 
 type CardProps = ComponentProps<typeof Box> &
   VariantProps<typeof cardStyles> & {
@@ -15,8 +15,8 @@ type CardProps = ComponentProps<typeof Box> &
     taxes?: string;
     delivery?: string;
     total?: string;
-    handleClick?:()=>void;
-    buttonText?:string;
+    handleClick?: () => void;
+    buttonText?: string;
   };
 
 const cardStyles = cva(
@@ -35,7 +35,7 @@ const OrderSummary = forwardRef<HTMLDivElement, CardProps>(
       delivery,
       total,
       handleClick,
-      buttonText="checkout",
+      buttonText = "checkout",
     },
     ref
   ) => {
@@ -44,6 +44,8 @@ const OrderSummary = forwardRef<HTMLDivElement, CardProps>(
       { label: "Taxes", value: taxes },
       { label: "Delivery", value: delivery },
     ];
+
+    const icon = FindIconUrl("checkoutCart.svg");
 
     return (
       <Box ref={ref} className={cn(cardStyles(), className)}>
@@ -97,7 +99,9 @@ const OrderSummary = forwardRef<HTMLDivElement, CardProps>(
               </Text>
             </Box>
           </Box>
-          <Button iconUrl={checkout} onClick={handleClick}>{buttonText}</Button>
+          <Button iconUrl={icon} onClick={handleClick}>
+            {buttonText}
+          </Button>
         </Box>
       </Box>
     );

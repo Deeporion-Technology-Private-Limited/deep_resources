@@ -180,6 +180,7 @@ export const TalkToUsForm = () => {
               variant={ButtonVariant.DefaultPrimary}
               style={webstyle.loginButton}
               onClick={handleSubmit}
+              data-testid="SubmitBtn"
             >
               {Login.SendMessage}
             </Button>

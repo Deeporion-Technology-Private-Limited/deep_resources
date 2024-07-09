@@ -55,6 +55,7 @@ const PhoneLogin = () => {
                 <Button
                   variant={ButtonVariant.DefaultPrimary}
                   style={webstyle.loginButton}
+                  data-testid="LoginBtn"
                 >
                   {Login.Login}
                 </Button>

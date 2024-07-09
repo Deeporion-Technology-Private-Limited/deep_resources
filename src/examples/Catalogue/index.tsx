@@ -11,7 +11,6 @@ import {
 import { ILabels } from "../GiftCards/data";
 import { InputType, InputVariant } from "@/components/Input/type";
 import SearchImage from "@/images/InputIcons/SearchImage";
-import bell from "../../images/bellicon.png";
 import infoLogo from "../../images/Avatar3.svg";
 import { AdminSidebar } from "../AdminSidebar";
 import {
@@ -39,6 +38,7 @@ const CatalogueProducts = forwardRef<HTMLDivElement, AddNewGiftCardProps>(
     const [selectedFile, setSelectedFile] = useState<File | null>(null);
     const [dragActive, setDragActive] = useState(false);
     const inputRef = useRef<HTMLInputElement | null>(null);
+    const boorBell = "https://deepresources.s3.ap-south-1.amazonaws.com/images/NotificationsNone.svg"
 
     const handleFileUpload = (files: any) => {
       const file = files[0];
@@ -143,7 +143,7 @@ const CatalogueProducts = forwardRef<HTMLDivElement, AddNewGiftCardProps>(
                   />
                   <div className="flex gap-2">
                     <img src={infoLogo} alt="Icon 1" className="w-11 h-11" />
-                    <img src={bell} alt="Icon 2" className="w-11 h-11" />
+                    <img src={boorBell} alt="Icon 2" className="w-11 h-11" />
                   </div>
                 </div>
               </div>

@@ -1,6 +1,4 @@
 import React, { useRef, useEffect } from 'react';
-import upload from '../../images/upperArrow.png';
-import remove from '../../images/Delete.svg';
 
 interface ImagePopupProps {
   onClose: () => void;
@@ -10,6 +8,9 @@ interface ImagePopupProps {
 
 const ImagePopup: React.FC<ImagePopupProps> = ({ onClose, onUpload, onRemove }) => {
   const popupRef = useRef<HTMLDivElement>(null);
+  const remove = "https://deepresources.s3.ap-south-1.amazonaws.com/images/OutlineDeleteOutline.svg";
+  const upload = "https://deepresources.s3.ap-south-1.amazonaws.com/images/OutlineUpload.svg";
+
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {

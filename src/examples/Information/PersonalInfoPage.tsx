@@ -5,7 +5,6 @@ import ImagePopup from "./ImagePopup";
 import { personalInfoData } from "./PersonalInfoData";
 import { InputType, InputVariant } from "@/components/Input/type";
 import infoLogo from "../../images/Avatar3.svg";
-import bell from "../../images/bellicon.png";
 import { AdminSidebar } from "../AdminSidebar";
 import {
   Agents,
@@ -36,6 +35,9 @@ const PersonalInfo = () => {
   const handleRemoveImage = () => {
     setShowPopup(false);
   };
+
+  const bell = "https://deepresources.s3.ap-south-1.amazonaws.com/images/NotificationsNone.svg";
+  const camera = "https://deepresources.s3.ap-south-1.amazonaws.com/images/CameraAlt.svg";
 
   return (
     <div className="flex">
@@ -93,18 +95,11 @@ const PersonalInfo = () => {
                     className="absolute inset-0 flex flex-col items-center justify-center text-white bg-transparent border-none outline-none cursor-pointer"
                     onClick={handleOpenPopup}
                   >
-                    <svg
-                      width="20"
-                      height="18"
-                      viewBox="0 0 20 18"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M18 2H14.83L13 0H7L5.17 2H2C0.9 2 0 2.9 0 4V16C0 17.1 0.9 18 2 18H18C19.1 18 20 17.1 20 16V4C20 2.9 19.1 2 18 2ZM18 16H2V4H6.05L7.88 2H12.12L13.95 4H18V16ZM10 5C7.24 5 5 7.24 5 10C5 12.76 7.24 15 10 15C12.76 15 15 12.76 15 10C15 7.24 12.76 5 10 5ZM10 13C8.35 13 7 11.65 7 10C7 8.35 8.35 7 10 7C11.65 7 13 8.35 13 10C13 11.65 11.65 13 10 13Z"
-                        fill="white"
-                      />
-                    </svg>
+                    <img
+                      src={camera}
+                      alt="Profile"
+                      className="w-8 h-6 cursor-pointer filter invert grayscale"
+                    />
                     <p className="text-xs font-bold">Edit picture</p>
                   </button>
                 </div>

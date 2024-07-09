@@ -5,6 +5,7 @@ import { cn } from "@/utils";
 import { VariantProps, cva } from "class-variance-authority";
 import { ComponentProps, forwardRef } from "react";
 import { Box } from "@/components";
+import { FindIconUrl } from "@/utils/Constant";
 
 const userSideStyle = cva(["flex", "item-start"]);
 interface usersideProps
@@ -22,7 +23,7 @@ export const AdminSidebar = forwardRef<HTMLDivElement, usersideProps>(
           className="w-[260px]"
           direction={NavbarDirection.Column}
           navItem={Data}
-          LogoIcon={logo}
+          LogoIcon={FindIconUrl("logo.svg")}
           logoStyle="w-[216px]"
           showNavItemName={true}
           largeSidebar={true}

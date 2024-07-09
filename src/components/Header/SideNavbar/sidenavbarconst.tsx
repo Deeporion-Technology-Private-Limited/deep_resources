@@ -1,7 +1,3 @@
-import notification from "../navbarIcons/notification.svg";
-import fav from "../navbarIcons/favorite.svg";
-import cart from "../navbarIcons/shoping_cart.svg";
-import setting from "../navbarIcons/settings.svg";
 import { NavItems } from ".";
 import {
   Cart,
@@ -9,20 +5,21 @@ import {
   Notification,
   Setting,
 } from "@/components/MenuItem/Icon/icon";
+import { FindIconUrl } from "@/utils/Constant";
 
 
 export const navItemDetail: NavItems[] = [
     {
       menuLeftIcon: <Favourite />,
-      menuIcon: fav,
+      menuIcon: FindIconUrl("FavoriteBorder.svg"),
       menus: "Favourite",
     },
     {
       menuLeftIcon: <Notification />,
-      menuIcon: notification,
+      menuIcon: FindIconUrl("NotificationsNone.svg"),
       menus: "Notifications",
     },
-    { menuLeftIcon: <Cart />, menuIcon: cart, menus: "Cart" },
-    { menuLeftIcon: <Setting />, menuIcon: setting, menus: "Setting" },
+    { menuLeftIcon: <Cart />, menuIcon: FindIconUrl("OutlineShoppingCart.svg"), menus: "Cart" },
+    { menuLeftIcon: <Setting />, menuIcon: FindIconUrl("OutlineSettings.svg"), menus: "Setting" },
   ];
 

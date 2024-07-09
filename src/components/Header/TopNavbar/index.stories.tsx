@@ -1,15 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import person from "../navbarIcons/person.svg";
-import notification from "../navbarIcons/notification.svg";
-import fav from "../navbarIcons/favorite.svg";
-import cart from "../navbarIcons/shoping_cart.svg";
-import setting from "../navbarIcons/settings.svg";
 import profile from "../navbarIcons/image.png";
-import log from "../navbarIcons/logo.svg";
 import { Topnavbar } from ".";
 import { NavbarDirection } from "../type";
 import { TopHoverMenuCard } from "../ExpandedNavbar";
 import { GenderItem, TopItem } from "../ExpandedNavbar/topHoverObjects";
+import { navBarIconsData } from "./topNavConst";
+import { FindIconUrl } from "@/utils/Constant";
 
 const meta: Meta<typeof Topnavbar> = {
   title: "Components/Header/TopNavbar",
@@ -30,12 +26,7 @@ export const Default: Story = {
       { text: "About", href: "/about" },
       { text: "Contact", href: "/contact" },
     ],
-    navBarIcons: [
-      { icon: fav },
-      { icon: notification },
-      { icon: cart },
-      { icon: setting },
-    ],
+    navBarIcons: navBarIconsData,
     profilePicture: profile,
     isSearch: true,
   },
@@ -50,12 +41,7 @@ export const LogedIn: Story = {
       { text: "About", href: "/about" },
       { text: "Contact", href: "/contact" },
     ],
-    navBarIcons: [
-      { icon: fav },
-      { icon: notification },
-      { icon: cart },
-      { icon: setting },
-    ],
+    navBarIcons: navBarIconsData,
     profilePicture: profile,
     isSearch: true,
     isLogin: true,
@@ -65,19 +51,14 @@ export const LogedIn: Story = {
 export const WithLogoImage: Story = {
   args: {
     title: "Logo",
-    LogoIcon: log,
+    LogoIcon: FindIconUrl("logo.svg"),
     direction: NavbarDirection.Row,
     navItem: [
       { text: "Home", href: "/" },
       { text: "About", href: "/about" },
       { text: "Contact", href: "/contact" },
     ],
-    navBarIcons: [
-      { icon: fav },
-      { icon: notification },
-      { icon: cart },
-      { icon: setting },
-    ],
+    navBarIcons: navBarIconsData,
     profilePicture: profile,
     isSearch: true,
     isLogin: true,
@@ -87,20 +68,14 @@ export const WithLogoImage: Story = {
 export const WithHemburger: Story = {
   args: {
     title: "Logo",
-    LogoIcon: log,
+    LogoIcon: FindIconUrl("logo.svg"),
     direction: NavbarDirection.Row,
     navItem: [
       { text: "Home", href: "/" },
       { text: "About", href: "/about" },
       { text: "Contact", href: "/contact" },
     ],
-    navBarIcons: [
-      { icon: person, iconName: "Logo" },
-      { icon: fav },
-      { icon: notification },
-      { icon: cart },
-      { icon: setting },
-    ],
+    navBarIcons: navBarIconsData,
     profilePicture: profile,
     isSearch: true,
     isLogin: true,
@@ -134,13 +109,7 @@ export const OnNavItemHover: Story = {
       },
       { text: "Contact", href: "/contact" },
     ],
-    navBarIcons: [
-      { icon: person, iconName: "Logo" },
-      { icon: fav },
-      { icon: notification },
-      { icon: cart },
-      { icon: setting },
-    ],
+    navBarIcons: navBarIconsData,
     profilePicture: profile,
     isSearch: true,
     isLogin: true,

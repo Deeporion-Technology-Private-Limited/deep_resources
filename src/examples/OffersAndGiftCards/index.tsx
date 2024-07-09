@@ -6,6 +6,7 @@ import React, { ComponentProps, forwardRef, useState } from 'react'
 import { ICards, ILabels } from '../GiftCards/data'
 import FaverateCard from '@/components/Cards/FaverateCard'
 import GiftCard from '../GiftCards'
+import { FindIconUrl } from '@/utils/Constant'
 
 
 type OffersAndGiftCardsProps = ComponentProps<typeof Box> & {
@@ -17,7 +18,7 @@ type OffersAndGiftCardsProps = ComponentProps<typeof Box> & {
 
 };
 
-const DiscountsAndOffers: React.FC<{ labels: ILabels[]; cards: any[]; handleNew: any }> = ({ labels, cards ,handleNew}) => {
+const DiscountsAndOffers: React.FC<{ labels: ILabels[]; cards: any[]; handleNew: any }> = ({ labels, cards, handleNew }) => {
     const [activeLabel, setActiveLabel] = useState<string | null>(null);
 
 
@@ -25,7 +26,7 @@ const DiscountsAndOffers: React.FC<{ labels: ILabels[]; cards: any[]; handleNew:
         setActiveLabel(label.value);
     };
 
-
+    const addCircleOutline = FindIconUrl("AddCircleOutline.svg");
 
     return (
         <Box className='flex flex-col gap-5'>
@@ -76,7 +77,7 @@ const DiscountsAndOffers: React.FC<{ labels: ILabels[]; cards: any[]; handleNew:
                                     </Text>
                                     <Button
                                         className="border-none w-max p-0 bg-transparent text-[#7D5D4F]"
-                                        iconUrl='/src/components/Button/ButtonImage/AddItemVariant.svg'
+                                        iconUrl={addCircleOutline}
                                     >
                                         Add Product
                                     </Button>
@@ -89,7 +90,7 @@ const DiscountsAndOffers: React.FC<{ labels: ILabels[]; cards: any[]; handleNew:
             <Box className='flex w-full items-end justify-end pr-5'>
                 <Button
                     className='w-fit'
-                    iconUrl='/src/components/Button/ButtonImage/AddItem.svg'
+                    iconUrl={addCircleOutline}
                     onClick={handleNew}
                 >
                     Add New
@@ -116,7 +117,7 @@ export const OffersAndGiftCards = forwardRef<HTMLDivElement, OffersAndGiftCardsP
                     className=' p-10'
                     tabs={[
                         {
-                            content: <DiscountsAndOffers labels={discountLabels} cards={discountCards} handleNew={handleNew}/>,
+                            content: <DiscountsAndOffers labels={discountLabels} cards={discountCards} handleNew={handleNew} />,
                             label: 'Discounts & Offers'
                         },
                         {

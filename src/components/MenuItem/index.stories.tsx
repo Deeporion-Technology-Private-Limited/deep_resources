@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { LeftIcon, RightIcon } from "./Icon/icon";
+import { ArrowForwardIos, OutlineDownloadIcon } from "./Icon/icon";
 import { MenuItem } from ".";
 import { Box } from "@/components/Layout";
 import { MenuItemSize, MenuItemVariant } from "./MenuitemTypes";
@@ -68,7 +68,7 @@ export const Default = generateMenuItemStory({
 export const WithRightIcon = generateMenuItemStory({
     variant: MenuItemVariant.RightIcon,
     label,
-    rightIcon: <LeftIcon />,
+    rightIcon: <ArrowForwardIos />,
     size: MenuItemSize.Medium,
     onClick: () => alert("Right icon item clicked"),
 });
@@ -76,7 +76,7 @@ export const WithRightIcon = generateMenuItemStory({
 export const WithLeftIcon = generateMenuItemStory({
     variant: MenuItemVariant.LeftIcon,
     label: "Item 3",
-    leftIcon: <RightIcon />,
+    leftIcon: <OutlineDownloadIcon />,
     size: MenuItemSize.Medium,
     onClick: () => alert("Left icon item clicked"),
 });
@@ -101,8 +101,8 @@ export const WithBorder = generateMenuItemStory({
 export const WithLeftAndRightIcon = generateMenuItemStory({
     variant: MenuItemVariant.LeftIcon,
     label: "Item 6",
-    leftIcon: <RightIcon />,
-    rightIcon: <LeftIcon />,
+    leftIcon: <OutlineDownloadIcon />,
+    rightIcon: <ArrowForwardIos />,
     size: MenuItemSize.Medium,
     onClick: () => alert("Left icon item clicked"),
 });
@@ -110,8 +110,8 @@ export const WithLeftAndRightIcon = generateMenuItemStory({
 export const ChangeRightIconOnClick = generateMenuItemStory({
     variant: MenuItemVariant.LeftIcon,
     label: "Item 6",
-    leftIcon: <RightIcon />,
-    rightIcon: <LeftIcon />,
+    leftIcon: <OutlineDownloadIcon />,
+    rightIcon: <ArrowForwardIos />,
     wannaChangRightIcon: true,
     size: MenuItemSize.Medium,
     onClick: () => alert("Left icon item clicked"),
@@ -120,11 +120,11 @@ export const ChangeRightIconOnClick = generateMenuItemStory({
 export const Submenu = generateMenuItemStory({
     variant: MenuItemVariant.Default,
     label: "Menu Items",
-    rightIcon: <LeftIcon />,
+    rightIcon: <ArrowForwardIos />,
     size: MenuItemSize.Medium,
     isSubmenu: true,
     children: (
-        <Box>
+        <Box className="pl-2">
             <MenuItem
                 label="Submenu Item 1"
                 size={MenuItemSize.Medium}

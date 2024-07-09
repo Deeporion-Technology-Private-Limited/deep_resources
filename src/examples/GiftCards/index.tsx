@@ -4,6 +4,7 @@ import { ButtonIconPosition } from "@/components/Button/type";
 import { ICards, ILabels } from "./data";
 import { cn } from "@/utils";
 import FaverateCard from "@/components/Cards/FaverateCard";
+import { FindIconUrl } from "@/utils/Constant";
 
 type GiftCardProps = ComponentProps<typeof Box> & {
     cardsArray: ICards[];
@@ -30,6 +31,8 @@ const GiftCard = forwardRef<HTMLDivElement, GiftCardProps>(
         const filteredCards = activeLabel
             ? filterCardsByLabel(cardsArray, activeLabel)
             : cardsArray;
+
+        const addCircleOutline = FindIconUrl("AddCircleOutline.svg");
 
         return (
             <Box ref={ref} className={cn("flex flex-col gap-8 px-8", className)} {...props}>
@@ -64,7 +67,7 @@ const GiftCard = forwardRef<HTMLDivElement, GiftCardProps>(
                     )) : "No data present"}
                 </Box>
                 <Box className="flex justify-end">
-                    <Button onClick={addNew} className="w-fit h-10" iconUrl="/src/components/Button/ButtonImage/AddItem.svg">
+                    <Button onClick={addNew} className="w-fit h-10" iconUrl={addCircleOutline}>
                         Add New
                     </Button>
                 </Box>

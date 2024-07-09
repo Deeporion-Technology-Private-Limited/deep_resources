@@ -10,7 +10,6 @@ import {
 } from "react";
 import { ILabels } from "../GiftCards/data";
 import { InputType, InputVariant } from "@/components/Input/type";
-import bell from "../../images/bellicon.png";
 import infoLogo from "../../images/Avatar3.svg";
 import { AdminSidebar } from "../AdminSidebar";
 import {
@@ -84,7 +83,8 @@ const OffersGiftCards = forwardRef<HTMLDivElement, AddNewGiftCardProps>(
       e.stopPropagation();
       setSelectedFile(null);
     };
-
+    
+    const bell = "https://deepresources.s3.ap-south-1.amazonaws.com/images/NotificationsNone.svg";
     return (
       <div className="flex">
         <div className="flex-none w-64 bg-white">

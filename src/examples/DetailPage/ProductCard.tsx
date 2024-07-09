@@ -4,7 +4,6 @@ import bag from "../../images/bag.png";
 import like from "../../images/like.png";
 import checked from "../../images/checked.jpg";
 import delivery from "../../images/delivery.png";
-import returnimage from "../../images/returnimage.png";
 import payment from "../../images/payment.png";
 import { buttons, product, ratingDetails } from "./ProductDetailsData";
 import { InputType, InputVariant } from "@/components/Input/type";
@@ -15,6 +14,7 @@ import ReviewList from "./ReviewList";
 import Ratingcard from "./RatingCard";
 
 const ProductCard: React.FC<{ data: ProductData }> = ({ data }) => {
+  const returnimage = "https://deepresources.s3.ap-south-1.amazonaws.com/images/OutlineCompareArrows.svg"
   return (
     <div className="flex flex-col gap-5">
       <div className="border rounded-lg p-5 font-sans flex flex-col gap-5 w-full">
@@ -95,7 +95,7 @@ const ProductCard: React.FC<{ data: ProductData }> = ({ data }) => {
       <div className="border rounded-lg p-5 w-full font-sans flex flex-col items-center justify-between">
         <div className="flex items-center justify-between w-full">
           <p className="text-gray-800 font-medium">
-            <img src={delivery} alt="Bag" className="h-6 w-6 inline-block" />
+            <img src={delivery} alt="delivery" className="h-6 w-6 inline-block" />
           </p>
           <p className="text-[#111827] font-normal ml-2 w-full max-w-[550px] h-auto">
             {data.arrival}
@@ -103,7 +103,7 @@ const ProductCard: React.FC<{ data: ProductData }> = ({ data }) => {
         </div>
         <div className="flex items-center justify-between w-full">
           <p className="text-gray-800 font-medium">
-            <img src={payment} alt="Bag" className="h-6 w-6 inline-block" />
+            <img src={payment} alt="Payment" className="h-6 w-6 inline-block" />
           </p>
           <p className="text-[#111827] font-normal ml-2 w-full max-w-[550px] h-auto">
             {data.paymentMethod}
@@ -111,7 +111,7 @@ const ProductCard: React.FC<{ data: ProductData }> = ({ data }) => {
         </div>
         <div className="flex items-center justify-between w-full">
           <p className="text-gray-800 font-medium">
-            <img src={returnimage} alt="Bag" className="h-6 w-6 inline-block" />
+            <img src={returnimage} alt="Return" className="h-6 w-6 inline-block" />
           </p>
           <p className="text-[#111827] font-normal ml-2 w-full max-w-[550px] h-auto">
             {data.returnPolicy}

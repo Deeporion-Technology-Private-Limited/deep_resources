@@ -13,6 +13,7 @@ const Checklist: React.FC = () => {
         : [...prev, categoryName]
     );
   };
+  const expand = "https://deepresources.s3.ap-south-1.amazonaws.com/images/ExpandLess.svg";
 
   return (
     <>
@@ -43,22 +44,13 @@ const Checklist: React.FC = () => {
                   <span className="text-gray-500">({category.count})</span>
                 )}
               </div>
-              <svg
+              <img
+                src={expand}
+                alt="Profile"
                 className={`w-4 h-4 transform transition-transform ${
                   openCategories.includes(category.name) ? "rotate-180" : ""
                 }`}
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M19 9l-7 7-7-7"
-                />
-              </svg>
+              />
             </div>
             {openCategories.includes(category.name) &&
               category.items.length > 0 && (

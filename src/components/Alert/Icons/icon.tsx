@@ -1,122 +1,80 @@
-import { AlertType, AlertVariant } from "../type";
+import { FindIconUrl } from "@/utils/Constant";
 
-type IconProps = {
-  type: AlertType;
-  variant: AlertVariant;
-};
-
-export const Warning = ({ variant }: IconProps) => {
-  const fillColor = variant === AlertVariant.Filled ? "white" : "rgb(234, 179, 8)";
+export const WarningFilled = () => {
+  const url = FindIconUrl("AiOutlineWarningWhite.svg");
 
   return (
     <div>
-      <svg
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M10.8751 16.875C10.8751 17.1734 10.9936 17.4595 11.2046 17.6705C11.4156 17.8815 11.7017 18 12.0001 18C12.2985 18 12.5846 17.8815 12.7956 17.6705C13.0066 17.4595 13.1251 17.1734 13.1251 16.875C13.1251 16.5766 13.0066 16.2905 12.7956 16.0795C12.5846 15.8685 12.2985 15.75 12.0001 15.75C11.7017 15.75 11.4156 15.8685 11.2046 16.0795C10.9936 16.2905 10.8751 16.5766 10.8751 16.875ZM11.2501 9.75V14.0625C11.2501 14.1656 11.3345 14.25 11.4376 14.25H12.5626C12.6657 14.25 12.7501 14.1656 12.7501 14.0625V9.75C12.7501 9.64687 12.6657 9.5625 12.5626 9.5625H11.4376C11.3345 9.5625 11.2501 9.64687 11.2501 9.75ZM22.3993 20.0625L12.6493 3.1875C12.504 2.93672 12.2532 2.8125 12.0001 2.8125C11.747 2.8125 11.4939 2.93672 11.3509 3.1875L1.60089 20.0625C1.31261 20.5641 1.67354 21.1875 2.25011 21.1875H21.7501C22.3267 21.1875 22.6876 20.5641 22.3993 20.0625ZM4.03604 19.4086L12.0001 5.62266L19.9642 19.4086H4.03604Z"
-          fill={fillColor}
-        />
-      </svg>
+      <img src={url} alt="Warning Icon" width="24" height="24" />
     </div>
   );
 };
 
-export const Success = ({ variant }: IconProps) => {
-  const fillColor = variant === AlertVariant.Filled ? "white" : "rgb(34, 197, 94)";
+export const WarningOutlined = () => {
+  const url = FindIconUrl("AiOutlineWarning.svg");
 
   return (
     <div>
-      <svg
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20ZM16.59 7.58L10 14.17L7.41 11.59L6 13L10 17L18 9L16.59 7.58Z"
-          fill={fillColor}
-        />
-      </svg>
+      <img src={url} alt="Warning Icon" width="24" height="24" />
     </div>
   );
 };
 
-export const Error = ({ variant }: IconProps) => {
-  const fillColor = variant === AlertVariant.Filled ? "white" : "red";
+export const SuccessFilled = () => {
+  const url = FindIconUrl(`OutlineCheckCircleWhite.svg`);
 
   return (
     <div>
-      <svg
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <g id="error_outline_24px">
-          <path
-            id="icon/alert/error_outline_24px"
-            fillRule="evenodd"
-            clipRule="evenodd"
-            d="M2 12C2 6.48 6.47 2 11.99 2C17.52 2 22 6.48 22 12C22 17.52 17.52 22 11.99 22C6.47 22 2 17.52 2 12ZM13 8C13 7.45 12.55 7 12 7C11.45 7 11 7.45 11 8V12C11 12.55 11.45 13 12 13C12.55 13 13 12.55 13 12V8ZM12 20C7.58 20 4 16.42 4 12C4 7.58 7.58 4 12 4C16.42 4 20 7.58 20 12C20 16.42 16.42 20 12 20ZM11 15V17H13V15H11Z"
-            fill={fillColor}
-          />
-        </g>
-      </svg>
+      <img src={url} alt="Success Icon" width="24" height="24" />
     </div>
   );
 };
 
-export const Info = ({ variant }: IconProps) => {
-  const fillColor = variant === AlertVariant.Filled ? "white" : "blue";
+export const SuccessOutlined = () => {
+  const url = FindIconUrl("OutlineCheckCircleGreen.svg");
 
   return (
     <div>
-      <svg
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M12 1.5C6.20156 1.5 1.5 6.20156 1.5 12C1.5 17.7984 6.20156 22.5 12 22.5C17.7984 22.5 22.5 17.7984 22.5 12C22.5 6.20156 17.7984 1.5 12 1.5ZM12 20.7188C7.18594 20.7188 3.28125 16.8141 3.28125 12C3.28125 7.18594 7.18594 3.28125 12 3.28125C16.8141 3.28125 20.7188 7.18594 20.7188 12C20.7188 16.8141 16.8141 20.7188 12 20.7188Z"
-          fill={fillColor}
-        />
-        <path
-          d="M10.875 7.875C10.875 8.17337 10.9935 8.45952 11.2045 8.6705C11.4155 8.88147 11.7016 9 12 9C12.2984 9 12.5845 8.88147 12.7955 8.6705C13.0065 8.45952 13.125 8.17337 13.125 7.875C13.125 7.57663 13.0065 7.29048 12.7955 7.0795C12.5845 6.86853 12.2984 6.75 12 6.75C11.7016 6.75 11.4155 6.86853 11.2045 7.0795C10.9935 7.29048 10.875 7.57663 10.875 7.875ZM12.5625 10.5H11.4375C11.3344 10.5 11.25 10.5844 11.25 10.6875V17.0625C11.25 17.1656 11.3344 17.25 11.4375 17.25H12.5625C12.6656 17.25 12.75 17.1656 12.75 17.0625V10.6875C12.75 10.5844 12.6656 10.5 12.5625 10.5Z"
-          fill={fillColor}
-        />
-      </svg>
+      <img src={url} alt="Success Icon" width="24" height="24" />
     </div>
   );
 };
 
-// export const Info = () => {
-//   return (
-//     <div>
-//       <svg
-//         width="24"
-//         height="24"
-//         viewBox="0 0 24 24"
-//         fill="none"
-//         xmlns="http://www.w3.org/2000/svg"
-//       >
-//         <path
-//           d="M12 1.5C6.20156 1.5 1.5 6.20156 1.5 12C1.5 17.7984 6.20156 22.5 12 22.5C17.7984 22.5 22.5 17.7984 22.5 12C22.5 6.20156 17.7984 1.5 12 1.5ZM12 20.7188C7.18594 20.7188 3.28125 16.8141 3.28125 12C3.28125 7.18594 7.18594 3.28125 12 3.28125C16.8141 3.28125 20.7188 7.18594 20.7188 12C20.7188 16.8141 16.8141 20.7188 12 20.7188Z"
-//           fill="blue"
-//         />
-//         <path
-//           d="M10.875 7.875C10.875 8.17337 10.9935 8.45952 11.2045 8.6705C11.4155 8.88147 11.7016 9 12 9C12.2984 9 12.5845 8.88147 12.7955 8.6705C13.0065 8.45952 13.125 8.17337 13.125 7.875C13.125 7.57663 13.0065 7.29048 12.7955 7.0795C12.5845 6.86853 12.2984 6.75 12 6.75C11.7016 6.75 11.4155 6.86853 11.2045 7.0795C10.9935 7.29048 10.875 7.57663 10.875 7.875ZM12.5625 10.5H11.4375C11.3344 10.5 11.25 10.5844 11.25 10.6875V17.0625C11.25 17.1656 11.3344 17.25 11.4375 17.25H12.5625C12.6656 17.25 12.75 17.1656 12.75 17.0625V10.6875C12.75 10.5844 12.6656 10.5 12.5625 10.5Z"
-//           fill="blue"
-//         />
-//       </svg>
-//     </div>
-//   );
-// };
+export const ErrorFilled = () => {
+  const url = FindIconUrl("ErrorOutlineWhite.svg");
+
+  return (
+    <div>
+      <img src={url} alt="Error Icon" width="24" height="24" />
+    </div>
+  );
+};
+
+export const ErrorOutlined = () => {
+  const url = FindIconUrl("ErrorOutlineRed.svg");
+
+  return (
+    <div>
+      <img src={url} alt="Error Icon" width="24" height="24" />
+    </div>
+  );
+};
+export const InfoFilled = () => {
+  const url = FindIconUrl("AiOutlineInfoWhite.svg");
+
+  return (
+    <div>
+      <img src={url} alt="Info Icon" width="24" height="24" />
+    </div>
+  );
+};
+
+export const InfoOutlined = () => {
+  const url = FindIconUrl("AiOutlineInfo.svg");
+
+  return (
+    <div>
+      <img src={url} alt="Info Icon" width="24" height="24" />
+    </div>
+  );
+};

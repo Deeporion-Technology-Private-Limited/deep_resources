@@ -3,7 +3,16 @@ import { cn } from "@/utils";
 import { cva, VariantProps } from "class-variance-authority";
 import { ComponentProps, forwardRef } from "react";
 import { AlertType, AlertVariant } from "./type";
-import { Error, Info, Success, Warning } from "./Icons/icon";
+import {
+  ErrorFilled,
+  ErrorOutlined,
+  InfoFilled,
+  InfoOutlined,
+  SuccessFilled,
+  SuccessOutlined,
+  WarningFilled,
+  WarningOutlined,
+} from "./Icons/icon";
 
 const productCardStyles = cva(
   [
@@ -122,13 +131,17 @@ type ProductCardProps = ComponentProps<typeof Box> &
 
 const getIcon = (type: AlertType, variant: AlertVariant) => {
   const IconComponent = {
-    [AlertType.Success]: Success,
-    [AlertType.Error]: Error,
-    [AlertType.Warning]: Warning,
-    [AlertType.Info]: Info,
+    [AlertType.Success]:
+      variant === AlertVariant.Filled ? SuccessFilled : SuccessOutlined,
+    [AlertType.Error]:
+      variant === AlertVariant.Filled ? ErrorFilled : ErrorOutlined,
+    [AlertType.Warning]:
+      variant === AlertVariant.Filled ? WarningFilled : WarningOutlined,
+    [AlertType.Info]:
+      variant === AlertVariant.Filled ? InfoFilled : InfoOutlined,
   }[type];
 
-  return <IconComponent type={type} variant={variant} />;
+  return <IconComponent />;
 };
 
 export const Alert = forwardRef<HTMLDivElement, ProductCardProps>(

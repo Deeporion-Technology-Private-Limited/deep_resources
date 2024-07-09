@@ -75,7 +75,7 @@ const PhoneVerify = () => {
               </Text>
             </Box>
             <Box className="w-full">
-              <Button hover onClick={handleVerify}>
+              <Button hover data-testid="VerifyBtn" onClick={handleVerify}>
                 {Login.Verify}
               </Button>
             </Box>

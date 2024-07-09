@@ -34,6 +34,7 @@ const Authentication = () => {
         variant={InputVariant.Outlined}
         value={values[index]}
         onChange={handleChange(index)}
+        data-testid="InputValues"
       />
     ));
 
@@ -115,7 +116,7 @@ const Authentication = () => {
             )}
           </Box>
           <Box className="flex flex-col gap-4  items-center">
-            <Button className="font-bold text-base " onClick={handleVerify}>
+            <Button className="font-bold text-base " data-testid="VerifyBtn" onClick={handleVerify}>
               {Login.Verify}
             </Button>
             <Button className="w-fit bg-transparent p-0 text-[#72787F] font-normal items-center text-sm ">

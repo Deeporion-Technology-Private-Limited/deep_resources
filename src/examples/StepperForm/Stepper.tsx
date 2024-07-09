@@ -63,6 +63,7 @@ const Stepper = forwardRef<HTMLDivElement, StepperProps>((props, ref) => {
   };
 
   const isLastStep = activeStep === steps.length - 1;
+  const check = "https://deepresources.s3.ap-south-1.amazonaws.com/images/Check.svg";
 
   return (
     <div
@@ -82,18 +83,11 @@ const Stepper = forwardRef<HTMLDivElement, StepperProps>((props, ref) => {
             >
               <div className="flex-shrink-0 rounded-full border-2 bg-[#34D399] w-8 h-8 flex items-center justify-center">
                 {index < activeStep ? (
-                  <svg
-                    width="18"
-                    height="13"
-                    viewBox="0 0 18 13"
-                    className="fill-white stroke-white"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M5.79506 10.3749L2.32506 6.90489C2.13823 6.71764 1.88458 6.6124 1.62006 6.6124C1.35554 6.6124 1.10189 6.71764 0.915059 6.90489C0.525059 7.29489 0.525059 7.92489 0.915059 8.31489L5.09506 12.4949C5.48506 12.8849 6.11506 12.8849 6.50506 12.4949L17.0851 1.91489C17.4751 1.52489 17.4751 0.894888 17.0851 0.504888C16.8982 0.317635 16.6446 0.212402 16.3801 0.212402C16.1155 0.212402 15.8619 0.317635 15.6751 0.504888L5.79506 10.3749Z"
-                      fill="white"
-                    />
-                  </svg>
+                  <img
+                    src={check}
+                    alt="Profile"
+                    className="w-8 h-6 cursor-pointer filter invert grayscale"
+                  />
                 ) : (
                   <div
                     className={`flex-shrink-0 rounded-full w-8 h-8 flex items-center justify-center ${activeStep ? "bg-black text-white" : "bg-[black] text-[white]"}`}

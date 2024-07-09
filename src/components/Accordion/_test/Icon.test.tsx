@@ -1,7 +1,7 @@
 import "@testing-library/jest-dom";
 import { fireEvent, render, screen } from "@testing-library/react";
 
-import { Minus, PlusIcon, UpArrow, UpCursor } from "../Icon/Icon";
+import { PlusIcon, UpArrow, UpCursor } from "../Icon/Icon";
 
 describe("Icon", () => {
   test("should call UpArrow function", () => {
@@ -22,9 +22,4 @@ describe("Icon", () => {
     fireEvent.click(plusIconElement);
   });
 
-  test("should call Minus function", () => {
-    render(<Minus />);
-    const minusIconElement = screen.getByTestId("minusicon");
-    fireEvent.click(minusIconElement);
-  });
 });

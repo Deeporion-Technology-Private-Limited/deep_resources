@@ -2,6 +2,7 @@ import React, { ComponentProps, forwardRef, useState, useEffect } from "react";
 import { cn } from "@/utils";
 import { cva, VariantProps } from "class-variance-authority";
 import { ButtonSize } from "../Button/type";
+import { FindIconUrl } from "@/utils/Constant";
 
 const inputStyles = cva(
   [""],
@@ -76,6 +77,8 @@ export const Checkbox = forwardRef<HTMLInputElement, InputProps>(
       }
     };
 
+    const name = FindIconUrl("Tick.svg")
+
     const inputElement = (
       <div className={cn(
         "flex items-center justify-center relative",
@@ -104,9 +107,9 @@ export const Checkbox = forwardRef<HTMLInputElement, InputProps>(
           {...props}
         />
         {type === "checkbox" && isChecked && <div className={cn(checkedClassName)}>
-          <svg width="16" height="16" viewBox="0 0 12 10" fill="red" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M11.061 0.422282C11.5182 0.732194 11.6375 1.35401 11.3276 1.81114L6.24303 9.31114C6.07698 9.55608 5.81098 9.71489 5.51659 9.74486C5.2222 9.77483 4.92965 9.67287 4.71765 9.46642L0.802215 5.65352C0.406544 5.26821 0.398144 4.6351 0.783453 4.23943C1.16876 3.84376 1.80187 3.83536 2.19754 4.22067L5.25759 7.20058L9.67216 0.688855C9.98207 0.23172 10.6039 0.112371 11.061 0.422282Z" fill={fillColor ?? "white"} />
-          </svg>
+          <div>
+            <img src={name} alt="" />
+          </div>
         </div>}
         {type === "radio" && isChecked && <span className={cn("bg-white w-4 h-4 rounded-full", checkedClassName)}></span>}
         {type === "toggle" && (
@@ -115,7 +118,7 @@ export const Checkbox = forwardRef<HTMLInputElement, InputProps>(
             {
               "transform translate-x-8": isChecked,
             }
-          , checkedClassName)}></span>
+            , checkedClassName)}></span>
         )}
       </div>
     );

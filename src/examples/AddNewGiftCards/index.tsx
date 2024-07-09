@@ -4,6 +4,7 @@ import { ChangeEvent, ComponentProps, DragEventHandler, forwardRef, useRef, useS
 import { ILabels } from "../GiftCards/data";
 import { InputType, InputVariant } from "@/components/Input/type";
 import SearchImage from "@/images/InputIcons/SearchImage";
+import { awsURl } from "@/utils/aws/utils";
 
 type AddNewGiftCardProps = ComponentProps<typeof Box> & {
     labelsArray: ILabels[];
@@ -250,7 +251,7 @@ const AddNewGiftCards = forwardRef<HTMLDivElement, AddNewGiftCardProps>(
                                 // Default upload UI
                                 <Box className="flex flex-col items-center justify-center gap-4 py-8">
                                     <img
-                                        src="src/images/upload.svg"
+                                        src={`${awsURl}/OutlineFileUpload.svg`}
                                         alt=""
                                         className="max-h-20"
                                     />
@@ -261,7 +262,7 @@ const AddNewGiftCards = forwardRef<HTMLDivElement, AddNewGiftCardProps>(
                                         Drag and drop the files here
                                     </p>
                                     <Button
-                                        iconUrl="/src/components/Button/ButtonImage/AddItem.svg"
+                                        iconUrl={`${awsURl}/AddCircle.svg`}
                                         className="bg-transparent text-[#3F271E] w-fit"
                                         onClick={() => onButtonClick()}
                                     >

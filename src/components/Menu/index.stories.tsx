@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from "@storybook/react";
 import { Menu } from ".";
 import { MenuItem } from "../MenuItem";
-import { LeftIcon, RightIcon } from "../MenuItem/Icon/icon";
+import { ArrowForwardIos, OutlineDownloadIcon } from "../MenuItem/Icon/icon";
 import { MenuItemSize } from "../MenuItem/MenuitemTypes";
 
 
@@ -30,7 +30,7 @@ export const Deafult: Story = {
                 />
                 <MenuItem
                     label="MenuItem"
-                    rightIcon={<LeftIcon />}
+                    rightIcon={<ArrowForwardIos />}
                     size={MenuItemSize.Medium}
                     variant="RightIcon"
                     className="bg-inherit rounded-none"
@@ -38,7 +38,7 @@ export const Deafult: Story = {
                 />
                 <MenuItem
                     label="MenuItem"
-                    leftIcon={<RightIcon />}
+                    leftIcon={<OutlineDownloadIcon />}
                     size={MenuItemSize.Medium}
                     variant="LeftIcon"
                     className="bg-inherit rounded-none"

@@ -5,6 +5,7 @@ import { ComponentProps } from "react";
 import { Box, Text } from "@/components";
 import { ButtonSize } from "@/components/Button/type";
 import Cam from "../icons/Camera.svg";
+import { FindIconUrl } from "@/utils/Constant";
 const profileStyles = cva(
   "flex items-center border border-white rounded-full justify-center relative",
   {
@@ -59,8 +60,8 @@ const Profile = forwardRef<HTMLDivElement, ProfileAvatarProps>(
                                justify-center items-center rounded-full">
           <Box className="flex flex-col items-center justify-center ">
             <img
-              src={Cam}
-              className={iconStyle}
+              src={FindIconUrl("OutlineCameraAlt.svg")}
+              className={"text-white bg-white"}
               data-testid="icon"
             />
             <Text className={textStyle}>Edit Picture</Text>

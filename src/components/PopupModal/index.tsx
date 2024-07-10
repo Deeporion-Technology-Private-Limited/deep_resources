@@ -8,8 +8,7 @@ import {
 } from "react";
 import { ButtonVariant, ButtonSize } from "../Button/type";
 import { Box, Button } from "..";
-import CloseIcon from "./Icons/CloseIcon";
-
+import {Close} from "../Icons"
 const modalStyles = cva(
   [
     "fixed",
@@ -105,7 +104,7 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(
                     data-testid="close-icon"
                     className="cursor-pointer"
                   >
-                     <CloseIcon />
+                     <Close />
                   </div>
                 )}
               </Box>

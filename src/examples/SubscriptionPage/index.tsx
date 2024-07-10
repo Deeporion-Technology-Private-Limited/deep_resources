@@ -1,19 +1,19 @@
 import { Box, Button, Headings, Input } from "@/components";
 import { ButtonSize, ButtonVariant } from "@/components/Button/type";
-import Check_Filled from "../../images/Check_filled.svg";
 import {
   SubscriptionData,
   PaymentHistoryFormatted,
 } from "@/components/Data/Subscriptions";
+import Check_Filled from "../../images/Check_filled.svg";
 import { useState } from "react";
 import { InputType, InputVariant } from "@/components/Input/type";
-import payPal from "../../images/Paypal.svg";
+
 import MasterCard from "../../images/MasterCard.svg";
 import { Table } from "@/components/Table/Table";
-import { FindIconUrl } from "@/utils/Constant";
-
+import {PayPalIcon,Apple} from '@/components/Icons';
 const SubscriptionBox = (props: any) => {
-  const { data } = props;
+  
+  const { data } =  props;
   return (
     <Box className=" w-full" style={{ width: "100%" }}>
       <Box
@@ -112,7 +112,7 @@ export const SubscriptionPage = () => {
         SubscriptionData &&
         SubscriptionData.map((data, index) => {
           return (
-            <Box className="my-2" style={{ width: "800px" }}>
+            <Box className="my-2" key={index} style={{ width: "800px" }}>
               <SubscriptionBox
                 data={data}
                 key={index}
@@ -142,7 +142,7 @@ export const SubscriptionPage = () => {
                   More Payment Options
                 </label>
                 <Input
-                  search={<img src={payPal} alt="PayPal" />}
+                  search={<PayPalIcon />}
                   type={InputType.SearchIcon}
                   variant={InputVariant.Outlined}
                   placeholder="More Payment Options"
@@ -164,7 +164,7 @@ export const SubscriptionPage = () => {
               <Box className="my-2">
                 <Input
                   type={InputType.SearchIcon}
-                  search={<img src={FindIconUrl("Apple.png")} alt="AppleIcon" />}
+                  search={<Apple/>}
                   variant={InputVariant.Outlined}
                   placeholder="Apply pay"
                   value={""}

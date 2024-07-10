@@ -126,7 +126,7 @@ type ProductCardProps = ComponentProps<typeof Box> &
     type?: AlertType;
     variant?: AlertVariant;
     showIcon?: boolean;
-    message: string;
+    children: React.ReactNode;
   };
 
 const getIcon = (type: AlertType, variant: AlertVariant) => {
@@ -151,7 +151,7 @@ export const Alert = forwardRef<HTMLDivElement, ProductCardProps>(
       type = AlertType.Success,
       variant = AlertVariant.Filled,
       showIcon,
-      message,
+      children,
       ...props
     },
     ref
@@ -170,9 +170,7 @@ export const Alert = forwardRef<HTMLDivElement, ProductCardProps>(
             {getIcon(type, variant)}
           </span>
         )}
-        <Text className={textStyles()}>
-          This is an {variant} {type} alert.
-        </Text>
+        <Text className={textStyles()}>{children}</Text>
       </Box>
     );
   }

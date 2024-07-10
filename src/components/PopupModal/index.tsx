@@ -8,7 +8,8 @@ import {
 } from "react";
 import { ButtonVariant, ButtonSize } from "../../components/Button/type";
 import { Box, Button } from "..";
-import {FindIconUrl} from "@/utils/Constant";
+import CloseIcon from "./Icons/CloseIcon";
+
 const modalStyles = cva(
   [
     "fixed",
@@ -104,7 +105,7 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(
                     data-testid="close-icon"
                     className="cursor-pointer"
                   >
-                    <img src={FindIconUrl("Close.svg")}  alt={FindIconUrl("Close")}/> 
+                     <CloseIcon />
                  
                   </div>
                 )}

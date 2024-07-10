@@ -2,7 +2,6 @@ import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import Alert from "../index";
 import { AlertType, AlertVariant } from "../type";
-import { Translations } from "../../translations";
 
 const line = "renders with success type and ";
 
@@ -11,8 +10,7 @@ describe("Alert Component", () => {
     const { getByText } = render(
       <Alert
         type={AlertType.Success}
-        variant={AlertVariant.Filled}
-        message={Translations.Message}
+        variant={AlertVariant.Filled} children={undefined}        
       />
     );
     expect(getByText(/This is an Filled Success alert/i)).toBeInTheDocument();
@@ -27,7 +25,8 @@ describe("Alert Component", () => {
       <Alert
         type={AlertType.Success}
         variant={AlertVariant.Outlined}
-        message={Translations.Message}
+      
+        children={undefined}
       />
     );
 
@@ -45,7 +44,7 @@ describe("Alert Component", () => {
         type={AlertType.Success}
         variant={AlertVariant.Filled}
         showIcon={true}
-        message={Translations.Message}
+        children={undefined}
       />
     );
     expect(getByText(/This is an Filled Success alert/i)).toBeInTheDocument();
@@ -64,7 +63,7 @@ describe("Alert Component", () => {
         type={AlertType.Success}
         variant={AlertVariant.Filled}
         showIcon={true}
-        message={Translations.Message}
+        children={undefined}
       />
     );
     expect(getByText(/This is an Filled Success alert/i)).toBeInTheDocument();
@@ -79,7 +78,7 @@ describe("Alert Component", () => {
   });
   test(`${line} filled variant with showIcon set to false `, () => {
     const { queryByTestId } = render(
-      <Alert showIcon={false} message={Translations.Message} />
+      <Alert showIcon={false} children={undefined} />
     );
     expect(queryByTestId("icon")).not.toBeInTheDocument();
   });

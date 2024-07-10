@@ -13,7 +13,6 @@ import {
   Gift,
   Orders,
   Seller,
-  Setting,
   WareHouse,
 } from "../AdminSidebar/adminbarConst";
 
@@ -50,7 +49,6 @@ const PersonalInfo = () => {
           { menuLeftIcon: <Agents />, menus: "Agents" },
           { menuLeftIcon: <Orders />, menus: "Orders" },
           { menuLeftIcon: <Gift />, menus: "Offers & Gift Cards" },
-          { menuLeftIcon: <Setting />, menus: "Settings" },
         ]}
         logo="/src/examples/AdminSidebar/icon/Logo.svg"
       />

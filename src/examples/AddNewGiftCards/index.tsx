@@ -4,7 +4,7 @@ import { ChangeEvent, ComponentProps, DragEventHandler, forwardRef, useRef, useS
 import { ILabels } from "../GiftCards/data";
 import { InputType, InputVariant } from "@/components/Input/type";
 import SearchImage from "@/images/InputIcons/SearchImage";
-import { awsURl } from "@/utils/aws/utils";
+import { FindIconUrl } from "@/utils/Constant";
 
 type AddNewGiftCardProps = ComponentProps<typeof Box> & {
     labelsArray: ILabels[];
@@ -197,6 +197,9 @@ const AddNewGiftCards = forwardRef<HTMLDivElement, AddNewGiftCardProps>(
             setActiveLabel(label.value);
         };
 
+        const outlineFileUpload = FindIconUrl("OutlineFileUpload.svg");
+        const addCircle = FindIconUrl("AddCircle.svg");
+
         return (
             <Box ref={ref} className={cn("w-full h-full flex flex-col gap-6", className)} {...props}>
                 <Box className="w-full h-full px-10 ">
@@ -251,7 +254,7 @@ const AddNewGiftCards = forwardRef<HTMLDivElement, AddNewGiftCardProps>(
                                 // Default upload UI
                                 <Box className="flex flex-col items-center justify-center gap-4 py-8">
                                     <img
-                                        src={`${awsURl}/OutlineFileUpload.svg`}
+                                        src={outlineFileUpload}
                                         alt=""
                                         className="max-h-20"
                                     />
@@ -262,7 +265,7 @@ const AddNewGiftCards = forwardRef<HTMLDivElement, AddNewGiftCardProps>(
                                         Drag and drop the files here
                                     </p>
                                     <Button
-                                        iconUrl={`${awsURl}/AddCircle.svg`}
+                                        iconUrl={addCircle}
                                         className="bg-transparent text-[#3F271E] w-fit"
                                         onClick={() => onButtonClick()}
                                     >

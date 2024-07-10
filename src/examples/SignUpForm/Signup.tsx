@@ -5,9 +5,9 @@ import { useState } from "react";
 import { ButtonVariant } from "@/components/Button/type";
 import background from "../../images/backimage.png";
 import { SignUp } from "./type";
-import CloseIcon from "@/components/PopupModal/Icons/CloseIcon";
 import CloseEye from "@/images/InputIcons/CloseEye";
 import OpenEye from "@/images/InputIcons/OpenEye";
+import { FindIconUrl } from "@/utils/Constant";
 
 const Signup = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -141,7 +141,7 @@ const Signup = () => {
                           className="bg-none w-fit"
                           onClick={() => setIsOpen(false)}
                         >
-                          <CloseIcon />
+                          {FindIconUrl("Close.svg")}
                         </Button>
                       </Box>
                       <Box className="border-t border-[#E8EBED]">

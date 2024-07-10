@@ -1,14 +1,11 @@
 import { Meta, StoryObj } from "@storybook/react";
 import FaverateCard from ".";
 import image from "@/examples/ShopingCards/images/Web-_Product listing/3897062800_1_1_1 1.png";
-import image1 from "@/components/Cards/icons/image (1).svg";
 import { Text } from "@/components/Text";
 import { Button } from "@/components/Button/DefaultButton";
 import { ButtonIconPosition, ButtonVariant } from "@/components/Button/type";
-import add from "../icons/new.svg";
 import { Box } from "@/components/Layout";
-import copy from "../icons/copy.svg";
-import additionIcon from "../icons/add.svg"
+import { FindIconUrl } from "@/utils/Constant";
 
 const meta: Meta<typeof FaverateCard> = {
   title: "Components/Cards/FaverateCard",
@@ -61,7 +58,7 @@ export const RowCardWithIcon: Story ={
     brand: "mango",
     description: "Black Sleeveless Crepe Dress",
     className: "flex p-4 items-end",
-    iconUrl: image1,
+    iconUrl: FindIconUrl("Copy.svg"),
     favorite: true,
     isDescription: true,
     descriptionStyle:"px-6"
@@ -79,7 +76,7 @@ export const TopDealsCard: Story = {
           </Text>
           <Box className="flex w-max gap-2">
             <Text>Code: TRYRAREFTW10</Text>
-            <img src={copy} />
+            <img src={FindIconUrl("ContentCopy.svg")} />
           </Box>
           <Text as="p">Expiry: 20 May 2024</Text>
           <Box className="flex justify-between w-full">
@@ -88,7 +85,7 @@ export const TopDealsCard: Story = {
               variant={ButtonVariant.DefaultDarkBackground}
               className="border-none w-max p-0 text-[#7D5D4F]"
               iconPosition={ButtonIconPosition.Right}
-              iconUrl={add}
+              iconUrl={FindIconUrl("ArrowRightBrown.svg")}
             >
               View Products
             </Button>
@@ -120,7 +117,7 @@ export const AddProductCard: Story = {
               variant={ButtonVariant.DefaultDarkBackground}
               className="border-none w-max p-0 h-7 text-[#7D5D4F]"
               iconPosition={ButtonIconPosition.Left}
-              iconUrl={additionIcon}
+              iconUrl={FindIconUrl("AddBrown.svg")}
             >
               View Products
             </Button>

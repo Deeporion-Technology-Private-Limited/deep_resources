@@ -6,7 +6,7 @@ import {
   ReactNode,
   useEffect,
 } from "react";
-import { ButtonVariant, ButtonSize } from "../../components/Button/type";
+import { ButtonVariant, ButtonSize } from "../Button/type";
 import { Box, Button } from "..";
 import CloseIcon from "./Icons/CloseIcon";
 

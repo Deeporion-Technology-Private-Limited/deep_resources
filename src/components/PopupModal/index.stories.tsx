@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Modal } from ".";
-import { Box, Checkbox, Headings, Input, Text } from "..";
+import { Box, Checkbox, Headings, Input, Text } from "@/components/index";
 import { InputType, InputVariant } from "@/components/Input/type";
 import { InputType as Checkboxinput } from "@/components/Checkbox/CheckboxTypes";
-import ReviewCard from "../Cards/ReviewCard";
-import { LoginForm } from "../../examples/LoginForm/LoginForm";
+import ReviewCard from "../Cards/ReviewCard"
+import { LoginForm } from "@/examples/LoginForm/LoginForm";
 
 const meta: Meta<typeof Modal> = {
-  title: "Components/PopupModal/Modal",
+  title: "Components/PopupModal/Modals",
   component: Modal,
   parameters: {
     layout: "centered",

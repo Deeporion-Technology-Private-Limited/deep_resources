@@ -1,6 +1,5 @@
 import { Box, IconButton, Text } from "@/components";
 import { ProfileProps, plateforms } from "./data";
-import right from "../../components/Cards/icons/new.svg";
 import Profile from "@/components/Avatar/Editable";
 import { platformItem } from "./data";
 import { cva } from "class-variance-authority";
@@ -8,6 +7,7 @@ import { cn } from "@/utils";
 import { forwardRef } from "react";
 import Heading from "../Heading";
 import image from "../../components/Header/navbarIcons/image.png";
+import { FindIconUrl } from "@/utils/Constant";
 
 const ProfileWindowProps = cva("h-full flex flex-col gap-4");
 
@@ -38,7 +38,7 @@ const ProfileWindow = forwardRef<HTMLDivElement, ProfileProps>(
           <Box>
             <IconButton
               backgroundColor="transparent"
-              iconUrl={right}
+              iconUrl={FindIconUrl("right.svg")}
               iconStyle="size-8"
             />
           </Box>

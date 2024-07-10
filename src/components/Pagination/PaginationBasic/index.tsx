@@ -1,11 +1,10 @@
 import React, { forwardRef } from "react";
 import { cva, VariantProps } from "class-variance-authority";
 import { cn } from "@/utils";
-import Left from "../icon/Left.svg";
-import Right from "../icon/Right.svg";
 import { Box, Text } from "@/components";
 import { ButtonSize } from "@/components/Button/type";
 import { Color, Shape, Variants } from "../type";
+import { FindIconUrl } from "@/utils/Constant";
 
 const paginationContainerStyles = cva(
   "flex items-center justify-center space-x-2",
@@ -147,7 +146,7 @@ const Pagination = forwardRef<HTMLDivElement, PaginationProps>(
           style={{ width: customButtonSize, height: customButtonSize }}
           data-testid="previouspage"
         >
-          <img src={Left} className={iconStyle} />
+          <img src={FindIconUrl("Left.svg")} className={iconStyle} />
         </button>
 
         {getPages().map((page, index) => (
@@ -187,7 +186,7 @@ const Pagination = forwardRef<HTMLDivElement, PaginationProps>(
           style={{ width: customButtonSize, height: customButtonSize }}
           data-testid="nextPage"
         >
-          <img src={Right} className={iconStyle} />
+          <img src={FindIconUrl("Right.svg")} className={iconStyle} />
         </button>
       </Box>
     );

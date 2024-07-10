@@ -1,10 +1,10 @@
 import React, { useState, forwardRef, ComponentProps } from "react";
-import star from "../icons/start.svg";
 import { Button } from "@/components/Button/DefaultButton";
 import { Box } from "@/components/Layout";
 import { Text } from "@/components/Text";
 import { VariantProps, cva } from "class-variance-authority";
 import { cn } from "@/utils";
+import { FindIconUrl } from "@/utils/Constant";
 
 type CardProps = ComponentProps<typeof Box> &
   VariantProps<typeof cardStyles> & {
@@ -121,7 +121,7 @@ const FaverateCard = forwardRef<HTMLDivElement, CardProps>(
             <Box className="absolute bottom-2 left-2 bg-[#00000066] bg-opacity-75 px-2 py-1 rounded-lg text-[#FFFFFF] flex items-center gap-1">
               <Text as={"p"}>{rating}</Text>
               <Text as={"p"}>
-                <img src={star} className="size-4" />
+                <img src={FindIconUrl("star.svg")} className="size-4" />
               </Text>
               <Text className="h-max w-max" as={"span"}>
                 {reviews}

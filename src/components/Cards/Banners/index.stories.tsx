@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react";
 import Banner from "./index";
-import icon from "@/components/Cards/icons/image.svg";
+import { FindIconUrl } from "@/utils/Constant";
 
 const meta: Meta<typeof Banner> = {
   title: "Components/Cards/Banner",
@@ -43,6 +43,6 @@ export const Banner2: Story = {
     buttonText: "Explore more",
     title: "Exclusive Kids Wear Collection",
     description: "Sleek, Modern and Classic",
-    iconUrl: icon,
+    iconUrl: FindIconUrl("ArrowRightBrown.svg"),
   },
 };

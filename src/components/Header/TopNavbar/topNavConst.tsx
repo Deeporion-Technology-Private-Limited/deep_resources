@@ -1,3 +1,5 @@
+
+import { FindIconUrl } from "@/utils/Constant";
 import { NavbarDirection } from "../type";
 
 export type NavItems = {
@@ -25,3 +27,11 @@ export type NavItems = {
     profilePicture?: string;
     hemburgerClick?: () => void;
   }
+
+
+  export const navBarIconsData: navBarIcons[] = [
+    { icon: FindIconUrl("FavoriteBorder.svg")},
+    { icon: FindIconUrl("NotificationsNone.svg")},
+    { icon: FindIconUrl("OutlineShoppingCart.svg")},
+    { icon: FindIconUrl("OutlineSettings.svg")},
+  ]

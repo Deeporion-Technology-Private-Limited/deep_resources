@@ -2,7 +2,8 @@ import { useState } from "react";
 import { Button } from "../Button/DefaultButton";
 import { ButtonIconPosition, ButtonSize, ButtonVariant } from "../Button/type";
 import { Box } from "../Layout";
-import { FindIconUrl } from "@/utils/Constant";
+
+import CloseIcon from "../PopupModal /Icons/CloseIcon";
 import { ThreeDostIcon } from "../Icons";
 
 export const AdminSubscriptionPage: React.FC<AdminSubscriptionProp> = ({ initialPlans, data }) => {

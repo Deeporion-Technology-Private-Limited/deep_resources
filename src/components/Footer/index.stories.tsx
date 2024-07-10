@@ -1,9 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Footer } from ".";
-import instagram from "../Header/navbarIcons/Instagram.svg";
-import linkedin from "../Header/navbarIcons/LinkedIn.svg";
-import facebook from "../Header/navbarIcons/Facebook.svg";
-import google from "../Header/navbarIcons/Google.svg";
+import { FindIconUrl } from "@/utils/Constant";
 
 const meta: Meta<typeof Footer> = {
   title: "Components/Footer",
@@ -61,10 +58,10 @@ export const NewsLetter: Story = {
       "Be the first to know about our new collections, exclusive offers, and other perks!",
     newsLetter: true,
     links:[
-      {iconUrl: instagram},
-      {iconUrl: linkedin},
-      {iconUrl: facebook},
-      {iconUrl: google},
+      {iconUrl: FindIconUrl("Instagram.svg")},
+      {iconUrl: FindIconUrl("LinkedIn.svg")},
+      {iconUrl: FindIconUrl("Facebook.svg")},
+      {iconUrl: FindIconUrl("Google.svg")},
     ]
   },
 };

@@ -1,5 +1,4 @@
 import React, { useState, forwardRef, ComponentProps } from "react";
-import star from "../icons/start.svg";
 import { Button } from "@/components/Button/DefaultButton";
 import { Box } from "@/components/Layout";
 import { Text } from "@/components/Text";

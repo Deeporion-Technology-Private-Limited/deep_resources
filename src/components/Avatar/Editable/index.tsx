@@ -4,7 +4,6 @@ import { cva, VariantProps } from "class-variance-authority";
 import { ComponentProps } from "react";
 import { Box, Text } from "@/components";
 import { ButtonSize } from "@/components/Button/type";
-import Cam from "../icons/Camera.svg";
 import { FindIconUrl } from "@/utils/Constant";
 const profileStyles = cva(
   "flex items-center border border-white rounded-full justify-center relative",
@@ -22,7 +21,7 @@ const profileStyles = cva(
   }
 );
 
-export interface ProfileAvatarProps
+export interface ProfileAvatar
   extends ComponentProps<typeof Box>,
     VariantProps<typeof profileStyles> {
   src?: string;
@@ -33,7 +32,7 @@ export interface ProfileAvatarProps
   textStyle?: string;
 }
 
-const Profile = forwardRef<HTMLDivElement, ProfileAvatarProps>(
+const Profile = forwardRef<HTMLDivElement, ProfileAvatar>(
   (
     {
       src,

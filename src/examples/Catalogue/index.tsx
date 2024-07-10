@@ -19,11 +19,11 @@ import {
   Seller,
   WareHouse,
   Gift,
-  Setting,
   Agents,
   Orders,
 } from "../AdminSidebar/adminbarConst";
 import { catalogueData, specificationData } from "./CatalogueData";
+import { Setting } from "@/components/MenuItem/Icon/icon";
 
 type AddNewGiftCardProps = ComponentProps<typeof Box> & {
   labelsArray: ILabels[];

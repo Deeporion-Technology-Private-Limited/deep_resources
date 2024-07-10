@@ -1,11 +1,10 @@
 import React, { forwardRef } from "react";
 import { cva, VariantProps } from "class-variance-authority";
 import { cn } from "@/utils";
-import Left from "../icon/Left.svg";
-import Right from "../icon/Right.svg";
 import { Box } from "@/components";
 import { ButtonSize } from "@/components/Button/type";
 import { Shape, Variants } from "../type";
+import { FindIconUrl } from "@/utils/Constant";
 
 const paginationStyles = cva("flex items-center justify-between w-full", {
   variants: {
@@ -43,7 +42,7 @@ const buttonStyles = cva("px-3 py-1 h-full w-full flex items-center justify-cent
   },
 });
 
-export interface PaginationProps
+export interface PaginationPropsTable
   extends React.ComponentProps<typeof Box>,
     VariantProps<typeof paginationStyles>,
     VariantProps<typeof buttonStyles> {
@@ -55,7 +54,7 @@ export interface PaginationProps
   onPageChange: (page: number) => void;
 }
 
-const Paginations = forwardRef<HTMLDivElement, PaginationProps>(
+const Paginations = forwardRef<HTMLDivElement, PaginationPropsTable>(
   (
     {
       totalItems,
@@ -94,7 +93,7 @@ const Paginations = forwardRef<HTMLDivElement, PaginationProps>(
             style={{ width:  customButtonSize, height:  customButtonSize }}
             data-testid="previousPage"
           >
-            <img src={Left}  className={iconStyle}/>
+            <img src={FindIconUrl("Left.svg")}  className={iconStyle}/>
           </button>
         </Box>
         <Box>
@@ -117,7 +116,7 @@ const Paginations = forwardRef<HTMLDivElement, PaginationProps>(
             style={{ width:  customButtonSize, height:  customButtonSize }}
             data-testid="nextPage"
           >
-            <img src={Right} className={iconStyle} />
+            <img src={FindIconUrl("Right.svg")} className={iconStyle} />
           </button>
         </Box>
       </Box>

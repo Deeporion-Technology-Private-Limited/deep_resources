@@ -7,6 +7,7 @@ import { productData } from "./ProductDetailsData";
 import { Topnavbar } from "@/components/Header/TopNavbar";
 import { NavbarDirection } from "@/components/Header/type";
 import { BreadCrumb } from "@/components";
+import { FindIconUrl } from "@/utils/Constant";
 
 const ProductDetails = () => {
   return (
@@ -18,20 +19,20 @@ const ProductDetails = () => {
           isSearch
           navBarIcons={[
             {
-              icon: "/src/components/Header/navbarIcons/person.svg",
+              icon: FindIconUrl("person.svg"),
               iconName: "Logo",
             },
             {
-              icon: "/src/components/Header/navbarIcons/favorite.svg",
+              icon: FindIconUrl("favorite.svg"),
             },
             {
-              icon: "/src/components/Header/navbarIcons/notification.svg",
+              icon: FindIconUrl("notification.svg"),
             },
             {
-              icon: "/src/components/Header/navbarIcons/shoping_cart.svg",
+              icon: FindIconUrl("shoping_cart.svg"),
             },
             {
-              icon: "/src/components/Header/navbarIcons/settings.svg",
+              icon: FindIconUrl("settings"),
             },
           ]}
           navItem={[
@@ -166,7 +167,7 @@ const ProductDetails = () => {
               text: "Contact",
             },
           ]}
-          profilePicture="/src/components/Header/navbarIcons/image.png"
+          profilePicture={FindIconUrl("profileImage.png")}
           title="Logo"
         />
       </div>

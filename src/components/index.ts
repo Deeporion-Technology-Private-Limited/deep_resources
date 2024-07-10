@@ -75,3 +75,9 @@ export * from "../examples/Heading";
 export * from "../examples/ProfileWindow";
 export * from "./SidebarUser";
 export * from "./Alert";
+export * from "./../components/Header/TopNavbar"
+export * from "./../components/Footer"
+export * from "./../components/Header/ExpandedNavbar"
+export * from "./../components/Header/SideNavbar"
+export * from "./../components/Sidebar"
+

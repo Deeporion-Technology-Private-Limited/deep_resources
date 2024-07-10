@@ -1,8 +1,4 @@
-import facebook from "../../components/Header/navbarIcons/Facebook.svg";
-import google from "../../components/Header/navbarIcons/Google.svg";
-import instagram from "../../components/Header/navbarIcons/Instagram.svg";
-import linkedin from "../../components/Header/navbarIcons/LinkedIn.svg";
-import youtube from "../../components/Header/navbarIcons/YouTube-1.svg";
+import { FindIconUrl } from "@/utils/Constant";
 import twitter from "../ShareWindow/icon/image-5.svg";
 export interface PopupButtons {
   icon?: string;
@@ -16,7 +12,7 @@ export interface PopupItem {
   }
 export const socialMedia: PopupButtons[] = [
   {
-    icon: facebook,
+    icon: FindIconUrl("Facebook.svg"),
     text: "facebook",
     click: () => {
       alert("facebook function");
@@ -24,7 +20,7 @@ export const socialMedia: PopupButtons[] = [
     buttonText: "Connect facebook",
   },
   {
-    icon: google,
+    icon: FindIconUrl("Google.svg"),
     text: "google",
     click: () => {
       alert("google function");
@@ -40,7 +36,7 @@ export const socialMedia: PopupButtons[] = [
     buttonText: "Connect twitter",
   },
   {
-    icon: linkedin,
+    icon: FindIconUrl("LinkedIn.svg"),
     text: "linkedin",
     click: () => {
       alert("linkedin function");
@@ -48,7 +44,7 @@ export const socialMedia: PopupButtons[] = [
     buttonText: "Connect linkedin",
   },
   {
-    icon: instagram,
+    icon: FindIconUrl("Instagram.svg"),
     text: "instagram",
     click: () => {
       alert("instagram function");
@@ -56,7 +52,7 @@ export const socialMedia: PopupButtons[] = [
     buttonText: "Connect instagram",
   },
   {
-    icon: youtube,
+    icon: FindIconUrl("YouTube-1.svg"),
     text: "youtube",
     click: () => {
       alert("youtube function");

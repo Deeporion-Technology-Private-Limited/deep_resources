@@ -178,6 +178,7 @@ export const SideNavbar = forwardRef<HTMLDivElement, LogoImageProps>(
             labelStyle={`${handleFind(item) && "font-[600]"}`}
             className={`p-[10px_12px] ${item.menuLeftIcon && "p-0"} border-l-[4px]  border-transparent hover:border-[#3F271E] bg-transparent justify-between ${showSubMenuNavItem.some((val) => val.menus === item.menus) ? "bg-[#E8EBED] border-[#3F271E]" : ""} active:bg-[#E8EBED] shadow-none w-full rounded-none`}
             onClick={() => handleClick(item)}
+            data-testid="Navbardata"
             iconLeftStyle={`${item.menuLeftIcon ? "p-[10px_12px]" : ""} `}
             wannaChangRightIcon={true}
           />
@@ -188,7 +189,7 @@ export const SideNavbar = forwardRef<HTMLDivElement, LogoImageProps>(
 
     const renderSubMenu = (submenu: NavItems[]) => {
       return (
-        <Box className="w-full pl-4">
+        <Box className="w-full pl-4" data-testid="submenu">
           {submenu && submenu?.map((item) => common(item))}
         </Box>
       );
@@ -204,7 +205,9 @@ export const SideNavbar = forwardRef<HTMLDivElement, LogoImageProps>(
           largeSidebar && "w-[260px] items-start",
           hover && !largeSidebar && " group hover:w-[260px] hover:items-start",
           className
+          
         )}
+         data-testid="side-navbar"
         {...props}>
         <Box
           className={`w-full flex justify-between gap-16 flex-col h-full 
@@ -237,7 +240,7 @@ export const SideNavbar = forwardRef<HTMLDivElement, LogoImageProps>(
             </Box>
             <Box
               className={`group-hover:block w-full ${largeSidebar ? "block" : "hidden"}`}>
-              <Box className="flex flex-col gap-[8px]">
+              <Box className="flex flex-col gap-[8px]" >
                 {navItem && navItem?.map((item) => common(item))}
               </Box>
             </Box>

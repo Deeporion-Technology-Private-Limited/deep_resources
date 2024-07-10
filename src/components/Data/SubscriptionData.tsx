@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Button } from "../Button/DefaultButton";
 import { ButtonIconPosition, ButtonSize, ButtonVariant } from "../Button/type";
 import { Box } from "../Layout";
+
 import CloseIcon from "../PopupModal /Icons/CloseIcon";
 import { ThreeDostIcon } from "../Icons";
 
@@ -173,7 +174,7 @@ export const AdminSubscriptionPage: React.FC<AdminSubscriptionProp> = ({ initial
             <Box className="flex w-full justify-between font-bold border-b pb-2">
               <div>{editItemId !== null ? "Edit Plan" : "Add Plan"}</div>
               <div className="cursor-pointer" onClick={handleCancel}>
-                <CloseIcon />
+                {FindIconUrl("Close.svg")}
               </div>
             </Box>
             <form onSubmit={handleSubmit}>

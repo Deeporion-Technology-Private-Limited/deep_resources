@@ -9,8 +9,8 @@ import { useState } from "react";
 import { InputType, InputVariant } from "@/components/Input/type";
 import payPal from "../../images/Paypal.svg";
 import MasterCard from "../../images/MasterCard.svg";
-import AppleIcon from "../../images/Apple.png";
 import { Table } from "@/components/Table/Table";
+import { FindIconUrl } from "@/utils/Constant";
 
 const SubscriptionBox = (props: any) => {
   const { data } = props;
@@ -164,7 +164,7 @@ export const SubscriptionPage = () => {
               <Box className="my-2">
                 <Input
                   type={InputType.SearchIcon}
-                  search={<img src={AppleIcon} alt="AppleIcon" />}
+                  search={<img src={FindIconUrl("Apple.png")} alt="AppleIcon" />}
                   variant={InputVariant.Outlined}
                   placeholder="Apply pay"
                   value={""}

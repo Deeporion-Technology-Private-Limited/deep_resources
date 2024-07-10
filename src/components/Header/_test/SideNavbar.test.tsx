@@ -1,146 +1,133 @@
-import { fireEvent, render, screen } from "@testing-library/react";
-import "@testing-library/jest-dom";
-import { SideNavbar } from "../SideNavbar";
-import { Translations } from "@/components/translations";
+import { render, screen,fireEvent } from '@testing-library/react';
+import '@testing-library/jest-dom';
+import { SideNavbar } from '../SideNavbar/index';
+import notification from "../navbarIcons/notification.svg";
+import fav from "../navbarIcons/favorite.svg";
+import cart from "../navbarIcons/shoping_cart.svg";
+import setting from "../navbarIcons/settings.svg";
+import {
+    Cart,
+    Favourite,
+    Notification,
+    Setting,
+    
+  } from "@/components/MenuItem/Icon/icon";
 
-const mockNavItem = [
-  {
-    menus: "Home",
-    path: "/home",
-  },
-  {
-    menus: "About",
-    path: "/about",
-  },
-  {
-    menus: "Services",
-    path: "/services",
-    submenu: [
-      {
-        menus: "Service 1",
-        path: "/services/service-1",
+const SubMenu = () => <div>Mocked SubMenu Icon</div>;
+const SubMenu1 = () => <div>Mocked SubMenu Icon</div>;
+
+const SubMenu2 = () => <div>Mocked SubMenu Icon</div>;
+
+const mockNavItems =  [
+    {
+      menuLeftIcon: <Favourite />,
+      menuIcon: fav,
+      menus: "Favourite",
+    },
+    {
+      menuLeftIcon: <Notification />,
+      menuIcon: notification,
+      menus: "Notifications",
+    },
+    { menuLeftIcon: <Cart />, menuIcon: cart, menus: "Cart" },
+    { menuLeftIcon: <Setting />, menuIcon: setting, menus: "Setting" },
+    {
+        menuLeftIcon: <SubMenu />,
+        menuIcon: "subMenu",
+        menus: "SubMenu",
+        submenu: [
+          {
+            menuLeftIcon: <SubMenu1 />,
+            menuIcon: "subMenu1",
+            menus: "SubMenu1",
+          },
+          {
+            menuLeftIcon: <SubMenu2 />,
+            menuIcon: "subMenu2",
+            menus: "SubMenu2",
+            
+          },
+          {
+            
+                menus: 'Item With Path',
+                path: '/item-with-path',
+            
+          }
+        ],
       },
-      {
-        menus: "Service 2",
-        path: "/services/service-2",
-      },
-    ],
-  },
-];
+  ];
 
 const mockProfileItem = {
-  profileName: Translations.Name,
-  profilePicture: Translations.TestImageUrl,
+  profileName: 'John Doe',
+  profilePicture: '/path/to/profile.jpg',
 };
 
-describe("SideNavbar", () => {
-  test("should render with default props", () => {
-    render(
-      <SideNavbar
-        profileItem={mockProfileItem}
-        hover={false}
-      />
-    );
-    const logoElement = screen.getByTestId("logo");
-
-    expect(logoElement).toBeInTheDocument();
+describe('SideNavbar Component', () => {
+  test('should render correctly with default props', () => {
+    render(<SideNavbar />);
+    expect(screen.getByTestId('logo')).toBeInTheDocument();
   });
 
-  it("should render title when provided", () => {
-    render(
-      <SideNavbar
-        profileItem={mockProfileItem}
-        title={Translations.TestText1}
-        hover={false}
-      />
-    );
-    const titleElement = screen.getByText(Translations.TestText1);
-
-    expect(titleElement).toBeInTheDocument();
+  test('should render navigation items correctly', () => {
+    render(<SideNavbar navItem={mockNavItems} />);
+    expect(screen.getByText('Favourite')).toBeInTheDocument();
+    expect(screen.getByText('Setting')).toBeInTheDocument();
   });
 
-  test("should render navigation items correctly", () => {
-    const { getByText } = render(
-      <SideNavbar
-        title={Translations.TestText1}
-        navItem={mockNavItem}
-        profileItem={mockProfileItem}
-        hover={false}
-      />
-    );
-    expect(getByText("Home")).toBeInTheDocument();
-    expect(getByText("About")).toBeInTheDocument();
-    expect(getByText("Services")).toBeInTheDocument();
+
+
+  it('should handle submenu opening and closing', async () => {
+
+const newHref = '/item-with-path';
+
+Object.defineProperty(window, 'location', {
+  writable: true,
+  value: { href: '' },
+});
+
+render(<SideNavbar navItem={mockNavItems} />);
+const favouriteItem = screen.getByText('Favourite');
+fireEvent.click(favouriteItem);
+const subMenuItem = screen.getByText('SubMenu');
+fireEvent.click(subMenuItem);
+
+// Assert that submenu is rendered
+expect(screen.getByTestId('submenu')).toBeInTheDocument();
+
+// Click on an item in the submenu
+const subMenu1Item = screen.getByText('SubMenu1');
+fireEvent.click(subMenu1Item);
+
+// Assert that submenu is still rendered
+expect(screen.getByTestId('submenu')).toBeInTheDocument();
+
+// Click on an item with a path
+const itemWithPath = screen.getByText('Item With Path');
+fireEvent.click(itemWithPath);
+
+// Assert that the window location has changed
+expect(window.location.href).toBe(newHref);
+
+// Click on the submenu item again to close it
+fireEvent.click(subMenuItem);
+
+// Assert that submenu is no longer rendered
+expect(screen.queryByTestId('submenu')).not.toBeInTheDocument();
+
+// Click on the favourite item again to close the submenu
+fireEvent.click(favouriteItem);
+
+
+expect(screen.queryByTestId('submenu')).not.toBeInTheDocument();  
   });
 
-  test("should handles click events on navigation items", () => {
-    const { getByText } = render(
-      <SideNavbar
-        title={Translations.TestText1}
-        navItem={mockNavItem}
-        profileItem={mockProfileItem}
-        hover={false}
-      />
-    );
-    fireEvent.click(getByText("Home"));
-    fireEvent.click(getByText("About"));
-    fireEvent.click(getByText("Services"));
+  test('should render profile section when logged in', () => {
+    render(<SideNavbar isLogin={true} showProfile={true} profileItem={mockProfileItem} />);
+    expect(screen.getByText('John Doe')).toBeInTheDocument();
   });
 
-  test("should render profile section correctly when logged in", () => {
-    const { getByText, getByTestId } = render(
-      <SideNavbar
-        title={Translations.TestText1}
-        navItem={mockNavItem}
-        isLogin={true}
-        profileItem={mockProfileItem}
-        hover={false}
-      />
-    );
-    expect(getByText(Translations.Name)).toBeInTheDocument();
-    expect(getByTestId("profile")).toBeInTheDocument();
-  });
-
-  test("should render profile section correctly when not logged in", () => {
-    const { getByText } = render(
-      <SideNavbar
-        title={Translations.TestText1}
-        navItem={mockNavItem}
-        isLogin={false}
-        profileItem={mockProfileItem}
-        hover={false}
-      />
-    );
-    expect(getByText("profile")).toBeInTheDocument();
-  });
-
-  test("should toggle submenu visibility correctly", () => {
-    const { getByText, queryByText } = render(
-      <SideNavbar
-        title={Translations.TestText1}
-        navItem={mockNavItem}
-        profileItem={mockProfileItem}
-        hover={false}
-      />
-    );
-    fireEvent.click(getByText("Services"));
-    expect(getByText("Service 1")).toBeInTheDocument();
-    fireEvent.click(getByText("Services"));
-    expect(queryByText("Service 1")).not.toBeInTheDocument();
-  });
-
-  test("should render large sidebar mode correctly", () => {
-    render(
-      <SideNavbar
-        title={Translations.TestText1}
-        navItem={mockNavItem}
-        largeSidebar={true}
-        profileItem={mockProfileItem}
-        hover={false}
-      />
-    );
-
-    const logoElement = screen.getByTestId("logo");
-    expect(logoElement).toBeInTheDocument();
+  test('should render profile section when not logged in', () => {
+    render(<SideNavbar isLogin={false} showProfile={true} />);
+    expect(screen.getByText('profile')).toBeInTheDocument();
   });
 });

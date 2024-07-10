@@ -1,7 +1,6 @@
 import { Box, Headings } from "@/components";
 import AutoComplete from "@/components/AutoComplete";
-import ThumbsUp from "../../images/ThumbUp.svg";
-import ThumbsDown from "../../images/ThumbDown.svg";
+import { FindIconUrl } from "@/utils/Constant";
 import {
   DescriptionReview,
   DescriptionReviewSingleCard,
@@ -98,8 +97,8 @@ export const ProductDescriptionReview = () => {
                       <span>
                         <img
                           onClick={() => ThumbUp(data)}
-                          src={ThumbsUp}
-                          alt="ThumbsUp"
+                          src={FindIconUrl("ThumbUpOffAlt.svg")}
+                          alt={FindIconUrl("ThumbUpOffAlt.svg")}
                         />{" "}
                       </span>
                       &nbsp; Helpful ({data.helpFull})
@@ -108,8 +107,8 @@ export const ProductDescriptionReview = () => {
                       <span>
                         <img
                           onClick={() => ThumbDown(data)}
-                          src={ThumbsDown}
-                          alt="ThumbsDown"
+                          src={FindIconUrl("ThumbDown.svg")}
+                          alt={FindIconUrl("ThumbDown.svg")}
                         />
                       </span>{" "}
                       &nbsp;Not helpful ({data.notHelpfull})

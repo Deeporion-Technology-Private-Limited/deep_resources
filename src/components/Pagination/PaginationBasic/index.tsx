@@ -1,8 +1,6 @@
 import React, { forwardRef } from "react";
 import { cva, VariantProps } from "class-variance-authority";
 import { cn } from "@/utils";
-import Left from "../icon/Left.svg";
-import Right from "../icon/Right.svg";
 import { Box, Text } from "@/components";
 import { ButtonSize } from "@/components/Button/type";
 import { Color, Shape, Variants } from "../type";

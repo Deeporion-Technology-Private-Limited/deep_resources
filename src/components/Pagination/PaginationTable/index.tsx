@@ -43,7 +43,7 @@ const buttonStyles = cva("px-3 py-1 h-full w-full flex items-center justify-cent
   },
 });
 
-export interface PaginationProps
+export interface PaginationPropsTable
   extends React.ComponentProps<typeof Box>,
     VariantProps<typeof paginationStyles>,
     VariantProps<typeof buttonStyles> {
@@ -55,7 +55,7 @@ export interface PaginationProps
   onPageChange: (page: number) => void;
 }
 
-const Paginations = forwardRef<HTMLDivElement, PaginationProps>(
+const Paginations = forwardRef<HTMLDivElement, PaginationPropsTable>(
   (
     {
       totalItems,

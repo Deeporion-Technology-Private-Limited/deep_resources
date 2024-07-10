@@ -14,8 +14,23 @@ export * from "./Header/Logo";
 export * from "./Calendar/SelectedDateCalendar";
 export * from "./Calendar/RangeCalendar";
 export * from "./Elevation";
-export * from "./PopupModal ";
+export * from "./PopupModal";
 export * from "./Headings";
+export * from "./Avatar/Basic";
+export * from "./Avatar/Editable";
+export * from "./Cards/Banners";
+export * from "./Cards/FaverateCard";
+export * from "./Cards/OrderSummaryCard";
+export * from "./Cards/ProductCards";
+export * from "./Cards/QuantityCard";
+export * from "./Cards/ReviewCard";
+export * from "./Catelog";
+export * from "./ProgressBar";
+export * from "./Cards/OrderSummaryCard";
+export * from "./Pagination/PaginationBasic";
+export * from "./Pagination/PaginationTable";
+export * from "./ProgressBar";
+export * from "./Tabs";
 //Some One can use
 // export * from "./Header/LogImg";
 export * from "./BreadCrumb";
@@ -49,3 +64,13 @@ export * from "./../examples/AdminAccount"
 export * from "./../examples/NotificationSettings"
 export * from "./../examples/PersonalDetails"
 export * from "./../examples/SellerTable"
+export * from "../examples/Catalogue";
+export * from "../examples/MyCart";
+export * from "../examples/PrivacyPolicy";
+export * from "../examples/cateloges";
+export * from "../examples/Warehouse";
+export * from "../examples/ShopingCards";
+export * from "../examples/Settings";
+export * from "../examples/Heading";
+export * from "../examples/ProfileWindow";
+export * from "./SidebarUser";

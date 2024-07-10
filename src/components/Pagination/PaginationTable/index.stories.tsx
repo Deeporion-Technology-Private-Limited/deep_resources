@@ -1,6 +1,6 @@
 import  { useState } from 'react';
 import { Meta, StoryObj } from '@storybook/react';
-import Paginations,{PaginationProps} from '.'; 
+import Paginations,{PaginationPropsTable} from '.'; 
 import { ButtonSize } from '@/components/Button/type';
 import { Shape, Variants } from '../type';
 
@@ -13,7 +13,7 @@ export default {
   tags: ["autodocs"],
 } as Meta;
 
-const Template = (args:PaginationProps) => {
+const Template = (args:PaginationPropsTable) => {
   const [currentPage, setCurrentPage] = useState(args.currentPage);
 
   const handlePageChange = (page: number) => {
@@ -29,7 +29,7 @@ const Template = (args:PaginationProps) => {
   );
 };
 
-export const Default: StoryObj<PaginationProps> = (args:PaginationProps) => <Template {...args} />;
+export const Default: StoryObj<PaginationPropsTable> = (args:PaginationPropsTable) => <Template {...args} />;
 Default.args = {
   totalItems: 20,
   itemsPerPage: 5,
@@ -39,7 +39,7 @@ Default.args = {
   shape: Shape.Rounded,
 };
 
-export const Outlined: StoryObj<PaginationProps> = (args:PaginationProps) => <Template {...args} />;
+export const Outlined: StoryObj<PaginationPropsTable> = (args:PaginationPropsTable) => <Template {...args} />;
 
 Outlined.args = {
   totalItems: 50,
@@ -50,7 +50,7 @@ Outlined.args = {
   variant: Variants.Outlined,
   shape: Shape.Rounded,
 };
-export const Contained: StoryObj<PaginationProps> = (args:PaginationProps) => <Template {...args} />;
+export const Contained: StoryObj<PaginationPropsTable> = (args:PaginationPropsTable) => <Template {...args} />;
 
 Contained.args = {
   totalItems: 100,
@@ -61,7 +61,7 @@ Contained.args = {
   variant: Variants.Contained,
   shape: Shape.Rounded,
 };
-export const LargeSquare: StoryObj<PaginationProps> = (args:PaginationProps) => <Template {...args} />;
+export const LargeSquare: StoryObj<PaginationPropsTable> = (args:PaginationPropsTable) => <Template {...args} />;
 
 LargeSquare.args = {
   totalItems: 10,

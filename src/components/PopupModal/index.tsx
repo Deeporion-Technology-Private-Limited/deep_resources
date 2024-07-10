@@ -106,7 +106,6 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(
                     className="cursor-pointer"
                   >
                      <CloseIcon />
-                 
                   </div>
                 )}
               </Box>

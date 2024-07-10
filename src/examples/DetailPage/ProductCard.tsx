@@ -1,10 +1,5 @@
 import { Button, IconButton, Input } from "@/components";
 import React from "react";
-import bag from "../../images/bag.png";
-import like from "../../images/like.png";
-import checked from "../../images/checked.jpg";
-import delivery from "../../images/delivery.png";
-import payment from "../../images/payment.png";
 import { buttons, product, ratingDetails } from "./ProductDetailsData";
 import { InputType, InputVariant } from "@/components/Input/type";
 import Accordion from "@/components/Accordion";
@@ -14,7 +9,13 @@ import ReviewList from "./ReviewList";
 import Ratingcard from "./RatingCard";
 
 const ProductCard: React.FC<{ data: ProductData }> = ({ data }) => {
-  const returnimage = "https://deepresources.s3.ap-south-1.amazonaws.com/images/OutlineCompareArrows.svg"
+  const returnimage = "https://deepresources.s3.ap-south-1.amazonaws.com/images/OutlineCompareArrows.svg";
+  const payment = "https://deepresources.s3.ap-south-1.amazonaws.com/images/cash.svg";
+  const delivery = "https://deepresources.s3.ap-south-1.amazonaws.com/images/deliveryTruck.svg";
+  const like = "https://deepresources.s3.ap-south-1.amazonaws.com/images/OutlineFavoriteBorder.svg";
+  const bag = "https://deepresources.s3.ap-south-1.amazonaws.com/images/ShoppingCart.svg";
+  const check = "https://deepresources.s3.ap-south-1.amazonaws.com/images/Check.svg";
+
   return (
     <div className="flex flex-col gap-5">
       <div className="border rounded-lg p-5 font-sans flex flex-col gap-5 w-full">
@@ -70,13 +71,21 @@ const ProductCard: React.FC<{ data: ProductData }> = ({ data }) => {
               background: "linear-gradient(to right, #BFA59A, #3F271E)",
             }}
           >
-            <img src={bag} alt="Bag" className="h-6 w-6 inline-block" />
+            <img
+              src={bag}
+              alt="Bag"
+              className="h-6 w-6 inline-block filter invert grayscale"
+            />
             <p className="text-white text-base font-semibold inline-block ml-2">
               {product.AddToBag}
             </p>
           </Button>
           <Button className="flex-1 bg-gray-200 py-2 rounded-lg text-gray-700 font-semibold text-base font-poppins flex justify-center items-center gap-2">
-            <img src={like} alt="Like" className="h-6 w-6 inline-block" />
+            <img
+              src={like}
+              alt="Like"
+              className="h-6 w-6 inline-block -[#72787F]"
+            />
             <p className="text-[#72787F] text-base font-semibold inline-block ml-2">
               {product.Wishlist}
             </p>
@@ -84,9 +93,15 @@ const ProductCard: React.FC<{ data: ProductData }> = ({ data }) => {
         </div>
       </div>
       <div className="border rounded-lg p-5 w-full font-sans flex items-center justify-between">
-        <p className="text-gray-800 font-medium">
-          <IconButton iconUrl={checked}></IconButton>
-        </p>
+        <IconButton>
+          <div className="rounded-full bg-[#34D399] w-8 h-8 flex items-center justify-center">
+            <img
+              src={check}
+              alt="Profile"
+              className="w-8 h-6 cursor-pointer filter invert grayscale"
+            />
+          </div>
+        </IconButton>
         <p className="text-[#111827] font-medium">{data.description}</p>
         <p className="text-[#3F271E] font-medium">
           <IconButton>{product.Change}</IconButton>
@@ -95,7 +110,11 @@ const ProductCard: React.FC<{ data: ProductData }> = ({ data }) => {
       <div className="border rounded-lg p-5 w-full font-sans flex flex-col items-center justify-between">
         <div className="flex items-center justify-between w-full">
           <p className="text-gray-800 font-medium">
-            <img src={delivery} alt="delivery" className="h-6 w-6 inline-block" />
+            <img
+              src={delivery}
+              alt="delivery"
+              className="h-6 w-6 inline-block"
+            />
           </p>
           <p className="text-[#111827] font-normal ml-2 w-full max-w-[550px] h-auto">
             {data.arrival}
@@ -111,7 +130,11 @@ const ProductCard: React.FC<{ data: ProductData }> = ({ data }) => {
         </div>
         <div className="flex items-center justify-between w-full">
           <p className="text-gray-800 font-medium">
-            <img src={returnimage} alt="Return" className="h-6 w-6 inline-block" />
+            <img
+              src={returnimage}
+              alt="Return"
+              className="h-6 w-6 inline-block"
+            />
           </p>
           <p className="text-[#111827] font-normal ml-2 w-full max-w-[550px] h-auto">
             {data.returnPolicy}

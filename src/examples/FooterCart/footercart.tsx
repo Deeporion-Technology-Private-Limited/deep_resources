@@ -1,8 +1,5 @@
-import instagram from "./footerIcon/instagram.png"
-import twitter from "./footerIcon/twitter.png"
-import facebook from "./footerIcon/facebook.png"
-import youtube from "./footerIcon/youtub.png"
 import { titleFooter } from "@/components/Footer/footerInterface";
+import { FindIconUrl } from "@/utils/Constant";
 
 interface serviceItem {
   name?: string;
@@ -42,40 +39,39 @@ export const listItem: listItem[] = [
   { name: "Careers", href: "" },
 ];
 export const needHelpListItem: listItem[] = [
-    { name: "Exchange and Return Policy", href: "" },
-    { name: "Shipping Policy", href: "" },
-    { name: "Contact Us", href: "" },
-    { name: "Privacy Policy", href: "" },
-    { name: "Terms and Use", href: "" },
-
-  ];
+  { name: "Exchange and Return Policy", href: "" },
+  { name: "Shipping Policy", href: "" },
+  { name: "Contact Us", href: "" },
+  { name: "Privacy Policy", href: "" },
+  { name: "Terms and Use", href: "" },
+];
 
 export const linksItem: socialLinks[] = [
-  { iconUrl: instagram },
-  { iconUrl: twitter },
-  { iconUrl: youtube },
-  { iconUrl: facebook },
+  { iconUrl: FindIconUrl("Instagram.svg") },
+  { iconUrl: FindIconUrl("LinkedIn.svg") },
+  { iconUrl: FindIconUrl("Facebook.svg") },
+  { iconUrl: FindIconUrl("Google.svg") },
 ];
 export const descrip: string =
   "Be the first to know about our new collections, exclusive offers, and other perks!";
 
-export const titleForCustomerServices : titleFooter = {
-    title: "Customer Services",
-    titleStyle: "font-bold",
-}
-export const titleForNeedHelp : titleFooter = {
-    title: "Need Help",
-    titleStyle: "font-bold",
-}
-export const titleForCompany : titleFooter = {
-    title: "The Company",
-    titleStyle: "font-bold",
-}
+export const titleForCustomerServices: titleFooter = {
+  title: "Customer Services",
+  titleStyle: "font-bold",
+};
+export const titleForNeedHelp: titleFooter = {
+  title: "Need Help",
+  titleStyle: "font-bold",
+};
+export const titleForCompany: titleFooter = {
+  title: "The Company",
+  titleStyle: "font-bold",
+};
 
 export const footerCopyrightItem: footerCopyright = {
   copyright: "© 2024 All rights reserved",
   copyrightBgStyle: "bg-[#3F271E]",
   copyrightTextStyle: "text-[#fff]",
-}
+};
 
-export const footerColor: string = "#3F271E"
+export const footerColor: string = "#3F271E";

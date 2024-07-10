@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from "@storybook/react";
 import { AdminSidebar } from ".";
-import log from "./icon/Logo.svg";
 import { Data } from "./adminbarConst";
+import { FindIconUrl } from "@/utils/Constant";
 
 
 const meta: Meta<typeof AdminSidebar> = {
@@ -20,6 +20,6 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     Data: Data,
-    logo: log
+    logo: FindIconUrl("Logo.svg")
   }
 };

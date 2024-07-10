@@ -1,7 +1,3 @@
-import notification from "../../components/Header/navbarIcons/notification.svg";
-import fav from "../../components/Header/navbarIcons/favorite.svg";
-import cart from "../../components/Header/navbarIcons/shoping_cart.svg";
-import setting from "../../components/Header/navbarIcons/settings.svg";
 import { TopHoverMenuCard } from "@/components/Header/ExpandedNavbar";
 import {
   GenderItem,
@@ -11,6 +7,7 @@ import {
   NavItems,
   navBarIcons,
 } from "@/components/Header/TopNavbar/topNavConst";
+import { FindIconUrl } from "@/utils/Constant";
 
 export const navItemArry: NavItems[] = [
   {
@@ -38,8 +35,8 @@ export const navItemArry: NavItems[] = [
 ];
 
 export const navIconArray: navBarIcons[] = [
-  { icon: fav },
-  { icon: notification },
-  { icon: cart },
-  { icon: setting },
+  { icon: FindIconUrl("FavoriteBorder.svg") },
+  { icon: FindIconUrl("NotificationsNone.svg") },
+  { icon: FindIconUrl("OutlineShoppingCart.svg") },
+  { icon: FindIconUrl("OutlineSettings.svg") },
 ];

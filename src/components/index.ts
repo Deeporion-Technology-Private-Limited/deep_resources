@@ -74,3 +74,4 @@ export * from "../examples/Settings";
 export * from "../examples/Heading";
 export * from "../examples/ProfileWindow";
 export * from "./SidebarUser";
+export * from "./Alert";

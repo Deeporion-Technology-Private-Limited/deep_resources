@@ -1,7 +1,5 @@
-import facebook from "../../components/Header/navbarIcons/Facebook.svg";
-import Gmail from "../../components/Header/navbarIcons/mail.svg";
-import linkedin from "../../components/Header/navbarIcons/LinkedIn.svg";
 import twitter from "../ShareWindow/icon/image-5.svg";
+import { FindIconUrl } from "@/utils/Constant";
 
 export interface platformItem {
   icon?: string;
@@ -16,8 +14,8 @@ export interface ProfileProps {
   className?: string;
 }
 export const plateforms: platformItem[] = [
-  { icon: Gmail, plateform: "email", detail: "Alma Lawson@gmail.com" },
-  { icon: facebook, plateform: "facebook", detail: "Alma Lawson" },
-  { icon: linkedin, plateform: "linkdin", detail: "Alma Lawson" },
+  { icon: FindIconUrl("MailOutline.svg"), plateform: "email", detail: "Alma Lawson@gmail.com" },
+  { icon: FindIconUrl("Facebook.svg"), plateform: "facebook", detail: "Alma Lawson" },
+  { icon: FindIconUrl("LinkedIn.svg"), plateform: "linkdin", detail: "Alma Lawson" },
   { icon: twitter, plateform: "twitter", detail: "@Alma Lawson" },
 ];

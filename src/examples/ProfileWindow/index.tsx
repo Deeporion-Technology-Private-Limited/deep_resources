@@ -6,7 +6,6 @@ import { cva } from "class-variance-authority";
 import { cn } from "@/utils";
 import { forwardRef } from "react";
 import Heading from "../Heading";
-import image from "../../components/Header/navbarIcons/image.png";
 import { FindIconUrl } from "@/utils/Constant";
 
 const ProfileWindowProps = cva("h-full flex flex-col gap-4");
@@ -49,7 +48,7 @@ const ProfileWindow = forwardRef<HTMLDivElement, ProfileProps>(
       <Box className={(cn(ProfileWindowProps()), className)} ref={ref}>
         <Heading
           className="w-full"
-          imageSrc={image}
+          imageSrc={FindIconUrl("profileImage.png")}
           headingItem={
             <Text className="font-bold text-2xl capitalize"> profile</Text>
           }

@@ -10,11 +10,11 @@ import {
   MenuItem,
   Text,
 } from "@/components";
-import close from "../Header/navbarIcons/Vector.svg";
 import { MenuItemSize } from "../MenuItem/MenuitemTypes";
 import { DownArrow } from "../MenuItem/Icon/icon";
 import {SidbarProps } from "./sidebarConst";
 import { NavItems } from "../Header/SideNavbar";
+import { FindIconUrl } from "@/utils/Constant";
 
 const navBarStyles = cva([
   "w-[320px] bg-[#D7C7C1] p-[30px_12px] min-h-screen flex flex-col gap-[30px] scrollbar-white",
@@ -115,7 +115,7 @@ export const Sidebar = forwardRef<HTMLDivElement, Prop>(
     return (
       <Box ref={ref} className={cn(navBarStyles(), className)} {...props}>
         <Box className="flex justify-between px-2">
-          <IconButton iconUrl={close} className="p-0" onClick={handleClose} />
+          <IconButton iconUrl={FindIconUrl("Close.svg")} className="p-0" onClick={handleClose} />
           {LogoIcon !== "" ? (
             <LogoImg logo={LogoIcon} />
           ) : (

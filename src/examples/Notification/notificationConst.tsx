@@ -1,4 +1,4 @@
-import profile from "./notificationIcon/image.png";
+import { FindIconUrl } from "@/utils/Constant";
 export interface singleNotification {
     profile?: string;
     title?: string;
@@ -13,7 +13,7 @@ export interface NotificationProp {
 }
 export const notificationsObj: singleNotification[] = [
     {
-        profile: profile,
+        profile: FindIconUrl("profileImage.png"),
         title: "Megan-Customer support",
         message: "You have a new message",
         isRead:true,
@@ -21,77 +21,77 @@ export const notificationsObj: singleNotification[] = [
         onclick: () => alert("working")
     },
     {
-        profile: profile,
+        profile: FindIconUrl("profileImage.png"),
         title: "Megan-Customer support",
         message: "You have a new message",
         isRead:false,
         arrivedtime: "2d" 
     },
     {
-        profile: profile,
+        profile: FindIconUrl("profileImage.png"),
         title: "Megan-Customer support",
         message: "You have a new message",
         isRead:false,
         arrivedtime: "4d"
     },
     {
-        profile: profile,
+        profile: FindIconUrl("profileImage.png"),
         title: "Megan-Customer support",
         message: "You have a new message",
         isRead:false,
         arrivedtime: "2d" 
     },
     {
-        profile: profile,
+        profile: FindIconUrl("profileImage.png"),
         title: "Megan-Customer support",
         message: "You have a new message",
         isRead:false,
         arrivedtime: "4d"
     },
     {
-        profile: profile,
+        profile: FindIconUrl("profileImage.png"),
         title: "Megan-Customer support",
         message: "You have a new message",
         isRead:false,
         arrivedtime: "2d" 
     },
     {
-        profile: profile,
+        profile: FindIconUrl("profileImage.png"),
         title: "Megan-Customer support",
         message: "You have a new message",
         isRead:false,
         arrivedtime: "4d"
     },
     {
-        profile: profile,
+        profile: FindIconUrl("profileImage.png"),
         title: "Megan-Customer support",
         message: "You have a new message",
         isRead:false,
         arrivedtime: "2d" 
     },
     {
-        profile: profile,
+        profile: FindIconUrl("profileImage.png"),
         title: "Megan-Customer support",
         message: "You have a new message",
         isRead:false,
         arrivedtime: "4d"
     },
     {
-        profile: profile,
+        profile: FindIconUrl("profileImage.png"),
         title: "Megan-Customer support",
         message: "You have a new message",
         isRead:false,
         arrivedtime: "2d" 
     },
     {
-        profile: profile,
+        profile: FindIconUrl("profileImage.png"),
         title: "Megan-Customer support",
         message: "You have a new message",
         isRead:false,
         arrivedtime: "4d"
     },
     {
-        profile: profile,
+        profile: FindIconUrl("profileImage.png"),
         title: "Megan-Customer support",
         message: "You have a new message",
         isRead:false,

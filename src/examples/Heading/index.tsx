@@ -1,8 +1,8 @@
 import { Box, IconButton } from "@/components";
 import ProfileAvatar from "@/components/Avatar/Basic";
-import notification from "../../components/Header/navbarIcons/notification.svg";
 import { forwardRef } from "react";
 import { heading } from "./data";
+import { FindIconUrl } from "@/utils/Constant";
 
 const Heading = forwardRef<HTMLDivElement, heading>(
   (
@@ -23,7 +23,7 @@ const Heading = forwardRef<HTMLDivElement, heading>(
               className="rounded-full h-12 w-12"
               src={imageSrc} name={""}  />
             <IconButton
-              iconUrl={notification}
+              iconUrl={FindIconUrl('OutlineNotifications.svg')}
               onClick={handleNotification}
               iconStyle="size-10"
             />

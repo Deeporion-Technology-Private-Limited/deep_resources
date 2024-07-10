@@ -1,13 +1,11 @@
 import { ComponentProps, forwardRef, useState } from "react";
-import { Box } from "@/components";
+import { Box, Sidebar, Topnavbar } from "@/components";
 import { VariantProps, cva } from "class-variance-authority";
 import { cn } from "@/utils";
-import { Topnavbar } from "@/components/Header/TopNavbar";
 import { NavbarDirection } from "@/components/Header/type";
 import { navIconArray, navItemArry } from "./hemburgerConst";
-import profile from "../../components/Header/navbarIcons/image.png";
-import { Sidebar } from "@/components/Sidebar";
 import { navItemSideBar } from "@/components/Sidebar/sidebarConst";
+import { FindIconUrl } from "@/utils/Constant";
 
 const hemburgerStyle = cva(["w-full"]);
 
@@ -36,7 +34,7 @@ export const Hamburger = forwardRef<HTMLDivElement, HemProps>(
             direction={NavbarDirection.Row}
             navItem={navItemArry}
             navBarIcons={navIconArray}
-            profilePicture={profile}
+            profilePicture={FindIconUrl("profileImage.png")}
             isSearch={true}
             isLogin={true}
             hemburgerClick={handleOpen}

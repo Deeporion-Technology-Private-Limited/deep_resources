@@ -13,10 +13,9 @@ import {
 import { IconButton } from "@/components";
 import { NavbarDirection } from "../type";
 import { InputType, InputVariant } from "@/components/Input/type";
-import hemburgerImg from "../navbarIcons/hamburger.png";
-import person from "../navbarIcons/person.svg";
 import { TopNavbarProps } from "./topNavConst";
 import SearchImage from "@/images/InputIcons/SearchImage";
+import { FindIconUrl } from "@/utils/Constant";
 
 const navBarStyles = cva(
   ["w-full", "border", "flex", "justify-center", "items-center"],
@@ -121,7 +120,7 @@ export const Topnavbar = forwardRef<HTMLDivElement, TopNavProp>(
                 <GroupIconButton className="gap-[0px] flex-wrap">
                   {!isLogin ? (
                     <IconButton
-                      iconUrl={person}
+                      iconUrl={FindIconUrl("person.svg")}
                       text="Logo"
                       className="font-bold"
                     />
@@ -146,7 +145,7 @@ export const Topnavbar = forwardRef<HTMLDivElement, TopNavProp>(
             </Box>
             {
               <Box className="hide mobile1">
-                <IconButton iconUrl={hemburgerImg} onClick={hemburgerClick} />
+                <IconButton iconUrl={FindIconUrl("hemburger.png")} onClick={hemburgerClick} />
               </Box>
             }
           </Box>

@@ -8,6 +8,7 @@ import { FooterCart } from "../FooterCart";
 import Pagination from "@/components/Pagination/PaginationBasic";
 import { Color, Shape, Variants } from "@/components/Pagination/type";
 import { CSSProperties, useState } from "react";
+import { FindIconUrl } from "@/utils/Constant";
 
 const ProductListing = () => {
   const [page, setPage] = useState(1);
@@ -22,22 +23,11 @@ const ProductListing = () => {
         <Topnavbar
           isSearch
           navBarIcons={[
-            {
-              icon: "/src/components/Header/navbarIcons/person.svg",
-              iconName: "Logo",
-            },
-            {
-              icon: "/src/components/Header/navbarIcons/favorite.svg",
-            },
-            {
-              icon: "/src/components/Header/navbarIcons/notification.svg",
-            },
-            {
-              icon: "/src/components/Header/navbarIcons/shoping_cart.svg",
-            },
-            {
-              icon: "/src/components/Header/navbarIcons/settings.svg",
-            },
+            { icon: FindIconUrl("PersonOutline.svg"), iconName: "Logo" },
+            { icon: FindIconUrl("OutlineNotifications.svg") },
+            { icon: FindIconUrl("favorite.svg") },
+            { icon: FindIconUrl("OutlineShoppingCart.svg") },
+            { icon: FindIconUrl("OutlineSettings.svg") },
           ]}
           navItem={[
             {
@@ -53,7 +43,7 @@ const ProductListing = () => {
               text: "Contact",
             },
           ]}
-          profilePicture="/src/components/Header/navbarIcons/image.png"
+          profilePicture={FindIconUrl("profileImage.png")}
           title="Logo"
         />
       </Box>

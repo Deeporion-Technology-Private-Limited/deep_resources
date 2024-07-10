@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import profile from "../navbarIcons/image.png";
 import { Topnavbar } from ".";
 import { NavbarDirection } from "../type";
 import { TopHoverMenuCard } from "../ExpandedNavbar";
@@ -27,7 +26,7 @@ export const Default: Story = {
       { text: "Contact", href: "/contact" },
     ],
     navBarIcons: navBarIconsData,
-    profilePicture: profile,
+    profilePicture: FindIconUrl("profileImage.png"),
     isSearch: true,
   },
 };
@@ -42,7 +41,7 @@ export const LogedIn: Story = {
       { text: "Contact", href: "/contact" },
     ],
     navBarIcons: navBarIconsData,
-    profilePicture: profile,
+    profilePicture: FindIconUrl("profileImage.png"),
     isSearch: true,
     isLogin: true,
   },
@@ -59,7 +58,7 @@ export const WithLogoImage: Story = {
       { text: "Contact", href: "/contact" },
     ],
     navBarIcons: navBarIconsData,
-    profilePicture: profile,
+    profilePicture: FindIconUrl("profileImage.png"),
     isSearch: true,
     isLogin: true,
   },
@@ -76,7 +75,7 @@ export const WithHemburger: Story = {
       { text: "Contact", href: "/contact" },
     ],
     navBarIcons: navBarIconsData,
-    profilePicture: profile,
+    profilePicture: FindIconUrl("profileImage.png"),
     isSearch: true,
     isLogin: true,
     hemburgerClick: () => {
@@ -110,7 +109,7 @@ export const OnNavItemHover: Story = {
       { text: "Contact", href: "/contact" },
     ],
     navBarIcons: navBarIconsData,
-    profilePicture: profile,
+    profilePicture: FindIconUrl("profileImage.png"),
     isSearch: true,
     isLogin: true,
   },

@@ -20,6 +20,7 @@ import ReviewCard from "@/components/Cards/ReviewCard";
 import { ButtonVariant } from "@/components/Button/type";
 import { FollowPage } from "../FollowUsPage";
 import { FooterCart } from "../FooterCart";
+import { FindIconUrl } from "@/utils/Constant";
 
 const dashboardStyles = cva(["w-full"]);
 
@@ -64,11 +65,11 @@ export const Dashboard = forwardRef<HTMLDivElement, DashboardProps>(
             className="max-w-[90rem]"
             isSearch
             navBarIcons={[
-              { icon: '/src/components/Header/navbarIcons/person.svg', iconName: 'Log in' },
-              { icon: '/src/components/Header/navbarIcons/notification.svg' },
-              { icon: '/src/components/Header/navbarIcons/favorite.svg' },
-              { icon: '/src/components/Header/navbarIcons/shoping_cart.svg' },
-              { icon: '/src/components/Header/navbarIcons/settings.svg' }
+              { icon: FindIconUrl('PersonOutline.svg'), iconName: 'Log in' },
+              { icon: FindIconUrl('OutlineNotifications.svg') },
+              { icon: FindIconUrl('favorite.svg') },
+              { icon: FindIconUrl('OutlineShoppingCart.svg') },
+              { icon: FindIconUrl('OutlineSettings.svg') }
             ]}
             navItem={[
               { href: '/', text: 'Home' },
@@ -76,7 +77,7 @@ export const Dashboard = forwardRef<HTMLDivElement, DashboardProps>(
               { href: '/kid', text: 'Kids' },
               { href: '/giftCard', text: 'Gift Cards' }
             ]}
-            profilePicture="/src/components/Header/navbarIcons/image.png"
+            profilePicture={FindIconUrl("profileImage.png")}
             title="Logo"
           />
         </Box>

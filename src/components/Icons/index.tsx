@@ -71,7 +71,7 @@ export const MasterCardIcon = ()=>{
 
     return(
         <div>
-                <img src={FindIconUrl("Mastercard.svg")} alt="" />   
+                <img src={FindIconUrl("Mastercard.svg")} alt="MasterCardIcon" />   
         </div>
     )
 }
@@ -132,6 +132,24 @@ export const ThreeDostIcon = () => {
     return(
         <div>
             <img src={FindIconUrl('MoreVert.svg')} alt="" />
+        </div>
+    )
+}
+
+export const Close = () => {
+
+    return(
+        <div>
+            <img src={FindIconUrl('Close.svg')} alt="CloseIcon" />
+        </div>
+    )
+}
+
+export const Apple = () => {
+
+    return(
+        <div>
+            <img src={FindIconUrl('Apple.png')} alt="Apple.png" />
         </div>
     )
 }

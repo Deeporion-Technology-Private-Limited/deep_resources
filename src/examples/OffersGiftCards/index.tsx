@@ -18,7 +18,6 @@ import {
   Seller,
   WareHouse,
   Gift,
-  Setting,
   Agents,
   Orders,
 } from "../AdminSidebar/adminbarConst";
@@ -118,10 +117,7 @@ const OffersGiftCards = forwardRef<HTMLDivElement, AddNewGiftCardProps>(
                 menuLeftIcon: <Gift />,
                 menus: "Offers & Gift Cards",
               },
-              {
-                menuLeftIcon: <Setting />,
-                menus: "Settings",
-              },
+              
             ]}
             logo="/src/examples/AdminSidebar/icon/Logo.svg"
           />

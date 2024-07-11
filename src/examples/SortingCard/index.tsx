@@ -3,8 +3,8 @@ import { Box, BreadCrumb, Button, Checkbox, Text } from "@/components";
 import Chips from "@/components/Chips";
 import { ComponentProps, forwardRef, useState } from "react";
 import { IData, breadCrumbsType, optionsArray } from "./data";
-import DownArrow from "./DownArrow";
 import { ChipsTypes } from "@/components/Chips/chipsTypes";
+import { DownArrow } from "@/components/MenuItem/Icon/icon";
 
 interface SortingProps extends ComponentProps<"div"> {
   children?: React.ReactNode;

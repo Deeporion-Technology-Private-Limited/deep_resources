@@ -33,6 +33,7 @@ const GiftCard = forwardRef<HTMLDivElement, GiftCardProps>(
             : cardsArray;
 
         const addCircleOutline = FindIconUrl("AddCircleOutline.svg");
+        const arrowRight = FindIconUrl("OutlineKeyboardArrowRight.svg")
 
         return (
             <Box ref={ref} className={cn("flex flex-col gap-8 px-8", className)} {...props}>
@@ -51,7 +52,7 @@ const GiftCard = forwardRef<HTMLDivElement, GiftCardProps>(
                     <Button
                         className="w-fit h-8 bg-transparent text-black"
                         iconPosition={ButtonIconPosition.Right}
-                        iconUrl="src/components/BreadCrumb/icon/RightArrow.svg"
+                        iconUrl={arrowRight}
                         onClick={viewMore}
                     >
                         View More

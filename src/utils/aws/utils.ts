@@ -1,1 +1,0 @@
-export const awsURl = "https://deepresources.s3.ap-south-1.amazonaws.com/images";

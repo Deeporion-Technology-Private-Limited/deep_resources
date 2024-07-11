@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import Alert from "../index";
+import {Alert} from "../index";
 import { AlertType, AlertVariant } from "../type";
 
 const line = "renders with success type and ";

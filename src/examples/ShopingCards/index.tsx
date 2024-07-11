@@ -1,5 +1,4 @@
-import { Box } from "@/components";
-import FaverateCard from "@/components/Cards/FaverateCard";
+import { Box, FaverateCard } from "@/components";
 import { array, IValue, Items } from "./data";
 import { forwardRef } from "react";
 

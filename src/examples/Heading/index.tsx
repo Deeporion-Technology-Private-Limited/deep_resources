@@ -1,5 +1,4 @@
-import { Box, IconButton } from "@/components";
-import ProfileAvatar from "@/components/Avatar/Basic";
+import { Box, IconButton, ProfileAvatar } from "@/components";
 import { forwardRef } from "react";
 import { heading } from "./data";
 import { FindIconUrl } from "@/utils/Constant";

@@ -1,6 +1,5 @@
-import { Box, Button, Text } from "@/components";
+import { Box, Button, FaverateCard, Text } from "@/components";
 import { ButtonIconPosition, ButtonVariant } from "@/components/Button/type";
-import FaverateCard from "@/components/Cards/FaverateCard";
 import React from "react";
 import { cardsData, chipsData } from "./data";
 import Chips from "@/components/Chips";

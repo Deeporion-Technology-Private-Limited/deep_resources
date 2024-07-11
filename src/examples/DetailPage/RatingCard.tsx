@@ -1,5 +1,4 @@
-import { Box } from "@/components";
-import ProgressBar from "@/components/ProgressBar";
+import { Box, ProgressBar } from "@/components";
 import { variants } from "@/components/ProgressBar/type";
 import { cva } from "class-variance-authority";
 import { StarIcon } from "../RatingCard/ReviewCardIcon/icon";

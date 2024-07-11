@@ -54,7 +54,7 @@ export interface PaginationPropsTable
   onPageChange: (page: number) => void;
 }
 
-const Paginations = forwardRef<HTMLDivElement, PaginationPropsTable>(
+export const Paginations = forwardRef<HTMLDivElement, PaginationPropsTable>(
   (
     {
       totalItems,
@@ -124,4 +124,3 @@ const Paginations = forwardRef<HTMLDivElement, PaginationPropsTable>(
   }
 );
 
-export default Paginations;

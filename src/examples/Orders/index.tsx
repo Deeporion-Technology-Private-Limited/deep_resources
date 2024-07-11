@@ -1,10 +1,9 @@
-import { Box, Button, Checkbox, IconButton, Input, Text } from "@/components";
+import { Box, Button, Checkbox, IconButton, Input, Pagination, Text } from "@/components";
 import { Table } from "@/components/Table/Table";
 import { ComponentProps, forwardRef, useState } from "react";
 import { VariantProps, cva } from "class-variance-authority";
 import SearchImage from "@/images/InputIcons/SearchImage";
 import { InputType, InputVariant } from "@/components/Input/type";
-import Pagination from "@/components/Pagination/PaginationBasic";
 import { Color, Shape, Variants } from "@/components/Pagination/type";
 import { cn } from "@/utils";
 import { FindIconUrl } from "@/utils/Constant";

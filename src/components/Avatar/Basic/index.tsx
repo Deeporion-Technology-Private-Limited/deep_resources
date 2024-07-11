@@ -56,7 +56,7 @@ export interface ProfileAvatarProps
   textColor?: string;
 }
 
-const ProfileAvatar = forwardRef<HTMLDivElement, ProfileAvatarProps>(
+export const ProfileAvatar = forwardRef<HTMLDivElement, ProfileAvatarProps>(
   (
     {
       src,
@@ -96,4 +96,3 @@ const ProfileAvatar = forwardRef<HTMLDivElement, ProfileAvatarProps>(
   }
 );
 
-export default ProfileAvatar;

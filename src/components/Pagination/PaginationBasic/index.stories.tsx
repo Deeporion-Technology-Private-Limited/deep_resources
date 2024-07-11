@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Meta, StoryObj } from "@storybook/react";
-import Pagination, { PaginationProps } from "./index";
 import { Color, Shape, Variants } from "../type";
 import { ButtonSize } from "@/components/Button/type";
+import { Pagination, PaginationProps } from ".";
 
 const meta: Meta<typeof Pagination> = {
   title: "Components/Pagination/PaginationBasic",

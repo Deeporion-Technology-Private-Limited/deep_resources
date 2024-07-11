@@ -26,7 +26,6 @@ export * from "./Cards/QuantityCard";
 export * from "./Cards/ReviewCard";
 export * from "./Catelog";
 export * from "./ProgressBar";
-export * from "./Cards/OrderSummaryCard";
 export * from "./Pagination/PaginationBasic";
 export * from "./Pagination/PaginationTable";
 export * from "./ProgressBar";
@@ -41,12 +40,8 @@ export * from "./Skeleton";
 export * from "./Tooltip";
 export * from "./Checkbox";
 export * from "./Cards/ProductCards";
-export * from "./Cards/ReviewCard";
-export * from "./Cards/ReviewCard";
-export * from "./Cards/Banners";
 export * from "./BarChart"
 export * from "./../examples/BarchartExample"
-export * from "./../examples/Orders"
 export * from "./../examples/AdminSidebar"
 export * from "./../examples/Hemburger"
 export * from "./Accordion"
@@ -67,7 +62,6 @@ export * from "./../examples/SellerTable"
 export * from "../examples/Catalogue";
 export * from "../examples/MyCart";
 export * from "../examples/PrivacyPolicy";
-export * from "../examples/cateloges";
 export * from "../examples/Warehouse";
 export * from "../examples/ShopingCards";
 export * from "../examples/Settings";

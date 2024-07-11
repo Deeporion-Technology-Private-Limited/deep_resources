@@ -1,10 +1,8 @@
-import { Box } from "@/components"
-import ProgressBar from "@/components/ProgressBar";
+import { Box, FaverateCard, ProgressBar } from "@/components"
 import { variants } from "@/components/ProgressBar/type";
 import { cva } from "class-variance-authority";
 import { StarIcon } from "./ReviewCardIcon/icon";
 import { Elevation } from "@/components";
-import FaverateCard from "@/components/Cards/FaverateCard";
 
 type RatingcardProp = {
     objData: any

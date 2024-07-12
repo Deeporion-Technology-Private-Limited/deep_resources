@@ -1,5 +1,4 @@
-import { Box, Text } from "@/components";
-import ProfileAvatar from "@/components/Avatar/Basic";
+import { Box, ProfileAvatar, Text } from "@/components";
 import { cn } from "@/utils";
 import { cva, VariantProps } from "class-variance-authority";
 import { ComponentProps, forwardRef } from "react";
@@ -19,10 +18,10 @@ const reviewCardStyles = cva(
   }
 );
 
-const textStyles = cva("text-center text-gray-800 mb-2 capitalize font-bold text-xl");
-const starStyles = cva(
-  "flex mb-2 h-fit w-full text-yellow-500 bg-yellow"
+const textStyles = cva(
+  "text-center text-gray-800 mb-2 capitalize font-bold text-xl"
 );
+const starStyles = cva("flex mb-2 h-fit w-full text-yellow-500 bg-yellow");
 
 type ReviewCardProps = ComponentProps<"div"> &
   VariantProps<typeof reviewCardStyles> & {
@@ -35,11 +34,11 @@ type ReviewCardProps = ComponentProps<"div"> &
     image?: boolean;
     avatar?: boolean;
     imageStyle?: string;
-    textStyle?:string;
-    starStyle?:string;
+    textStyle?: string;
+    starStyle?: string;
   };
 
-const   ReviewCard = forwardRef<HTMLDivElement, ReviewCardProps>(
+export const ReviewCard = forwardRef<HTMLDivElement, ReviewCardProps>(
   (
     {
       imageSrc,
@@ -77,11 +76,17 @@ const   ReviewCard = forwardRef<HTMLDivElement, ReviewCardProps>(
         {
           <>
             <Box className="flex w-full gap-4 items-end h-fit">
-              <ProfileAvatar name={reviewerName} src={avatarImage} className="h-[6rem] w-[6rem] text-2xl"  />
-              <Text className="w-max font-extrabold text-2xl">{reviewerName}</Text>
+              <ProfileAvatar
+                name={reviewerName}
+                src={avatarImage}
+                className="h-[6rem] w-[6rem] text-2xl"
+              />
+              <Text className="w-max font-extrabold text-2xl">
+                {reviewerName}
+              </Text>
             </Box>
             {StarRating && (
-              <Box className={starStyle? starStyle : starStyles()}>
+              <Box className={starStyle ? starStyle : starStyles()}>
                 {Array.from({ length: 5 }).map((_, i) => (
                   <svg
                     key={i}
@@ -105,14 +110,12 @@ const   ReviewCard = forwardRef<HTMLDivElement, ReviewCardProps>(
                 ))}
               </Box>
             )}
-            <Box className={textStyle ? textStyle : textStyles()}>{reviewText}</Box>
+            <Box className={textStyle ? textStyle : textStyles()}>
+              {reviewText}
+            </Box>
           </>
         }
       </div>
     );
   }
 );
-
-// ReviewCard.displayName = "ReviewCard";
-
-export default ReviewCard;

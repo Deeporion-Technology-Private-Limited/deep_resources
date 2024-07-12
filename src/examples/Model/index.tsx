@@ -1,11 +1,10 @@
-import { Box, Button, Headings, Modal } from "@/components";
+import { Box, Button, Headings, Modal, ProductCard } from "@/components";
 import chart from "./Icons/chart.svg";
 import frmaeMeasurement from "../../images/frameMeasurement.png";
 import hearticon from "./Icons/hearticon.svg";
 import { Table } from "@/components/Table/Table";
 import { Product } from "./types";
 import { useState } from "react";
-import ProductCard from "@/components/Cards/ProductCards";
 import { womanSizeFormatted } from "@/components/Data/SizeDataForWomen";
 
 export const Sizechartmodel = () => {

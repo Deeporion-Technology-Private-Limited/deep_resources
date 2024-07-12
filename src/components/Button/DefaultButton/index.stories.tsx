@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Button } from ".";
 import { ButtonIconPosition, ButtonSize, ButtonVariant } from "../type";
-import AddItem from "../ButtonImage/AddItem.svg"
+import { FindIconUrl } from "@/utils/Constant";
 
 const meta: Meta<typeof Button> = {
   title: "Components/Button/DefaultButton",
@@ -19,7 +19,7 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
   args: {
     variant: ButtonVariant.DefaultPrimary,
-    iconUrl: AddItem,
+    iconUrl: FindIconUrl("AddItem.svg"),
     children: "Button",
     hover: true,
     size: ButtonSize.Medium,
@@ -31,7 +31,7 @@ export const Primary: Story = {
 export const Secondary: Story = {
   args: {
     variant: ButtonVariant.DefaultSeconday,
-    iconUrl: AddItem,
+    iconUrl: FindIconUrl("AddItem.svg"),
     children: "Button",
     hover: true,
     size: ButtonSize.Medium,
@@ -43,7 +43,7 @@ export const Secondary: Story = {
 export const DarkBackground: Story = {
   args: {
     children: "Button",
-    iconUrl: AddItem,
+    iconUrl: FindIconUrl("AddItem.svg"),
     variant: ButtonVariant.DefaultDarkBackground,
     hover: true,
     size: ButtonSize.Medium,

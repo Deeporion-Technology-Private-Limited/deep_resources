@@ -25,7 +25,7 @@ type ProgressBarProps = ComponentProps<"div"> &
     middleText?: boolean;
   };
 
-const ProgressBar = forwardRef<HTMLDivElement, ProgressBarProps>(
+export const ProgressBar = forwardRef<HTMLDivElement, ProgressBarProps>(
   (
     {
       variant,
@@ -122,4 +122,3 @@ const ProgressBar = forwardRef<HTMLDivElement, ProgressBarProps>(
   }
 );
 
-export default ProgressBar;

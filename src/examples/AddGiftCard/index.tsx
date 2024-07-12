@@ -1,8 +1,7 @@
 import { cn } from "@/utils";
 import { cva, VariantProps } from "class-variance-authority";
 import { ComponentProps, forwardRef, useState } from "react";
-import { Box, Button, Elevation, Input, Text } from "@/components";
-import ProductCard from "@/components/Cards/ProductCards";
+import { Box, Button, Elevation, Input, ProductCard, Text } from "@/components";
 import BirthdayGift from "../../images/BirthdayGift.svg"
 import { ElevationShadow } from "@/components/Elevation/type";
 import { ButtonSize, ButtonVariant } from "@/components/Button/type";

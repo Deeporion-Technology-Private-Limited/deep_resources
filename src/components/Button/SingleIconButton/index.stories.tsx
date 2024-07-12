@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from "@storybook/react";
 import { IconButton } from ".";
 import { ButtonDirection } from "../type";
-import Accout from "../ButtonImage/Account.svg"
+import { FindIconUrl } from "@/utils/Constant";
 
 const meta: Meta<typeof IconButton> = {
   title: "Components/Button/SingleIconButton",
@@ -18,7 +18,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    iconUrl:Accout,
+    iconUrl: FindIconUrl("Account.svg"),
     text: "Logo",
     backgroundColor: "transparent",
     direction: ButtonDirection.Row,
@@ -27,7 +27,7 @@ export const Default: Story = {
 
 export const SingleButtonForExample: Story = {
   args: {
-    iconUrl:Accout,
+    iconUrl: FindIconUrl("Account.svg"),
     text: "Logo",
     backgroundColor: "transparent",
     direction: ButtonDirection.Row,

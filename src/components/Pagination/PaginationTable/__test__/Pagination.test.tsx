@@ -1,6 +1,6 @@
 import { render, fireEvent } from '@testing-library/react';
-import Paginations from '../index';
 import '@testing-library/jest-dom';
+import { Paginations } from '..';
 
 describe('Pagination component', () => {
   it('renders correctly', () => {

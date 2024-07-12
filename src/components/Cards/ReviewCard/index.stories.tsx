@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from "@storybook/react";
-import ReviewCard from "./index"
+import { ReviewCard } from ".";
 
 const meta: Meta<typeof ReviewCard> = {
   title: "Components/Cards/ReviewCard",

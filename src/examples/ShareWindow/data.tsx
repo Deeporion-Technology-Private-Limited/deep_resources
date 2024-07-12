@@ -1,11 +1,4 @@
-import icon from "./icon/image-1.svg";
-import icon1 from "./icon/image-2.svg";
-import icon2 from "./icon/image-3.svg";
-import icon3 from "./icon/image-4.svg";
-import icon4 from "./icon/image-5.svg";
-import icon5 from "./icon/image-6.svg";
-import icon6 from "./icon/image-7.svg";
-import icon7 from "./icon/image.svg";
+import { FindIconUrl } from "@/utils/Constant";
 
 export interface IconValues {
   icon?: string;
@@ -18,56 +11,56 @@ export interface ShareItem{
 
 export const socialIcons: IconValues[] = [
   {
-    icon: icon7,
+    icon: FindIconUrl("ContentCopy.svg"),
     text: "copy",
     Click: () => {
       alert("Copy function");
     },
   },
   {
-    icon: icon,
+    icon: FindIconUrl("OutlineMail.svg"),
     text: "Email",
     Click: () => {
       alert("Email function");
     },
   },
   {
-    icon: icon1,
+    icon: FindIconUrl("Whatsapp.svg"),
     text: "WhatsApp",
     Click: () => {
       alert("whatsapp function");
     },
   },
   {
-    icon: icon2,
+    icon: FindIconUrl("Instagram.svg"),
     text: "instagram",
     Click: () => {
       alert("instagram function");
     },
   },
   {
-    icon: icon3,
+    icon: FindIconUrl("Facebook.svg"),
     text: "Facebook",
     Click: () => {
       alert("facebook function");
     },
   },
   {
-    icon: icon4,
+    icon: FindIconUrl("twitter.svg"),
     text: "Twitter",
     Click: () => {
       alert("twitter function");
     },
   },
   {
-    icon: icon5,
+    icon: FindIconUrl("Slack.svg"),
     text: "slack",
     Click: () => {
       alert("slack function");
     },
   },
   {
-    icon: icon6,
+    icon: FindIconUrl("Dropbox.svg"),
     text: "dropbox",
     Click: () => {
       alert("dropbox");

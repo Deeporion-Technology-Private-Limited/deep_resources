@@ -1,11 +1,11 @@
 import { Meta, StoryObj } from "@storybook/react";
-import FaverateCard from ".";
 import image from "@/examples/ShopingCards/images/Web-_Product listing/3897062800_1_1_1 1.png";
 import { Text } from "@/components/Text";
 import { Button } from "@/components/Button/DefaultButton";
 import { ButtonIconPosition, ButtonVariant } from "@/components/Button/type";
 import { Box } from "@/components/Layout";
 import { FindIconUrl } from "@/utils/Constant";
+import { FaverateCard } from ".";
 
 const meta: Meta<typeof FaverateCard> = {
   title: "Components/Cards/FaverateCard",

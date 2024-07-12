@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react";
-import Banner from "./index";
 import { FindIconUrl } from "@/utils/Constant";
+import { Banner } from ".";
 
 const meta: Meta<typeof Banner> = {
   title: "Components/Cards/Banner",

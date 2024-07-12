@@ -1,9 +1,8 @@
-import { Box, Button } from "@/components";
+import { Box, Button, FaverateCard } from "@/components";
 import { ComponentProps, forwardRef, useState } from "react";
 import { ButtonIconPosition } from "@/components/Button/type";
 import { ICards, ILabels } from "./data";
 import { cn } from "@/utils";
-import FaverateCard from "@/components/Cards/FaverateCard";
 import { FindIconUrl } from "@/utils/Constant";
 
 type GiftCardProps = ComponentProps<typeof Box> & {

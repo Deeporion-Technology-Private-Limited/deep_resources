@@ -1,8 +1,8 @@
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import ProfileAvatar from "../Basic";
 import { ButtonSize } from "@/components/Button/type";
 import { Translations } from "@/components/translations";
+import { ProfileAvatar } from "../Basic";
 
 describe("Basic", () => {
   test("should render Basic avatar component", () => {

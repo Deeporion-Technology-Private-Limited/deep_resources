@@ -1,10 +1,9 @@
-import { Box, Checkbox } from "@/components";
+import { Box, Checkbox, Pagination } from "@/components";
 import { ButtonSize } from "@/components/Button/type";
 import { Table } from "@/components/Table/Table";
 import Chips from "@/components/Chips";
 import { ChipsTypes } from "@/components/Chips/chipsTypes";
 import { Action } from "./Action";
-import Pagination from "@/components/Pagination/PaginationBasic";
 import { Color, Shape, Variants } from "@/components/Pagination/type";
 import { useState } from "react";
 

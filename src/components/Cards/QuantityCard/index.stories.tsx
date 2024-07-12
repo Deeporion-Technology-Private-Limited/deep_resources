@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react";
 import image from "@/examples/ShopingCards/images/Web-_Product listing/3897062800_1_1_1 1.png";
-import QuantityCard from ".";
+import { QuantityCard } from ".";
 
 const meta: Meta<typeof QuantityCard> = {
   title: "Components/Cards/AddToCart",

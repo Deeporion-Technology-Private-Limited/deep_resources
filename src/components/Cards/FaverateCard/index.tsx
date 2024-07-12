@@ -32,7 +32,7 @@ type CardProps = ComponentProps<typeof Box> &
 
 const cardStyles = cva("max-w-sm rounded overflow-hidden shadow-xl");
 
-const FaverateCard = forwardRef<HTMLDivElement, CardProps>(
+export const FaverateCard = forwardRef<HTMLDivElement, CardProps>(
   (
     {
       imageSrc,
@@ -162,4 +162,3 @@ const FaverateCard = forwardRef<HTMLDivElement, CardProps>(
   }
 );
 
-export default FaverateCard;

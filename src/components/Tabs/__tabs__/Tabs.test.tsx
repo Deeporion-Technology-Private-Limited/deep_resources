@@ -1,6 +1,6 @@
 import { render, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import Tabs from '../index';
+import { Tabs } from '..';
 
 const mockTabs = [
   { label: 'Tab 1', content: <div>Content 1</div> },

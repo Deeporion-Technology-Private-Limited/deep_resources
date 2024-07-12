@@ -1,8 +1,8 @@
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import Profile from "../Editable";
 import { Translations } from "@/components/translations";
 import { ButtonSize } from "@/components/Button/type";
+import { Profile } from "../Editable";
 
 describe("Profile", () => {
   test("should render editable Profile component", () => {

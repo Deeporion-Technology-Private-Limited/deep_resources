@@ -1,8 +1,8 @@
 import  { useState } from 'react';
 import { Meta, StoryObj } from '@storybook/react';
-import Paginations,{PaginationPropsTable} from '.'; 
 import { ButtonSize } from '@/components/Button/type';
 import { Shape, Variants } from '../type';
+import { PaginationPropsTable, Paginations } from '.';
 
 export default {
   title: 'Components/Pagination/PaginationTable',

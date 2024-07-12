@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from "@storybook/react";
-import ProfileAvatar, { ProfileAvatarProps } from ".";
+import  { ProfileAvatar, ProfileAvatarProps } from ".";
 
 const meta: Meta<typeof ProfileAvatar> = {
   title: "Components/Avatar/Basic",

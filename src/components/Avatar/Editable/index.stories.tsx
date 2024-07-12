@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from "@storybook/react";
-import Profile, { ProfileAvatar } from ".";
+import  { Profile, ProfileAvatarInterFace } from ".";
 import { ButtonSize } from "@/components/Button/type";
 
 const meta: Meta<typeof Profile> = {
@@ -12,7 +12,7 @@ const meta: Meta<typeof Profile> = {
 };
 export default meta;
 
-type StoryProps = StoryObj<ProfileAvatar>;
+type StoryProps = StoryObj<ProfileAvatarInterFace>;
 
 export const WithImage: StoryProps = {
   args: {

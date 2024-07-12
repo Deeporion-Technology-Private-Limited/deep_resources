@@ -29,7 +29,7 @@ type ProductCardProps = ComponentProps<typeof Box> &
     iconUrl?: string;
   };
 
-const Banner = forwardRef<HTMLDivElement, ProductCardProps>(
+export const Banner = forwardRef<HTMLDivElement, ProductCardProps>(
   (
     {
       imageSrc,
@@ -81,4 +81,3 @@ const Banner = forwardRef<HTMLDivElement, ProductCardProps>(
   }
 );
 
-export default Banner;

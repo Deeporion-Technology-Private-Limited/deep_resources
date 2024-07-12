@@ -1,7 +1,7 @@
 import { render } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import ProgressBar from "../index"; // Adjust the path according to your project structure
 import { Translations } from "../../translations";
+import { ProgressBar } from "..";
 const half = 50;
 const StringHalf = "50%";
 describe("ProgressBar component", () => {

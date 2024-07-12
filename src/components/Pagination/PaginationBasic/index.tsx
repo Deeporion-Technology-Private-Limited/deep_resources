@@ -71,7 +71,7 @@ export interface PaginationProps
   iconStyle?: string;
 }
 
-const Pagination = forwardRef<HTMLDivElement, PaginationProps>(
+export const Pagination = forwardRef<HTMLDivElement, PaginationProps>(
   (
     {
       currentPage,
@@ -192,5 +192,3 @@ const Pagination = forwardRef<HTMLDivElement, PaginationProps>(
     );
   }
 );
-
-export default Pagination;

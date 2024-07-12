@@ -1,5 +1,4 @@
-import ProductCard from "@/components/Cards/ProductCards";
-import { Box, BreadCrumb, Button, Checkbox, Text } from "@/components";
+import { Box, BreadCrumb, Button, Checkbox, ProductCard, Text } from "@/components";
 import Chips from "@/components/Chips";
 import { ComponentProps, forwardRef, useState } from "react";
 import { IData, breadCrumbsType, optionsArray } from "./data";

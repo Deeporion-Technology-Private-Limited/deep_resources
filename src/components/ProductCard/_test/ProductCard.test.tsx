@@ -1,11 +1,11 @@
 import { render } from "@testing-library/react";
 import { screen, fireEvent } from "@testing-library/react";
-import { ProductCard } from "..";
+import { ProductDetailCard } from "..";
 
 describe("ProductCard Component", () => {
   it("renders ProductCard with productCode, productDetails, productSpecifications", () => {
     render(
-      <ProductCard
+      <ProductDetailCard
         productCode={"00123456"}
         productDetails={{ productDetail: "Product Detail" }}
         productSpecifications={{

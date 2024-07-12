@@ -1,11 +1,10 @@
 import { cn } from "@/utils";
 import { cva, VariantProps } from "class-variance-authority";
 import { ComponentProps, forwardRef, useState, useEffect } from "react";
-import { IconButton, Button } from "@/components";
+import { IconButton, Button, ReviewCard } from "@/components";
 import { ArrowPosition, ButtonVariant, IndicatorType } from "../Button/type";
-import { Left, Right } from "../Button/ButtonImage/icon";
-import ReviewCard from "../Cards/ReviewCard";
 import { SlideItem } from "./interfaces";
+import { FindIconUrl } from "@/utils/Constant";
 
 const carouselStyles = cva(
   ["relative","w-[100vw]", "overflow-hidden"],
@@ -132,7 +131,7 @@ const Carousel = forwardRef<HTMLDivElement, CarouselProps>(
             }
           )}
         >
-          <Left />
+          <img src={FindIconUrl("KeyboardArrowLeft.svg")}/>
         </IconButton>
         <IconButton
           onClick={nextSlide}
@@ -144,7 +143,7 @@ const Carousel = forwardRef<HTMLDivElement, CarouselProps>(
             }
           )}
         >
-          <Right />
+          <img src={FindIconUrl("KeyboardArrowRight.svg")}/>
         </IconButton>
 
         {indicatorType === IndicatorType.Dots && (

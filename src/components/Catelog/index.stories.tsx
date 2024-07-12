@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react";
-import Cateloge from ".";
 import { arr } from "./data";
+import { Cateloge } from ".";
 
 const meta: Meta<typeof Cateloge> = {
   title: "Components/Catelog",

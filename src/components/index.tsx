@@ -21,7 +21,6 @@ export * from "./Avatar/Editable";
 export * from "./Cards/Banners";
 export * from "./Cards/FaverateCard";
 export * from "./Cards/OrderSummaryCard";
-export * from "./Cards/ProductCards";
 export * from "./Cards/QuantityCard";
 export * from "./Cards/ReviewCard";
 export * from "./Catelog";

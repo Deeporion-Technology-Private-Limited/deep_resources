@@ -26,7 +26,7 @@ type ProductCardProps = ComponentProps<typeof Box> &
     productSpecifications: IProductSpecifications;
   };
 
-export const ProductCard = forwardRef<HTMLDivElement, ProductCardProps>(
+export const ProductDetailCard = forwardRef<HTMLDivElement, ProductCardProps>(
   (
     {
       productCode,

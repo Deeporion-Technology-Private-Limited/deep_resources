@@ -80,4 +80,5 @@ export * from "./../components/Footer"
 export * from "./../components/Header/ExpandedNavbar"
 export * from "./../components/Header/SideNavbar"
 export * from "./../components/Sidebar"
-
+export * from "./RoundedCorners";
+export * from "./ProductCard";

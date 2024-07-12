@@ -27,6 +27,8 @@ const DiscountsAndOffers: React.FC<{ labels: ILabels[]; cards: any[]; handleNew:
     };
 
     const addCircleOutline = FindIconUrl("AddCircleOutline.svg");
+    const ContentCopy = FindIconUrl("ContentCopy.svg");
+    const arrowRight = FindIconUrl("OutlineKeyboardArrowRight.svg")
 
     return (
         <Box className='flex flex-col gap-5'>
@@ -45,7 +47,7 @@ const DiscountsAndOffers: React.FC<{ labels: ILabels[]; cards: any[]; handleNew:
                 <Button
                     className="w-fit h-8 bg-transparent text-black"
                     iconPosition={ButtonIconPosition.Right}
-                    iconUrl="src/components/BreadCrumb/icon/RightArrow.svg"
+                    iconUrl={arrowRight}
                 >
                     View More
                 </Button>
@@ -68,7 +70,7 @@ const DiscountsAndOffers: React.FC<{ labels: ILabels[]; cards: any[]; handleNew:
                                 </Text>
                                 <Box className="flex w-max gap-2">
                                     <Text>{cardItem?.coupanCode}</Text>
-                                    <img src="/src/components/Cards/icons/copy.svg" />
+                                    <img src={ContentCopy} />
                                 </Box>
                                 <Text as="p">{cardItem?.expireDate}</Text>
                                 <Box className="flex justify-between w-full">

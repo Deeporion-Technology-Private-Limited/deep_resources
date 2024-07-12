@@ -1,12 +1,13 @@
 import { Box, Button, Checkbox, Headings, Modal, Text } from "@/components"
 import FaverateCard from "@/components/Cards/FaverateCard"
 import { ICardDetails } from "./Data"
-import DownArrow from "../SortingCard/DownArrow"
 import { forwardRef, useState } from "react"
 import ProductCard from "@/components/Cards/ProductCards"
 import { ButtonSize } from "@/components/Button/type"
 import { VariantProps, cva } from "class-variance-authority"
 import { cn } from "@/utils"
+import { FindIconUrl } from "@/utils/Constant"
+import { DownArrow } from "@/components/MenuItem/Icon/icon"
 
 const wishListStyles = cva([
   "w-full", 'flex', "flex-col", "gap-5",
@@ -82,6 +83,8 @@ const Wishlist = forwardRef<HTMLDivElement, WishlistProps>(
 
     }
 
+    const close = FindIconUrl("Close.svg")
+
     return (
       <Box ref={ref} className={cn({ className })} {...props}>
         <Box className="px-10">
@@ -136,7 +139,7 @@ const Wishlist = forwardRef<HTMLDivElement, WishlistProps>(
                 description={item.description}
                 favorite
                 imageSrc={item.imageSrc}
-                iconUrl="src/examples/Wishlist/image.svg"
+                iconUrl={close}
                 price={item.price}
                 rating={item.rating}
                 reviews={item.reviews}

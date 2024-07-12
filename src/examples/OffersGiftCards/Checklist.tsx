@@ -2,6 +2,7 @@ import { Checkbox } from "@/components";
 import { ButtonSize } from "@/components/Button/type";
 import React, { useState } from "react";
 import { categories } from "./OfferData";
+import { FindIconUrl } from "@/utils/Constant";
 
 const Checklist: React.FC = () => {
   const [openCategories, setOpenCategories] = useState<string[]>([]);
@@ -13,7 +14,7 @@ const Checklist: React.FC = () => {
         : [...prev, categoryName]
     );
   };
-  const expand = "https://deepresources.s3.ap-south-1.amazonaws.com/images/ExpandLess.svg";
+  const expand = FindIconUrl("Expand.svg")
 
   return (
     <>

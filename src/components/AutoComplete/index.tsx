@@ -1,9 +1,10 @@
 import React, { forwardRef, useState, ComponentProps } from "react";
 import { cn } from "@/utils";
 import { cva, VariantProps } from "class-variance-authority";
+import { FindIconUrl } from "@/utils/Constant";
 
-const cancel = "https://deepresources.s3.ap-south-1.amazonaws.com/images/Clear.svg";
-const expand = "https://deepresources.s3.ap-south-1.amazonaws.com/images/ExpandMore.svg";
+const cancel = FindIconUrl("Clear.svg")
+const expand = FindIconUrl("ExpandMore.svg")
 
 const CrossIcon = ({ onClick }: { onClick: () => void }) => (
   <div

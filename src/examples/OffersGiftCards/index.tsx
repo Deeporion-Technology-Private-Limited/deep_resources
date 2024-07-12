@@ -23,6 +23,7 @@ import {
 } from "../AdminSidebar/adminbarConst";
 import Checklist from "./Checklist";
 import { newOfferData } from "./OfferData";
+import { FindIconUrl } from "@/utils/Constant";
 
 type AddNewGiftCardProps = ComponentProps<typeof Box> & {
   labelsArray: ILabels[];
@@ -82,7 +83,10 @@ const OffersGiftCards = forwardRef<HTMLDivElement, AddNewGiftCardProps>(
       setSelectedFile(null);
     };
     
-    const bell = "https://deepresources.s3.ap-south-1.amazonaws.com/images/NotificationsNone.svg";
+    const bell = FindIconUrl("NotificationsNone.svg")
+    const uploadFile = FindIconUrl("OutlineFileUpload.svg")
+    const addFile = FindIconUrl("AddCircle.svg")
+
     return (
       <div className="flex">
         <div className="flex-none w-64 bg-white">
@@ -193,7 +197,7 @@ const OffersGiftCards = forwardRef<HTMLDivElement, AddNewGiftCardProps>(
                       ) : (
                         <Box className="flex flex-col items-center justify-center gap-4 py-8">
                           <img
-                            src="src/images/upload.svg"
+                            src={uploadFile}
                             alt=""
                             className="max-h-20"
                           />
@@ -204,7 +208,7 @@ const OffersGiftCards = forwardRef<HTMLDivElement, AddNewGiftCardProps>(
                             Drag and drop the files here
                           </p>
                           <Button
-                            iconUrl="/src/components/Button/ButtonImage/AddItem.svg"
+                            iconUrl={addFile}
                             className="bg-transparent text-[#3F271E] w-fit"
                             onClick={onButtonClick}
                           >

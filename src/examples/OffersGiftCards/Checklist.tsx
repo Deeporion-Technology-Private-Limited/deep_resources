@@ -14,7 +14,7 @@ const Checklist: React.FC = () => {
         : [...prev, categoryName]
     );
   };
-  const expand = FindIconUrl("Expand.svg")
+  const expand = FindIconUrl("ExpandMore.svg")
 
   return (
     <>

@@ -14,7 +14,7 @@ import {
   WarningOutlined,
 } from "./Icons/icon";
 
-const productCardStyles = cva(
+const alertStyles = cva(
   [
     "flex items-center bg-[#edf7ed] w-[450px] h-[40px] border rounded-[4px] p-4",
   ],
@@ -121,8 +121,8 @@ const iconStyles = cva("", {
   ],
 });
 
-type ProductCardProps = ComponentProps<typeof Box> &
-  VariantProps<typeof productCardStyles> & {
+type AlertProps = ComponentProps<typeof Box> &
+  VariantProps<typeof alertStyles> & {
     type?: AlertType;
     variant?: AlertVariant;
     showIcon?: boolean;
@@ -144,7 +144,7 @@ const getIcon = (type: AlertType, variant: AlertVariant) => {
   return <IconComponent />;
 };
 
-export const Alert = forwardRef<HTMLDivElement, ProductCardProps>(
+export const Alert = forwardRef<HTMLDivElement, AlertProps>(
   (
     {
       className,
@@ -159,7 +159,7 @@ export const Alert = forwardRef<HTMLDivElement, ProductCardProps>(
     return (
       <Box
         ref={ref}
-        className={cn(productCardStyles({ type, variant }), className)}
+        className={cn(alertStyles({ type, variant }), className)}
         {...props}
       >
         {showIcon && (
@@ -175,5 +175,3 @@ export const Alert = forwardRef<HTMLDivElement, ProductCardProps>(
     );
   }
 );
-
-export default Alert;

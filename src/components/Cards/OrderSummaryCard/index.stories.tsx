@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react";
-import OrderSummary from ".";
-import image from "@/examples/ShopingCards/images/Web-_Product listing/3897062800_1_1_1 1.png"
+import { OrderSummary } from ".";
+import image from "@/examples/ShopingCards/images/Web-_Product listing/3897062800_1_1_1 1.png";
 
 const meta: Meta<typeof OrderSummary> = {
   title: "Components/Cards/OrderSummary",
@@ -25,4 +25,3 @@ export const Default: Story = {
     total: "₹ 3950",
   },
 };
-

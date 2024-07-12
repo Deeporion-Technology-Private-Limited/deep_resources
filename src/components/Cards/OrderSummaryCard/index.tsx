@@ -6,7 +6,7 @@ import { Button, Text } from "@/components";
 import { Arrow, Return, Secure } from "./Icons/icons";
 import { FindIconUrl } from "@/utils/Constant";
 
-type CardProps = ComponentProps<typeof Box> &
+type OrderSummaryCardProps = ComponentProps<typeof Box> &
   VariantProps<typeof cardStyles> & {
     imageSrc?: string;
     brand?: string;
@@ -23,7 +23,7 @@ const cardStyles = cva(
   "flex flex-col bg-white border border-[#CBD5E1] gap-[5]"
 );
 
-const OrderSummary = forwardRef<HTMLDivElement, CardProps>(
+export const OrderSummary = forwardRef<HTMLDivElement, OrderSummaryCardProps>(
   (
     {
       className,
@@ -108,4 +108,3 @@ const OrderSummary = forwardRef<HTMLDivElement, CardProps>(
   }
 );
 
-export default OrderSummary;

@@ -45,7 +45,7 @@ type ProductCardProps = ComponentProps<typeof Box> &
     favorite?:boolean;
   };
 
-const ProductCard = forwardRef<HTMLDivElement, ProductCardProps>(
+export const ProductCard = forwardRef<HTMLDivElement, ProductCardProps>(
   (
     {
       imageSrc,
@@ -143,4 +143,3 @@ const ProductCard = forwardRef<HTMLDivElement, ProductCardProps>(
   }
 );
 
-export default ProductCard;

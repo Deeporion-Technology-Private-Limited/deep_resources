@@ -1,4 +1,4 @@
-import twitter from "../ShareWindow/icon/image-5.svg";
+import twitter from "../ShareWindow/icon/Twitter.svg";
 import { FindIconUrl } from "@/utils/Constant";
 
 export interface platformItem {

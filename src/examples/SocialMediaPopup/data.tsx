@@ -1,5 +1,4 @@
 import { FindIconUrl } from "@/utils/Constant";
-import twitter from "../ShareWindow/icon/image-5.svg";
 export interface PopupButtons {
   icon?: string;
   text?: string;
@@ -28,7 +27,7 @@ export const socialMedia: PopupButtons[] = [
     buttonText: "Connect google",
   },
   {
-    icon: twitter,
+    icon: FindIconUrl("twitter.svg"),
     text: "twitter",
     click: () => {
       alert("twitter function");

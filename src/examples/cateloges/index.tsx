@@ -1,5 +1,4 @@
-import { Box } from "@/components";
-import Cateloge from "@/components/Catelog";
+import { Box, Cateloge } from "@/components";
 import { arr, user } from "@/components/Catelog/data";
 import { useState } from "react";
 

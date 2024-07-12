@@ -1,11 +1,10 @@
-import { Box } from "@/components";
+import { Box, Pagination } from "@/components";
 import { Topnavbar } from "@/components/Header/TopNavbar";
 import Cards from "../ShopingCards";
 import { demo } from "../ShopingCards/data";
 import { AccordionBar } from "../AccordionBar";
 import SortingCard from "../SortingCard";
 import { FooterCart } from "../FooterCart";
-import Pagination from "@/components/Pagination/PaginationBasic";
 import { Color, Shape, Variants } from "@/components/Pagination/type";
 import { CSSProperties, useState } from "react";
 import { FindIconUrl } from "@/utils/Constant";

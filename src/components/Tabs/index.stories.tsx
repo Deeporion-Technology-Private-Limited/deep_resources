@@ -1,9 +1,9 @@
 import { Meta, StoryObj } from "@storybook/react";
-import Tabs from "./index";
 import Calendar from "../Calendar/SelectedDateCalendar";
 import { Table } from "../Table/Table";
 import { Box } from "../Layout";
 import { TabData } from "./data";
+import { Tabs } from ".";
 
 const meta: Meta<typeof Tabs> = {
   title: "Components/Tabs",

@@ -21,7 +21,7 @@ const profileStyles = cva(
   }
 );
 
-export interface ProfileAvatar
+export interface ProfileAvatarInterFace
   extends ComponentProps<typeof Box>,
     VariantProps<typeof profileStyles> {
   src?: string;
@@ -32,7 +32,7 @@ export interface ProfileAvatar
   textStyle?: string;
 }
 
-const Profile = forwardRef<HTMLDivElement, ProfileAvatar>(
+export const Profile = forwardRef<HTMLDivElement, ProfileAvatarInterFace>(
   (
     {
       src,
@@ -59,8 +59,8 @@ const Profile = forwardRef<HTMLDivElement, ProfileAvatar>(
                                justify-center items-center rounded-full">
           <Box className="flex flex-col items-center justify-center ">
             <img
-              src={FindIconUrl("OutlineCameraAlt.svg")}
-              className={"text-white bg-white"}
+              src={FindIconUrl("CameraWhite.svg")}
+              className={iconStyle}
               data-testid="icon"
             />
             <Text className={textStyle}>Edit Picture</Text>
@@ -71,4 +71,3 @@ const Profile = forwardRef<HTMLDivElement, ProfileAvatar>(
   }
 );
 
-export default Profile;

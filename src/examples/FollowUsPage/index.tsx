@@ -1,6 +1,5 @@
-import { Box, Headings } from "@/components";
+import { Box, FaverateCard, Headings } from "@/components";
 import UrlIcon from "./images/Hoverbutton.svg";
-import FaverateCard from "@/components/Cards/FaverateCard";
 
 import {  FollowUsData } from '../../components/Data/FollowUsInsta';
 

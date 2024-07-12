@@ -31,7 +31,7 @@ const cardStyles = cva(
   "max-w-full sm:max-w-[60rem] rounded overflow-hidden shadow-lg flex flex-col sm:flex-row relative"
 );
 
-const QuantityCard = forwardRef<HTMLDivElement, CardProps>(
+export const QuantityCard = forwardRef<HTMLDivElement, CardProps>(
   (
     {
       imageSrc,
@@ -147,4 +147,3 @@ const QuantityCard = forwardRef<HTMLDivElement, CardProps>(
   }
 );
 
-export default QuantityCard;

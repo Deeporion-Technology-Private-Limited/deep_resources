@@ -3,7 +3,7 @@ import { Box } from "../Layout";
 import { TabsProps, Tabstyles } from "./data";
 import { cn } from "@/utils";
 
-const Tabs = forwardRef<HTMLDivElement, TabsProps>(
+export const Tabs = forwardRef<HTMLDivElement, TabsProps>(
   ({ tabs, className }, ref) => {
     const [activeTabIndex, setActiveTabIndex] = useState<number>(0);
 
@@ -29,4 +29,3 @@ const Tabs = forwardRef<HTMLDivElement, TabsProps>(
     );
   }
 );
-export default Tabs;

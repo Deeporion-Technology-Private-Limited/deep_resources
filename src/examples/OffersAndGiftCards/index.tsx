@@ -1,10 +1,8 @@
-import { Box, Button, Text } from '@/components'
-import Tabs from '@/components/Tabs'
+import { Box, Button, FaverateCard, Tabs, Text } from '@/components'
 import { cn } from '@/utils'
 import { ButtonIconPosition } from '@/components/Button/type'
 import React, { ComponentProps, forwardRef, useState } from 'react'
 import { ICards, ILabels } from '../GiftCards/data'
-import FaverateCard from '@/components/Cards/FaverateCard'
 import GiftCard from '../GiftCards'
 import { FindIconUrl } from '@/utils/Constant'
 

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { BarChart, Box, Input, Text } from "@/components";
-import FaverateCard from "@/components/Cards/FaverateCard";
+import { BarChart, Box, FaverateCard, Input, Text } from "@/components";
 import Heading from "@/examples/Heading";
 import image from "./image_luxgo cities-03 3.png"
 import { InputType, InputVariant } from "../Input/type";

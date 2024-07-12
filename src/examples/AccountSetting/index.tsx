@@ -1,6 +1,5 @@
-import { Headings, Box, Button, Input } from "@/components";
+import { Headings, Box, Button, Input, ProfileAvatar } from "@/components";
 import AutoComplete from "@/components/AutoComplete";
-import ProfileAvatar from "@/components/Avatar/Basic";
 import { ButtonIconPosition, ButtonVariant } from "@/components/Button/type";
 import { InputType, InputVariant } from "@/components/Input/type";
 import React, { useRef, useState } from "react";

@@ -6,7 +6,7 @@ import { Text } from "../Text";
 import { forwardRef, useState } from "react";
 import { Items, user } from "./data";
 import { FindIconUrl } from "@/utils/Constant";
-const Cateloge = forwardRef<HTMLDivElement, Items>(
+export const Cateloge = forwardRef<HTMLDivElement, Items>(
   ({ data, handleClick, userType }, ref) => {
     const additem = () => {
       const exists = data?.some((item: user) => item.id === currentItem?.id);
@@ -138,4 +138,3 @@ const Cateloge = forwardRef<HTMLDivElement, Items>(
     );
   }
 );
-export default Cateloge;

@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react';
 import { cn } from "@/utils";
 import { cva, VariantProps } from "class-variance-authority";
 import { ComponentProps, forwardRef } from "react";
-import { Left, Right } from '../../Button/ButtonImage/icon';
 import { CalendarProps, MonthsOfYear } from '../type';
+import { FindIconUrl } from '@/utils/Constant';
 
 const dayStyles = cva(
   [
@@ -168,11 +168,11 @@ const Calendar: React.FC<CalendarProps> = ({ year, month, selectedDate, onDateSe
   return (
     <div className='shadow-md p-4'>
       <div className="flex justify-between mb-4">
-        <button onClick={handlePrevMonth}><Left /></button>
+        <button onClick={handlePrevMonth}><img src={FindIconUrl("KeyboardArrowLeft.svg")}/></button>
         <div className="calendar-header text-center text-[#26282B] font-semibold mb-2">
           {MonthsOfYear[currentMonth]} {currentYear}
         </div>
-        <button onClick={handleNextMonth}><Right /></button>
+        <button onClick={handleNextMonth}><img src={FindIconUrl("KeyboardArrowRight.svg")}/></button>
       </div>
       <div className="calendar-grid grid grid-cols-7 gap-6">
         {["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map((day, index) => (

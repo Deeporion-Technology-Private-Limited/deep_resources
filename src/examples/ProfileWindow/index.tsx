@@ -1,6 +1,5 @@
-import { Box, IconButton, Text } from "@/components";
+import { Box, IconButton, Profile, Text } from "@/components";
 import { ProfileProps, plateforms } from "./data";
-import Profile from "@/components/Avatar/Editable";
 import { platformItem } from "./data";
 import { cva } from "class-variance-authority";
 import { cn } from "@/utils";

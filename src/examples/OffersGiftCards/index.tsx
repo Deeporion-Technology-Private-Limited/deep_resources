@@ -1,4 +1,4 @@
-import { Box, BreadCrumb, Button, Input } from "@/components";
+import { AutoComplete, Box, BreadCrumb, Button, Input } from "@/components";
 import { cn } from "@/utils";
 import {
   ChangeEvent,
@@ -23,7 +23,6 @@ import {
 } from "../AdminSidebar/adminbarConst";
 import Checklist from "./Checklist";
 import { newOfferData } from "./OfferData";
-import AutoComplete from "@/components/AutoComplete";
 
 type AddNewGiftCardProps = ComponentProps<typeof Box> & {
   labelsArray: ILabels[];

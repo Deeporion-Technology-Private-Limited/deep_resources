@@ -82,3 +82,7 @@ export * from "./../components/Header/SideNavbar"
 export * from "./../components/Sidebar"
 export * from "./RoundedCorners";
 export * from "./ProductCard";
+export * from "./Stepper"
+export * from "./Table/Table"
+export * from "./AutoComplete"
+

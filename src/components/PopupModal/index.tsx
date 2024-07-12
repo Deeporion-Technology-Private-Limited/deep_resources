@@ -34,17 +34,6 @@ const modalStyles = cva(
     },
   }
 );
-// interface ModalOwnProps {
-//   onClose: () => void;
-//   children?: ReactNode;
-//   header: ReactNode;
-//   button02: boolean;
-//   button01: boolean;
-//   modalbutton: boolean;
-//   openModal: boolean;
-//   crossIcon?: boolean;
-//   handleClose?: () => void;
-// }
 
 interface ModalProps extends React.HTMLAttributes<HTMLDivElement> ,VariantProps<typeof modalStyles> {
   onClose: () => void;
@@ -57,11 +46,7 @@ interface ModalProps extends React.HTMLAttributes<HTMLDivElement> ,VariantProps<
   crossIcon?: boolean;
   handleClose?: () => void;
 }
-// type ModalProps = ModalOwnProps &
-//   AllHTMLAttributes<HTMLDivElement> &
-//   VariantProps<typeof modalStyles>;
-// type ModalProps = ModalPropss &
-//   ComponentProps<"div"> &
+
    
 export const Modal = forwardRef<HTMLDivElement, ModalProps>((props,ref) => {
 const { button02,

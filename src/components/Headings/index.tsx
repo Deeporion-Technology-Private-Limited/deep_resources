@@ -42,11 +42,6 @@ const textStyles = cva("w-full", {
   },
 });
 
-// type HProps = ComponentProps<"h1"> & VariantProps<typeof textStyles> & {
-//     text: string;
-//     FontSize?:string;
-//     fontWeight?:string;
-// };
 interface HProps extends React.TextareaHTMLAttributes<HTMLHeadingElement> , VariantProps<typeof textStyles>  {
   text: string;
     FontSize?:string;

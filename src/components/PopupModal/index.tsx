@@ -2,9 +2,9 @@ import { VariantProps, cva } from "class-variance-authority";
 import {
   useState,
   forwardRef,
-  ComponentProps,
   ReactNode,
   useEffect,
+  
 } from "react";
 import { ButtonVariant, ButtonSize } from "../Button/type";
 import { Box, Button } from "..";
@@ -34,8 +34,19 @@ const modalStyles = cva(
     },
   }
 );
+// interface ModalOwnProps {
+//   onClose: () => void;
+//   children?: ReactNode;
+//   header: ReactNode;
+//   button02: boolean;
+//   button01: boolean;
+//   modalbutton: boolean;
+//   openModal: boolean;
+//   crossIcon?: boolean;
+//   handleClose?: () => void;
+// }
 
-interface ModalPropss {
+interface ModalProps extends React.HTMLAttributes<HTMLDivElement> ,VariantProps<typeof modalStyles> {
   onClose: () => void;
   children?: ReactNode;
   header: ReactNode;
@@ -46,21 +57,24 @@ interface ModalPropss {
   crossIcon?: boolean;
   handleClose?: () => void;
 }
+// type ModalProps = ModalOwnProps &
+//   AllHTMLAttributes<HTMLDivElement> &
+//   VariantProps<typeof modalStyles>;
+// type ModalProps = ModalPropss &
+//   ComponentProps<"div"> &
+   
+export const Modal = forwardRef<HTMLDivElement, ModalProps>((props,ref) => {
+const { button02,
+  button01,
+  children,
+  header,
+  openModal,
+  modalbutton,
+  crossIcon,
+  handleClose,
 
-type ModalProps = ModalPropss &
-  ComponentProps<"div"> &
-  VariantProps<typeof modalStyles>;
-export const Modal = forwardRef<HTMLDivElement, ModalProps>(
-  ({
-    button02,
-    button01,
-    children,
-    header,
-    openModal,
-    modalbutton,
-    crossIcon,
-    handleClose,
-  }) => {
+} = props
+
     const [isOpen, setIsOpen] = useState(false);
     const toggleMenu = () => {
       setIsOpen(!isOpen);
@@ -87,6 +101,7 @@ export const Modal = forwardRef<HTMLDivElement, ModalProps>(
           <div
             className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-40 overflow-y-auto z-[9999]"
             onClick={toggleMenu}
+            ref={ref}
           >
             <div
               className="bg-white  p-8 rounded overflow-auto my-auto  rounded-br-3xl shadow-md min-w-max md:max-w-7xl w-6/12 flex flex-col"

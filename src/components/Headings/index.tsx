@@ -1,7 +1,7 @@
 
 
 import { VariantProps, cva } from "class-variance-authority";
-import { ComponentProps, forwardRef} from "react";
+import {  forwardRef} from "react";
 
 const textStyles = cva("w-full", {
   variants: {
@@ -41,23 +41,21 @@ const textStyles = cva("w-full", {
     align: "left",
   },
 });
-interface HeadingProps {
-  text?: string;
-  FontSize?:string;
-  fontWeight:string;
-  
 
+interface HProps extends React.TextareaHTMLAttributes<HTMLHeadingElement> , VariantProps<typeof textStyles>  {
+  text: string;
+    FontSize?:string;
+    fontWeight?:string;
 }
 
-type HProps = ComponentProps<"div"> & VariantProps<typeof textStyles> & HeadingProps;
 
-export const Headings = forwardRef<SVGSymbolElement, HProps>((props) => {
+export const Headings = forwardRef<HTMLHeadingElement, HProps>((props,ref) => {
 
   const { text, FontSize,fontWeight, className = '', ...rest } = props;
 
   return (
     <div>
-    <h1  className={`${FontSize} ${fontWeight}`} {...rest}>
+    <h1 ref={ref} className={`${FontSize} ${fontWeight} ${className}`} {...rest}>
       
       {text}
     </h1>

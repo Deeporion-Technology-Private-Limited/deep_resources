@@ -2,7 +2,7 @@ import React, { forwardRef, useState } from "react";
 import { cn } from "@/utils";
 import { cva, VariantProps } from "class-variance-authority";
 import { ComponentProps } from "react";
-import { MenuItemSize, MenuItemVariant, PrimaryType } from "./MenuitemTypes";
+import { MenuItemSize, MenuItemVariant, PrimaryType } from "../types";
 import { Text } from "../Text";
 import { Box } from "@/components";
 import { UpArrow } from "./Icon/icon";

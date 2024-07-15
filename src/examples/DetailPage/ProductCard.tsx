@@ -1,10 +1,10 @@
 import { Button, IconButton, Input } from "@/components";
 import React from "react";
 import { buttons, product, ratingDetails } from "./ProductDetailsData";
-import { InputType, InputVariant } from "@/components/Input/type";
+import { InputType, InputVariant } from "@/components/types";
 import Accordion from "@/components/Accordion";
 import { UpCursor } from "@/components/Accordion/Icon/Icon";
-import { AccordionTypes } from "@/components/Accordion/AccordionTypes";
+import { AccordionTypes } from "@/components/types";
 import ReviewList from "./ReviewList";
 import Ratingcard from "./RatingCard";
 

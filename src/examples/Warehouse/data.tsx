@@ -1,10 +1,10 @@
 import { Box, Checkbox, Pagination } from "@/components";
-import { ButtonSize } from "@/components/Button/type";
+import { ButtonSize } from "@/components/types";
 import { Table } from "@/components/Table/Table";
 import Chips from "@/components/Chips";
-import { ChipsTypes } from "@/components/Chips/chipsTypes";
+import { ChipsTypes } from "@/components/types";
 import { Action } from "./Action";
-import { Color, Shape, Variants } from "@/components/Pagination/type";
+import { PaginationColor, Shape, Variants } from "@/components/types";
 import { useState } from "react";
 
 export const Components = () => {
@@ -143,7 +143,7 @@ export const Components = () => {
                 currentPage={page}
                 onPageChange={change}
                 variant={Variants.Outlined}
-                activeColor={Color.Brown}
+                activeColor={PaginationColor.Brown}
                 className="w-20"
                 customButtonSize="2rem"
                 iconStyle="size-2  max-w-none"
@@ -267,7 +267,7 @@ export const Components = () => {
                 currentPage={page}
                 onPageChange={change}
                 variant={Variants.Outlined}
-                activeColor={Color.Brown}
+                activeColor={PaginationColor.Brown}
                 className="w-20"
                 customButtonSize="2rem"
                 iconStyle="size-2  max-w-none"
@@ -390,7 +390,7 @@ export const Components = () => {
                 currentPage={page}
                 onPageChange={change}
                 variant={Variants.Outlined}
-                activeColor={Color.Brown}
+                activeColor={PaginationColor.Brown}
                 className="w-20"
                 customButtonSize="2rem"
                 iconStyle="size-2  max-w-none"

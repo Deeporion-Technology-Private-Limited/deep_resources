@@ -5,7 +5,7 @@ import { demo } from "../ShopingCards/data";
 import { AccordionBar } from "../AccordionBar";
 import SortingCard from "../SortingCard";
 import { FooterCart } from "../FooterCart";
-import { Color, Shape, Variants } from "@/components/Pagination/type";
+import { PaginationColor, Shape, Variants } from "@/components/types";
 import { CSSProperties, useState } from "react";
 import { FindIconUrl } from "@/utils/Constant";
 
@@ -127,7 +127,7 @@ const ProductListing = () => {
           currentPage={page}
           onPageChange={change}
           variant={Variants.Outlined}
-          activeColor={Color.Brown}
+          activeColor={PaginationColor.Brown}
           className="ml-36 w-20"
           customButtonSize="2rem"
           iconStyle="size-2  max-w-none"

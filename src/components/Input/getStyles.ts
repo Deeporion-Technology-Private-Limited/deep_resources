@@ -1,5 +1,5 @@
 import { cva } from "class-variance-authority";
-import { InputType, InputVariant } from "../Input/type";
+import { InputType, InputVariant } from "../types";
 
 export const inputStyles = cva([
   "w-full",

@@ -1,6 +1,6 @@
 import { Box, Stack, Input, Button, Text } from "@/components";
-import { ButtonVariant } from "@/components/Button/type";
-import { InputType, InputVariant, Placeholder } from "@/components/Input/type";
+import { ButtonVariant } from "@/components/types";
+import { InputType, InputVariant, Placeholder } from "@/components/types";
 import { TextWeight, TextSize } from "@/utils/style";
 import { Login } from "./type";
 import background from "../../images/backimage.png";

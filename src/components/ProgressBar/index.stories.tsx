@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from "@storybook/react";
-import { variants, IProgressBar } from "./type";
+import { variants, IProgressBar } from "../types";
 import { ProgressBar } from ".";
 
 const meta: Meta<typeof ProgressBar> = {

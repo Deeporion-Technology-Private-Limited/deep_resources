@@ -1,8 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Modal } from ".";
 import { Box, Checkbox, Headings, Input, ReviewCard, Text } from "@/components/index";
-import { InputType, InputVariant } from "@/components/Input/type";
-import { InputType as Checkboxinput } from "@/components/Checkbox/CheckboxTypes";
+import { InputType, InputVariant, CheckboxType } from "@/components/types";
 import { LoginForm } from "@/examples/LoginForm/LoginForm";
 
 const meta: Meta<typeof Modal> = {
@@ -185,7 +184,7 @@ export const PrivacyPolicy: Story = {
 
         <Checkbox
           label="Accept the Terms and Conditions"
-          type={Checkboxinput.Checkbox}
+          type={CheckboxType.Checkbox}
           value={" "}
         />
       </>

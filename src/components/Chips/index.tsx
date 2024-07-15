@@ -3,7 +3,7 @@ import { VariantProps, cva } from "class-variance-authority";
 import { ComponentProps, forwardRef } from "react";
 import { CloseBlack } from "./ChipsImage/icon";
 import { CloseWhite } from "./ChipsImage/icon";
-import { ChipsTypes, ChipsSize, chipscolour } from "./chipsTypes";
+import { ChipsTypes, ChipsSize, chipscolour } from "../types";
 
 const chipsStyle = cva(["w-fit", "h-fit", "flex", "items-center", "gap-3"], {
   variants: {

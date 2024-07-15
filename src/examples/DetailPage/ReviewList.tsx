@@ -3,7 +3,7 @@ import ReviewItem from "./ReviewItem";
 import { buttons, reviews } from "./ProductDetailsData";
 import Accordion from "@/components/Accordion";
 import { UpCursor } from "@/components/Accordion/Icon/Icon";
-import { AccordionTypes } from "@/components/Accordion/AccordionTypes";
+import { AccordionTypes } from "@/components/types";
 import { Button } from "@/components";
 
 const ReviewList: React.FC = () => {

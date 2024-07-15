@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import Chart from ".";
-import { ChartValueType, ChartsType, chartData } from "./ChartsTypes";
+import { ChartValueType, ChartsType } from "../types";
+import { chartData } from "./ChartsTypes";
 
 const meta: Meta<typeof Chart> = {
   title: "Components/Chart/Chart",

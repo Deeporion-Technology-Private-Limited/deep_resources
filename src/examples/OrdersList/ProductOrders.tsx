@@ -5,7 +5,7 @@ import {
   OrderListDetails,
   shipmentStatusColors,
 } from "@/components/Data/ShipmentDetails";
-import { ButtonSize, ButtonVariant } from "@/components/Button/type";
+import { ButtonSize, ButtonVariant } from "@/components/types";
 
 const ProductOrders: React.FC = () => {
   return (

@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import { Translations } from "@/components/translations";
-import { ButtonSize } from "@/components/Button/type";
+import { ButtonSize } from "@/components/types";
 import { Profile } from "../Editable";
 
 describe("Profile", () => {

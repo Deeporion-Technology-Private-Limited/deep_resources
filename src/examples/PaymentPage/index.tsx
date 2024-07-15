@@ -1,5 +1,5 @@
 import Accordion from "@/components/Accordion";
-import { AccordionTypes } from "@/components/Accordion/AccordionTypes";
+import { AccordionTypes } from "@/components/types";
 import { UpCursor } from "@/components/Accordion/Icon/Icon";
 import { AddressContactDetail, PaymentComp} from "@/components/Data/PaymentData";
 import { stateProp } from "./AddressInterFace";

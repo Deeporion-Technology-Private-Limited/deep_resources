@@ -2,7 +2,7 @@ import { ComponentProps, forwardRef, useState } from "react";
 import { Box, Sidebar, Topnavbar } from "@/components";
 import { VariantProps, cva } from "class-variance-authority";
 import { cn } from "@/utils";
-import { NavbarDirection } from "@/components/Header/type";
+import { NavbarDirection } from "@/components/types";
 import { navIconArray, navItemArry } from "./hemburgerConst";
 import { navItemSideBar } from "@/components/Sidebar/sidebarConst";
 import { FindIconUrl } from "@/utils/Constant";

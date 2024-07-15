@@ -6,7 +6,7 @@ import {
   SkeletonLoginForm,
   SkeletonShoppingCard,
 } from ".";
-import { ButtonSize, SkeletonVariant } from "../Button/type";
+import { ButtonSize, SkeletonVariant } from "../types";
 
 const meta: Meta<typeof Skeleton> = {
   title: "Components/Skeleton/Skeleton",

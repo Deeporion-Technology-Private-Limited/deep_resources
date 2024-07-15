@@ -3,7 +3,7 @@ import { Footer } from "@/components/Footer";
 import { VariantProps, cva } from "class-variance-authority";
 import { ComponentProps, forwardRef } from "react";
 import { cn } from "@/utils";
-import { CoreCustomerProps } from "@/components/Footer/footerInterface";
+import { CoreCustomerProps } from "@/components/types";
 
 const topHoverStyle = cva(["w-full p-[20px] pb-[30px] border rounded-[8px]"]);
 

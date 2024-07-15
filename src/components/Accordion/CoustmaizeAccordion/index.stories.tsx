@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { AccordionTypes, Data,  contentName } from "../AccordionTypes";
+import { AccordionTypes, contentSize,  contentName } from "../../types";
 import { UpArrow } from "../Icon/Icon";
 import CoustomizeAccordion from ".";
 
@@ -20,7 +20,7 @@ export const Default: Story = {
   args: {
     variant: AccordionTypes.Arrow,
     children:contentName.Accordion1,
-    content:Data,
+    content:contentSize,
     Icon:<UpArrow/>,
   },
 };

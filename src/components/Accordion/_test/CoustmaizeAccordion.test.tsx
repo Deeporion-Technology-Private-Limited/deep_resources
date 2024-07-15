@@ -1,7 +1,7 @@
 import "@testing-library/jest-dom";
 import { fireEvent, render, screen } from "@testing-library/react";
 import CoustomizeAccordion from "../CoustmaizeAccordion";
-import { AccordionTypes } from "../AccordionTypes";
+import { AccordionTypes } from "../../types";
 import { Translations } from "@/components/translations";
 
 describe("CoustmaizeAccordion", () => {

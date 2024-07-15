@@ -3,7 +3,7 @@ import {
   ButtonIconPosition,
   ButtonSize,
   ButtonVariant,
-} from "@/components/Button/type";
+} from "@/components/types";
 import { PopupButtons, PopupItem } from "./data";
 import { forwardRef } from "react";
 

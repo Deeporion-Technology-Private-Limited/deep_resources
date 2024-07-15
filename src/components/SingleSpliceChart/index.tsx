@@ -2,7 +2,7 @@ import { useState, useEffect, forwardRef } from "react";
 import { cn } from "@/utils";
 import { VariantProps, cva } from "class-variance-authority";
 import { ComponentProps } from "react";
-import { singleSpliceType } from "./singleSpliceType";
+import { singleSpliceType } from "../types";
 
 const singleSplineStyle = cva(
   ["relative", "w-full", "h-[240px]", "p-4", "rounded", "gap-2", "bg-white"],

@@ -2,7 +2,7 @@ import { Box, Button, Input, Text } from "@/components";
 import { cn } from "@/utils";
 import { ChangeEvent, ComponentProps, DragEventHandler, forwardRef, useRef, useState } from "react";
 import { ILabels } from "../GiftCards/data";
-import { InputType, InputVariant } from "@/components/Input/type";
+import { InputType, InputVariant } from "@/components/types";
 import SearchImage from "@/images/InputIcons/SearchImage";
 import { FindIconUrl } from "@/utils/Constant";
 

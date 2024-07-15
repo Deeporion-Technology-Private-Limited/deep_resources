@@ -1,4 +1,4 @@
-import { titleFooter } from "@/components/Footer/footerInterface";
+import { titleFooter } from "@/components/types";
 import { FindIconUrl } from "@/utils/Constant";
 
 interface serviceItem {

@@ -1,5 +1,5 @@
 import { Checkbox } from "@/components";
-import { ButtonSize } from "@/components/Button/type";
+import { ButtonSize } from "@/components/types";
 import React, { useState } from "react";
 import { categories } from "./OfferData";
 import { FindIconUrl } from "@/utils/Constant";

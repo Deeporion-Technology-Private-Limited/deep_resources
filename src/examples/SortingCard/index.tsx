@@ -2,7 +2,7 @@ import { Box, BreadCrumb, Button, Checkbox, ProductCard, Text } from "@/componen
 import Chips from "@/components/Chips";
 import { ComponentProps, forwardRef, useState } from "react";
 import { IData, breadCrumbsType, optionsArray } from "./data";
-import { ChipsTypes } from "@/components/Chips/chipsTypes";
+import { ChipsTypes } from "@/components/types";
 import { DownArrow } from "@/components/MenuItem/Icon/icon";
 
 interface SortingProps extends ComponentProps<"div"> {

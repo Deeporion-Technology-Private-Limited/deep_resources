@@ -1,7 +1,7 @@
 import { Box, Button, Checkbox, FaverateCard, Headings, Modal, ProductCard, Text } from "@/components"
 import { ICardDetails } from "./Data"
 import { forwardRef, useState } from "react"
-import { ButtonSize } from "@/components/Button/type"
+import { ButtonSize } from "@/components/types"
 import { VariantProps, cva } from "class-variance-authority"
 import { cn } from "@/utils"
 import { FindIconUrl } from "@/utils/Constant"

@@ -1,7 +1,7 @@
 import { cn } from "@/utils";
 import { cva, VariantProps } from "class-variance-authority";
 import { ComponentProps, forwardRef } from "react";
-import { BorderRadius } from "./type";
+import { BorderRadius } from "../types";
 import {Box} from "@/components";
 
 const roundedCornerStyles = cva(

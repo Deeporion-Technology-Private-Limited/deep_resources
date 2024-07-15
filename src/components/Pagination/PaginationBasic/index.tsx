@@ -2,8 +2,8 @@ import React, { forwardRef } from "react";
 import { cva, VariantProps } from "class-variance-authority";
 import { cn } from "@/utils";
 import { Box, Text } from "@/components";
-import { ButtonSize } from "@/components/Button/type";
-import { Color, Shape, Variants } from "../type";
+import { ButtonSize } from "@/components/types";
+import { PaginationColor, Shape, Variants } from "../../types";
 import { FindIconUrl } from "@/utils/Constant";
 
 const paginationContainerStyles = cva(
@@ -40,11 +40,11 @@ const paginationButtonStyles = cva(
         false: "",
       },
       activeColor: {
-        [Color.Primary]: "bg-blue-500 text-white",
-        [Color.Success]: "bg-green-500 text-white",
-        [Color.Danger]: "bg-red-500 text-white",
-        [Color.Secondary]: "bg-gray-300 text-white",
-        [Color.Brown]: "bg-[#3F271E] text-white",
+        [PaginationColor.Primary]: "bg-blue-500 text-white",
+        [PaginationColor.Success]: "bg-green-500 text-white",
+        [PaginationColor.Danger]: "bg-red-500 text-white",
+        [PaginationColor.Secondary]: "bg-gray-300 text-white",
+        [PaginationColor.Brown]: "bg-[#3F271E] text-white",
       },
       disabled: {
         true: "opacity-50 cursor-not-allowed",

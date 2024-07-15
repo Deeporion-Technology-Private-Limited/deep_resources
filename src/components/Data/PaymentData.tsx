@@ -12,9 +12,9 @@ import {
   AmexIcon
 } from "../Icons";
 import { Checkbox } from "../Checkbox";
-import { ButtonSize } from "../Button/type";
+import { ButtonSize } from "../types";
 import Input from "../Input";
-import { InputType, InputVariant } from "../Input/type";
+import { InputType, InputVariant } from "../types";
 import { stateProp } from "@/examples/PaymentPage/AddressInterFace";
 
 

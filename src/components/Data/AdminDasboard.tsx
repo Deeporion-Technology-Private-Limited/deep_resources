@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { BarChart, Box, FaverateCard, Input, Text } from "@/components";
 import Heading from "@/examples/Heading";
 import image from "./image_luxgo cities-03 3.png"
-import { InputType, InputVariant } from "../Input/type";
+import { InputType, InputVariant } from "../types";
 import { GreenArrow } from "../Icons";
 import { Chart } from "../Charts";
-import { ChartsType } from "../Charts/ChartsTypes";
+import { ChartsType } from "../types";
 import { Table } from "../Table/Table";
 import { AdminProps } from "@/examples/AdminDasboard/AdminInterface";
 import { graphdata } from "../BarChart/barConst";

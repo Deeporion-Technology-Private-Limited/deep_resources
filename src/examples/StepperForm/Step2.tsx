@@ -1,5 +1,5 @@
 import { Input } from "@/components";
-import { InputType, InputVariant } from "@/components/Input/type";
+import { InputType, InputVariant } from "@/components/types";
 import React from "react";
 import { stepperData } from "./StepperData";
 

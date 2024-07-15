@@ -3,10 +3,10 @@ import { cva, VariantProps } from "class-variance-authority";
 import { ComponentProps, forwardRef, useState } from "react";
 import { Box, Button, Elevation, Input, ProductCard, Text } from "@/components";
 import BirthdayGift from "../../images/BirthdayGift.svg"
-import { ElevationShadow } from "@/components/Elevation/type";
-import { ButtonSize, ButtonVariant } from "@/components/Button/type";
+import { ElevationShadow } from "@/components/types";
+import { ButtonSize, ButtonVariant } from "@/components/types";
 import { initialData, RateData } from "./data";
-import { InputType, InputVariant } from "@/components/Input/type";
+import { InputType, InputVariant } from "@/components/types";
 
 const addgiftStyles = cva(["w-full"]);
 

@@ -2,8 +2,8 @@ import React, { forwardRef } from "react";
 import { cva, VariantProps } from "class-variance-authority";
 import { cn } from "@/utils";
 import { Box } from "@/components";
-import { ButtonSize } from "@/components/Button/type";
-import { Shape, Variants } from "../type";
+import { ButtonSize } from "@/components/types";
+import { Shape, Variants } from "../../types";
 import { FindIconUrl } from "@/utils/Constant";
 
 const paginationStyles = cva("flex items-center justify-between w-full", {

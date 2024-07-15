@@ -5,7 +5,7 @@ import { FooterCart } from "../FooterCart";
 import Cards from "../ShopingCards";
 import { productData } from "./ProductDetailsData";
 import { Topnavbar } from "@/components/Header/TopNavbar";
-import { NavbarDirection } from "@/components/Header/type";
+import { NavbarDirection } from "@/components/types";
 import { BreadCrumb } from "@/components";
 import { FindIconUrl } from "@/utils/Constant";
 

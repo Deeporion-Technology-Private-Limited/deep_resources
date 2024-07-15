@@ -1,7 +1,7 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import { Input } from "@/components/Input/index";
-import { InputType, InputVariant } from "../type";
+import { InputType, InputVariant } from "../../types";
 import SearchImage from "@/images/InputIcons/SearchImage";
 import CloseEye from "@/images/InputIcons/CloseEye";
 import OpenEye from "@/images/InputIcons/OpenEye";

@@ -1,7 +1,7 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import { SystemMessage } from "..";
-import { systemMessageTypes } from "../systemMessageTypes";
+import { systemMessageTypes } from "../../types";
 
 describe("SystemMessage component", () => {
   it(`renders SystemMessage with no attributes then by default it will have 

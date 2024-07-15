@@ -1,4 +1,4 @@
-import { IProductDetails, IProductSpecifications } from "../ProductCard/type";
+import { IProductDetails, IProductSpecifications } from "../types";
 
 export const productCode = "00123456";
 

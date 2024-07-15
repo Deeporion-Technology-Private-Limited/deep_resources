@@ -3,7 +3,7 @@ import { cn } from "@/utils";
 import { cva, VariantProps } from "class-variance-authority";
 import { ComponentProps } from "react";
 import { Box, Text } from "@/components";
-import { ButtonSize } from "@/components/Button/type";
+import { ButtonSize } from "@/components/types";
 import { FindIconUrl } from "@/utils/Constant";
 const profileStyles = cva(
   "flex items-center border border-white rounded-full justify-center relative",

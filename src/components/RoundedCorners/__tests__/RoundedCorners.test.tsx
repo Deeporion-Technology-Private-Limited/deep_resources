@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { RoundedCorners } from '../index';
-import { BorderRadius } from '../type';
+import { BorderRadius } from '../../types';
 
 describe('RoundedCorners component', () => {
   it('renders correctly with default border radius', () => {

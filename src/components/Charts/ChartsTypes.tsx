@@ -1,13 +1,4 @@
-export enum ChartsType {
-    doubleSplineAreaChart = "Double Spline Area Chart"
-}
-
- export enum ChartValueType {
-    xAxisValues = "xAxisValues",
-    yAxisValues = "yAxisValues",
-    xAxisLabels = "xAxisLabels",
-    yAxisLabel = "yAxisLabel"
-  }
+import { ChartValueType } from "../types";
   
   export const chartData = {
     [ChartValueType.xAxisValues]: [600, 800, 1100, 500, 1000, 700, 800],

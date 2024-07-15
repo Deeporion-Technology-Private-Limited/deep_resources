@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { ArrowForwardIos, OutlineDownloadIcon } from "./Icon/icon";
 import { MenuItem } from ".";
 import { Box } from "@/components/Layout";
-import { MenuItemSize, MenuItemVariant } from "./MenuitemTypes";
+import { MenuItemSize, MenuItemVariant } from "../types";
 
 const meta: Meta<typeof MenuItem> = {
     title: "Components/Menu Item",

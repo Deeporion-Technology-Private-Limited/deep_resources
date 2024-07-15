@@ -1,8 +1,8 @@
 import { Button, Checkbox, Input } from "@/components";
 import Chips from "@/components/Chips";
-import { ChipsTypes } from "@/components/Chips/chipsTypes";
+import { ChipsTypes } from "@/components/types";
 import { Dispatch, SetStateAction, useState } from "react";
-import { InputType, InputVariant } from "../Input/type";
+import { InputType, InputVariant } from "../types";
 
 export interface StateProp {
   first_name: string;

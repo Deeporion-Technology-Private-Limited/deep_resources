@@ -2,7 +2,7 @@ import { useState, useEffect, forwardRef, useRef } from 'react';
 import { cn } from "@/utils";
 import { VariantProps, cva } from "class-variance-authority";
 import { ComponentProps } from 'react';
-import { ChartsType } from './ChartsTypes';
+import { ChartsType } from '../types';
 
 const chartStyle = cva(
   ["w-full"],

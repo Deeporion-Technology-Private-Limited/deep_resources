@@ -1,12 +1,11 @@
 import { Box, Button, Headings, Modal, ProductCard } from "@/components";
-import chart from "./Icons/chart.svg";
 import frmaeMeasurement from "../../images/frameMeasurement.png";
 import hearticon from "./Icons/hearticon.svg";
 import { Table } from "@/components/Table/Table";
 import { Product } from "./types";
 import { useState } from "react";
 import { womanSizeFormatted } from "@/components/Data/SizeDataForWomen";
-
+import { FindIconUrl } from "@/utils/Constant";
 export const Sizechartmodel = () => {
   const [isInchesSelected, setIsInchesSelected] = useState(true);
   const [selectedTab, setSelectedTab] = useState("sizeChart");
@@ -117,7 +116,8 @@ export const Sizechartmodel = () => {
               background: "linear-gradient(to right, #BFA59A, #3F271E)",
             }}
           >
-            <img src={chart} alt="Bag" className="h-6 w-6 inline-block" />
+            <img src={FindIconUrl("checkoutCart.svg")} alt="Bag" className="h-6 w-6 inline-block" />
+            
             <p className="text-white text-base font-semibold inline-block ml-2">
               {Product.AddToCart}
             </p>

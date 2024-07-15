@@ -4,13 +4,10 @@ import {
   SubscriptionData,
   PaymentHistoryFormatted,
 } from "@/components/Data/Subscriptions";
-import Check_Filled from "../../images/Check_filled.svg";
 import { useState } from "react";
 import { InputType, InputVariant } from "@/components/Input/type";
-
-import MasterCard from "../../images/MasterCard.svg";
 import { Table } from "@/components/Table/Table";
-import {PayPalIcon,Apple} from '@/components/Icons';
+import {PayPalIcon,Apple,CheckCircle,MasterCardIcon} from '@/components/Icons';
 const SubscriptionBox = (props: any) => {
   
   const { data } =  props;
@@ -54,7 +51,7 @@ const SubscriptionBox = (props: any) => {
           />
           <Box className="flex justify-start items-center">
             <span>
-              <img src={Check_Filled} alt="check_circle_outline" />
+              <CheckCircle />
             </span>
             <span className="flex m-3 text-xs font-bold">
               Get a Basic Plan{" "}
@@ -62,7 +59,8 @@ const SubscriptionBox = (props: any) => {
           </Box>
           <Box className="flex justify-start items-center">
             <span>
-              <img src={Check_Filled} alt="check_circle_outline" />
+              
+              <CheckCircle />
             </span>
             <span className="flex m-3 text-xs">
               <p>
@@ -72,7 +70,7 @@ const SubscriptionBox = (props: any) => {
           </Box>
           <Box className="flex justify-start items-center">
             <span>
-              <img src={Check_Filled} alt="check_circle_outline" />
+              <CheckCircle />
             </span>
             <span className="flex m-3 text-xs">
               <p>
@@ -92,7 +90,7 @@ const SubscriptionBox = (props: any) => {
   );
 };
 
-export const SubscriptionPage = () => {
+export const  SubscriptionPage = () => {
   const [paymentData, setPaymentData] = useState();
   const [paymentStatus, setPaymentStatus] = useState("Subscription");
   function selectedStatus(data: any) {
@@ -155,7 +153,7 @@ export const SubscriptionPage = () => {
                 </label>
                 <Input
                   type={InputType.SearchIcon}
-                  search={<img src={MasterCard} alt="Master" />}
+                  search={<MasterCardIcon />}
                   variant={InputVariant.Outlined}
                   placeholder="Add New Card"
                   value={""}

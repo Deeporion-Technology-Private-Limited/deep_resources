@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from "@storybook/react";
 import Agents from ".";
 import Order from ".";
-import { data } from "./data";
+import { data } from "@/components/Data/OrdersData";
 import { sortingArray } from "../Wishlist/Data";
 
 const meta: Meta<typeof Agents> = {
@@ -18,7 +18,8 @@ type Story = StoryObj<typeof meta>;
 
 export const OrderTable: Story = {
   args: {
-    data: data,
+  
+    data:data,
     handleChange: (e: React.ChangeEvent<HTMLInputElement>) => {
       console.log(e.target.value);
     },

@@ -1,5 +1,5 @@
 import { Box, Headings } from "@/components";
-import AutoComplete from "@/components/AutoComplete";
+import {AutoComplete} from "@/components";
 import { FindIconUrl } from "@/utils/Constant";
 import {
   DescriptionReview,

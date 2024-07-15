@@ -7,7 +7,7 @@ import { InputType, InputVariant } from "@/components/Input/type";
 import { Color, Shape, Variants } from "@/components/Pagination/type";
 import { cn } from "@/utils";
 import { FindIconUrl } from "@/utils/Constant";
-
+import { useEffect } from "react";
 
 const OrderStyle = cva([
     "w-full flex flex-col gap-5"
@@ -23,7 +23,7 @@ type OrdersProps = ComponentProps<typeof Box> &
     sortingArray: string[],
   };
 
-export const Profile = ({ data }: any) => {
+const Profile = ({ data }: any) => {
   return (
     <Box className="w-full h-full flex items-center justify-center gap-2">
       <img
@@ -44,6 +44,31 @@ const Order = forwardRef<HTMLDivElement, OrdersProps>(
   ({ data,search="", handleChange, handleSorting, sortingArray ,onCheckBoxChange, className, ...props }, ref) => {
     const [page, setPage] = useState(1);
     const [showDropdown, setShowDropdown] = useState(false);
+    const [profileData, setProfileData] = useState<any[]>([]);  
+    
+
+useEffect(() => {
+  
+  if (Array.isArray(data)) {
+    const newData = data?.map((order: any) => ({
+      OrderId: order.OrderId,
+      Profile: <Profile data={order.Products} />,
+      "Customer Name": order["Customer Name"],
+      "Contact Number": order["Contact Number"],
+      Address: order.Address,
+      "Order Placed": order["Order Placed"],
+      Status: (
+        <Box className="rounded-2xl bg-green-50 text-green-600 p-[4px_12px] text-center ">
+                {order.Status}
+               </Box>
+      )
+      
+     
+    }));
+    setProfileData(newData);
+  }
+}, [data]);
+  
     function change(page: number) {
       setPage(page);
     }
@@ -102,12 +127,15 @@ const Order = forwardRef<HTMLDivElement, OrdersProps>(
               }
         </Box>
         <Box className="flex flex-col">
-          <Table
-            className="text-black w-full py-2"
-            tHeadStyle="w-fit py-0 h-16"
-            tDataStyle=" text-[14px]"
-            data={data}
-          ></Table>
+          {profileData && profileData.length > 0 && (
+             <Table
+             className="text-black w-full py-2"
+             tHeadStyle="w-fit py-0 h-16"
+             tDataStyle=" text-[14px]"
+             data={profileData}
+           ></Table>
+          )}
+         
           <Box className="w-full flex justify-center py-5">
             <Pagination
               totalPages={10}

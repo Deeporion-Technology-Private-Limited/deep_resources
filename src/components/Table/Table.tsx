@@ -121,7 +121,7 @@ export const Table = forwardRef<HTMLTableSectionElement, TableProps>(
                     )}
                     style={{ width: "auto" }}
                   >
-                    {row[header]}
+                    {row && row[header]}
                   </td>
                 ))}
               </tr>

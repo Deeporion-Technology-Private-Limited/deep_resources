@@ -8,7 +8,7 @@ import {
   useRef,
   useState,
 } from "react";
-import { ILabels } from "../GiftCards/data";
+import { ILabels } from "@/components/Data/GiftCards";
 import { InputType, InputVariant } from "@/components/Input/type";
 import infoLogo from "../../images/Avatar3.svg";
 import { AdminSidebar } from "../AdminSidebar";

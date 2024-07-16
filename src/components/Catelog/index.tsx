@@ -1,10 +1,10 @@
 import { Button } from "../Button/DefaultButton";
 import { IconButton } from "../Button/SingleIconButton";
-import { ButtonDirection, ButtonIconPosition } from "../Button/type";
+import { ButtonDirection, ButtonIconPosition } from "../types";
 import { Box } from "../Layout";
 import { Text } from "../Text";
 import { forwardRef, useState } from "react";
-import { Items, user } from "./data";
+import { Items, user } from "../types";
 import { FindIconUrl } from "@/utils/Constant";
 export const Cateloge = forwardRef<HTMLDivElement, Items>(
   ({ data, handleClick, userType }, ref) => {

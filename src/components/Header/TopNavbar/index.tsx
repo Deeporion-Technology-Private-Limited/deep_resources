@@ -11,8 +11,8 @@ import {
   GroupIconButton,
 } from "@/components";
 import { IconButton } from "@/components";
-import { NavbarDirection } from "../type";
-import { InputType, InputVariant } from "@/components/Input/type";
+import { NavbarDirection } from "../../types";
+import { InputType, InputVariant } from "@/components/types";
 import { TopNavbarProps } from "./topNavConst";
 import SearchImage from "@/images/InputIcons/SearchImage";
 import { FindIconUrl } from "@/utils/Constant";

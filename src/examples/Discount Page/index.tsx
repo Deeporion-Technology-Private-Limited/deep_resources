@@ -1,9 +1,9 @@
 import { Box, Button, FaverateCard, Text } from "@/components";
-import { ButtonIconPosition, ButtonVariant } from "@/components/Button/type";
+import { ButtonIconPosition, ButtonVariant } from "@/components/types";
 import React from "react";
 import { cardsData, chipsData } from "./data";
 import Chips from "@/components/Chips";
-import { ChipsTypes } from "@/components/Chips/chipsTypes";
+import { ChipsTypes } from "@/components/types";
 
 const DiscountPage = () => {
   return (

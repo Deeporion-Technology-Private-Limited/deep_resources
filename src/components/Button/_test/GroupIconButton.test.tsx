@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { GroupIconButton } from "../GroupIconButton";
 import "@testing-library/jest-dom";
-import { ButtonDirection } from "../type";
+import { ButtonDirection } from "../../types";
 import { Translations } from "@/components/translations";
 
 describe("GroupIconButton component", () => {

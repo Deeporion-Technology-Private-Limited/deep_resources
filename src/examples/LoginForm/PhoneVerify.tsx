@@ -2,7 +2,7 @@ import { Box, Button, Input, Text } from "@/components";
 import React, { useRef } from "react";
 import { Login } from "./type";
 import { Alignment, TextSize, TextWeight } from "@/utils/style";
-import { InputType, InputVariant } from "@/components/Input/type";
+import { InputType, InputVariant } from "@/components/types";
 
 const PhoneVerify = () => {
   const inputRefs = useRef<(HTMLInputElement | null)[]>([]);

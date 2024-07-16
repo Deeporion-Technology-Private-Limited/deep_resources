@@ -2,7 +2,7 @@ import { cn } from "@/utils";
 import { VariantProps, cva } from "class-variance-authority";
 import { ComponentProps, forwardRef } from "react";
 import { CloseBlack, CloseRed, CloseYellow } from "./systemIcon/icon";
-import { messageColor, systemMessageSize, systemMessageTypes } from "./systemMessageTypes";
+import { messageColor, systemMessageSize, systemMessageTypes } from "../types";
 
 const systemMessageStyle = cva(
   [

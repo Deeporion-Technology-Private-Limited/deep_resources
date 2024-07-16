@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Button } from "../Button/DefaultButton";
-import { ButtonIconPosition, ButtonSize, ButtonVariant } from "../Button/type";
+import { ButtonIconPosition, ButtonSize, ButtonVariant } from "../types";
 import { Box } from "../Layout";
 
 import { ThreeDostIcon,Close } from "../Icons";

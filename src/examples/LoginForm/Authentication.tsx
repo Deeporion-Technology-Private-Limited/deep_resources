@@ -3,7 +3,7 @@ import { TextWeight, TextSize, Alignment } from "@/utils/style";
 import { useRef, useState } from "react";
 import { Login } from "./type";
 import background from "../../images/backimage.png";
-import { InputType, InputVariant } from "@/components/Input/type";
+import { InputType, InputVariant } from "@/components/types";
 
 const Authentication = () => {
   const [error, setError] = useState("");

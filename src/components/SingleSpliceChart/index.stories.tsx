@@ -1,7 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import SingleLineChart from ".";
-import { singleSpliceType } from "./singleSpliceType";
-import { ChartValueType, chartData } from "../Charts/ChartsTypes";
+import { singleSpliceType } from "../types";
+import { chartData } from "../Charts/ChartsTypes";
+import { ChartValueType } from "../types";
 
 const meta: Meta<typeof SingleLineChart> = {
   title: "Components/singleSplineChart/singleSplineChart",

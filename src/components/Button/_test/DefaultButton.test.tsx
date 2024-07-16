@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { Button } from "../DefaultButton";
-import { ButtonVariant } from "../type";
+import { ButtonVariant } from "../../types";
 import "@testing-library/jest-dom";
 import { Translations } from "@/components/translations";
 

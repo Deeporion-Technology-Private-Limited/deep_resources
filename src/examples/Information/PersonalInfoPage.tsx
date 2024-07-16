@@ -3,7 +3,7 @@ import { BreadCrumb, Input } from "@/components";
 import Photo from "../../images/Photo.png";
 import ImagePopup from "./ImagePopup";
 import { personalInfoData } from "./PersonalInfoData";
-import { InputType, InputVariant } from "@/components/Input/type";
+import { InputType, InputVariant } from "@/components/types";
 import infoLogo from "../../images/Avatar3.svg";
 import { AdminSidebar } from "../AdminSidebar";
 import {

@@ -10,7 +10,7 @@ import {
   MenuItem,
   Text,
 } from "@/components";
-import { MenuItemSize } from "../MenuItem/MenuitemTypes";
+import { MenuItemSize } from "../types";
 import { DownArrow } from "../MenuItem/Icon/icon";
 import {SidbarProps } from "./sidebarConst";
 import { NavItems } from "../Header/SideNavbar";

@@ -3,8 +3,8 @@ import { Table } from "@/components/Table/Table";
 import { ComponentProps, forwardRef, useState } from "react";
 import { VariantProps, cva } from "class-variance-authority";
 import SearchImage from "@/images/InputIcons/SearchImage";
-import { InputType, InputVariant } from "@/components/Input/type";
-import { Color, Shape, Variants } from "@/components/Pagination/type";
+import { InputType, InputVariant } from "@/components/types";
+import { PaginationColor, Shape, Variants } from "@/components/types";
 import { cn } from "@/utils";
 import { FindIconUrl } from "@/utils/Constant";
 
@@ -114,7 +114,7 @@ const Order = forwardRef<HTMLDivElement, OrdersProps>(
               currentPage={page}
               onPageChange={change}
               variant={Variants.Outlined}
-              activeColor={Color.Brown}
+              activeColor={PaginationColor.Brown}
               className="w-20"
               customButtonSize="2rem"
               iconStyle="size-2  max-w-none"

@@ -1,4 +1,4 @@
-import { CoreCustomerProps, listItem } from "@/components/Footer/footerInterface";
+import { CoreCustomerProps, listItem } from "@/components/types";
 
 const listitem1: listItem[] = [
   {

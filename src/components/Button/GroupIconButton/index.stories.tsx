@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from "@storybook/react";
-import { ButtonDirection } from "../type";
+import { ButtonDirection } from "../../types";
 import { GroupIconButton } from ".";
 import { IconButton } from "../SingleIconButton";
 import { FindIconUrl } from "@/utils/Constant";

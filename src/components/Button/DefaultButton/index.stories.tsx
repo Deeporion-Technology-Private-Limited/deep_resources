@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Button } from ".";
-import { ButtonIconPosition, ButtonSize, ButtonVariant } from "../type";
+import { ButtonIconPosition, ButtonSize, ButtonVariant } from "../../types";
 import { FindIconUrl } from "@/utils/Constant";
 
 const meta: Meta<typeof Button> = {

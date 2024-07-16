@@ -3,7 +3,7 @@ import { Input } from ".";
 import SearchImage from "../../images/InputIcons/SearchImage";
 import CloseEye from "../../images/InputIcons/CloseEye";
 import OpenEye from "../../images/InputIcons/OpenEye";
-import { InputType, InputVariant, Placeholder } from "../Input/type";
+import { InputType, InputVariant, Placeholder } from "../types";
 
 const meta: Meta<typeof Input> = {
   title: "Components/Inputs/Input",

@@ -1,39 +1,39 @@
-export interface serviceItem {
-    name?: string;
-    value?: string;
-  }
-  export interface socialLinks {
-    iconUrl?: string;
-    onClick?: () => void;
-  }
+// export interface serviceItem {
+//     name?: string;
+//     value?: string;
+//   }
+//   export interface socialLinks {
+//     iconUrl?: string;
+//     onClick?: () => void;
+//   }
   
-  export interface titleFooter {
-    title?: string;
-    titleColor?: string;
-    titleStyle?: string;
-  }
+//   export interface titleFooter {
+//     title?: string;
+//     titleColor?: string;
+//     titleStyle?: string;
+//   }
   
-  export interface listItem {
-    name?: string;
-    href?: string;
-  }
+//   export interface listItem {
+//     name?: string;
+//     href?: string;
+//   }
   
-  export interface CoreCustomerProps {
-    children?: React.ReactNode;
-    className?: string;
-    heading?: titleFooter;
-    description?: string;
-    services?: serviceItem[];
-    links?: socialLinks[];
-    list?: listItem[];
-    newsLetter?: boolean;
-    footerTextColor?: string;
-    customInnerBoxClass?: string;
-    innerClass?: string;
-    innerUlClass?: string;
-    innerLiClass?: string;
-    descriptionClass?: string;
-    handleInput?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-    value?: string;
-    handleSubscribe?: () => void;
-  }
+//   export interface CoreCustomerProps {
+//     children?: React.ReactNode;
+//     className?: string;
+//     heading?: titleFooter;
+//     description?: string;
+//     services?: serviceItem[];
+//     links?: socialLinks[];
+//     list?: listItem[];
+//     newsLetter?: boolean;
+//     footerTextColor?: string;
+//     customInnerBoxClass?: string;
+//     innerClass?: string;
+//     innerUlClass?: string;
+//     innerLiClass?: string;
+//     descriptionClass?: string;
+//     handleInput?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+//     value?: string;
+//     handleSubscribe?: () => void;
+//   }

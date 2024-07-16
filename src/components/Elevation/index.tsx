@@ -1,7 +1,7 @@
 import { cn } from "@/utils";
 import { cva, VariantProps } from "class-variance-authority";
 import { ComponentProps, forwardRef } from "react";
-import { ElevationShadow } from "./type";
+import { ElevationShadow } from "../types";
 import {Box} from "@/components";
 const elevationStyles = cva(
   [

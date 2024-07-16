@@ -1,7 +1,7 @@
 
 import { Box, Button, Headings, Modal, OrderSummary, ProductCard, QuantityCard, Text } from "@/components";
 import { demo,CardObj, CardItem } from "./data";
-import { ButtonSize } from "@/components/Button/type";
+import { ButtonSize } from "@/components/types";
 import { forwardRef, useState } from "react";
 import { cardData } from "../Wishlist/Data";
 

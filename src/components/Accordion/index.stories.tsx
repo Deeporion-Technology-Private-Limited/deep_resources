@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { AccordionTypes, contentData, contentName } from "./AccordionTypes";
+import { AccordionTypes, contentData, contentName } from "../types";
 import {  UpArrow, UpCursor } from "./Icon/Icon";
 import { AccordionBody } from "./AccordionBody";
 const meta: Meta<typeof AccordionBody> = {

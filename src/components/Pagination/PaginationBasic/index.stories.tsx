@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Meta, StoryObj } from "@storybook/react";
-import { Color, Shape, Variants } from "../type";
-import { ButtonSize } from "@/components/Button/type";
+import { PaginationColor, Shape, Variants } from "../../types";
+import { ButtonSize } from "@/components/types";
 import { Pagination, PaginationProps } from ".";
 
 const meta: Meta<typeof Pagination> = {
@@ -38,7 +38,7 @@ Default.args = {
   size: ButtonSize.Medium,
   shape: Shape.Rounded,
   variant: Variants.Text,
-  activeColor: Color.Secondary,
+  activeColor: PaginationColor.Secondary,
   totalPages: 5,
 };
 
@@ -50,7 +50,7 @@ OutlinedVariant.args = {
   currentPage: 1,
   size: ButtonSize.Medium,
   shape: Shape.Rounded,
-  activeColor: Color.Success,
+  activeColor: PaginationColor.Success,
   variant: Variants.Outlined,
   totalPages: 25,
 };
@@ -60,7 +60,7 @@ export const ContainedVariant: StoryObj<PaginationProps> = (
 ) => <PaginationTemplate {...args} />;
 ContainedVariant.args = {
   currentPage: 1,
-  activeColor: Color.Danger,
+  activeColor: PaginationColor.Danger,
   shape: Shape.Rounded,
   variant: Variants.Contained,
   totalPages: 20,
@@ -73,7 +73,7 @@ SquareShape.args = {
   currentPage: 1,
   shape: Shape.Square,
   variant: Variants.Outlined,
-  activeColor: Color.Primary,
+  activeColor: PaginationColor.Primary,
   iconStyle: "size-8",
   totalPages: 10,
 };

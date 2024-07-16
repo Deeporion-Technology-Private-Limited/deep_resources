@@ -2,7 +2,7 @@ import { Meta, StoryObj } from "@storybook/react";
 import image from "@/examples/ShopingCards/images/Web-_Product listing/3897062800_1_1_1 1.png";
 import { Text } from "@/components/Text";
 import { Button } from "@/components/Button/DefaultButton";
-import { ButtonIconPosition, ButtonVariant } from "@/components/Button/type";
+import { ButtonIconPosition, ButtonVariant } from "@/components/types";
 import { Box } from "@/components/Layout";
 import { FindIconUrl } from "@/utils/Constant";
 import { FaverateCard } from ".";

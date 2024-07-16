@@ -1,5 +1,5 @@
 import React, { forwardRef, useState } from 'react';
-import { InputType, InputVariant } from '../Input/type';
+import { InputType, InputVariant } from '../types';
 import { getConditionalStyles } from '../Input/getStyles';
 
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {

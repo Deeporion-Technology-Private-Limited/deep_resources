@@ -2,7 +2,7 @@ import { Box, Button, Text } from "@/components"
 import { Table } from "@/components/Table/Table"
 import { ComponentProps, forwardRef } from "react"
 import { VariantProps } from "class-variance-authority"
-import { ButtonIconPosition } from "@/components/Button/type"
+import { ButtonIconPosition } from "@/components/types"
 
 type AgentsProps = ComponentProps<"div"> & VariantProps<typeof Box> & {
     data: [] | any;

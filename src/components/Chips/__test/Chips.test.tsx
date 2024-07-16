@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import Chips from "..";
-import { ChipsTypes } from "../chipsTypes";
+import { ChipsTypes } from "../../types";
 
 describe("Chips Component", () => {
   it(`renders Chips with variant-${ChipsTypes.default}`, () => {

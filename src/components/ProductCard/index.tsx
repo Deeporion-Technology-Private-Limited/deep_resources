@@ -2,7 +2,7 @@ import { Box, Text } from "@/components";
 import { cn } from "@/utils";
 import { cva, VariantProps } from "class-variance-authority";
 import { ComponentProps, forwardRef, useState } from "react";
-import { IProductDetails, IProductSpecifications } from './type';
+import { IProductDetails, IProductSpecifications } from '../types';
 
 const productCardStyles = cva(
   "flex flex-col p-4 bg-white w-[600px] h-[fit-content] border border-[#CBD5E1] gap-[20px]",

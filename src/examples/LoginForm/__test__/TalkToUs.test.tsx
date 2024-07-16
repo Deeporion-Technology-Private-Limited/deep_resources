@@ -2,7 +2,7 @@ import { render, screen,fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import {TalkToUsForm} from '../TalkToUs';
 import {Login} from "../type"
-import { Placeholder } from '@/components/Input/type';
+import { Placeholder } from '@/components/types';
 describe('TalkToUsForm Component', () => {
   it('renders the component', () => {
     render(<TalkToUsForm />);

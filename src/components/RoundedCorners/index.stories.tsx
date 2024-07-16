@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { RoundedCorners } from ".";
-import { BorderRadius } from "./type";
+import { BorderRadius } from "../types";
 
 const meta: Meta<typeof RoundedCorners> = {
   title: "Components/RoundedCorners",

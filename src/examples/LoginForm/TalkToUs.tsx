@@ -1,9 +1,9 @@
 import { Box, Button, Input, Text } from "@/components";
-import { ButtonVariant } from "@/components/Button/type";
+import { ButtonVariant } from "@/components/types";
 import background from "../../images/backimage.png";
 import { TextSize, TextWeight, Alignment } from "@/utils/style";
 import { Login, FormDetail } from "./type";
-import { InputType, InputVariant, Placeholder } from "@/components/Input/type";
+import { InputType, InputVariant, Placeholder } from "@/components/types";
 import { useState } from "react";
 
 export const TalkToUsForm = () => {

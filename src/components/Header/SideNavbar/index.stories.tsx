@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import {SideNavbar } from ".";
-import { NavbarDirection } from "../type";
+import { NavbarDirection } from "../../types";
 
 import { navItemDetail } from "./sidenavbarconst";
 import { FindIconUrl } from "@/utils/Constant";

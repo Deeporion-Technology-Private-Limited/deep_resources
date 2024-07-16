@@ -1,12 +1,12 @@
 import { Box, Button, Headings, Input } from "@/components";
-import { ButtonSize, ButtonVariant } from "@/components/Button/type";
+import { ButtonSize, ButtonVariant } from "@/components/types";
 import {
   SubscriptionData,
   PaymentHistoryFormatted,
 } from "@/components/Data/Subscriptions";
 import Check_Filled from "../../images/Check_filled.svg";
 import { useState } from "react";
-import { InputType, InputVariant } from "@/components/Input/type";
+import { InputType, InputVariant } from "@/components/types";
 
 import MasterCard from "../../images/MasterCard.svg";
 import { Table } from "@/components/Table/Table";

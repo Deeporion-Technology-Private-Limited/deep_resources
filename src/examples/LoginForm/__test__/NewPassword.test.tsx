@@ -3,7 +3,7 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import NewPassword from '../NewPassword';
 import { Login } from '../type';
-import { Placeholder } from '@/components/Input/type';
+import { Placeholder } from '@/components/types';
 jest.mock('../../images/backimage.png', () => 'backimage.png');
 
 describe('NewPassword Component', () => {

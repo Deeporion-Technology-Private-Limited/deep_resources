@@ -3,7 +3,7 @@ import { VariantProps, cva } from "class-variance-authority";
 import { ComponentProps, forwardRef } from "react";
 import { Box, Button, IconButton, Text } from "@/components";
 import   MailIcon  from './Images/mail'
-import { CoreCustomerProps } from "./footerInterface";
+import { CoreCustomerProps } from "../types";
 const navBarStyles = cva([
   ["pl-[30px]", "text-[#36454f]", "text-[13px]", "w-fit"],
 ]);

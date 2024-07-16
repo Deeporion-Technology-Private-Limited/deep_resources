@@ -4,7 +4,7 @@ import { IAddress } from "@/components/Data/Address";
 import { Button } from "@/components/Button/DefaultButton/index";
 import { Box } from "@/components/Layout/Box/index";
 import { Headings } from "@/components/Headings/index";
-import { ButtonSize, ButtonVariant } from "@/components/Button/type";
+import { ButtonSize, ButtonVariant } from "@/components/types";
 import { Modal } from "@/components";
 
 type AddressProps = {

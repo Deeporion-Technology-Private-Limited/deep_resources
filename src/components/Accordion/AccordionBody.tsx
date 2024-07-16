@@ -1,5 +1,5 @@
 import Accordion from ".";
-import { contentData } from "./AccordionTypes";
+import { contentData } from "../types";
 import { UpArrow } from "./Icon/Icon";
 
 export const AccordionBody = () => {

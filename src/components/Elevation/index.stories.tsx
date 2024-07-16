@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Elevation } from ".";
-import { ElevationShadow } from "./type";
+import { ElevationShadow } from "../types";
 
 const meta: Meta<typeof Elevation> = {
   title: "Components/Elevation/Elevation",

@@ -1,8 +1,8 @@
 import { Box, Button, Checkbox, Input, Modal, Stack, Text } from "@/components";
-import { InputType, InputVariant, Placeholder } from "@/components/Input/type";
+import { InputType, InputVariant, Placeholder } from "@/components/types";
 import { Alignment, TextSize, TextWeight } from "@/utils/style";
 import { useState } from "react";
-import { ButtonVariant } from "@/components/Button/type";
+import { ButtonVariant } from "@/components/types";
 import background from "../../images/backimage.png";
 import { SignUp } from "./type";
 import CloseEye from "@/images/InputIcons/CloseEye";

@@ -1,7 +1,7 @@
 import React, { ComponentProps, forwardRef, useState, useEffect } from "react";
 import { cn } from "@/utils";
 import { cva, VariantProps } from "class-variance-authority";
-import { ButtonSize } from "../Button/type";
+import { ButtonSize } from "../types";
 import { FindIconUrl } from "@/utils/Constant";
 
 const inputStyles = cva(

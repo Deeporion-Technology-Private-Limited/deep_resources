@@ -2,7 +2,7 @@ import React from "react";
 import { cn } from "@/utils";
 import { cva, VariantProps } from "class-variance-authority";
 import { Elevation } from "..";
-import { ButtonSize, SkeletonVariant } from "../Button/type";
+import { ButtonSize, SkeletonVariant } from "../types";
 
 const skeletonStyles = cva(["bg-gray-300", "animate-pulse"], {
   variants: {

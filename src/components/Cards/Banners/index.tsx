@@ -2,7 +2,7 @@ import { Box, Button, Text } from "@/components";
 import { cn } from "@/utils";
 import { cva, VariantProps } from "class-variance-authority";
 import { ComponentProps, forwardRef } from "react";
-import { ButtonIconPosition } from "@/components/Button/type";
+import { ButtonIconPosition } from "@/components/types";
 const productCardStyles = cva([
   "bg-white",
   "shadow-md",

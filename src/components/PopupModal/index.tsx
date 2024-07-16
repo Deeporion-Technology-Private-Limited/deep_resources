@@ -6,7 +6,7 @@ import {
   useEffect,
   
 } from "react";
-import { ButtonVariant, ButtonSize } from "../Button/type";
+import { ButtonVariant, ButtonSize } from "../types";
 import { Box, Button } from "..";
 import {Close} from "../Icons"
 const modalStyles = cva(

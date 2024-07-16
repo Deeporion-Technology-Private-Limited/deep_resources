@@ -1,7 +1,7 @@
 import { AdminProp } from "@/examples/AdminAccount/AdminInterFace";
 import { Button } from "../Button/DefaultButton";
 import Input from "../Input";
-import { InputType, InputVariant } from "../Input/type";
+import { InputType, InputVariant } from "../types";
 import { DeleteIcon, ExitIcon } from "../Icons";
 
 

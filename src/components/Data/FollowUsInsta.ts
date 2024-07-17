@@ -2,15 +2,9 @@ import CardImage1 from "../../examples/FollowUsPage/images/CardImage1.svg"
 import CardImage2 from "../../examples/FollowUsPage/images/CardImage2.svg"
 import CardImage3 from "../../examples/FollowUsPage/images/CardImage3.svg"
 import CardImage4 from "../../examples/FollowUsPage/images/CardImage4.svg"
+import { IFollowUsData } from "../types"
 
-export interface IFollowUsData {
-    
-    heading:string;
-    contents: string;
-    imagedetails:Array<{ name: string; img: string }>;
-}
-
-export const FollowUsData :IFollowUsData = {
+export const FollowUsData :IFollowUsData  = {
 
     heading:"Follow us on Instagram",
     contents:"@abc12ecommerce",

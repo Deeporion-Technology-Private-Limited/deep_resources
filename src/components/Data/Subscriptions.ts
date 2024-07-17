@@ -1,18 +1,4 @@
-export interface ISubscription {
-  planType: string;
-  price: number;
-  transactionPercent: number;
-  planFor: string;
-  status: string;
-}
-
-export interface IPaymentHistory {
-  amount: string;
-  typeOfPlan: string;
-  paymentDate: string;
-  cardUsed: string;
-  details: string;
-}
+import { ISubscription,IPaymentHistory } from "../types";
 export const SubscriptionData: ISubscription[] = [
   {
     planType: "Yearly",

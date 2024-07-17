@@ -1,4 +1,7 @@
-export const TableData = [
+
+import { ItableData } from "../types";
+
+export const TableData: ItableData[] = [
   {
     ID: "1",
     Order: "Order 1",

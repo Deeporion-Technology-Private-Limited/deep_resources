@@ -1,3 +1,6 @@
+import { IRateData } from "../types";
+
+
 export const RateData: IRateData[] = [
   {
     value: 100,
@@ -19,9 +22,6 @@ export const RateData: IRateData[] = [
   },
 ];
 
-interface IRateData {
-  value: number;
-}
 
 export const initialData = {
   recipient_name: "",

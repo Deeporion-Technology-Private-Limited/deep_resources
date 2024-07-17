@@ -1,11 +1,4 @@
-export interface IProductReviewDescription {
-  rating: number;
-  heading: string;
-  contents: string;
-  helpFull: number;
-  notHelpfull: number;
-  days: number;
-}
+import { IProductReviewDescription,IDescriptionReviewSingleCard } from "../types";
 
 export const DescriptionReview: IProductReviewDescription[] = [
   {
@@ -35,9 +28,7 @@ export const DescriptionReview: IProductReviewDescription[] = [
   },
 ];
 
-export interface IDescriptionReviewSingleCard {
-  objectData: any;
-}
+
 export const DescriptionReviewSingleCard: IDescriptionReviewSingleCard = {
   objectData: {
     cardHeading: "Mango",

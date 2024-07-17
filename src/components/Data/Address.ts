@@ -1,25 +1,4 @@
-// Define the interface for the address
-export interface IAddress {
-  country: string;
-  state: string;
-  city: string;
-  address: string;
-  phone: string;
-  postalCode: number;
-}
-
-export interface CountryType {
-  code: string;
-  label: string;
-  phone: string;
-  suggested?: boolean;
-}
-
-export interface IIndialStates {
-  code: string;
-  label: string;
-}
-
+import { IAddress,CountryType,IIndialStates } from "../types";
 export const Address: IAddress = {
   phone: "+1 415 123 4567",
   city: "San Francisco",

@@ -255,7 +255,15 @@ export enum InputType {
   Prefix = "prefix",
   Checkbox = "checkbox",
   Otp = "otp",
+  TextInputLabel = "User Name",
+  PasswordInputLabel = "Password",
+  TextInputIntialValue = "Sumit",
+  ClassName = "FormInput-class",
+  UserName = "User Name",
+  Name = "userName",
+  
 }
+
 
 export enum Placeholder {
   Text = "Insert text here",
@@ -278,6 +286,8 @@ export enum Placeholder {
   ConfirmNew = "Confirm your new password",
   Subject = "subject",
   Details = "details",
+  FormInput = "Enter Something",
+  
 }
 
 export enum InputVariant {
@@ -418,3 +428,207 @@ export enum PositionType {
 export enum singleSpliceType {
   SingleLineChart = "Singe Line Chart",
 }
+
+
+// Add Gift Card
+export interface IRateData {
+  value: number;
+}
+
+//Adress Chart
+
+export interface IAddress {
+  country: string;
+  state: string;
+  city: string;
+  address: string;
+  phone: string;
+  postalCode: number;
+}
+
+export interface CountryType {
+  code: string;
+  label: string;
+  phone: string;
+  suggested?: boolean;
+}
+
+export interface IIndialStates {
+  code: string;
+  label: string;
+}
+
+// Follow us 
+
+export interface IFollowUsData {
+    
+  heading:string;
+  contents: string;
+  imagedetails:Array<{ name: string; img: string }>;
+}
+
+// Gift Cards
+
+export interface ICards {
+  img: string;
+  id: number;
+  category: string;
+}
+
+export interface ILabels {
+  value: string;
+  id: number;
+}
+
+
+//Personal Details
+export interface StateProp {
+  first_name: string;
+  Last_name: string;
+  phone_Number: string;
+  email: string;
+  pincode: string;
+  Area: string;
+  Country: string;
+  city: string;
+  State: string;
+  Address: string;
+  addressType: string;
+  Checked?: boolean;
+}
+
+//Product review
+
+export interface IProductReviewDescription {
+  rating: number;
+  heading: string;
+  contents: string;
+  helpFull: number;
+  notHelpfull: number;
+  days: number;
+}
+
+export interface IDescriptionReviewSingleCard {
+  objectData: any;
+}
+
+// Define an interface for the sizes object
+export interface ISizes {
+  XS: string;
+  S: string;
+  M: string;
+  L: string;
+  XL: string;
+  XXL: string;
+}
+
+// Define the interface for the Shipment dates
+export interface IShipmentDates {
+  shippedDate: string;
+  dispatchedDate: string;
+  returnAvailable: string;
+  location: string;
+}
+
+// Define the interface for the delivery address
+export interface IDeliveryAddress {
+  customerName: string;
+  phone: string;
+  address: string;
+  pincode: number;
+}
+
+
+// Define the union type for the shipment status
+export type ShipmentStatus =
+  | "Pending"
+  | "Processing"
+  | "Confirmed"
+  | "OutOfDelivery"
+  | "Shipped"
+  | "Cancelled"
+  | "Returned"
+  | "Failed";
+
+// Define the interface for the shipment status colors
+export interface IshipmentStatusColors {
+  Pending: string;
+  Processing: string;
+  Confirmed: string;
+  OutOfDelivery: string;
+  Shipped: string;
+  Cancelled: string;
+  Returned: string;
+  Failed: string;
+}
+
+// Define the interface for the shipment information
+export interface IShipmentOrderInfo {
+  imageURL: string;
+  logisticsCompany?: string;
+  productName?: string;
+  productDescription?: string;
+  price?: number;
+  quantity?: number;
+  takingId?: string;
+  orderId: string;
+  currentShipmentStatus: ShipmentStatus;
+  shipmentCountry?: string;
+  shipmentFrom?: string;
+  shipmentTo?: string;
+  currentLocation?: string;
+  distanceLeft?: number;
+  lastStop?: number;
+  timeDuration?: string;
+  estimatedDeliveryDate?: string;
+}
+
+// Define the interface for the time duration
+export interface ITimeDuration {
+  year: string;
+  month: string;
+  day: string;
+  hour: string;
+  minute: string;
+  second: string;
+  justNow: string;
+}
+
+//Size Data For Women
+export interface ISizeDataForWomen {
+  size: string;
+  hipCm: number;
+  waistCm: number;
+  lengthCm: number;
+}
+
+// Subscriptions
+export interface ISubscription {
+  planType: string;
+  price: number;
+  transactionPercent: number;
+  planFor: string;
+  status: string;
+}
+
+export interface IPaymentHistory {
+  amount: string;
+  typeOfPlan: string;
+  paymentDate: string;
+  cardUsed: string;
+  details: string;
+}
+
+// Table Data
+
+export interface ItableData {
+  ID: string | number,
+  Order: string,
+  Date: string | number,
+  Amount: string | number,
+  "Time created": string | number,
+  Status: string,
+  Name: string,
+  Role: string,
+}
+

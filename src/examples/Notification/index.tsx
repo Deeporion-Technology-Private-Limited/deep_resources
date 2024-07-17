@@ -4,8 +4,8 @@ import { VariantProps, cva } from "class-variance-authority";
 import { ComponentProps, forwardRef, useState } from "react";
 import right from "./notificationIcon/right.svg";
 import dot from "./notificationIcon/threedot.svg";
-import { NotificationProp, singleNotification } from "./notificationConst";
-
+import { NotificationProp, singleNotification } from "@/components/types";
+import { FindIconUrl } from "@/utils/Constant";
 const notificationStyle = cva(["w-full px-[60px] max-[620px]:px-[0px] bg-[#F7F8F9]"]);
 
 interface NotifyProps
@@ -44,7 +44,7 @@ export const Notification = forwardRef<HTMLDivElement, NotifyProps>(
                 key={item.title}
               >
                 <Box className="w-[44px] h-[44px]">
-                  <img src={item.profile} className="rounded-full" />
+                  <img src={FindIconUrl(`${item.profile}`)} className="rounded-full" />
                 </Box>
                 <Box className="flex flex-col w-full">
                   <Box className="flex items-center">

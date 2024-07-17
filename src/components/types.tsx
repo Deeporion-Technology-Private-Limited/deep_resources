@@ -1,4 +1,5 @@
 import { ReviewDataType } from "./CarouselSlider";
+import { Dispatch, SetStateAction } from "react"
 
 // Accordion
 export enum AccordionTypes {
@@ -631,4 +632,122 @@ export interface ItableData {
   Name: string,
   Role: string,
 }
+
+// Whishlist
+export interface ICardDetails {
+  id: number,
+  brand: string;
+  description: string;
+  imageSrc: string;
+  iconUrl?: string;
+  price: number;
+  rating: number;
+  reviews: number;
+}
+//Stepper Data
+export interface StepperData {
+  personalInfo: string;
+  name: string;
+  email: string;
+  addressInfo: string;
+  address: string;
+  city: string;
+  payMode: string;
+}
+
+// Offer Data
+export interface NewOfferData {
+  codeName: string;
+  promoCode: string;
+  startDate: string;
+  endDate: string;
+  client: string;
+  promo: string;
+  promoType: string;
+  amountOff: string;
+}
+
+export interface Category {
+  name: string;
+  items: { name: string; checked: boolean }[];
+  checked: boolean;
+  count: number;
+}
+
+export interface initialProp {
+    PauseNotification : boolean ,
+        innApp : boolean ,
+        Email:boolean ,
+        SMS:boolean ,
+        WhatsApp:boolean
+}
+
+export interface settingsProps {
+    setInitialState:Dispatch<SetStateAction<initialProp>>
+}
+
+
+// Single notification 
+
+export interface singleNotification {
+  profile?: string;
+  title?: string;
+  message?: string;
+  arrivedtime?: string; 
+  onclick?:() => void;
+  isRead: boolean;
+}
+
+export interface NotificationProp {
+  value?: singleNotification[]
+}
+
+
+// MyCart
+
+export interface CardObj {
+  id?: number;
+  imageSrc?: string;
+  price?: number;
+  brand?: string;
+  description?: string;
+  rating?: number;
+  reviews?: number;
+  checked?: boolean;
+}
+export interface CardItem {
+  item: CardObj[];
+  handleCart:() =>void;
+}
+
+// Model 
+
+export enum Product {
+  AddToCart = "Add to Cart",
+  Wishlist = "Wishlist",
+  SizeChart = "Size Chart",
+  HowToMeasure = "How To Measure",
+  Inches = "in",
+  Centimeters = "cm",
+  ModelDescription = "Women Navvy Blue Empire Dress",
+  ModelTitle = "Mango",
+  MeasureDescription = "Find the size to fit your body measurements in the size chart below."
+}
+
+
+// Information 
+export interface PersonalInfoLabel {
+  personalInfo: string;
+    fullname: string;
+    address: string;
+    bio: string;
+    email: string;
+    socialLink: string;
+    facebook: string;
+    linkedin: string;
+    twitter: string;
+}
+
+
+
 

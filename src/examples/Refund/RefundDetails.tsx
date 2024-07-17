@@ -7,9 +7,8 @@ import { ButtonSize, ButtonVariant } from "@/components/types";
 import { Button } from "@/components/Button/DefaultButton/index";
 import FormInput from "@/components/Form/FormInput/index";
 import {
-  FormInputType,
-  FormInputVariant,
-} from "@/components/Data/FormInputData";
+  InputType,InputVariant,
+} from "@/components/types";
 
 function RefundDetails() {
   const [formData, setFormData] = useState({
@@ -201,10 +200,10 @@ function RefundDetails() {
               placeholder="Comment"
               required
               size={30}
-              type={FormInputType.Text}
+              type={InputType.Text}
               value={formData.comment}
               onChange={handleChange}
-              variant={FormInputVariant.Outlined}
+              variant={InputVariant.Outlined}
             />
           </Box>
         </Box>

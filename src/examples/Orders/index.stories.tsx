@@ -2,7 +2,7 @@ import { Meta, StoryObj } from "@storybook/react";
 import Agents from ".";
 import Order from ".";
 import { data } from "@/components/Data/OrdersData";
-import { sortingArray } from "../Wishlist/Data";
+import { sortingArray } from "@/components/Data/Whishlist";
 
 const meta: Meta<typeof Agents> = {
   title: "Examples/Order",

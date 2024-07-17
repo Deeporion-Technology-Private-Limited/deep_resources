@@ -1,21 +1,7 @@
-import img1 from "../ShopingCards/images/Web-_Product listing/3897062800_1_1_1 1-1.png";
-import img2 from "../ShopingCards/images/Web-_Product listing/3897062800_1_1_1 1.png";
-import img3 from "../ShopingCards/images/Web-_Product listing/Frame 1-1.png";
-
-export interface CardObj {
-  id?: number;
-  imageSrc?: string;
-  price?: number;
-  brand?: string;
-  description?: string;
-  rating?: number;
-  reviews?: number;
-  checked?: boolean;
-}
-export interface CardItem {
-  item: CardObj[];
-  handleCart:() =>void;
-}
+import img1 from "@/examples/ShopingCards/images/Web-_Product listing/3897062800_1_1_1 1-1.png";
+import img2 from "@/examples/ShopingCards/images/Web-_Product listing/3897062800_1_1_1 1.png";
+import img3 from "@/examples/ShopingCards/images/Web-_Product listing/Frame 1-1.png";
+import { CardObj } from "../types";
 
 export const demo: CardObj[] = [
   {

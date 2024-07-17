@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react";
 import Wishlist from ".";
-import { cardData, sortingArray } from "./Data";
+import { cardData, sortingArray } from "@/components/Data/Whishlist";
 
 
 const meta: Meta<typeof Wishlist> = {

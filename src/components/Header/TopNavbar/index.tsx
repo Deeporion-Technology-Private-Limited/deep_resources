@@ -12,8 +12,7 @@ import {
 } from "@/components";
 import { IconButton } from "@/components";
 import { NavbarDirection } from "../../types";
-import { InputType, InputVariant } from "@/components/types";
-import { TopNavbarProps } from "./topNavConst";
+import { InputType, InputVariant,TopNavbarProps } from "@/components/types";
 import SearchImage from "@/images/InputIcons/SearchImage";
 import { FindIconUrl } from "@/utils/Constant";
 
@@ -134,7 +133,7 @@ export const Topnavbar = forwardRef<HTMLDivElement, TopNavProp>(
                   {navBarIcons?.map((item) => (
                     <>
                       <IconButton
-                        iconUrl={item.icon}
+                        iconUrl={FindIconUrl(`${item.icon}`)}
                         key={item.icon}
                         onClick={item.onClick}
                       />

@@ -1,14 +1,4 @@
-export interface ICardDetails {
-        id: number,
-        brand: string;
-        description: string;
-        imageSrc: string;
-        iconUrl?: string;
-        price: number;
-        rating: number;
-        reviews: number;
-}
-
+import { ICardDetails } from "../types"
 export const sortingArray: string[] = ["Recently Added", "Popular", "Price: Low-to-High", "Price: High-to-Low", "Customer Rating", "Better Discount"]
 
 

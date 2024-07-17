@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import PasswordInput from "./";
 import {
-  FormInputType,
-  FormInputVariant,
+  InputType,
+  InputVariant,
   Placeholder,
-} from "@/components/Data/FormInputData";
+} from "@/components/types";
 
 const meta: Meta<typeof PasswordInput> = {
   title: "Components/Forms/PasswordInput",
@@ -26,11 +26,11 @@ type Story = StoryObj<typeof meta>;
 
 export const Password: Story = {
   args: {
-    type: FormInputType.Password,
-    label: FormInputType.PasswordInputLabel,
-    name: FormInputType.Name,
+    type: InputType.Password,
+    label: InputType.PasswordInputLabel,
+    name: InputType.Name,
     placeholder: Placeholder.Password,
-    className: FormInputType.ClassName,
+    className: InputType.ClassName,
     readOnly: false,
     disabled: false,
     required: true,
@@ -38,7 +38,7 @@ export const Password: Story = {
     size: 30,
     labelAsterisk: true,
     errors: false,
-    variant: FormInputVariant.Outlined,
-    initialValue: FormInputType.TextInputIntialValue,
+    variant: InputVariant.Outlined,
+    initialValue:InputType.TextInputIntialValue,
   },
 };

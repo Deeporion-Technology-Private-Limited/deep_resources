@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import PersonalInfo from "./PersonalInfoPage";
-import { personalInfoData } from "./PersonalInfoData";
+import { personalInfoData } from "@/components/Data/Information";
 
 const meta: Meta<typeof PersonalInfo> = {
   title: "Examples/PersonalInfo",

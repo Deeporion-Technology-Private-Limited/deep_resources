@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Checkbox } from "../Checkbox";
-import { initialProp, settingsProps } from "@/examples/NotificationSettings/SettingsInterface";
+import { initialProp, settingsProps } from "@/components/types";
 
 const NotificationData: React.FC<settingsProps> = ({ setInitialState }) => {
   const [handleToggle, setHandleToggle] = useState({

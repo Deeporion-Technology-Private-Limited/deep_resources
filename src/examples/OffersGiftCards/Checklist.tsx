@@ -1,7 +1,7 @@
 import { Checkbox } from "@/components";
 import { ButtonSize } from "@/components/types";
 import React, { useState } from "react";
-import { categories } from "./OfferData";
+import { categories } from "@/components/Data/OfferData";
 import { FindIconUrl } from "@/utils/Constant";
 
 const Checklist: React.FC = () => {

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Topnavbar } from ".";
-import { NavbarDirection } from "../type";
+import { NavbarDirection } from "../../types";
 import { TopHoverMenuCard } from "../ExpandedNavbar";
 import { GenderItem, TopItem } from "../ExpandedNavbar/topHoverObjects";
 import { navBarIconsData } from "./topNavConst";

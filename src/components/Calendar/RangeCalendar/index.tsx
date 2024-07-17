@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { cn } from "@/utils";
 import { cva, VariantProps } from "class-variance-authority";
 import { ComponentProps, forwardRef } from "react";
-import { CalendarProps, MonthsOfYear } from '../type';
+import { CalendarProps, MonthsOfYear } from '../../types';
 import { FindIconUrl } from '@/utils/Constant';
 
 const dayStyles = cva(

@@ -1,6 +1,7 @@
 import { Box, Cateloge } from "@/components";
-import { arr, user } from "@/components/Catelog/data";
+import { arr } from "@/components/Catelog/data";
 import { useState } from "react";
+import { user } from "@/components/types";
 
 const Cateloges = () => {
   const [name, setName] = useState<user>({});

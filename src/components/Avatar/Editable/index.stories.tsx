@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react";
 import  { Profile, ProfileAvatarInterFace } from ".";
-import { ButtonSize } from "@/components/Button/type";
+import { ButtonSize } from "@/components/types";
 
 const meta: Meta<typeof Profile> = {
   title: "Components/Avatar/Edit",

@@ -1,9 +1,9 @@
 
 import { Dispatch, SetStateAction } from "react";
-import { ButtonSize } from "../Button/type";
+import { ButtonSize } from "../types";
 import { Checkbox } from "../Checkbox";
 import Chips from "../Chips";
-import { ChipsTypes } from "../Chips/chipsTypes";
+import { ChipsTypes } from "../types";
 import { GreyDeleteIcon } from "../Icons";
 import { SellerInterface } from "@/examples/SellerTable/Sellerinterface";
 

@@ -1,7 +1,7 @@
 import { VariantProps, cva } from 'class-variance-authority';
 import { ComponentProps, forwardRef, useEffect, useRef } from 'react';
 import { cn } from "@/utils"; 
-import { SlideVariant } from '../Button/type';
+import { SlideVariant } from '../types';
 
 const slideStyles = cva(
   ["w-[100vw]","flex-shrink-0", "text-center"],

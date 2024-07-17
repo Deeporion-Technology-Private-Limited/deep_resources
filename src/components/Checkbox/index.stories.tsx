@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react";
 import { Checkbox } from ".";
-import { ButtonSize } from "../Button/type";
+import { ButtonSize } from "../types";
 import { useState } from "react";
 
 const meta: Meta<typeof Checkbox> = {

@@ -2,7 +2,7 @@ import { Meta, StoryObj } from "@storybook/react";
 import { Menu } from ".";
 import { MenuItem } from "../MenuItem";
 import { ArrowForwardIos, OutlineDownloadIcon } from "../MenuItem/Icon/icon";
-import { MenuItemSize } from "../MenuItem/MenuitemTypes";
+import { MenuItemSize } from "../types";
 
 
 const meta: Meta<typeof Menu> = {

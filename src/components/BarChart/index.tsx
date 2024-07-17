@@ -1,6 +1,6 @@
 import { VariantProps, cva } from "class-variance-authority";
 import { ComponentProps, forwardRef } from "react";
-import { Bartype } from "./barConst";
+import { Bartype } from "../types";
 import { cn } from "@/utils";
 
 const chartStyle = cva([""]);

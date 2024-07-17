@@ -1,12 +1,5 @@
-export interface valueType {
-  a1: number;
-  color: string;
-}
+import { Bartype } from "../types";
 
-export interface Bartype {
-  day: string;
-  value: valueType[]
-} 
 export const graphdata:Bartype[] = [
     {
       day:"Mon",

@@ -2,8 +2,8 @@ import { cn } from "@/utils";
 import { cva, VariantProps } from "class-variance-authority";
 import { ComponentProps, forwardRef, useState, useEffect } from "react";
 import { IconButton, Button, ReviewCard } from "@/components";
-import { ArrowPosition, ButtonVariant, IndicatorType } from "../Button/type";
-import { SlideItem } from "./interfaces";
+import { ArrowPosition, ButtonVariant, IndicatorType } from "../types";
+import { SlideItem } from "../types";
 import { FindIconUrl } from "@/utils/Constant";
 
 const carouselStyles = cva(

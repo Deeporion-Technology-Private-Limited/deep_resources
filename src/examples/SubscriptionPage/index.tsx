@@ -1,11 +1,12 @@
 import { Box, Button, Headings, Input } from "@/components";
-import { ButtonSize, ButtonVariant } from "@/components/Button/type";
+import { ButtonSize, ButtonVariant } from "@/components/types";
 import {
   SubscriptionData,
   PaymentHistoryFormatted,
 } from "@/components/Data/Subscriptions";
 import { useState } from "react";
-import { InputType, InputVariant } from "@/components/Input/type";
+import { InputType, InputVariant } from "@/components/types";
+
 import { Table } from "@/components/Table/Table";
 import {PayPalIcon,Apple,CheckCircle,MasterCardIcon} from '@/components/Icons';
 const SubscriptionBox = (props: any) => {

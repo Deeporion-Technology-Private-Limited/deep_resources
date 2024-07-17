@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Accordion from '@/components/Accordion';
-import { AccordionTypes } from '@/components/Accordion/AccordionTypes';
+import { AccordionTypes } from '@/components/types';
 import { UpCursor } from '@/components/Accordion/Icon/Icon';
 import { GreenArrow } from './CartIcon';
 import { AddressDetails, ContactDetails, SaveAsAddress, initialData } from '@/components/Data/PersonalDetailsData';

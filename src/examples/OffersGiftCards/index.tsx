@@ -9,7 +9,7 @@ import {
   useState,
 } from "react";
 import { ILabels } from "@/components/Data/GiftCards";
-import { InputType, InputVariant } from "@/components/Input/type";
+import { InputType, InputVariant } from "@/components/types";
 import infoLogo from "../../images/Avatar3.svg";
 import { AdminSidebar } from "../AdminSidebar";
 import {

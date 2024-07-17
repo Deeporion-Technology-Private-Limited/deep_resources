@@ -11,9 +11,9 @@ import {
   Text,
 } from "@/components";
 import { IconButton } from "@/components";
-import { ButtonDirection } from "@/components/Button/type";
-import { NavbarDirection } from "../type";
-import { MenuItemSize } from "@/components/MenuItem/MenuitemTypes";
+import { ButtonDirection } from "@/components/types";
+import { NavbarDirection } from "../../types";
+import { MenuItemSize } from "@/components/types";
 import { DownArrow } from "@/components/MenuItem/Icon/icon";
 
 const navBarStyles = cva(

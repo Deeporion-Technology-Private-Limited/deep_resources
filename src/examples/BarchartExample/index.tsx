@@ -1,7 +1,7 @@
 import { VariantProps, cva } from "class-variance-authority";
 import { ComponentProps, forwardRef } from "react";
 import { BarChart, Box, Text } from "@/components";
-import { Bartype } from "@/components/BarChart/barConst";
+import { Bartype } from "@/components/types";
 import { cn } from "@/utils";
 import { Grow } from "./icon/Icon";
 

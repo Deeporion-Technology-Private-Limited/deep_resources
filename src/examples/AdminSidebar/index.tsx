@@ -1,5 +1,5 @@
 import { NavItems, SideNavbar } from "@/components/Header/SideNavbar";
-import { NavbarDirection } from "@/components/Header/type";
+import { NavbarDirection } from "@/components/types";
 import { cn } from "@/utils";
 
 import { VariantProps, cva } from "class-variance-authority";

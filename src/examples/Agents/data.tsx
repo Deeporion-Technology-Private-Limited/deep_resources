@@ -1,6 +1,6 @@
 import { Box, Button } from "@/components";
 import { Profile } from ".";
-import { ButtonIconPosition } from "@/components/Button/type";
+import { ButtonIconPosition } from "@/components/types";
 
 const profileDetails = [
     {

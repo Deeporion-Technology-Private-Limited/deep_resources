@@ -1,7 +1,7 @@
 import { cn } from "@/utils";
 import { VariantProps, cva } from "class-variance-authority";
 import React, { ComponentProps, forwardRef, useState } from "react";
-import { AccordionTypes } from "./AccordionTypes";
+import { AccordionTypes } from "../types";
 
 const accordionStyle = cva(["h-fit", "text-sm", "items-center", "w-[400px]"], {
   variants: {

@@ -3,7 +3,7 @@ import Product1 from "../../images/shipment_product.png";
 import AddressComponent from "../Address/AddressUpdate";
 import { Address } from "@/components/Data/Address";
 import { Box } from "@/components/Layout/Box/index";
-import { ButtonSize, ButtonVariant } from "@/components/Button/type";
+import { ButtonSize, ButtonVariant } from "@/components/types";
 import { Button } from "@/components/Button/DefaultButton/index";
 import FormInput from "@/components/Form/FormInput/index";
 import {

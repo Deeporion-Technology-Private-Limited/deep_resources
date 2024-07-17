@@ -1,7 +1,7 @@
 import { Headings, Box, Button, Input, ProfileAvatar } from "@/components";
-import {AutoComplete} from "@/components";
-import { ButtonIconPosition, ButtonVariant } from "@/components/Button/type";
-import { InputType, InputVariant } from "@/components/Input/type";
+import AutoComplete from "@/components/AutoComplete";
+import { ButtonIconPosition, ButtonVariant } from "@/components/types";
+import { InputType, InputVariant } from "@/components/types";
 import React, { useRef, useState } from "react";
 import LogoutIcon from "../../images/LogoutBtn.svg";
 import DeleteIcon from "../../images/Delete.svg";

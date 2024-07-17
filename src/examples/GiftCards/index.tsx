@@ -1,6 +1,6 @@
 import { Box, Button, FaverateCard } from "@/components";
 import { ComponentProps, forwardRef, useState } from "react";
-import { ButtonIconPosition } from "@/components/Button/type";
+import { ButtonIconPosition } from "@/components/types";
 import { ICards, ILabels } from "@/components/Data/GiftCards";
 import { cn } from "@/utils";
 import { FindIconUrl } from "@/utils/Constant";

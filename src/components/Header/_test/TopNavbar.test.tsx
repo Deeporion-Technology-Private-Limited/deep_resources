@@ -2,7 +2,7 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import { Topnavbar } from "../TopNavbar";
 import { Translations } from "@/components/translations";
-import { NavbarDirection } from "../type";
+import { NavbarDirection } from "../../types";
 
 const mockNavItem = [
   { text: "Home", href: "/home" },

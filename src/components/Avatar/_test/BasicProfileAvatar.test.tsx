@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import { ButtonSize } from "@/components/Button/type";
+import { ButtonSize } from "@/components/types";
 import { Translations } from "@/components/translations";
 import { ProfileAvatar } from "../Basic";
 

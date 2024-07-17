@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { SystemMessage } from ".";
-import { messageText, systemMessageTypes } from "./systemMessageTypes";
+import { messageText, systemMessageTypes } from "../types";
 
 const meta: Meta<typeof SystemMessage> = {
   title: "Components/systemMessage/systemMessage",

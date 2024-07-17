@@ -1,6 +1,6 @@
 
 import { FindIconUrl } from "@/utils/Constant";
-import { NavbarDirection } from "../type";
+import { NavbarDirection } from "../../types";
 
 export type NavItems = {
     text: string;

@@ -1,11 +1,11 @@
 import { Box, Button, Input,IconButton, Stack, Text } from "@/components";
-import { ButtonVariant } from "@/components/Button/type";
+import { ButtonVariant } from "@/components/types";
 import background from "@/images/backimage.png"
 import google from "../../images/Google.png";
 import phone from "../../images/phone.png";
 import { Alignment, TextSize, TextWeight } from "@/utils/style";
 import { Login } from "./type";
-import { InputType, InputVariant, Placeholder } from "@/components/Input/type";
+import { InputType, InputVariant, Placeholder } from "@/components/types";
 import { useState } from "react";
 import CloseEye from "@/images/InputIcons/CloseEye";
 import OpenEye from "@/images/InputIcons/OpenEye";

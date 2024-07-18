@@ -2,7 +2,7 @@ import { Box, Button, Headings, Modal, ProductCard } from "@/components";
 import frmaeMeasurement from "../../images/frameMeasurement.png";
 import hearticon from "./Icons/hearticon.svg";
 import { Table } from "@/components/Table/Table";
-import { Product } from "./types";
+import { Product } from "@/components/types";
 import { useState } from "react";
 import { womanSizeFormatted } from "@/components/Data/SizeDataForWomen";
 import { FindIconUrl } from "@/utils/Constant";

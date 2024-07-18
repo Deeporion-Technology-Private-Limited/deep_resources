@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react";
 import ShareWindow from ".";
-import { socialIcons } from "./data";
+import { socialIcons } from "@/components/Data/ShareWindow";
 const meta: Meta<typeof ShareWindow> = {
   title: "Examples/SharePopup",
   component: ShareWindow,

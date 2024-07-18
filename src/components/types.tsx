@@ -749,5 +749,49 @@ export interface PersonalInfoLabel {
 }
 
 
+// Heading 
+export interface heading {
+  headingItem?: React.ReactNode;
+  handleNotification?: () => void;
+  imageSrc?: string;
+  className?:string;
+}
 
+//TopNavBar
+export type NavItems = {
+  text: string;
+  href: string;
+  component?: React.ReactNode;
+};
+
+export type navBarIcons = {
+  icon?: string;
+  iconName?: string;
+  onClick?: () => void;
+};
+
+export interface TopNavbarProps {
+  children?: React.ReactNode;
+  className?: string;
+  isLogin?: boolean;
+  isSearch?: boolean;
+  direction?: NavbarDirection;
+  title?: string;
+  LogoIcon?: string;
+  navItem?: NavItems[];
+  navBarIcons?: navBarIcons[];
+  profilePicture?: string;
+  hemburgerClick?: () => void;
+}
+
+// Share Window
+
+export interface IconValues {
+  icon?: string;
+  text?: string;
+  Click?: () => void;
+}
+export interface ShareItem{
+  item:IconValues[];
+}
 

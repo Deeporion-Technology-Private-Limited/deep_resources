@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react";
 import Cart from ".";
-import { demo } from "./data";
+import { demo } from "@/components/Data/MyCart";
 const meta: Meta<typeof Cart> = {
   title: "Examples/MyCart",
   component: Cart,

@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react";
 import GiftCard from ".";
-import { Cards, Labels } from "./data";
+import { Cards, Labels } from "@/components/Data/GiftCards";
 
 const meta: Meta<typeof GiftCard> = {
     title: "Examples/GiftCards",

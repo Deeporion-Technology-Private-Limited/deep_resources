@@ -1,6 +1,6 @@
 import { Box, IconButton, ProfileAvatar } from "@/components";
 import { forwardRef } from "react";
-import { heading } from "./data";
+import { heading } from "@/components/types";
 import { FindIconUrl } from "@/utils/Constant";
 
 const Heading = forwardRef<HTMLDivElement, heading>(

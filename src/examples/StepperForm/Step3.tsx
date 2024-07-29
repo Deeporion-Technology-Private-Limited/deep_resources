@@ -1,7 +1,7 @@
 import { Input } from "@/components";
 import { InputType, InputVariant } from "@/components/types";
 import React from "react";
-import { stepperData } from "./StepperData";
+import { stepperData } from "@/components/Data/StepperData";
 
 interface Step3CardProps {
   data: { paymentMethod: string };

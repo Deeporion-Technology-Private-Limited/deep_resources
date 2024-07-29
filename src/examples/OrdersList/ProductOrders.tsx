@@ -1,10 +1,10 @@
 import { Button } from "@/components/Button/DefaultButton/index";
 import { ProductOrderList } from "./type";
 import {
-  IShipmentOrderInfo,
   OrderListDetails,
   shipmentStatusColors,
 } from "@/components/Data/ShipmentDetails";
+import { IShipmentOrderInfo } from "@/components/types";
 import { ButtonSize, ButtonVariant } from "@/components/types";
 
 const ProductOrders: React.FC = () => {

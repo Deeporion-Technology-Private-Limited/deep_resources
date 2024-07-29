@@ -1,9 +1,10 @@
 
 import { Box, Button, Headings, Modal, OrderSummary, ProductCard, QuantityCard, Text } from "@/components";
-import { demo,CardObj, CardItem } from "./data";
+import { demo} from "@/components/Data/MyCart";
+import { CardItem,CardObj } from "@/components/types";
 import { ButtonSize } from "@/components/types";
 import { forwardRef, useState } from "react";
-import { cardData } from "../Wishlist/Data";
+import { cardData } from "@/components/Data/Whishlist";
 
 const Cart = forwardRef<HTMLDivElement, CardItem>(({ item,handleCart }, ref)  => {
   const [openModal, setOpenModal] = useState(false);

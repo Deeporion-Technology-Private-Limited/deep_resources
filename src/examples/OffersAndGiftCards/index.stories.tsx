@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react";
 import { OffersAndGiftCards } from ".";
-import { Cards, Labels } from "../GiftCards/data";
+import { Cards, Labels } from "@/components/Data/GiftCards";
 import { cardsData } from "../Discount Page/data";
 
 const meta: Meta<typeof OffersAndGiftCards> = {

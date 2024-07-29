@@ -1,7 +1,7 @@
 import React, { useState, forwardRef, ReactElement } from "react";
 import { cn } from "@/utils";
 import { cva } from "class-variance-authority";
-import { stepperData } from "./StepperData";
+import { stepperData } from "@/components/Data/StepperData";
 
 const stepperStyles = cva(
   [
@@ -25,6 +25,7 @@ export type Step = {
   component: ReactElement;
   title: string;
   data?: any;
+  onDataChange?: (data: any) => void;
 };
 
 interface StepperProps {

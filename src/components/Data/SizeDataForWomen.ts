@@ -1,9 +1,4 @@
-interface ISizeDataForWomen {
-  size: string;
-  hipCm: number;
-  waistCm: number;
-  lengthCm: number;
-}
+import { ISizeDataForWomen } from "../types";
 
 export const womanSize: ISizeDataForWomen[] = [
   {

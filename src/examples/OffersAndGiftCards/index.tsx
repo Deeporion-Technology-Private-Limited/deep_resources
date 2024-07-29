@@ -2,7 +2,7 @@ import { Box, Button, FaverateCard, Tabs, Text } from '@/components'
 import { cn } from '@/utils'
 import { ButtonIconPosition } from '@/components/types'
 import React, { ComponentProps, forwardRef, useState } from 'react'
-import { ICards, ILabels } from '../GiftCards/data'
+import { ICards, ILabels } from '@/components/types'
 import GiftCard from '../GiftCards'
 import { FindIconUrl } from '@/utils/Constant'
 

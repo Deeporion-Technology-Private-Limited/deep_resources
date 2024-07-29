@@ -6,7 +6,7 @@ import {
 import {
   NavItems,
   navBarIcons,
-} from "@/components/Header/TopNavbar/topNavConst";
+} from "@/components/types";
 import { FindIconUrl } from "@/utils/Constant";
 
 export const navItemArry: NavItems[] = [
@@ -32,11 +32,4 @@ export const navItemArry: NavItems[] = [
     ),
   },
   { text: "Gift Card", href: "/gift" },
-];
-
-export const navIconArray: navBarIcons[] = [
-  { icon: FindIconUrl("FavoriteBorder.svg") },
-  { icon: FindIconUrl("NotificationsNone.svg") },
-  { icon: FindIconUrl("OutlineShoppingCart.svg") },
-  { icon: FindIconUrl("OutlineSettings.svg") },
 ];

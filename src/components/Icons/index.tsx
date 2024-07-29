@@ -71,7 +71,7 @@ export const MasterCardIcon = ()=>{
 
     return(
         <div>
-                <img src={FindIconUrl("Mastercard.svg")} alt="MasterCardIcon" />   
+                <img src={FindIconUrl('Mastercard.svg')} alt="MasterCardIcon" />   
         </div>
     )
 }
@@ -153,3 +153,13 @@ export const Apple = () => {
         </div>
     )
 }
+
+export const CheckCircle = () => {
+
+    return(
+        <div>
+            <img src={FindIconUrl('CheckCircle.svg')} alt="CheckCircle" />
+        </div>
+    )
+}
+

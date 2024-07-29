@@ -1,16 +1,13 @@
 import React, { useState, forwardRef, ReactNode } from "react";
 import CloseEye from "../../../images/InputIcons/CloseEye";
 import OpenEye from "../../../images/InputIcons/OpenEye";
-import {
-  FormInputType,
-  FormInputVariant,
-} from "@/components/Data/FormInputData";
+import { InputVariant,InputType } from "@/components/types";
 import { getConditionalStyles } from "../getStyles";
 
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   search?: React.ReactNode;
-  type: FormInputType;
-  variant: FormInputVariant;
+  type: InputType;
+  variant: InputVariant;
   initialValue?: string;
   errors?: boolean;
   labelAsterisk?: ReactNode;
@@ -84,7 +81,7 @@ const PasswordInput = forwardRef<HTMLInputElement, InputProps>(
     );
 
     const renderAdditionalComponent = () => {
-      if (type === FormInputType.Password) {
+      if (type === InputType.Password) {
         return (
           <div
             className="absolute right-2 top-1/2 transform -translate-y-1/2 cursor-pointer"
@@ -113,7 +110,7 @@ const PasswordInput = forwardRef<HTMLInputElement, InputProps>(
           <input
             ref={ref}
             type={
-              showPassword && type === FormInputType.Password ? "text" : type
+              showPassword && type === InputType.Password ? "text" : type
             }
             name={name}
             value={value}

@@ -8,7 +8,7 @@ import {
   useRef,
   useState,
 } from "react";
-import { ILabels } from "../GiftCards/data";
+import { ILabels } from "@/components/types";
 import { InputType, InputVariant } from "@/components/types";
 import infoLogo from "../../images/Avatar3.svg";
 import { AdminSidebar } from "../AdminSidebar";
@@ -22,7 +22,7 @@ import {
   Orders,
 } from "../AdminSidebar/adminbarConst";
 import Checklist from "./Checklist";
-import { newOfferData } from "./OfferData";
+import { newOfferData } from "@/components/Data/OfferData";
 import { FindIconUrl } from "@/utils/Constant";
 
 type AddNewGiftCardProps = ComponentProps<typeof Box> & {

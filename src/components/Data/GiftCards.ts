@@ -1,8 +1,4 @@
-export interface ILabels {
-    value: string;
-    id: number;
-}
-
+import { ILabels,ICards } from "../types";
 
 export const Labels: ILabels[] = [
     {
@@ -88,11 +84,7 @@ export const Labels: ILabels[] = [
 ];
 
 
-export interface ICards {
-    img: string;
-    id: number;
-    category: string;
-}
+
 
 export const Cards: ICards[] = [
     {

@@ -3,7 +3,8 @@ import { Box, Sidebar, Topnavbar } from "@/components";
 import { VariantProps, cva } from "class-variance-authority";
 import { cn } from "@/utils";
 import { NavbarDirection } from "@/components/types";
-import { navIconArray, navItemArry } from "./hemburgerConst";
+import {navItemArry } from "./hemburgerConst";
+import { navBarIconsData } from "@/components/Data/navBarIconsData";
 import { navItemSideBar } from "@/components/Sidebar/sidebarConst";
 import { FindIconUrl } from "@/utils/Constant";
 
@@ -33,7 +34,7 @@ export const Hamburger = forwardRef<HTMLDivElement, HemProps>(
             title="Logo"
             direction={NavbarDirection.Row}
             navItem={navItemArry}
-            navBarIcons={navIconArray}
+            navBarIcons={navBarIconsData}
             profilePicture={FindIconUrl("profileImage.png")}
             isSearch={true}
             isLogin={true}

@@ -1,3 +1,4 @@
+import { PersonalInfoLabel } from "../types";
 export const personalInfoData: PersonalInfoLabel = {
     personalInfo: "Personal Information",
     fullname: "Full name",

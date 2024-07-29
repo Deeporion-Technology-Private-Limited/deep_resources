@@ -5,7 +5,7 @@ import { Box, Button, Elevation, Input, ProductCard, Text } from "@/components";
 import BirthdayGift from "../../images/BirthdayGift.svg"
 import { ElevationShadow } from "@/components/types";
 import { ButtonSize, ButtonVariant } from "@/components/types";
-import { initialData, RateData } from "./data";
+import { initialData, RateData } from "@/components/Data/AddGiftCard";
 import { InputType, InputVariant } from "@/components/types";
 
 const addgiftStyles = cva(["w-full"]);

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { BreadCrumb, Input } from "@/components";
 import Photo from "../../images/Photo.png";
 import ImagePopup from "./ImagePopup";
-import { personalInfoData } from "./PersonalInfoData";
+import { personalInfoData } from "@/components/Data/Information";
 import { InputType, InputVariant } from "@/components/types";
 import infoLogo from "../../images/Avatar3.svg";
 import { AdminSidebar } from "../AdminSidebar";

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { countries, indianStates } from "../../components/Data/Address";
-import { IAddress } from "@/components/Data/Address";
+import { IAddress } from "@/components/types";
 import { Button } from "@/components/Button/DefaultButton/index";
 import { Box } from "@/components/Layout/Box/index";
 import { Headings } from "@/components/Headings/index";

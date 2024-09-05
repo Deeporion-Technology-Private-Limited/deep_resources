@@ -1,8 +1,8 @@
 import {
-  FormInputType,
-  FormInputVariant,
+  InputType,
+  InputVariant,
   Placeholder,
-} from "@/components/Data/FormInputData";
+} from "@/components/types";
 import type { Meta, StoryObj } from "@storybook/react";
 import FormInput from "./";
 
@@ -30,11 +30,11 @@ type Story = StoryObj<typeof meta>;
 
 export const Text: Story = {
   args: {
-    type: FormInputType.Text,
-    label: FormInputType.TextInputLabel,
-    name: FormInputType.Name,
+    type: InputType.Text,
+    label: InputType.TextInputLabel,
+    name: InputType.Name,
     placeholder: Placeholder.Text,
-    className: FormInputType.ClassName,
+    className: InputType.ClassName,
     readOnly: false,
     disabled: false,
     required: true,
@@ -42,7 +42,7 @@ export const Text: Story = {
     size: 30,
     labelAsterisk: true,
     errors: true,
-    variant: FormInputVariant.Outlined,
-    initialValue: FormInputType.TextInputIntialValue,
+    variant: InputVariant.Outlined,
+    initialValue: InputType.TextInputIntialValue,
   },
 };

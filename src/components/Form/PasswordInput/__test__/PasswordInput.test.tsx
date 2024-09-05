@@ -2,13 +2,13 @@ import { render, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import FormInput from '../index';
 import {
-    FormInputType,
-    FormInputVariant,
-  } from "@/components/Data/FormInputData";
+    InputType,
+    InputVariant,
+  } from "@/components/types";
 describe('FormInput Component', () => {
   test('renders the input field', () => {
     const { getByPlaceholderText } = render(
-      <FormInput type={FormInputType.Name} name="testName" placeholder="Test Placeholder" variant={FormInputVariant.Standard} />
+      <FormInput type={InputType.Name} name="testName" placeholder="Test Placeholder" variant={InputVariant.Standard} />
     );
 
     expect(getByPlaceholderText('Test Placeholder')).toBeInTheDocument();
@@ -17,11 +17,11 @@ describe('FormInput Component', () => {
   test('renders the label and asterisk', () => {
     const { getByText } = render(
       <FormInput
-        type={FormInputType.Text}
+        type={InputType.Text}
         name="testName"
         label="Test Label"
         labelAsterisk="*"
-        variant={FormInputVariant.Standard}
+        variant={InputVariant.Standard}
       />
     );
 
@@ -31,7 +31,7 @@ describe('FormInput Component', () => {
 
   test('changes value on user input', () => {
     const { getByPlaceholderText } = render(
-      <FormInput variant={FormInputVariant.Standard} type={FormInputType.Text} name="testName" placeholder="Test Placeholder" />
+      <FormInput variant={InputVariant.Standard} type={InputType.Text} name="testName" placeholder="Test Placeholder" />
     );
 
     const input = getByPlaceholderText('Test Placeholder');
@@ -43,11 +43,11 @@ describe('FormInput Component', () => {
     const handleBlur = jest.fn();
     const { getByPlaceholderText } = render(
       <FormInput
-        type={FormInputType.Text}
+        type={InputType.Text}
         name="testName"
         placeholder="Test Placeholder"
         onBlur={handleBlur}
-        variant={FormInputVariant.Standard}
+        variant={InputVariant.Standard}
       />
     );
 
@@ -59,11 +59,11 @@ describe('FormInput Component', () => {
   test('handles readOnly state', () => {
     const { getByPlaceholderText } = render(
       <FormInput
-        type={FormInputType.Text}
+        type={InputType.Text}
         name="testName"
         placeholder="Test Placeholder"
         readOnly
-        variant={FormInputVariant.Standard}
+        variant={InputVariant.Standard}
       />
     );
 
@@ -74,11 +74,11 @@ describe('FormInput Component', () => {
   test('handles disabled state', () => {
     const { getByPlaceholderText } = render(
       <FormInput
-        type={FormInputType.Text}
+        type={InputType.Text}
         name="testName"
         placeholder="Test Placeholder"
         disabled
-        variant={FormInputVariant.Standard}
+        variant={InputVariant.Standard}
       />
     );
 
@@ -89,11 +89,11 @@ describe('FormInput Component', () => {
   test('handles required state', () => {
     const { getByPlaceholderText } = render(
       <FormInput
-        type={FormInputType.Text}
+        type={InputType.Text}
         name="testName"
         placeholder="Test Placeholder"
         required
-        variant={FormInputVariant.Standard}
+        variant={InputVariant.Standard}
       />
     );
 
@@ -103,11 +103,11 @@ describe('FormInput Component', () => {
   test('handles Password', () => {
     const { getByPlaceholderText,getByTestId } = render(
       <FormInput
-        type={FormInputType.Password}
+        type={InputType.Password}
         name="testName"
         placeholder="Test Placeholder"
         required
-        variant={FormInputVariant.Standard}
+        variant={InputVariant.Standard}
       />
     );
 
@@ -119,7 +119,7 @@ describe('FormInput Component', () => {
   });
   test('toggles password visibility', () => {
     const {  getByTestId } = render(
-      <FormInput  variant={FormInputVariant.Standard} type={FormInputType.Password} name="testPassword" placeholder="Enter Password" />
+      <FormInput  variant={InputVariant.Standard} type={InputType.Password} name="testPassword" placeholder="Enter Password" />
     );
 
   

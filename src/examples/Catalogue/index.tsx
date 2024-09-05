@@ -8,8 +8,7 @@ import {
   useRef,
   useState,
 } from "react";
-import { ILabels } from "../GiftCards/data";
-import { InputType, InputVariant } from "@/components/types";
+import { InputType, InputVariant, ILabels } from "@/components/types";
 import SearchImage from "@/images/InputIcons/SearchImage";
 import infoLogo from "../../images/Avatar3.svg";
 import { AdminSidebar } from "../AdminSidebar";
@@ -38,7 +37,8 @@ const CatalogueProducts = forwardRef<HTMLDivElement, AddNewGiftCardProps>(
     const [selectedFile, setSelectedFile] = useState<File | null>(null);
     const [dragActive, setDragActive] = useState(false);
     const inputRef = useRef<HTMLInputElement | null>(null);
-    const boorBell = "https://deepresources.s3.ap-south-1.amazonaws.com/images/NotificationsNone.svg"
+    const boorBell =
+      "https://deepresources.s3.ap-south-1.amazonaws.com/images/NotificationsNone.svg";
 
     const handleFileUpload = (files: any) => {
       const file = files[0];
@@ -227,7 +227,9 @@ const CatalogueProducts = forwardRef<HTMLDivElement, AddNewGiftCardProps>(
               <div className="flex w-full flex-wrap">
                 <div className="grid grid-cols-1 md:grid-cols-2 w-full gap-6 rounded-lg">
                   <div>
-                    <label className="block mb-1 text-sm font-semibold text-gray-800">{specificationData.productName}</label>
+                    <label className="block mb-1 text-sm font-semibold text-gray-800">
+                      {specificationData.productName}
+                    </label>
                     <Input
                       value={""}
                       placeholder="Enter name of the product"
@@ -237,7 +239,9 @@ const CatalogueProducts = forwardRef<HTMLDivElement, AddNewGiftCardProps>(
                     />
                   </div>
                   <div>
-                    <label className="block mb-1 text-sm font-semibold text-gray-800">{specificationData.productPrice}</label>
+                    <label className="block mb-1 text-sm font-semibold text-gray-800">
+                      {specificationData.productPrice}
+                    </label>
                     <Input
                       value={""}
                       placeholder="Enter price of the product"
@@ -247,7 +251,9 @@ const CatalogueProducts = forwardRef<HTMLDivElement, AddNewGiftCardProps>(
                     />
                   </div>
                   <div>
-                    <label className="block mb-1 text-sm font-semibold text-gray-800">{specificationData.productDetail}</label>
+                    <label className="block mb-1 text-sm font-semibold text-gray-800">
+                      {specificationData.productDetail}
+                    </label>
                     <Input
                       value={""}
                       placeholder="Enter product detail"
@@ -257,7 +263,9 @@ const CatalogueProducts = forwardRef<HTMLDivElement, AddNewGiftCardProps>(
                     />
                   </div>
                   <div>
-                    <label className="block mb-1 text-sm font-semibold text-gray-800">{specificationData.material}</label>
+                    <label className="block mb-1 text-sm font-semibold text-gray-800">
+                      {specificationData.material}
+                    </label>
                     <Input
                       value={""}
                       placeholder="Enter material and care"
@@ -271,7 +279,9 @@ const CatalogueProducts = forwardRef<HTMLDivElement, AddNewGiftCardProps>(
             </div>
             <div className="flex w-full px-10 flex-wrap">
               <div>
-                <label className="block mb-1 text-sm font-semibold text-gray-800">{specificationData.sizes}</label>
+                <label className="block mb-1 text-sm font-semibold text-gray-800">
+                  {specificationData.sizes}
+                </label>
                 <div className="flex p-1 overflow-x-auto">
                   {catalogueData.sizes.map((size) => (
                     <button
@@ -285,11 +295,15 @@ const CatalogueProducts = forwardRef<HTMLDivElement, AddNewGiftCardProps>(
               </div>
             </div>
             <div className="flex flex-col gap-4 w-full px-10">
-              <h2 className="block mb-1 text-sm font-semibold text-gray-800">{specificationData.title}</h2>
+              <h2 className="block mb-1 text-sm font-semibold text-gray-800">
+                {specificationData.title}
+              </h2>
               <div className="flex w-full flex-wrap">
                 <div className="grid grid-cols-1 md:grid-cols-2 w-full gap-6 rounded-lg">
                   <div>
-                  <label className="block mb-1 text-sm font-semibold text-gray-800">{specificationData.productName}</label>
+                    <label className="block mb-1 text-sm font-semibold text-gray-800">
+                      {specificationData.productName}
+                    </label>
                     <Input
                       value={""}
                       placeholder="Enter name of the product"
@@ -298,7 +312,9 @@ const CatalogueProducts = forwardRef<HTMLDivElement, AddNewGiftCardProps>(
                     />
                   </div>
                   <div>
-                    <label className="block mb-1 text-sm font-semibold text-gray-800">{specificationData.productPrice}</label>
+                    <label className="block mb-1 text-sm font-semibold text-gray-800">
+                      {specificationData.productPrice}
+                    </label>
                     <Input
                       value={""}
                       placeholder="Enter price of the product"
@@ -307,7 +323,9 @@ const CatalogueProducts = forwardRef<HTMLDivElement, AddNewGiftCardProps>(
                     />
                   </div>
                   <div>
-                    <label className="block mb-1 text-sm font-semibold text-gray-800">{specificationData.productName}</label>
+                    <label className="block mb-1 text-sm font-semibold text-gray-800">
+                      {specificationData.productName}
+                    </label>
                     <Input
                       value={""}
                       placeholder="Enter name of the product"
@@ -316,7 +334,9 @@ const CatalogueProducts = forwardRef<HTMLDivElement, AddNewGiftCardProps>(
                     />
                   </div>
                   <div>
-                    <label className="block mb-1 text-sm font-semibold text-gray-800">{specificationData.productPrice}</label>
+                    <label className="block mb-1 text-sm font-semibold text-gray-800">
+                      {specificationData.productPrice}
+                    </label>
                     <Input
                       value={""}
                       placeholder="Enter price of the product"
@@ -325,7 +345,9 @@ const CatalogueProducts = forwardRef<HTMLDivElement, AddNewGiftCardProps>(
                     />
                   </div>
                   <div>
-                    <label className="block mb-1 text-sm font-semibold text-gray-800">{specificationData.productName}</label>
+                    <label className="block mb-1 text-sm font-semibold text-gray-800">
+                      {specificationData.productName}
+                    </label>
                     <Input
                       value={""}
                       placeholder="Enter name of the product"
@@ -334,7 +356,9 @@ const CatalogueProducts = forwardRef<HTMLDivElement, AddNewGiftCardProps>(
                     />
                   </div>
                   <div>
-                    <label className="block mb-1 text-sm font-semibold text-gray-800">{specificationData.productPrice}</label>
+                    <label className="block mb-1 text-sm font-semibold text-gray-800">
+                      {specificationData.productPrice}
+                    </label>
                     <Input
                       value={""}
                       placeholder="Enter price of the product"
@@ -343,7 +367,9 @@ const CatalogueProducts = forwardRef<HTMLDivElement, AddNewGiftCardProps>(
                     />
                   </div>
                   <div>
-                    <label className="block mb-1 text-sm font-semibold text-gray-800">{specificationData.productName}</label>
+                    <label className="block mb-1 text-sm font-semibold text-gray-800">
+                      {specificationData.productName}
+                    </label>
                     <Input
                       value={""}
                       placeholder="Enter name of the product"
@@ -352,7 +378,9 @@ const CatalogueProducts = forwardRef<HTMLDivElement, AddNewGiftCardProps>(
                     />
                   </div>
                   <div>
-                    <label className="block mb-1 text-sm font-semibold text-gray-800">{specificationData.productPrice}</label>
+                    <label className="block mb-1 text-sm font-semibold text-gray-800">
+                      {specificationData.productPrice}
+                    </label>
                     <Input
                       value={""}
                       placeholder="Enter price of the product"

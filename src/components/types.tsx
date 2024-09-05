@@ -260,7 +260,7 @@ export enum InputType {
   PasswordInputLabel = "Password",
   TextInputIntialValue = "Sumit",
   ClassName = "FormInput-class",
-  UserName = "User Name",
+  UserName = "User-Name",
   Name = "userName",
   
 }
@@ -287,7 +287,7 @@ export enum Placeholder {
   ConfirmNew = "Confirm your new password",
   Subject = "subject",
   Details = "details",
-  FormInput = "Enter Something",
+  FormInput = "Enter-Something",
   
 }
 

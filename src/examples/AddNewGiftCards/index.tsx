@@ -1,7 +1,7 @@
 import { Box, Button, Input, Text } from "@/components";
 import { cn } from "@/utils";
 import { ChangeEvent, ComponentProps, DragEventHandler, forwardRef, useRef, useState } from "react";
-import { ILabels } from "@/components/Data/GiftCards";
+import { ILabels } from "@/components/types";
 import { InputType, InputVariant } from "@/components/types";
 import SearchImage from "@/images/InputIcons/SearchImage";
 import { FindIconUrl } from "@/utils/Constant";

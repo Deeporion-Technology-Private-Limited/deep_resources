@@ -1,6 +1,7 @@
 import { cn } from "@/utils";
 import { cva, VariantProps } from "class-variance-authority";
 import { ComponentProps, forwardRef } from "react";
+import { ItableData } from "../types";
 
 const tableStyles = cva(
   [
@@ -45,7 +46,7 @@ const tableStyles = cva(
 
 type TableProps = ComponentProps<"thead"> &
   VariantProps<typeof tableStyles> & {
-    data: Array<{ [key: string]: string | React.ReactNode }> | [];
+    data: Array<{ [key: string]: string | React.ReactNode }> | ItableData[];
     tableStyle?: string;
     tHeadStyle?: string;
     tDataStyle?: string;
@@ -121,7 +122,7 @@ export const Table = forwardRef<HTMLTableSectionElement, TableProps>(
                     )}
                     style={{ width: "auto" }}
                   >
-                    {row && row[header]}
+                    {row && (row as { [key: string]: string | React.ReactNode })[header]}
                   </td>
                 ))}
               </tr>

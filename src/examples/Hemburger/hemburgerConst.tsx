@@ -5,9 +5,7 @@ import {
 } from "@/components/Header/ExpandedNavbar/topHoverObjects";
 import {
   NavItems,
-  navBarIcons,
 } from "@/components/types";
-import { FindIconUrl } from "@/utils/Constant";
 
 export const navItemArry: NavItems[] = [
   {

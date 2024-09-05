@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { initialProp } from "./SettingsInterface";
+import { initialProp } from "@/components/types";
 import NotificationData from "@/components/Data/NotificationSettingsData";
 
  const NotificationSettings :React.FC = ()=>{

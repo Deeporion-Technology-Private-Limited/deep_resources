@@ -1,17 +1,18 @@
 {
-  "name": "deep_resources",
-  "private": true,
-  "version": "0.0.0",
+  "name": "deep_resources_123",
+  "version": "0.0.15",
   "type": "module",
   "files": [
     "dist"
   ],
   "main": "dist/deep-resources-umd.cjs",
   "module": "dist/deep-resources.js",
+  "types": "dist/deep-resources.d.ts",
   "exports": {
     ".": {
       "import": "./dist/deep-resources.js",
-      "require": "./dist/deep-resources-umd.cjs"
+      "require": "./dist/deep-resources-umd.cjs",
+      "types": "./dist/deep-resources.d.ts"
     }
   },
   "scripts": {
@@ -44,6 +45,9 @@
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^1.3.3",
+    "@rollup/plugin-commonjs": "^28.0.1",
+    "@rollup/plugin-node-resolve": "^15.3.0",
+    "@rollup/plugin-typescript": "^12.1.1",
     "@storybook/addon-essentials": "^8.0.9",
     "@storybook/addon-interactions": "^8.0.9",
     "@storybook/addon-links": "^8.0.9",
@@ -66,6 +70,11 @@
     "jest-environment-jsdom": "^29.7.0",
     "jest-transform-stub": "^2.0.0",
     "postcss": "^8.4.38",
+    "rollup": "^4.24.2",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-typescript2": "^0.36.0",
     "storybook": "^8.0.9",
     "tailwindcss": "^3.4.3",
     "ts-jest": "^29.1.5",

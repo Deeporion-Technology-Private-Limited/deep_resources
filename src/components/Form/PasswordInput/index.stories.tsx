@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import PasswordInput from "./";
+import {PasswordInput} from "./";
 import {
   InputType,
   InputVariant,

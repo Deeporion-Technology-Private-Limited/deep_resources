@@ -1,11 +1,11 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { Button } from ".";
-import { ButtonIconPosition, ButtonSize, ButtonVariant } from "../../types";
-import { FindIconUrl } from "@/utils/Constant";
+import { Meta, StoryObj } from "@storybook/react";
+import { FindIconUrl } from "../../../utils/Constant";
+import { ButtonVariant, ButtonSize, ButtonIconPosition } from "../../Layout";
+import { DefaultButton } from "./DefaultButton";
 
-const meta: Meta<typeof Button> = {
+const meta: Meta<typeof DefaultButton> = {
   title: "Components/Button/DefaultButton",
-  component: Button,
+  component: DefaultButton,
   parameters: {
     layout: "centered",
   },
@@ -24,8 +24,8 @@ export const Primary: Story = {
     hover: true,
     size: ButtonSize.Medium,
     disabled: false,
-    iconPosition: ButtonIconPosition.Right ,
-  }
+    iconPosition: ButtonIconPosition.Right,
+  },
 };
 
 export const Secondary: Story = {
@@ -36,7 +36,7 @@ export const Secondary: Story = {
     hover: true,
     size: ButtonSize.Medium,
     disabled: false,
-    iconPosition: ButtonIconPosition.Right ,
+    iconPosition: ButtonIconPosition.Right,
   },
 };
 
@@ -48,7 +48,6 @@ export const DarkBackground: Story = {
     hover: true,
     size: ButtonSize.Medium,
     disabled: false,
-    iconPosition: ButtonIconPosition.Right ,
-
+    iconPosition: ButtonIconPosition.Right,
   },
 };

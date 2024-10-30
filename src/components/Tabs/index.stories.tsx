@@ -1,9 +1,9 @@
 import { Meta, StoryObj } from "@storybook/react";
-import Calendar from "../Calendar/SelectedDateCalendar";
+
 import { Table } from "../Table/Table";
 import { Box } from "../Layout";
-import { TabData } from "./data";
-import { Tabs } from ".";
+import { TabData, Tabs } from ".";
+import { DateRangeCalendar } from "../Calendar";
 
 const meta: Meta<typeof Tabs> = {
   title: "Components/Tabs",
@@ -50,7 +50,7 @@ export const RenderComponent = {
       },
       {
         label: "Calender Component",
-        content: <Calendar month={6} year={2024} />,
+        content: <DateRangeCalendar month={6} year={2024} />,
       },
     ],
   },

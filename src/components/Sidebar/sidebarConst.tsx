@@ -1,7 +1,8 @@
+import React from "react";
+import { TopHoverMenuCard, TopItem, GenderItem, profile } from "../Header";
 import { Cart, Favourite, Notification, Setting } from "../MenuItem/Icon/icon";
-import { TopHoverMenuCard } from "../Header/ExpandedNavbar";
-import { GenderItem, TopItem } from "../Header/ExpandedNavbar/topHoverObjects";
-import { NavItems, profile } from "../Header/SideNavbar";
+import { NavItems } from "../types";
+
 
 export const navItemSideBar: NavItems[] = [
   { menus: "Home" },

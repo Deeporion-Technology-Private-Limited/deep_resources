@@ -1,12 +1,19 @@
+import {
+  Box,
+  Checkbox,
+  Headings,
+  Input,
+  ReviewCard,
+  Text,
+} from "@/components/index";
+import { CheckboxType, InputType, InputVariant } from "@/components/types";
 import type { Meta, StoryObj } from "@storybook/react";
-import { Modal } from ".";
-import { Box, Checkbox, Headings, Input, ReviewCard, Text } from "@/components/index";
-import { InputType, InputVariant, CheckboxType } from "@/components/types";
-import { LoginForm } from "@/examples/LoginForm/LoginForm";
+import { SkeletonLoginForm } from "../Skeleton";
+import { PopupModal } from "./PopupModal";
 
-const meta: Meta<typeof Modal> = {
+const meta: Meta<typeof PopupModal> = {
   title: "Components/PopupModal/Modals",
-  component: Modal,
+  component: PopupModal,
   parameters: {
     layout: "centered",
   },
@@ -186,6 +193,7 @@ export const PrivacyPolicy: Story = {
           label="Accept the Terms and Conditions"
           type={CheckboxType.Checkbox}
           value={" "}
+          checked={false}
         />
       </>
     ),
@@ -201,7 +209,7 @@ export const LoginForms: Story = {
     button01: false,
     openModal: true,
     crossIcon: false,
-    children: <LoginForm />,
+    children: <SkeletonLoginForm />,
     header: <></>,
   },
 };

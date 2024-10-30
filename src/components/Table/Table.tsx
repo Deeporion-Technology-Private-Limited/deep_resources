@@ -1,7 +1,8 @@
-import { cn } from "@/utils";
+import React from "react";
 import { cva, VariantProps } from "class-variance-authority";
 import { ComponentProps, forwardRef } from "react";
 import { ItableData } from "../types";
+import { cn } from "../../utils";
 
 const tableStyles = cva(
   [

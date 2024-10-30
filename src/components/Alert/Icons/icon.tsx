@@ -1,6 +1,7 @@
-import { FindIconUrl } from "@/utils/Constant";
+import React from "react";
+import { FindIconUrl } from "../../../utils/Constant";
 
-export const WarningFilled = () => {
+export const WarningFilled = (): React.JSX.Element => {
   const url = FindIconUrl("AiOutlineWarningWhite.svg");
 
   return (

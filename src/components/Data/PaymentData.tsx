@@ -1,5 +1,5 @@
 import React, { HTMLInputTypeAttribute, useState } from "react";
-import { Button } from "../Button/DefaultButton";
+import { DefaultButton } from "../Button/DefaultButton";
 import {
   ModileIcon,
   EditIcon,
@@ -12,10 +12,9 @@ import {
   AmexIcon
 } from "../Icons";
 import { Checkbox } from "../Checkbox";
-import { ButtonSize } from "../types";
-import Input from "../Input";
+import { ButtonSize, stateProp } from "../types";
+import {Input} from "../Input";
 import { InputType, InputVariant } from "../types";
-import { stateProp } from "@/examples/PaymentPage/AddressInterFace";
 
 
 
@@ -85,20 +84,20 @@ export const AddressContactDetail: React.FC<userProps> = ({ userData ,setUserDat
         </div>
     </div>
     <div className="w-full pt-3 pb-3 flex flex-col md:flex-row gap-2 md:mt-0">
-        <Button
+        <DefaultButton
           type="button"
           className="bg-[#E8EBED] text-[#72787F] font-medium h-8 w-full md:w-fit px-4 ml-auto"
           onClick={()=> setHandleShow(false)}
         >
           Cancel
-        </Button>
-        <Button 
+        </DefaultButton>
+        <DefaultButton 
           className="w-full md:w-auto font-medium h-8 px-4"
           onClick={()=> setHandleShow(false)}
           type="button"
         >
           Save
-        </Button>
+        </DefaultButton>
     </div>
     </>
    )}
@@ -153,20 +152,20 @@ export const AddressContactDetail: React.FC<userProps> = ({ userData ,setUserDat
         </div>
     </div>
     <div className="w-full pt-3 pb-3 flex flex-col md:flex-row gap-2 md:mt-0">
-        <Button
+        <DefaultButton
           type="button"
           className="bg-[#E8EBED] text-[#72787F] font-medium h-8 w-full md:w-fit px-4 ml-auto"
           onClick={() => setHandleEditShow(false)}
         >
           Cancel
-        </Button>
-        <Button 
+        </DefaultButton>
+        <DefaultButton 
           className="w-full md:w-auto font-medium h-8 px-4"
           onClick={() => setHandleEditShow(false)}
           type="button"
         >
           Save
-        </Button>
+        </DefaultButton>
     </div>
     </>
    )}
@@ -347,16 +346,16 @@ export const PaymentComp: React.FC<userProps> = ({ userData, handleBack, setUser
       </div>
       <CardDetails userData={userData} handleBack={handleBack} setUserData={setUserData} handleChange={handleChange} />
       <div className="w-full mt-4 flex gap-2 flex-col md:flex-row md:mt-0 pt-3">
-        <Button
+        <DefaultButton
           type="button"
           className="w-full md:w-auto h-10 bg-[#E8EBED] text-[#72787F] ml-auto"
           onClick={handleBack}
         >
           Back
-        </Button>
-        <Button className="w-full md:w-auto h-10">
+        </DefaultButton>
+        <DefaultButton className="w-full md:w-auto h-10">
           Next
-        </Button>
+        </DefaultButton>
       </div>
     </div>
   )

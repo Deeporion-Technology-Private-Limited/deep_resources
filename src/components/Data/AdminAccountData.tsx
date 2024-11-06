@@ -1,9 +1,7 @@
-import { AdminProp } from "@/examples/AdminAccount/AdminInterFace";
-import { Button } from "../Button/DefaultButton";
-import Input from "../Input";
-import { InputType, InputVariant } from "../types";
+import { DefaultButton } from "../Button/DefaultButton";
 import { DeleteIcon, ExitIcon } from "../Icons";
-
+import { Input } from "../Input";
+import { AdminProp, InputType, InputVariant } from "../types";
 
 export const AdminAccountDetails: React.FC<AdminProp> = ({
   Details,
@@ -20,9 +18,7 @@ export const AdminAccountDetails: React.FC<AdminProp> = ({
       <div className="w-full px-4 md:px-10 py-5">
         <div className="w-full py-5">
           <div className="w-full flex flex-col md:flex-row lg:text-base md:text-sm sm:text-xs font-bold gap-4">
-            <div className="w-full">
-              Payments
-            </div>
+            <div className="w-full">Payments</div>
             <div className="w-full">
               Card Details
               <div className="text-sm font-normal">{Details.card_Details}</div>
@@ -39,7 +35,9 @@ export const AdminAccountDetails: React.FC<AdminProp> = ({
               onChange={handleChange}
             >
               {Details.Currecys.map((item) => (
-                <option key={item} value={item}>{item}</option>
+                <option key={item} value={item}>
+                  {item}
+                </option>
               ))}
             </select>
           </div>
@@ -86,7 +84,10 @@ export const AdminAccountDetails: React.FC<AdminProp> = ({
                   Password
                   <h6>*******</h6>
                 </div>
-                <div className="font-bold w-full cursor-pointer" onClick={ChangePassword}>
+                <div
+                  className="font-bold w-full cursor-pointer"
+                  onClick={ChangePassword}
+                >
                   Change Password
                 </div>
               </div>
@@ -95,26 +96,35 @@ export const AdminAccountDetails: React.FC<AdminProp> = ({
           <div className="w-full flex flex-col md:flex-row gap-4 pt-6 justify-between pr-5">
             <div className="font-bold">Personal details</div>
             <div>
-              <div className="font-bold cursor-pointer flex" onClick={Logout}><ExitIcon/>Logout</div>
-              <div className="text-red-500 mt-2 cursor-pointer flex" onClick={DeleteAccount}><DeleteIcon/>Delete account</div>
+              <div className="font-bold cursor-pointer flex" onClick={Logout}>
+                <ExitIcon />
+                Logout
+              </div>
+              <div
+                className="text-red-500 mt-2 cursor-pointer flex"
+                onClick={DeleteAccount}
+              >
+                <DeleteIcon />
+                Delete account
+              </div>
             </div>
           </div>
         </div>
         <div className="w-full mt-4 flex gap-2 flex-col md:flex-row md:mt-0 pt-3">
-          <Button
+          <DefaultButton
             type="button"
             className="w-full md:w-auto h-10 bg-gray-200 text-gray-600 ml-auto"
             onClick={handleBack}
           >
             Back
-          </Button>
-          <Button
+          </DefaultButton>
+          <DefaultButton
             className="w-full md:w-auto h-10"
             type="button"
             onClick={handleNext}
           >
             Next
-          </Button>
+          </DefaultButton>
         </div>
       </div>
     </>

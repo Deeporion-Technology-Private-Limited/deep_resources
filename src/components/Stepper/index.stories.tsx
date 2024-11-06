@@ -1,5 +1,5 @@
 import React from 'react';
-import Stepper from '../Stepper/index';
+import {Stepper} from '../Stepper/index';
 import type { Meta, StoryObj } from '@storybook/react';
 
 type Step = {

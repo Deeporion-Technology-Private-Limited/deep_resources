@@ -1,22 +1,23 @@
-import { Button, Checkbox, Input } from "@/components";
-import Chips from "@/components/Chips";
+import { Checkbox, DefaultButton } from "@/components";
+import { Chips } from "@/components/Chips";
 import { ChipsTypes } from "@/components/types";
 import { Dispatch, SetStateAction, useState } from "react";
-import { InputType, InputVariant,StateProp } from "../types";
-
+import { Input } from "../Input";
+import { InputType, InputVariant, StateProp } from "../types";
 
 interface ContactDetailsProps {
   handleChange: (e: any) => void;
   value: StateProp;
 }
 
-export const ContactDetails: React.FC<ContactDetailsProps> = ({ handleChange, value }) => {
-
-
+export const ContactDetails: React.FC<ContactDetailsProps> = ({
+  handleChange,
+  value,
+}) => {
   return (
     <div className="flex flex-wrap">
       <div className="w-full md:w-1/2 px-2 mb-4">
-        <label htmlFor="first_name" >First Name</label>
+        <label htmlFor="first_name">First Name</label>
         <Input
           type={InputType.Text}
           variant={InputVariant.Filled}
@@ -25,25 +26,31 @@ export const ContactDetails: React.FC<ContactDetailsProps> = ({ handleChange, va
           placeholder="Enter First Name"
           className="p-2 border rounded-md w-full
            font-light bg-white  mt-2 focus:outline-transparent focus:border-gray-300 "
-          onChange={handleChange} />
+          onChange={handleChange}
+        />
       </div>
       <div className="w-full md:w-1/2 px-2 mb-4">
-        <label htmlFor="Last_name" className="font-medium">Last Name</label>
+        <label htmlFor="Last_name" className="font-medium">
+          Last Name
+        </label>
         <Input
           type={InputType.Text}
           variant={InputVariant.Filled}
           name="Last_name"
           value={value.Last_name}
           placeholder="Enter Last Name"
-           className="p-2 border rounded-md w-full
+          className="p-2 border rounded-md w-full
            font-light bg-white  mt-2 focus:outline-transparent focus:border-gray-300 "
-          onChange={handleChange} />
+          onChange={handleChange}
+        />
       </div>
       <div className="w-full md:w-1/2 px-2 mb-4">
-        <label htmlFor="phone_Number" className="font-medium">Phone Number</label>
+        <label htmlFor="phone_Number" className="font-medium">
+          Phone Number
+        </label>
         <div className="p-2 border flex rounded-md w-full bg-transparent mt-2 gap-1">
           <div className="flex items-center justify-center">+91</div>
-            <Input 
+          <Input
             type={InputType.Number}
             variant={InputVariant.Outlined}
             name="phone_Number"
@@ -51,40 +58,49 @@ export const ContactDetails: React.FC<ContactDetailsProps> = ({ handleChange, va
             placeholder="Enter Phone Number"
             className=" w-full h-5 bg-transparent outline-none focus:outline-transparent
              [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none 
-             [&::-webkit-inner-spin-button]:appearance-none font-light border-none" 
+             [&::-webkit-inner-spin-button]:appearance-none font-light border-none"
             onChange={handleChange}
-            />
+          />
         </div>
       </div>
       <div className="w-full md:w-1/2 px-2 mb-4">
-        <label htmlFor="email" className="font-medium ">Email</label>
-        <Input 
-        type={InputType.Email}
-        variant={InputVariant.Outlined}
-        name="email"
-        value={value.email}
-        placeholder="Enter email"
-         className="p-2 border rounded-md w-full
+        <label htmlFor="email" className="font-medium ">
+          Email
+        </label>
+        <Input
+          type={InputType.Email}
+          variant={InputVariant.Outlined}
+          name="email"
+          value={value.email}
+          placeholder="Enter email"
+          className="p-2 border rounded-md w-full
            font-light bg-white  mt-2 focus:outline-transparent focus:border-gray-300 "
-        onChange={handleChange}/>
+          onChange={handleChange}
+        />
       </div>
     </div>
   );
 };
 
-
-export const AddressDetails: React.FC<ContactDetailsProps> = ({ handleChange, value }) => {
+export const AddressDetails: React.FC<ContactDetailsProps> = ({
+  handleChange,
+  value,
+}) => {
   return (
     <div className="flex flex-wrap ">
       <div className="w-full  px-2 mb-4">
-        <label htmlFor="Country" className="font-medium">Country</label>
+        <label htmlFor="Country" className="font-medium">
+          Country
+        </label>
         <select
           name="Country"
           className="p-2 border rounded-md font-light w-full outline-none bg-transparent"
           value={value.Country}
           onChange={handleChange}
         >
-          <option value="" disabled>Select Country</option>
+          <option value="" disabled>
+            Select Country
+          </option>
           <option value="India">India</option>
           <option value="Australia">Australia</option>
           <option value="China">China</option>
@@ -92,7 +108,9 @@ export const AddressDetails: React.FC<ContactDetailsProps> = ({ handleChange, va
         </select>
       </div>
       <div className="w-full md:w-1/2 px-2 mb-4">
-        <label htmlFor="pincode" className="font-medium">Pincode</label>
+        <label htmlFor="pincode" className="font-medium">
+          Pincode
+        </label>
         <Input
           type={InputType.Number}
           variant={InputVariant.Filled}
@@ -101,13 +119,14 @@ export const AddressDetails: React.FC<ContactDetailsProps> = ({ handleChange, va
           className=" p-2 w-full border font-light rounded-md bg-transparent
            outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none 
            [&::-webkit-inner-spin-button]:appearance-none focus:outline-[grey] mt-2"
-
           value={value.pincode}
           onChange={handleChange}
         />
       </div>
       <div className="w-full md:w-1/2 px-2 mb-4">
-        <label htmlFor="Area" className="font-medium">Area</label>
+        <label htmlFor="Area" className="font-medium">
+          Area
+        </label>
         <Input
           type={InputType.Text}
           variant={InputVariant.Outlined}
@@ -119,7 +138,9 @@ export const AddressDetails: React.FC<ContactDetailsProps> = ({ handleChange, va
         />
       </div>
       <div className="w-full md:w-1/2 px-2 mb-4">
-        <label htmlFor="city" className="font-medium">City</label>
+        <label htmlFor="city" className="font-medium">
+          City
+        </label>
         <Input
           type={InputType.Text}
           variant={InputVariant.Outlined}
@@ -131,7 +152,9 @@ export const AddressDetails: React.FC<ContactDetailsProps> = ({ handleChange, va
         />
       </div>
       <div className="w-full md:w-1/2 px-2 mb-4">
-        <label htmlFor="State" className="font-medium">State</label>
+        <label htmlFor="State" className="font-medium">
+          State
+        </label>
         <Input
           type={InputType.Text}
           variant={InputVariant.Outlined}
@@ -144,11 +167,13 @@ export const AddressDetails: React.FC<ContactDetailsProps> = ({ handleChange, va
       </div>
 
       <div className="w-full px-2 mb-4">
-        <label htmlFor="Address" className="font-medium">Address</label>
-         <Input
+        <label htmlFor="Address" className="font-medium">
+          Address
+        </label>
+        <Input
           type={InputType.Text}
           variant={InputVariant.Outlined}
-           name="Address"
+          name="Address"
           placeholder="Enter complete address (optional)"
           className="p-2 border rounded-md w-full font-light outline-none focus:outline-[grey] mt-2"
           value={value.city}
@@ -159,13 +184,15 @@ export const AddressDetails: React.FC<ContactDetailsProps> = ({ handleChange, va
   );
 };
 
-
 interface SaveAsAddressProps {
   getData: Dispatch<SetStateAction<StateProp>>;
   handleBack: () => void;
 }
 
-export const SaveAsAddress: React.FC<SaveAsAddressProps> = ({ getData, handleBack }) => {
+export const SaveAsAddress: React.FC<SaveAsAddressProps> = ({
+  getData,
+  handleBack,
+}) => {
   const [changeColour, setChangeColour] = useState(false);
   const [changeColour1, setChangeColour1] = useState(false);
 
@@ -193,25 +220,28 @@ export const SaveAsAddress: React.FC<SaveAsAddressProps> = ({ getData, handleBac
           }}
         />
       </div>
-      <div className="flex items-center pt-3 font-light border-b" >
+      <div className="flex items-center pt-3 font-light border-b">
         <Checkbox
           value={"Make this my default address"}
           label={"Make this my default address"}
-          onChange={(e) => getData((prev) => ({ ...prev, Checked: e.target.checked }))}
+          onChange={(e) =>
+            getData((prev) => ({ ...prev, Checked: e.target.checked }))
+          }
           containerClassName="h-[1.25rem] w-[1.25rem] rounded-md"
+          checked={false}
         />
       </div>
       <div className="w-full mt-4 md:mt-0 md:w-auto md:ml-auto flex gap-2 pt-3 ">
-        <Button
+        <DefaultButton
           type="button"
           className="w-full md:w-auto h-[2.5rem] bg-[#E8EBED] text-[#72787F] ml-auto"
           onClick={handleBack}
         >
           Back
-        </Button>
-        <Button className="w-full md:w-auto h-[2.5rem]">
+        </DefaultButton>
+        <DefaultButton className="w-full md:w-auto h-[2.5rem]">
           Next
-        </Button>
+        </DefaultButton>
       </div>
     </div>
   );
@@ -219,16 +249,16 @@ export const SaveAsAddress: React.FC<SaveAsAddressProps> = ({ getData, handleBac
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const initialData = {
-  first_name: '',
-  Last_name: '',
-  phone_Number: '',
-  email: '',
-  pincode: '',
-  Area: '',
-  Country: '',
-  city: '',
-  State: '',
-  Address: '',
-  addressType: '',
-  Checked: false
-}
+  first_name: "",
+  Last_name: "",
+  phone_Number: "",
+  email: "",
+  pincode: "",
+  Area: "",
+  Country: "",
+  city: "",
+  State: "",
+  Address: "",
+  addressType: "",
+  Checked: false,
+};

@@ -1,7 +1,7 @@
-import { FindIconUrl } from "@/utils/Constant";
 import React from "react";
+import { FindIconUrl } from "../../../utils/Constant";
 
-export const UpArrow: React.FC = () => {
+export const AccordionUpArrow: React.FC = () => {
   return (
     <div data-testid="uparrow">
         <img src={FindIconUrl("ArrowUpward.svg")} alt="" />

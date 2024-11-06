@@ -1,8 +1,8 @@
 import { Meta, StoryObj } from "@storybook/react";
 import { ButtonDirection } from "../../types";
 import { GroupIconButton } from ".";
-import { IconButton } from "../SingleIconButton";
-import { FindIconUrl } from "@/utils/Constant";
+import { SingleIconButton } from "../SingleIconButton";
+import { FindIconUrl } from "../../../utils/Constant";
 
 const meta: Meta<typeof GroupIconButton> = {
   title: "Components/Button/GroupIconButton",
@@ -22,22 +22,22 @@ export const Default: Story = {
     direction: ButtonDirection.Row,
     children: (
       <>
-        <IconButton
+        <SingleIconButton
           iconUrl={FindIconUrl("Cart.svg")}
           backgroundColor="transparent"
           direction={ButtonDirection.Row}
         />
-        <IconButton
+        <SingleIconButton
           iconUrl={FindIconUrl("Favourite.svg")}
           backgroundColor="transparent"
           direction={ButtonDirection.Row}
         />
-        <IconButton
+        <SingleIconButton
           iconUrl={FindIconUrl("Notification.svg")}
           backgroundColor="transparent"
           direction={ButtonDirection.Row}
         />
-        <IconButton
+        <SingleIconButton
           iconUrl={FindIconUrl("Setting.svg")}
           backgroundColor="transparent"
           direction={ButtonDirection.Row}
@@ -53,22 +53,22 @@ export const GroupButtonWithIcon: Story = {
     className: `bg-blue-500 text-[#FFFFFF] rounded ${ButtonDirection.Row ? "divide-x divide-solid" : "divide-y divide-solid"}`,
     children: (
       <>
-        <IconButton
+        <SingleIconButton
           iconUrl={FindIconUrl("Cart.svg")}
           backgroundColor="transparent"
           direction={ButtonDirection.Row}
         />
-        <IconButton
+        <SingleIconButton
           iconUrl={FindIconUrl("Favourite.svg")}
           backgroundColor="transparent"
           direction={ButtonDirection.Row}
         />
-        <IconButton
+        <SingleIconButton
           iconUrl={FindIconUrl("Notification.svg")}
           backgroundColor="transparent"
           direction={ButtonDirection.Row}
         />
-        <IconButton
+        <SingleIconButton
           iconUrl={FindIconUrl("Setting.svg")}
           backgroundColor="transparent"
           direction={ButtonDirection.Row}
@@ -84,22 +84,22 @@ export const GroupButtonWithText: Story = {
     className: `bg-blue-500 text-[#FFFFFF] rounded ${ButtonDirection.Row ? "divide-x divide-solid" : "divide-y divide-solid"}`,
     children: (
       <>
-        <IconButton
+        <SingleIconButton
           text="Cart"
           backgroundColor="transparent"
           direction={ButtonDirection.Row}
         />
-        <IconButton
+        <SingleIconButton
           text="Favourite"
           backgroundColor="transparent"
           direction={ButtonDirection.Row}
         />
-        <IconButton
+        <SingleIconButton
           text="Notification"
           backgroundColor="transparent"
           direction={ButtonDirection.Row}
         />
-        <IconButton
+        <SingleIconButton
           text="Setting"
           backgroundColor="transparent"
           direction={ButtonDirection.Row}
@@ -115,25 +115,25 @@ export const GroupButtonWithIconText: Story = {
     className: `bg-blue-500 text-[#FFFFFF] rounded ${ButtonDirection.Row ? "divide-x divide-solid" : "divide-y divide-solid"}`,
     children: (
       <>
-        <IconButton
+        <SingleIconButton
           iconUrl={FindIconUrl("Cart.svg")}
           text="Cart"
           backgroundColor="transparent"
           direction={ButtonDirection.Row}
         />
-        <IconButton
+        <SingleIconButton
           iconUrl={FindIconUrl("Favourite.svg")}
           text="Favourite"
           backgroundColor="transparent"
           direction={ButtonDirection.Row}
         />
-        <IconButton
+        <SingleIconButton
           iconUrl={FindIconUrl("Notification.svg")}
           text="Notification"
           backgroundColor="transparent"
           direction={ButtonDirection.Row}
         />
-        <IconButton
+        <SingleIconButton
           iconUrl={FindIconUrl("Setting.svg")}
           text="Setting"
           backgroundColor="transparent"

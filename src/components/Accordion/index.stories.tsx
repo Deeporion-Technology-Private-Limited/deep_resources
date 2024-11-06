@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { AccordionTypes, contentData, contentName } from "../types";
-import {  UpArrow, UpCursor } from "./Icon/Icon";
+import {  AccordionUpArrow, UpCursor } from "./Icon/Icon";
 import { AccordionBody } from "./AccordionBody";
 const meta: Meta<typeof AccordionBody> = {
   title: "Components/Accordion/Accordion",
@@ -20,7 +20,7 @@ export const Default: Story = {
     variant: AccordionTypes.Arrow,
     children:contentName.Accordion1,
     content:contentData.content,
-    Icon:<UpArrow />
+    Icon:<AccordionUpArrow />
   },
 };
 

@@ -1,4 +1,4 @@
-import { FindIconUrl } from "@/utils/Constant";
+import { FindIconUrl } from "../../../utils/Constant";
 
 interface ChipsProps {
     className?: string;
@@ -17,7 +17,7 @@ export const CloseYellow : React.FC<ChipsProps> = ({className ,handleClick} )=>{
     </div>)
 }
 
-export const CloseBlack : React.FC<ChipsProps> = ({className ,handleClick} )=>{
+export const ChipCloseBlack : React.FC<ChipsProps> = ({className ,handleClick} )=>{
     return (<div className={className} onClick={handleClick} >
       <img src={FindIconUrl("Close.svg")} alt="" />
     </div>)

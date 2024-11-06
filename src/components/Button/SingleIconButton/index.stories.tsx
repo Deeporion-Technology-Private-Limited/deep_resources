@@ -1,11 +1,11 @@
 import { Meta, StoryObj } from "@storybook/react";
-import { IconButton } from ".";
+import { SingleIconButton } from ".";
 import { ButtonDirection } from "../../types";
-import { FindIconUrl } from "@/utils/Constant";
+import { FindIconUrl } from "../../../utils/Constant";
 
-const meta: Meta<typeof IconButton> = {
+const meta: Meta<typeof SingleIconButton> = {
   title: "Components/Button/SingleIconButton",
-  component: IconButton,
+  component: SingleIconButton,
   parameters: {
     layout: "centered",
   },

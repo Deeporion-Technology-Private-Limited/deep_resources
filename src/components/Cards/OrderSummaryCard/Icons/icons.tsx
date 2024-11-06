@@ -1,4 +1,4 @@
-import { FindIconUrl } from "@/utils/Constant";
+import { FindIconUrl } from "../../../../utils/Constant";
 
 export const Arrow = () => {
   const url = FindIconUrl("KeyboardArrowDown.svg");
@@ -30,7 +30,7 @@ export const Secure = () => {
   );
 };
 
-export const Cart = () => {
+export const CardCart = () => {
   const url = FindIconUrl("checkoutCart.svg");
 
   return (

@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { Button } from "../Button/DefaultButton";
+import { DefaultButton } from "../Button/DefaultButton";
 import { ButtonIconPosition, ButtonSize, ButtonVariant } from "../types";
-import { Box } from "../Layout";
+import { AdminSubscriptionProp, Box } from "../Layout";
 
 import { ThreeDostIcon,Close } from "../Icons";
 
@@ -102,7 +102,7 @@ export const AdminSubscriptionPage: React.FC<AdminSubscriptionProp> = ({ initial
         <div className="w-full flex justify-between px-4 py-3">
           <div className="font-bold text-lg md:text-xl h-12 flex justify-center items-center">Plans</div>
           <div className="h-12 flex justify-center items-center cursor-pointer">
-            <Button
+            <DefaultButton
               hover
               iconPosition={ButtonIconPosition.Left}
               iconUrl="/src/components/Button/ButtonImage/AddItem.svg"
@@ -115,7 +115,7 @@ export const AdminSubscriptionPage: React.FC<AdminSubscriptionProp> = ({ initial
               }}
             >
               Add New Plan
-            </Button>
+            </DefaultButton>
           </div>
         </div>
         <div className="pt-3 px-4 w-full">
@@ -269,7 +269,7 @@ export const AdminSubscriptionPage: React.FC<AdminSubscriptionProp> = ({ initial
                   </div>
                 </div>
                 <div className="flex justify-end pt-6">
-                  <Button
+                  <DefaultButton
                     hover
                     size={ButtonSize.Small}
                     className="w-1/4 mr-2"
@@ -277,8 +277,8 @@ export const AdminSubscriptionPage: React.FC<AdminSubscriptionProp> = ({ initial
                     onClick={handleCancel}
                   >
                     Cancel
-                  </Button>
-                  <Button
+                  </DefaultButton>
+                  <DefaultButton
                     hover
                     variant={ButtonVariant.DefaultPrimary}
                     size={ButtonSize.Small}
@@ -286,7 +286,7 @@ export const AdminSubscriptionPage: React.FC<AdminSubscriptionProp> = ({ initial
                     type="submit"
                   >
                     {editItemId !== null ? "Save" : "ADD"}
-                  </Button>
+                  </DefaultButton>
                 </div>
               </Box>
             </form>

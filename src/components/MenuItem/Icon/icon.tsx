@@ -1,5 +1,5 @@
-import { FindIconUrl } from "@/utils/Constant";
 import React from "react";
+import { FindIconUrl } from "../../../utils/Constant";
 
 interface IconProps {
   className?: string;

@@ -1084,6 +1084,14 @@ export interface SellerInterface {
   verification: string;
   Checked: string;
 }
-
-
-
+export interface  SidebarItemProps  {
+  icon: string;
+  label: string;
+  link?: string;
+  onClick?: () => void;
+  active?: boolean;
+};
+export interface sidebarProps{
+  item:SidebarItemProps[];
+  className?:string;
+}

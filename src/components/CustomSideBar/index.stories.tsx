@@ -1,13 +1,12 @@
 import { Meta, StoryObj } from "@storybook/react";
-import { TabseData } from "./CoustomSideBarConst";
+import { TabseData } from "./CustomSideBarConst";
 import RightArrow from "../BreadCrumb/icon/RightArrow.svg";
-import { CoustomSideBar } from "./CoustomSideBar";
+import { CustomSideBar } from "./CustomSideBar";
 
 
-
-const meta: Meta<typeof CoustomSideBar> = { 
+const meta: Meta<typeof CustomSideBar> = { 
   title: "Components/CoustomSideBar", 
-  component: CoustomSideBar, 
+  component: CustomSideBar, 
   parameters: {
     layout: "centered",
   },

@@ -4,25 +4,22 @@ import { VariantProps, cva } from "class-variance-authority";
 import { ComponentProps, forwardRef, useState } from "react";
 import { ProfileAvatar } from "../Avatar";
 
-
-
-
-interface sidebarItems {
+interface sidebarTabs {
   icon:string,
   tabName:string
 }
 
-interface CoustomSideBarProps {
+interface ICoustomSideBarProps {
      Logo:string;
      LogoStyle:string
-     sidebarTabs:sidebarItems[];
+     sidebarTabs:sidebarTabs[];
      sidebarTabsStyle:string
      profileName:string;
      profileAvtarStyle:string;
      arrowIcon:string;
      handleAvtarClick: ()=>void;
      handleTabs:(tabName:string)=>void;
-     profileData:sidebarItems[];
+     profileData:sidebarTabs[];
      handleProfileTabs:(items:string)=>void;
      sidebarProfileTabsStyle:string
 }
@@ -39,12 +36,12 @@ const navBarStyles = cva([
 ]);
 
 interface Prop
-  extends CoustomSideBarProps,
+  extends ICoustomSideBarProps,
     ComponentProps<typeof Box>,
     VariantProps<typeof navBarStyles> {}
 
 
-export const CoustomSideBar = forwardRef<HTMLDivElement, Prop>(
+export const CustomSideBar = forwardRef<HTMLDivElement, Prop>(
   (
     {
       className,

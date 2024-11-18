@@ -1,5 +1,5 @@
 import React, { forwardRef, useState } from "react";
-import { Box, SidebarItemProps, sidebarProps } from "../Layout";
+import { Box, IMainSidebarItemProps, IMainSidebarProps } from "../Layout";
 import { Text } from "../Text";
 import { cva } from "class-variance-authority";
 import { cn } from "../../utils";
@@ -14,7 +14,10 @@ const menuStyle = cva([
   "relative",
   "text-white",
 ]);
-const SidebarItem: React.FC<SidebarItemProps> = ({
+const labelStyle =
+  "absolute bg-[#031b59] left-16 p-2 mt-3 shadow-xl capitalize rounded-lg";
+
+const SidebarItem: React.FC<IMainSidebarItemProps> = ({
   icon,
   label,
   link,
@@ -33,8 +36,8 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
 
   return (
     <Box
-      className={`flex items-center w-full my-4 cursor-pointer px-4 py-2 rounded-md justify-between}
-        ${active ? "bg-white/10  border-l-2 border-[#FF7914]" : "bg-transparent"}
+      className={`flex items-center w-full my-4 cursor-pointer px-4 py-4 rounded-md justify-between}
+        ${active ? "bg-white/10  border-l-4 border-[#FF7914]" : "bg-transparent"}
         ${isHovered ? "bg-white/10 hover:scale-105" : "text-[#B0C7E5]"}`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -43,7 +46,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
       <Box className="flex w-full items-center justify-center relative">
         <img src={icon} className="text-white" />
         {isHovered && (
-          <Box className="absolute bg-[#031b59] left-16 p-2 mt-3 shadow-xl capitalize rounded-lg">
+          <Box className={cn(labelStyle)}>
             <Text>{label}</Text>
           </Box>
         )}
@@ -52,13 +55,13 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
   );
 };
 
-export const Sidebar = forwardRef<HTMLDivElement, sidebarProps>(
-  ({ item, className, ...props }, ref) => {
+export const MainSidebar = forwardRef<HTMLDivElement, IMainSidebarProps>(
+  ({ item, className, labelStyle, ...props }, ref) => {
     const [activeItem, setActiveItem] = useState<string>("Dashboard");
 
     return (
       <Box className={cn(menuStyle({ className }))} ref={ref} {...props}>
-        <Box className="flex flex-col items-start space-y-4 px-2 mt-32">
+        <Box className="flex flex-col items-start px-[0.05rem] mt-32">
           {item?.map((item) => (
             <SidebarItem
               icon={item?.icon}

@@ -1,13 +1,14 @@
 import { Meta, StoryObj } from "@storybook/react";
-import { Sidebar } from ".";
+import { MainSidebar } from ".";
 import { SidebarItemData } from "./data";
 
-const meta: Meta<typeof Sidebar> = {
+const meta: Meta<typeof MainSidebar> = {
   title: "Components/Mainsidebar",
-  component: Sidebar,
+  component: MainSidebar,
   parameters: {
     layout: "centered",
   },
+  tags: ["autodocs"],
 };
 
 export default meta;
@@ -18,5 +19,6 @@ export const Default: Story = {
   args: {
     item: SidebarItemData,
     className: "",
+    labelStyle: "w-full p-10",
   },
 };

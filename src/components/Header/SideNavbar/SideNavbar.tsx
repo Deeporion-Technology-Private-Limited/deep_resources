@@ -231,7 +231,7 @@ export const SideNavbar = forwardRef<HTMLDivElement, LogoImageProps>(
               <GroupIconButton direction={ButtonDirection.Column}>
                 {navItem &&
                   navItem?.map((item) => (
-                    <Box className="w-full flex items-center justify-center">
+                    <Box key={item.path} className="w-full flex items-center justify-center">
                       <SingleIconButton
                         iconUrl={item.menuIcon}
                         text={`${showNavItemName ? item.menus : ""}`}

@@ -26,7 +26,7 @@ type InputProps = Omit<ComponentProps<"input">, "size"> &
   VariantProps<typeof inputStyles> & {
     type?: "checkbox" | "radio" | "toggle";
     label?: string;
-    checked: boolean;
+    checked?: boolean;
     className?: string;
     labelClassname?: string;
     containerClassName?: string;
@@ -60,7 +60,7 @@ export const Checkbox = forwardRef<HTMLInputElement, InputProps>(
     },
     ref
   ) => {
-    const [isChecked, setIsChecked] = useState(false);
+    const [isChecked, setIsChecked] = useState(checked ?? false);
 
     useEffect(() => {
       if (checked !== undefined) {

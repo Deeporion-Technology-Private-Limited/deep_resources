@@ -63,6 +63,7 @@ export const Cateloge = forwardRef<HTMLDivElement, Items>(
           <Box className="pl-2 pr-2 border-b-2">
             {data?.map((val: user) => (
               <Box
+              key={val.id}
                 className={`flex p-2 justify-between items-center  hover:text-2xl cursor-pointer  w-full h-full ${
                   currentItem?.id === val?.id ? "bg-[#D7C7C1]" : null
                 }`}

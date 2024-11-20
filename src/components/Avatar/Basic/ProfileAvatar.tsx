@@ -53,6 +53,7 @@ export interface ProfileAvatarProps
   bgImgColor?: string;
   className?: string;
   textColor?: string;
+  handleNav?: () => void;
 }
 
 export const ProfileAvatar = React.forwardRef<
@@ -67,6 +68,7 @@ export const ProfileAvatar = React.forwardRef<
       className = "",
       textColor = "white",
       size = ButtonSize.Medium,
+      handleNav,
       ...props
     },
     ref
@@ -77,6 +79,7 @@ export const ProfileAvatar = React.forwardRef<
           <img
             className={cn(profileStyles({ size }), className)}
             src={src}
+            onClick={handleNav}
             alt="Profile Avatar"
           />
         ) : (
@@ -84,6 +87,7 @@ export const ProfileAvatar = React.forwardRef<
             ref={ref}
             className={cn(profileStyles({ size }), className)}
             {...props}
+            onClick={handleNav}
             style={{
               backgroundColor: bgImgColor || getColorFromFullName(name),
               color: textColor,

@@ -1,4 +1,4 @@
-import React, { useState, forwardRef, ComponentProps } from "react";
+import React, { useState, forwardRef, ComponentProps, useEffect } from "react";
 
 import { VariantProps, cva } from "class-variance-authority";
 import { Box } from "../../Layout";
@@ -6,7 +6,6 @@ import { DefaultButton } from "../../Button";
 import { FindIconUrl } from "../../../utils/Constant";
 import { Text } from "../../Text";
 import { cn } from "../../../utils";
-
 
 type CardProps = ComponentProps<typeof Box> &
   VariantProps<typeof cardStyles> & {
@@ -23,13 +22,17 @@ type CardProps = ComponentProps<typeof Box> &
     handleClose?: () => void;
     checked?: boolean;
     iconStyle?: string;
-    handleChange?: (name: any) => void;
+
+    onSizeChange?: (size: string) => void;
+    onQuantityChange?: (quantity: number) => void;
+    selectedSize?: string;
+    selectedQuantity?: number;
     isReturn?: boolean;
     isQuantity?: boolean;
   };
 
 const cardStyles = cva(
-  "max-w-full sm:max-w-[60rem] rounded overflow-hidden shadow-lg flex flex-col sm:flex-row relative"
+  "max-w-full rounded overflow-hidden shadow-lg flex flex-col flex-row relative"
 );
 
 export const QuantityCard = forwardRef<HTMLDivElement, CardProps>(
@@ -48,26 +51,33 @@ export const QuantityCard = forwardRef<HTMLDivElement, CardProps>(
       handleClose,
       iconStyle = "size-8",
       children,
-      handleChange,
+      onSizeChange,
+      onQuantityChange,
+      selectedSize,
+      selectedQuantity,
       isReturn = false,
       isQuantity = false,
     },
     ref
   ) => {
-    const [size, setSize] = useState(sizeOptions[0]);
-    const [quantity, setQuantity] = useState(quantityOptions[0]);
+    const [size, setSize] = useState(selectedSize);
+    const [quantity, setQuantity] = useState(selectedQuantity);
+    useEffect(() => {
+      setSize(selectedSize);
+      setQuantity(selectedQuantity || quantityOptions[0]);
+    }, [quantityOptions, selectedQuantity, selectedSize]);
 
     return (
       <Box ref={ref} className={cn(cardStyles(), className)}>
-        <Box className="relative sm:w-1/3">
+        <Box className="relative sm:w-[100%] lg:w-fit">
           <img className={imageStyle} src={imageSrc} alt="product" />
-          <Box>
-            {/* <Checkbox
+          {/* <Box>
+            <Checkbox
               className="absolute bg-white h-fit w-fit top-2 left-2 size-8 rounded-lg "
               onChange={handleChange}
               value={"check"}
-            /> */}
-          </Box>
+            />
+          </Box> */}
         </Box>
         <Box className="w-full xs:w-2/3 p-4 flex flex-col">
           <DefaultButton
@@ -96,11 +106,13 @@ export const QuantityCard = forwardRef<HTMLDivElement, CardProps>(
                   <select
                     value={size}
                     onChange={(e) => {
-                      setSize(e.target.value);
+                      const newSize = e.target.value;
+                      setSize(newSize);
+                      onSizeChange?.(newSize);
                     }}
                     className="border rounded p-1 bg-transparent"
                   >
-                    {sizeOptions.map((option) => (
+                    {sizeOptions?.map((option) => (
                       <option key={option} value={option}>
                         {option}
                       </option>
@@ -113,7 +125,9 @@ export const QuantityCard = forwardRef<HTMLDivElement, CardProps>(
                   </Text>
                   <select
                     value={quantity}
-                    onChange={(e) => setQuantity(parseInt(e.target.value))}
+                    onChange={(e) => {const qty = parseInt(e.target.value);
+                      setQuantity(qty);
+                      onQuantityChange?.(qty)}}
                     className="border rounded p-1 bg-transparent"
                   >
                     {quantityOptions.map((option) => (

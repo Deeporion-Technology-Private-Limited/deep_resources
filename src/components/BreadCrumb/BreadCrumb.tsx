@@ -3,6 +3,7 @@ import { cva, VariantProps } from "class-variance-authority";
 import { ComponentProps, forwardRef, useState } from "react";
 import { cn } from "../../utils";
 import { Box } from "../Layout";
+import { Link } from "react-router-dom";
 
 
 const breadCrumbStyles = cva([
@@ -11,10 +12,11 @@ const breadCrumbStyles = cva([
 ]);
 
 type BreadCrumbItem = {
-  text: string;
+  text: string | undefined;
   iconUrl?: string;
   separatorIconUrl?: string;
-  href?: string;
+  href?: any;
+  onClick?: () => void;
 };
 
 type BreadCrumbProps = ComponentProps<"div"> & VariantProps<typeof breadCrumbStyles> & {
@@ -27,8 +29,11 @@ export const BreadCrumb = React.forwardRef<HTMLDivElement, BreadCrumbProps>(
     const [activeIndex, setActiveIndex] = useState<number | null>(null);
     const [showAll, setShowAll] = useState<boolean>(false);
 
-    const handleItemClick = (index: number) => {
+    const handleItemClick = (index: number, onClick?: () => void) => {
       setActiveIndex(index);
+      if (onClick) {
+        onClick();
+      }
     };
 
     const handleShowAllClick = () => {
@@ -39,18 +44,30 @@ export const BreadCrumb = React.forwardRef<HTMLDivElement, BreadCrumbProps>(
       <div
         key={index}
         className="flex items-center"
-        onClick={() => handleItemClick(index)}
+        onClick={() => handleItemClick(index,item.onClick)}
       >
         {item.iconUrl && (
           <img src={item.iconUrl} alt={`${item.text} Icon`} className="p-2" />
         )}
-        <a
-          href={item.href}
-          className={cn("text-sm font-medium", className)}
-          style={{ color: activeIndex === index ? '#26282B' : '#72787F' }}
-        >
-          {item.text}
-        </a>
+       {item.onClick ? (
+          <span
+            className={cn(
+              "cursor-pointer text-sm font-medium capitalize",
+              className,
+            )}
+            style={{ color: activeIndex === index ? "#26282B" : "#72787F" }}
+          >
+            {item.text}
+          </span>
+        ) : (
+          <Link
+            to={item.href}
+            className={cn("text-sm font-medium capitalize", className)}
+            style={{ color: activeIndex === index ? "#26282B" : "#72787F" }}
+          >
+            {item.text}
+          </Link>
+        )}
         {index < breadCrumbItems.length - 1 && (
           <img src={item.separatorIconUrl || defaultSeparatorIconUrl} alt="Separator Icon" className="p-4" />
         )}

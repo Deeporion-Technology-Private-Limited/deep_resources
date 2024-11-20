@@ -201,6 +201,7 @@ export interface serviceItem {
   value?: string;
 }
 export interface socialLinks {
+  href: string;
   iconUrl?: string;
   onClick?: () => void;
 }

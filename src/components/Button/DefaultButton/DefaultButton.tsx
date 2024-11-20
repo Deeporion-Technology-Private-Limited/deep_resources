@@ -6,6 +6,7 @@ import { ButtonIconPosition, ButtonSize, ButtonVariant } from "../../types";
 
 const buttonStyles = cva(
   [
+    "border-none",
     "w-full",
     "rounded-md",
     "font-semibold",

@@ -42,6 +42,8 @@ type CarouselProps = ComponentProps<"div"> &
     className?: string;
     slideInterval?: number;
     variant?: "default" | "review";
+    onButtonClick?: (label: string) => void;
+
   };
 
 export const Carousel = React.forwardRef<HTMLDivElement, CarouselProps>(
@@ -52,6 +54,7 @@ export const Carousel = React.forwardRef<HTMLDivElement, CarouselProps>(
       indicatorType = IndicatorType.Dots,
       className,
       variant = "default",
+      onButtonClick,
       ...props
     },
     ref
@@ -100,7 +103,7 @@ export const Carousel = React.forwardRef<HTMLDivElement, CarouselProps>(
                   <img
                     src={item.image}
                     alt={`Slide ${index}`}
-                    className="w-full h-48 sm:h-64 md:h-72 lg:h-96 object-cover"
+                    className="h-48 w-full object-cover sm:h-64 md:h-72 lg:h-[45rem]"
                   />
                   <div className="absolute inset-0 flex flex-col items-center justify-center mt-6 p-4 sm:p-6 md:p-8 lg:p-10">
                     {item.heading && (
@@ -131,8 +134,9 @@ export const Carousel = React.forwardRef<HTMLDivElement, CarouselProps>(
                           "w-fit text-xs sm:text-sm md:text-base lg:text-lg",
                           item.button.buttonClassName
                         )}
-                        onClick={item.button.onClick}
-                      >
+                        onClick={() =>
+                          onButtonClick && onButtonClick(item.button!.label)
+                        }                      >
                         {item.button.label}
                       </DefaultButton>
                     )}

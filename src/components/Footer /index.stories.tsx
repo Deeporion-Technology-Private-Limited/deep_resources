@@ -58,10 +58,22 @@ export const NewsLetter: Story = {
       "Be the first to know about our new collections, exclusive offers, and other perks!",
     newsLetter: true,
     links:[
-      {iconUrl: FindIconUrl("Instagram.svg")},
-      {iconUrl: FindIconUrl("LinkedIn.svg")},
-      {iconUrl: FindIconUrl("Facebook.svg")},
-      {iconUrl: FindIconUrl("Google.svg")},
+      {
+        iconUrl: FindIconUrl("Instagram.svg"),
+        href: ""
+      },
+      {
+        iconUrl: FindIconUrl("LinkedIn.svg"),
+        href: ""
+      },
+      {
+        iconUrl: FindIconUrl("Facebook.svg"),
+        href: ""
+      },
+      {
+        iconUrl: FindIconUrl("Google.svg"),
+        href: ""
+      },
     ]
   },
 };

@@ -5,7 +5,7 @@ import { ButtonDirection } from "../../types";
 import { cn } from "../../../utils";
 
 const IconButtonStyles = cva(
-  ["flex", "items-center", "justify-start", "bg-transparent", "p-[10px]"],
+  ["flex", "items-center", "justify-start", "bg-transparent", "p-2"],
   {
     variants: {
       direction: {
@@ -56,7 +56,7 @@ export const SingleIconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
         data-testid="click-me"
       >
         {typeof iconUrl === "string" ? (
-          <img src={iconUrl} alt="icon" />
+          <img className="icon-group" src={iconUrl} alt="icon" />
         ) : (
           iconUrl
         )}

@@ -16,8 +16,8 @@ export const Default: Story = {
   args: {
     children: (
       <>
-        <Anchor href="https://example.com">Menu</Anchor>
-        <Anchor href="https://example.com">Item</Anchor>
+        <Anchor href="https://example.com" to={""} state={""}>Menu</Anchor>
+        <Anchor href="https://example.com" to={""} state={""}>Item</Anchor>
       </>
     ),
   },
@@ -28,8 +28,8 @@ export const Column: Story = {
     variant: "column",
     children: (
       <>
-        <Anchor href="https://example.com">Menu</Anchor>
-        <Anchor href="https://example.com">Item</Anchor>
+        <Anchor href="https://example.com" to={""} state={""}>Menu</Anchor>
+        <Anchor href="https://example.com" to={""} state={""}>Item</Anchor>
       </>
     ),
   },

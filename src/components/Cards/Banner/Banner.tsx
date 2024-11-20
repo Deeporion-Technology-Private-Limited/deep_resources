@@ -28,6 +28,7 @@ export type ProductCardProps = ComponentProps<typeof Box> &
     descriptionClass?: string;
     buttonClass?: string;
     iconUrl?: string;
+    onButtonClick?:()=> void;
   };
 
 export const Banner = React.forwardRef<HTMLDivElement, ProductCardProps>(
@@ -44,6 +45,7 @@ export const Banner = React.forwardRef<HTMLDivElement, ProductCardProps>(
       description,
       boxStyle,
       buttonText,
+      onButtonClick,
       ...props
     },
     ref

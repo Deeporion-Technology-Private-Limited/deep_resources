@@ -94,8 +94,7 @@ export const TopNavbar = forwardRef<HTMLDivElement, TopNavProp>(
                   <Anchor
                     key={item.text}
                     href={item.href}
-                    onMouseEnter={(e) => handleEnter(item, e)}
-                  >
+                    onMouseEnter={(e) => handleEnter(item, e)} to={""} state={""}                  >
                     {item.text}
                   </Anchor>
                 ))}

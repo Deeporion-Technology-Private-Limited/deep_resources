@@ -3,7 +3,7 @@ import React, { forwardRef } from "react";
 import { cn } from "../../../utils";
 
 const anchorListStyles = cva(
-  ["text-[12px]", "font-bold", "w-fit", "flex", "gap-[13px]"],
+  ["text-[18px]", "font-bold", "w-fit", "flex"],
   {
     variants: {
       variant: {

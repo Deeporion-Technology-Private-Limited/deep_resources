@@ -58,7 +58,6 @@ const { button02,
   modalbutton,
   crossIcon,
   handleClose,
-
 } = props
 
     const [isOpen, setIsOpen] = useState(false);

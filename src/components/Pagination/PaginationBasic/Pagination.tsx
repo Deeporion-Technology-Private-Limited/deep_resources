@@ -69,7 +69,9 @@ export interface PaginationProps
   customButtonSize?: string;
   totalPages: number;
   iconStyle?: string;
-  className?:string
+  className?:string;
+  customButtonBackgroundColor?: string;
+  customButtonTextColor?: string;
 }
 
 export const Pagination = forwardRef<HTMLDivElement, PaginationProps>(
@@ -85,6 +87,8 @@ export const Pagination = forwardRef<HTMLDivElement, PaginationProps>(
       activeColor,
       customButtonSize,
       className,
+      customButtonBackgroundColor = "white",
+      customButtonTextColor = "black",
       ...props
     },
     ref
@@ -164,7 +168,7 @@ export const Pagination = forwardRef<HTMLDivElement, PaginationProps>(
                     disabled: typeof page === "string" ? true : false,
                   })
                 )}
-                style={{ width: customButtonSize, height: customButtonSize }}           
+                style={{ width: customButtonSize, height: customButtonSize }}
               >
                 {page}
               </button>
@@ -184,7 +188,12 @@ export const Pagination = forwardRef<HTMLDivElement, PaginationProps>(
               disabled: currentPage === totalPages,
             })
           )}
-          style={{ width: customButtonSize, height: customButtonSize }}
+          style={{
+            width: customButtonSize,
+            height: customButtonSize,
+            backgroundColor: customButtonBackgroundColor,
+            color: customButtonTextColor,
+          }}
           data-testid="nextPage"
         >
           <img src={FindIconUrl("Right.svg")} className={iconStyle} />

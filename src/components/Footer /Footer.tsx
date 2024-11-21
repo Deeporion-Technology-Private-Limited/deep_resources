@@ -122,7 +122,7 @@ export const Footer = React.forwardRef<HTMLDivElement, CustomerProps>(
           )}
           {links && (
             <Box className="justify-start flex">
-              {links.map((item) => (
+              {links.map((item: any) => (
                 <>
                   <SingleIconButton
                     iconUrl={item.iconUrl}

@@ -24,7 +24,7 @@ const stepperStyles = cva(
 type Step = {
   component: React.FC;
   title: string;
-  completed: boolean;
+  completed: boolean | string;
 };
 
 type StepperProps = {

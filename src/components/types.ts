@@ -1,8 +1,6 @@
 import { Dispatch, ReactNode, SetStateAction } from "react";
 import { ReviewDataType } from "./CarouselSlider";
 
-
-
 // Accordion
 export enum AccordionTypes {
   Cursor = "Cursor",
@@ -113,7 +111,6 @@ export interface CalendarProps {
   onDateRangeSelect?: (startDate: Date, endDate: Date) => void;
 }
 
-
 // Cateloge
 export interface subcomponent {
   id?: number;
@@ -223,7 +220,7 @@ export interface CoreCustomerProps {
   heading?: titleFooter;
   description?: string;
   services?: serviceItem[];
-  links?: socialLinks[];
+  links?: socialLinks[] | any;
   list?: listItem[];
   newsLetter?: boolean;
   footerTextColor?: string;
@@ -767,7 +764,6 @@ export type NavItems = {
   href?: string;
 };
 
-
 export type navBarIcons = {
   icon?: string;
   iconName?: string;
@@ -875,15 +871,15 @@ export interface StateProp {
 }
 
 export interface stateProp {
-  Name: string,
-  email: string,
-  State: string,
-  Address: string,
-  Card_Name: string,
-  Card_Number: string,
-  Expiry_Date: string,
-  Security_Date: string,
-  Checked: string
+  Name: string;
+  email: string;
+  State: string;
+  Address: string;
+  Card_Name: string;
+  Card_Number: string;
+  Expiry_Date: string;
+  Security_Date: string;
+  Checked: string;
 }
 
 export enum ProductOrderList {
@@ -1009,7 +1005,6 @@ export enum Login {
   SendMessage = "Send message",
 }
 
-
 export interface FormDetail {
   name: string;
   email: string;
@@ -1037,10 +1032,10 @@ export interface AdminProp {
 }
 
 export interface AdminProps {
-  UsersData: { name: string, num: string }[],
-  TableData: { [key: string]: ReactNode; }[],
-  PendingData: { [key: string]: ReactNode; }[],
-  DayOption: string[]
+  UsersData: { name: string; num: string }[];
+  TableData: { [key: string]: ReactNode }[];
+  PendingData: { [key: string]: ReactNode }[];
+  DayOption: string[];
 }
 
 export interface AdminSubscriptionProp {
@@ -1069,7 +1064,6 @@ export interface SpecificationData {
   sizes: string;
 }
 
-
 export interface heading {
   headingItem?: React.ReactNode;
   handleNotification?: () => void;
@@ -1085,16 +1079,16 @@ export interface SellerInterface {
   verification: string;
   Checked: string;
 }
-export interface  IMainSidebarItemProps  {
+export interface IMainSidebarItemProps {
   icon: string;
   label: string;
   link?: string;
   onClick?: () => void;
   active?: boolean;
-  labelStyle?:string;
-};
-export interface IMainSidebarProps{
-  item:IMainSidebarItemProps[];
-  className?:string;
-  labelStyle?:string;
+  labelStyle?: string;
+}
+export interface IMainSidebarProps {
+  item: IMainSidebarItemProps[];
+  className?: string;
+  labelStyle?: string;
 }

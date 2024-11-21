@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Table } from "./Table";
-import { TableData } from "../Data/TableData";
 
 const meta: Meta<typeof Table> = {
   title: "Components/Table/Table",
@@ -18,6 +17,6 @@ type Story = StoryObj<typeof meta>;
 export const Solid: Story = {
   args: {
     variant: "solid",
-    data: TableData,
+    data: [],
   },
 };

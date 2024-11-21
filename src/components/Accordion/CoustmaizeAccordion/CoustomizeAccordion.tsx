@@ -3,14 +3,14 @@ import React, { ComponentProps, forwardRef, useState } from "react";
 import { cn } from "../../../utils";
 import { AccordionTypes } from "../../types";
 
+
 const coustomizeAccordioStyle = cva(
   [
     "h-fit",
     "border",
-    "py-2",
+  
     "shadow-sm",
     "text-sm",
-    "px-2",
     "flex",
     "justify-between",
     "items-center",
@@ -38,8 +38,11 @@ type CoustomizeAccordioProps = ComponentProps<"div"> &
     variant?: AccordionTypes;
     children: string;
     content?: any;
-    Icon: React.ReactNode;
+    Icon?: React.ReactNode;
     childClassName?: string;
+    more?: string;
+    handleMore?: () => void;
+    isMore?: boolean;
   };
 
 export const CoustomizeAccordion = forwardRef<
@@ -47,25 +50,46 @@ export const CoustomizeAccordion = forwardRef<
   CoustomizeAccordioProps
 >(
   (
-    { variant, content, className, Icon, children, childClassName, ...props },
-    ref
+    {
+      variant,
+      content,
+      className,
+      Icon,
+      children,
+      isMore,
+      childClassName,
+      more,
+      handleMore,
+      ...props
+    },
+    ref,
   ) => {
     const [handleButton, setHandleButton] = useState(false);
 
     const handleClick = () => setHandleButton(!handleButton);
 
     return (
-      <div className="w-full">
+      <div className="h-full w-full">
         <div
           ref={ref}
           className={cn(coustomizeAccordioStyle({ variant, className }))}
           data-testid="custom-variant"
           {...props}
         >
-          <div className="flex items-center justify-between w-full">
-            <div>{children}</div>
+          <div
+            className={`flex w-full cursor-pointer items-center justify-between rounded p-2 text-black ${
+              handleButton
+                ? `bg-gradient-to-r from-[#D2B48C] to-[#3F271E] text-white`
+                : "bg-white"
+            }`}
+            onClick={handleClick}
+          >
+            <div>{`By ${children}`}</div>
+
             <div
-              className={`duration-300 transform cursor-pointer rotate-180 hover:shadow ${handleButton && "origin-center rotate-[none]"}`}
+              className={`rotate-180 transform cursor-pointer duration-300 hover:shadow ${
+                handleButton && "origin-center rotate-[none]"
+              }`}
               onClick={handleClick}
               data-testid="icon"
             >
@@ -73,19 +97,52 @@ export const CoustomizeAccordion = forwardRef<
             </div>
           </div>
         </div>
-
         {handleButton && (
-          <div className={cn("mt-1 w-full border bg-white", childClassName)}>
-            <div className="px-2 py-1">
-              {content.map((item: any) => (
-                <div>{item}</div>
+          <div className={cn("mb-1 mt-2 w-full border", childClassName)}>
+            {children === "Size" && (
+              <div className="font-poppins px-2 py-2 text-sm font-semibold leading-[21px]">
+                Select Preferred Size
+              </div>
+            )}
+            <div
+              className={`flex h-fit w-[200px] ${
+                children === "Size"
+                  ? "flex-row flex-wrap gap-2"
+                  : "flex-col gap-3"
+              } px-2 py-3`}
+            >
+              {content?.map((item: any) => (
+                <div
+                  key={item.id || item.name}
+                  className={`${
+                    children === "Size"
+                      ? "w-[40px] rounded-md bg-white bg-none hover:bg-gray-300"
+                      : ""
+                  }`}
+                >
+                  {children === "Size" ? (
+                    <div className="font-poppins text-center text-sm font-normal">
+                      {item}
+                    </div>
+                  ) : (
+                    item
+                  )}
+                </div>
               ))}
             </div>
+            {isMore && (
+              <button
+                onClick={handleMore}
+                className="bg-transparent p-0 pl-4 text-[15px] font-bold"
+              >
+                {more}
+              </button>
+            )}
           </div>
         )}
       </div>
     );
-  }
+  },
 );
 
 export default CoustomizeAccordion;

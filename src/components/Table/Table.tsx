@@ -1,7 +1,5 @@
-import React from "react";
 import { cva, VariantProps } from "class-variance-authority";
 import { ComponentProps, forwardRef } from "react";
-import { ItableData } from "../types";
 import { cn } from "../../utils";
 
 const tableStyles = cva(
@@ -47,7 +45,7 @@ const tableStyles = cva(
 
 type TableProps = ComponentProps<"thead"> &
   VariantProps<typeof tableStyles> & {
-    data: Array<{ [key: string]: string | React.ReactNode }> | ItableData[];
+    data: Array<{ [key: string]: string | React.ReactNode }> | [];
     tableStyle?: string;
     tHeadStyle?: string;
     tDataStyle?: string;
@@ -82,7 +80,7 @@ export const Table = forwardRef<HTMLTableSectionElement, TableProps>(
       >
         <table
           className={cn(
-            "w-full h-full text-[#26282B] font-[Poppins] font-[14px]",
+            `h-full w-full font-[Poppins] font-[14px] text-[#333333]`,
             tableStyle
           )}
         >
@@ -98,12 +96,12 @@ export const Table = forwardRef<HTMLTableSectionElement, TableProps>(
                 <th
                   key={index}
                   className={cn(
-                    "px-4 py-2  text-left h-fit border-b-2 capitalize",
+                    "h-fit border-b-2 px-4 py-2 text-center capitalize",
                     tHeadStyle
                   )}
                   style={{
                     whiteSpace: "nowrap",
-                    textAlign: "left",
+                    textAlign: "center",
                   }}
                 >
                   {header}
@@ -113,17 +111,17 @@ export const Table = forwardRef<HTMLTableSectionElement, TableProps>(
           </thead>
           <tbody>
             {data?.map((row, rowIndex) => (
-              <tr key={rowIndex} className="py-4 h-[4.25rem]">
+              <tr key={rowIndex} className="h-[4.25rem] py-4">
                 {headers?.map((header, colIndex) => (
                   <td
                     key={colIndex}
                     className={cn(
-                      "px-4 py-2 h-full border-b border-gray-200 text-left",
+                      `h-full border-b border-[#E5E7EB] px-4 py-2 text-center`,
                       tDataStyle
                     )}
                     style={{ width: "auto" }}
                   >
-                    {row && (row as { [key: string]: string | React.ReactNode })[header]}
+                    {row[header]}
                   </td>
                 ))}
               </tr>

@@ -1,10 +1,10 @@
+import React, { ComponentProps, forwardRef, useState } from "react";
+import { VariantProps, cva } from "class-variance-authority";
 import { cn } from "@/utils";
 import { FindIconUrl } from "@/utils/Constant";
-import { VariantProps, cva } from "class-variance-authority";
-import { ComponentProps, forwardRef, useState } from "react";
 import { Box } from "../Layout";
 import { DefaultButton } from "../Button";
-
+import { Text } from "../Text"; 
 
 type CardProps = ComponentProps<typeof Box> &
   VariantProps<typeof cardStyles> & {
@@ -56,7 +56,7 @@ export const FollowUs = forwardRef<HTMLDivElement, CardProps>(
       isChange = () => {},
       onIconClick = () => {},
       handleCart,
-      buttonText = " Move to cart",
+      buttonText = "Move to cart",
       handleNavigate,
       isButton = false,
       descriptionStyle = "flex flex-col gap-2",
@@ -119,15 +119,9 @@ export const FollowUs = forwardRef<HTMLDivElement, CardProps>(
                         src={iconUrl}
                         className="z-99"
                         onClick={(e) => onIconClick(e)}
+                        alt="Icon"
                       />
                     ) : (
-                      // <svg
-                      //   className="w-6 h-6 fill-current border-b"
-                      //   viewBox="0 0 24 24"
-                      //   xmlns="http://www.w3.org/2000/svg"
-                      // >
-                      //   <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-                      // </svg>
                       <></>
                     )}
                   </DefaultButton>
@@ -165,15 +159,12 @@ export const FollowUs = forwardRef<HTMLDivElement, CardProps>(
                 }}
               >
                 {iconUrl ? (
-                  <img src={iconUrl} onClick={(e) => onIconClick(e)} />
+                  <img 
+                    src={iconUrl} 
+                    onClick={(e) => onIconClick(e)} 
+                    alt="Icon"
+                  />
                 ) : (
-                  // <svg
-                  //   className="w-6 h-6 fill-current border-b"
-                  //   viewBox="0 0 24 24"
-                  //   xmlns="http://www.w3.org/2000/svg"
-                  // >
-                  //   <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-                  // </svg>
                   <></>
                 )}
               </DefaultButton>
@@ -182,7 +173,7 @@ export const FollowUs = forwardRef<HTMLDivElement, CardProps>(
 
           {isnew && (
             <Text
-              as={"span"}
+              as="span"
               className="text-md absolute left-2 top-2 w-max rounded-xl bg-[#3F271E] px-2 py-1 capitalize text-white"
             >
               {isnew}
@@ -190,11 +181,11 @@ export const FollowUs = forwardRef<HTMLDivElement, CardProps>(
           )}
           {starRating && (
             <Box className="absolute bottom-2 left-2 flex items-center gap-1 rounded-lg bg-[#00000066] bg-opacity-75 px-2 py-1 text-[#FFFFFF]">
-              <Text as={"p"}>{rating}</Text>
-              <Text as={"p"}>
-                <img src={FindIconUrl("star.svg")} className="size-4" />
+              <Text as="p">{rating}</Text>
+              <Text as="p">
+                <img src={FindIconUrl("star.svg")} className="size-4" alt="Star" />
               </Text>
-              <Text className="h-max w-max" as={"span"}>
+              <Text className="h-max w-max" as="span">
                 {reviews}
               </Text>
             </Box>
@@ -211,18 +202,18 @@ export const FollowUs = forwardRef<HTMLDivElement, CardProps>(
               </DefaultButton>
             )}
             {brand && (
-              <Text as={"p"} className="pl-4 text-xs font-normal text-[#999]">
+              <Text as="p" className="pl-4 text-xs font-normal text-[#999]">
                 {brand}
               </Text>
             )}
             {description && (
-              <Text as={"p"} className="pl-4 text-sm text-[#515151]">
+              <Text as="p" className="pl-4 text-sm text-[#515151]">
                 {description}
               </Text>
             )}
             {price && (
-              <Text as={"p"} className="pl-4 font-bold text-gray-900">
-                {price ? `₹  ${price}` : "3000"}
+              <Text as="p" className="pl-4 font-bold text-gray-900">
+                {price ? `₹ ${price}` : "₹ 3000"}
               </Text>
             )}
             {children}

@@ -1,17 +1,25 @@
 import { ComponentProps } from "react";
 import { Box } from "../Layout";
 import { VariantProps, cva } from "class-variance-authority";
-export const Tabstyles = cva("w-full");
 
-export interface Tab {
+export const Tabstyles = cva([
+  "w-full",
+  "h-full",
+  "flex",
+  "flex-col",
+  "gap-5",
+  "pt-5",
+]);
+
+export interface ITab {
   label: string;
   content: React.ReactNode;
 }
 
-export interface TabsProps
+export interface ITabsProps
   extends ComponentProps<typeof Box>,
     VariantProps<typeof Tabstyles> {
-  tabs: Tab[];
+  tabs: ITab[];
   className?: string;
 }
 

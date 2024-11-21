@@ -95,4 +95,4 @@ export const Chips = React.forwardRef<HTMLDivElement, ChipsProps>(
   }
 );
 
-export default Chips;
+

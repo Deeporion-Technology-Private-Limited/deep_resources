@@ -16,7 +16,7 @@ const tooltipStyles = cva([
   "z-10",
 ]);
 
-interface TooltipProps extends VariantProps<typeof tooltipStyles> {
+interface ITooltipProps extends VariantProps<typeof tooltipStyles> {
   content: string;
   children: React.ReactNode;
   placement?: "top" | "bottom" | "left" | "right";
@@ -25,7 +25,7 @@ interface TooltipProps extends VariantProps<typeof tooltipStyles> {
   className?: string;
 }
 
-export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
+export const Tooltip = forwardRef<HTMLDivElement, ITooltipProps>(
   (
     {
       children,
@@ -36,7 +36,7 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
       className,
       ...props
     },
-    ref
+    ref,
   ) => {
     const [visible, setVisible] = useState(false);
     const timeoutRef = useRef<number | null>(null);
@@ -85,9 +85,8 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
             <div
               ref={ref}
               className={cn(
-                tooltipStyles(),
+                tooltipStyles({ className }),
                 placementClasses(placement),
-                className // Apply the custom className here
               )}
               {...props}
             >
@@ -100,11 +99,10 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
         )}
       </div>
     );
-  }
+  },
 );
 
-
-const placementClasses = (placement?: TooltipProps["placement"]) => {
+const placementClasses = (placement?: ITooltipProps["placement"]) => {
   const baseClasses = "transform -translate-x-1/2 left-1/2";
   switch (placement) {
     case "top":
@@ -120,7 +118,7 @@ const placementClasses = (placement?: TooltipProps["placement"]) => {
   }
 };
 
-const arrowClasses = (placement?: TooltipProps["placement"]) => {
+const arrowClasses = (placement?: ITooltipProps["placement"]) => {
   const baseArrowClasses = "absolute w-0 h-0 border-8";
   switch (placement) {
     case "top":
@@ -135,4 +133,5 @@ const arrowClasses = (placement?: TooltipProps["placement"]) => {
       return `${baseArrowClasses} border-b-slate-300 border-transparent border-t-0 top-[-8px] left-1/2 transform -translate-x-1/2`; // default to bottom
   }
 };
+
 

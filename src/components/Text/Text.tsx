@@ -1,9 +1,14 @@
 import React from "react";
-import{ forwardRef, ElementType, ComponentPropsWithoutRef, PropsWithoutRef, ForwardRefRenderFunction } from "react";
+import{ forwardRef } from "react";
 import { VariantProps, cva } from "class-variance-authority";
+import { ForwardRefExoticComponent} from "react";
+import {
+  PolymorphicComponentPropsWithRef,
+  PolymorphicRef,
+} from "../../utils/types";
 import { cn } from "../../utils";
 
-const textStyles = cva("w-full", {
+const textStyles = cva("w-full font-['Poppins']", {
   variants: {
     emphasis: {
       low: "text-gray-600 font-light",
@@ -42,62 +47,48 @@ const textStyles = cva("w-full", {
   },
 });
 
-type TextStyleProps = VariantProps<typeof textStyles>;
-
-type AsProp<C extends ElementType> = {
-  as?: C;
-};
-
-type PropsToOmit<C extends ElementType, P> = keyof (AsProp<C> & P);
-
-type PolymorphicComponentProp<
-  C extends ElementType,
-  Props = {}
-> = PropsWithoutRef<Props & AsProp<C>> &
-  Omit<ComponentPropsWithoutRef<C>, PropsToOmit<C, Props>>;
-
-type PolymorphicRef<C extends ElementType> = React.ComponentPropsWithRef<C>["ref"];
-
-type PolymorphicComponentPropWithRef<
-  C extends ElementType,
-  Props = {}
-> = PolymorphicComponentProp<C, Props> & { ref?: PolymorphicRef<C> };
-
-type TextProps<C extends ElementType> = PolymorphicComponentPropWithRef<
+type TextProps<C extends React.ElementType> = PolymorphicComponentPropsWithRef<
   C,
-  TextStyleProps
+  VariantProps<typeof textStyles>
 >;
 
-type TextComponent = <C extends ElementType = "span">(
-  props: TextProps<C>
-) => React.ReactElement | null;
+// type TextComponent = <C extends React.ElementType = "span">(
+//   props: TextProps<C>
+// ) => React.ReactElement | null;
 
-const TextImpl: ForwardRefRenderFunction<
-  HTMLSpanElement,
-  TextProps<ElementType>
-> = (
-  { as, align, size, emphasis, italic, underline, weight, className, ...props },
-  ref
-) => {
-  const Component = as || "span";
-  return (
-    <Component
-      ref={ref}
-      className={cn(
-        textStyles({
-          size,
-          weight,
-          emphasis,
-          italic,
-          underline,
-          align,
-          className,
-        })
-      )}
-      {...props}
-    />
-  );
-};
+export const Text: ForwardRefExoticComponent<TextProps<any>> = forwardRef(
+  <C extends React.ElementType>(
+    {
+      as,
+      align,
+      size,
+      emphasis,
+      italic,
+      underline,
+      weight,
+      className,
+      ...props
+    }: TextProps<C>,
+    ref?: PolymorphicRef<C>,
+  ) => {
+    const Component = as || "span";
 
-export const Text = forwardRef(TextImpl) as TextComponent;
-
+    return (
+      <Component
+        ref={ref}
+        className={cn(
+          textStyles({
+            size,
+            weight,
+            emphasis,
+            italic,
+            underline,
+            align,
+            className,
+          }),
+        )}
+        {...props}
+      />
+    );
+  },
+);

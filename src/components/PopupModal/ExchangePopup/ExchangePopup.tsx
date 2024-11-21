@@ -46,7 +46,7 @@ interface IModalProps
   handleClose?: () => void;
   headerStyle?: string;
   mobileClasses?: boolean;
-  openModalText?: string;
+  modalTriggerButtonText: string;
   button1Text?: string;
   button2Text?: string;
 }
@@ -63,7 +63,7 @@ export const ExchangeModal = forwardRef<HTMLDivElement, IModalProps>(
       crossIcon,
       handleClose,
       headerStyle,
-      openModalText,
+      modalTriggerButtonText,
       button1Text,
       button2Text,
     } = props;
@@ -86,7 +86,7 @@ export const ExchangeModal = forwardRef<HTMLDivElement, IModalProps>(
             onClick={toggleMenu}
             test-id="ToggleBtn"
           >
-            {openModalText}
+            {modalTriggerButtonText}
           </DefaultButton>
         )}
 

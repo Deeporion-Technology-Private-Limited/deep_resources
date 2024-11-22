@@ -2,8 +2,6 @@ import { useNavigate } from "react-router-dom";
 import { FindIconUrl } from "../../../utils/Constant";
 import { NavbarDirection } from "../../types";
 
-// eslint-disable-next-line no-warning-comments
-// eslint-disable-next-line react-hooks/rules-of-hooks
 const navigate = useNavigate();
 
 export interface IReviewRating {

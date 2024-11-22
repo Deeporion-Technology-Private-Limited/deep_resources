@@ -71,7 +71,6 @@ export const Topnavbar = forwardRef<HTMLDivElement, TopNavProp>(
       item: INavItems,
       event: React.MouseEvent<HTMLAnchorElement>,
     ) => {
-      // Store the coordinates of the hovered item
       const rect = event.currentTarget.getBoundingClientRect();
       setHoverX(rect.left);
       setHoverY(rect.top);

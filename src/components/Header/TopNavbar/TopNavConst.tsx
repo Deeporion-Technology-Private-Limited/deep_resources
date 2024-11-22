@@ -10,16 +10,17 @@ export interface IReviewRating {
 }
 export interface IDataTopNav {
   brand: string;
-  discount_percent_of_first_variant: string | number | null;
-  discounted_price_of_first_variant: string | number | null;
+  discountPercentOfFirstVariant: string | number | null;
+  discountedPriceOfFirstVariant: string | number | null;
   id: number;
   image: string;
   isFavorite: boolean;
   name: string;
   price: string;
-  price_of_first_variant: string;
-  rating_and_review: IReviewRating;
+  priceOfFirstVariant: string;
+  ratingAndReview: IReviewRating;
 }
+
 
 export type INavItems = {
   text: string;

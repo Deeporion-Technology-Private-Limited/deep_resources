@@ -25,7 +25,8 @@
     "tsc": "tsc",
     "test": "jest",
     "test01": "jest --config jest.config.ts",
-    "coverage": "jest --coverage"
+    "coverage": "jest --coverage",
+    "publish": "npm run build && npm publish"
   },
   "dependencies": {
     "@testing-library/react": "^16.0.0",

@@ -3,6 +3,7 @@ import { cva, VariantProps } from "class-variance-authority";
 import { ComponentProps, forwardRef } from "react";
 import { cn } from "../../utils";
 import { variants, Box } from "../Layout";
+import { color } from "@/utils/colorThemes";
 
 
 const progressBarStyles = cva(" ", {
@@ -52,7 +53,7 @@ export const ProgressBar = forwardRef<HTMLDivElement, ProgressBarProps>(
           {...props}
         >
           <Box
-            className="h-full flex items-center justify-end pr-2 bg-blue-400 rounded-xl"
+            className={`h-full flex items-center justify-end pr-2 bg-${color.blue400} rounded-xl`}
             style={{
               width: `${validProgress}%`,
               backgroundColor: bgColor,

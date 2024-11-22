@@ -14,13 +14,12 @@ export interface IDataTopNav {
   discounted_price_of_first_variant: string | number | null;
   id: number;
   image: string;
-  is_favorite: boolean;
+  isFavorite: boolean;
   name: string;
   price: string;
   price_of_first_variant: string;
   rating_and_review: IReviewRating;
 }
-
 
 export type INavItems = {
   text: string;

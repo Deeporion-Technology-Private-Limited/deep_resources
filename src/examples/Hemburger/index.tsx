@@ -1,5 +1,5 @@
 import { ComponentProps, forwardRef, useState } from "react";
-import { Box, Sidebar, TopNavbar } from "@/components";
+import { Box, Sidebar, Topnavbar } from "@/components";
 import { VariantProps, cva } from "class-variance-authority";
 import { cn } from "@/utils";
 import { NavbarDirection } from "@/components/types";
@@ -30,7 +30,7 @@ export const Hamburger = forwardRef<HTMLDivElement, HemProps>(
     return (
       <Box ref={ref} className={cn(hemburgerStyle(), className)} {...props}>
         {!show && (
-          <TopNavbar
+          <Topnavbar
             title="Logo"
             direction={NavbarDirection.Row}
             navItem={navItemArry}
@@ -39,7 +39,7 @@ export const Hamburger = forwardRef<HTMLDivElement, HemProps>(
             isSearch={true}
             isLogin={true}
             hemburgerClick={handleOpen}
-          ></TopNavbar>
+          ></Topnavbar>
         )}
 
         {show && (

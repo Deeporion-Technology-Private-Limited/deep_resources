@@ -1,9 +1,8 @@
-import { color } from "@/utils/colorThemes";
 import React, { useState } from "react";
 import { GoSearch } from "react-icons/go";
 import { IoClose } from "react-icons/io5";
 
-function Search({
+export function Search({
   searchItem,
   setSearchItem,
 }: {
@@ -23,7 +22,7 @@ function Search({
     <div className="">
       {searchOpen ? (
         <div
-          className={`h-mid searchRight flex w-[] rounded-[2.5rem] border-[1.5px] border-[${color.white}]`}
+          className={`h-mid searchRight flex w-[] rounded-[2.5rem] border-[1.5px] border-[#FFFFFF]`}
         >
           <input
             placeholder="Search Name"
@@ -43,7 +42,7 @@ function Search({
         </div>
       ) : (
         <div
-          className={`flex cursor-pointer items-center justify-center rounded-[2.5rem] border-[1.5px] border-[${color.lightWhite}] p-2 text-${color.gray300}`}
+          className={`flex cursor-pointer items-center justify-center rounded-[2.5rem] border-[1.5px] border-[#F9FAFB] p-2 text-[#D4D4D8]`}
           onClick={handleSearchClick}
         >
           <GoSearch className="h-[1.575rem] w-[1.575rem]" />
@@ -53,4 +52,3 @@ function Search({
   );
 }
 
-export default Search;

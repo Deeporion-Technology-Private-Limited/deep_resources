@@ -1,7 +1,7 @@
 import { cn } from "@/utils";
 import { cva, VariantProps } from "class-variance-authority";
 import { ComponentProps, forwardRef, useState, useEffect } from "react";
-import { AutoCarousel, Banner, Box, Carousel, DefaultButton, FavouriteCard, ReviewCard, SingleIconButton, Text, TopNavbar } from "@/components";
+import { AutoCarousel, Banner, Box, Carousel, DefaultButton, FavouriteCard, ReviewCard, SingleIconButton, Text, Topnavbar } from "@/components";
 import { NavbarDirection } from "@/components/types";
 import { CardData, CategoryItem, ReviewData } from "./data";
 import Influencive from "../../images/Influencive.svg";
@@ -54,7 +54,7 @@ export const Dashboard = forwardRef<HTMLDivElement, DashboardProps>(
         {...props}
       >
         <Box className="w-full flex justify-center">
-          <TopNavbar
+          <Topnavbar
             direction={NavbarDirection.Row}
             className="max-w-[90rem]"
             isSearch

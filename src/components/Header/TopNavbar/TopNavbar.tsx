@@ -8,10 +8,9 @@ import { SingleIconButton } from "../../Button/SingleIconButton";
 import { FindIconUrl } from "../../../utils/Constant";
 import { TfiMenu } from "react-icons/tfi";
 import { Link } from "react-router-dom";
-import { AnchorList, Box, Logo, LogoImg, ProfileAvatar } from "../..";
+import { AnchorList, Box, Logo, LogoImg, ProfileAvatar, SearchVariant } from "../..";
 import { ITopNavbarProps } from "./TopNavConst";
 import ToastServices from "@/ToastServices";
-import { SearchVariant } from "@/components/Search/SearchVariant";
 
 const navBarStyles = cva(
   ["w-full", "border", "flex", "justify-center", "items-center"],

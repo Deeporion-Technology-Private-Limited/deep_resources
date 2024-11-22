@@ -33,24 +33,18 @@ const ShareWindow = forwardRef<HTMLDivElement, ShareItem>(({ item }, ref) => {
     <Box ref={ref}>
       <PopupModal
         crossIcon
-        header={
-          <Box className="mb-3 flex justify-between  border-[rgba(255, 255, 255, 1)]">
-            <Headings FontSize="text-xl" fontWeight="font-bold" text="Share" />
-          </Box>
-        }
+        header={<Box className="mb-3 flex justify-between  border-[rgba(255, 255, 255, 1)]">
+          <Headings FontSize="text-xl" fontWeight="font-bold" text="Share" />
+        </Box>}
         modalbutton
         button02={false}
         button01={false}
-        onClose={() => {}}
+        onClose={() => { } }
         openModal
-        children={
-          <Box className="grid lg:grid-cols-4 w-full md:grid-cols-2  gap-1 p-2">
-            {item?.map((value: IconValues) =>
-              buttons(FindIconUrl(`${value.icon}`), value.text, value.Click)
-            )}
-          </Box>
-        }
-      />
+        children={<Box className="grid lg:grid-cols-4 w-full md:grid-cols-2  gap-1 p-2">
+          {item?.map((value: IconValues) => buttons(FindIconUrl(`${value.icon}`), value.text, value.Click)
+          )}
+        </Box>} buttonText1={""} buttonText2={""} buttonModel={""}      />
     </Box>
   );
 });

@@ -1,4 +1,4 @@
-import { Box, Pagination, TopNavbar } from "@/components";
+import { Box, Pagination, Topnavbar } from "@/components";
 import Cards from "../ShopingCards";
 import { demo } from "../ShopingCards/data";
 import { AccordionBar } from "../AccordionBar";
@@ -18,7 +18,7 @@ const ProductListing = () => {
   return (
     <Box>
       <Box className="w-[100vw] fixed top-0 left-0 z-50 bg-white">
-        <TopNavbar
+        <Topnavbar
           isSearch
           navBarIcons={[
             { icon: FindIconUrl("PersonOutline.svg"), iconName: "Logo" },

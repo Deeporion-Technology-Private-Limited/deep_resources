@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { GenderItem, TopHoverMenuCard, TopItem, TopNavbar } from "..";
+import { GenderItem, TopHoverMenuCard, TopItem, Topnavbar } from "..";
 import { NavbarDirection } from "../../types";
 import { navBarIconsData } from "@/components/Data/navBarIconsData";
 import { FindIconUrl } from "@/utils/Constant";
 
-const meta: Meta<typeof TopNavbar> = {
+const meta: Meta<typeof Topnavbar> = {
   title: "Components/Header/TopNavbar",
-  component: TopNavbar,
+  component: Topnavbar,
   tags: ["autodocs"],
 };
 

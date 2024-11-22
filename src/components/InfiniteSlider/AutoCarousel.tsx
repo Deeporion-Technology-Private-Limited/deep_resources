@@ -105,4 +105,3 @@ export const AutoCarousel = React.forwardRef<HTMLDivElement, SlideProps>(
     );
   }
 );
-

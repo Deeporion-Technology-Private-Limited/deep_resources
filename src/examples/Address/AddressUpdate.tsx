@@ -73,18 +73,14 @@ const AddressComponent = ({
           button02={false}
           button01={false}
           modalbutton={false}
-          header={
-            <Box className="mb-3 flex justify-between  border-[rgba(255, 255, 255, 1)]">
-              <Headings
-                FontSize="text-xl"
-                fontWeight="font-bold"
-                text="Update Address"
-              />{" "}
-            </Box>
-          }
-          onClose={() => {}}
-          openModal
-        >
+          header={<Box className="mb-3 flex justify-between  border-[rgba(255, 255, 255, 1)]">
+            <Headings
+              FontSize="text-xl"
+              fontWeight="font-bold"
+              text="Update Address" />{" "}
+          </Box>}
+          onClose={() => { } }
+          openModal buttonText1={""} buttonText2={""} buttonModel={""}        >
           <Box>
             <Box className="space-y-4">
               <Box>

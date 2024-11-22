@@ -16,36 +16,30 @@ export const Sizechartmodel = () => {
         button01={false}
         button02={false}
         modalbutton={true}
-        onClose={() => {}}
+        onClose={() => { } }
         openModal={false}
         crossIcon={true}
-        header={
-          <Box className="flex border-[rgba(255, 255, 255, 1)]">
-            <Box>
-              <ProductCard
-                style={{ width: "56px", height: "56px" }}
-                imageClass="w-full h-full rounded-lg"
-                imageSrc="https://images.loox.io/uploads/2024/6/3/T92rV66DH.jpg"
-                title={""}
-                price={""}
-                sizes={[]}
-              />
-            </Box>
-            <Box className="p-2 ">
-              <Headings
-                FontSize="text-base"
-                fontWeight="font-normal"
-                text={Product.ModelDescription}
-              />{" "}
-              <Headings
-                fontWeight={"font-bold"}
-                FontSize="text-base"
-                text={Product.ModelTitle}
-              />{" "}
-            </Box>
+        header={<Box className="flex border-[rgba(255, 255, 255, 1)]">
+          <Box>
+            <ProductCard
+              style={{ width: "56px", height: "56px" }}
+              imageClass="w-full h-full rounded-lg"
+              imageSrc="https://images.loox.io/uploads/2024/6/3/T92rV66DH.jpg"
+              title={""}
+              price={""}
+              sizes={[]} />
           </Box>
-        }
-      >
+          <Box className="p-2 ">
+            <Headings
+              FontSize="text-base"
+              fontWeight="font-normal"
+              text={Product.ModelDescription} />{" "}
+            <Headings
+              fontWeight={"font-bold"}
+              FontSize="text-base"
+              text={Product.ModelTitle} />{" "}
+          </Box>
+        </Box>} buttonText1={""} buttonText2={""} buttonModel={""}      >
         <Box className="flex justify-center mb-3">
           <button
             className={`w-3/6 border-b pb-2 pt-2 hover:border-b-[#3F271E] hover:font-bold ${

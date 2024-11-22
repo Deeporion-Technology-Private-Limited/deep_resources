@@ -29,76 +29,68 @@ const Cart = forwardRef<HTMLDivElement, CardItem>(({ item,handleCart }, ref)  =>
         button01={false}
         button02={false}
         modalbutton={false}
-        onClose={() => {}}
+        onClose={() => { } }
         handleClose={() => {
           setOpenModal(false);
-        }}
+        } }
         openModal={openModal}
         crossIcon={true}
         header={<Box></Box>}
-        children={
-          <Box className="flex flex-col gap-10 w-full  h-full">
-            <Box className="flex w-full  gap-6  border-[rgba(255, 255, 255, 1)]">
-              <Box>
-                <ProductCard
-                  style={{ width: "120px" }}
-                  imageClass="w-full h-full rounded-lg"
-                  imageSrc={currentItem?.imageSrc ?? ''}
-                />
-              </Box>
-              <Box className="flex w-full flex-col gap-4">
-                <Headings
-                  FontSize="text-[24px]"
-                  fontWeight="font-bold"
-                  text="Remove from Cart"
-                />{" "}
-                <Headings
-                  fontWeight={"font-thin"}
-                  FontSize="text-base"
-                  text={
-                    "Are you sure you want to remove " +
-                    `"${currentItem.brand}"` +
-                    " from wishlist ?"
-                  }
-                />
-              </Box>
+        children={<Box className="flex flex-col gap-10 w-full  h-full">
+          <Box className="flex w-full  gap-6  border-[rgba(255, 255, 255, 1)]">
+            <Box>
+              <ProductCard
+                style={{ width: "120px" }}
+                imageClass="w-full h-full rounded-lg"
+                imageSrc={currentItem?.imageSrc ?? ''} />
             </Box>
-            <Box className="flex w-full border-t-2 border-dotted py-4 px-10 justify-center items-center bg-white gap-4 ">
-              <DefaultButton
-                size={ButtonSize.Large}
-                className="flex-1 bg-gray-200 py-3 rounded-lg text-gray-700 font-semibold text-base font-poppins flex justify-center items-center gap-2"
-                onClick={() => {
-                  handleChange(currentItem);
-                  setOpenModal(false);
-                }}
-              >
-                <p className="text-[#72787F] text-base font-semibold inline-block ml-2">
-                  Remove
-                </p>
-              </DefaultButton>
-              <DefaultButton
-                size={ButtonSize.Large}
-                className="flex-1 py-3 rounded-lg mr-2 flex justify-center items-center gap-2"
-                style={{
-                  background: "linear-gradient(to right, #BFA59A, #3F271E)",
-                }}
-                onClick={() => {
-                  handleData();
-                  setOpenModal(false);
-                  handleChange(currentItem);
-                }}
-              >
-                <Text
-                  as="p"
-                  className="text-white text-base font-semibold inline-block ml-2"
-                >
-                  Move to Wishlist
-                </Text>
-              </DefaultButton>
+            <Box className="flex w-full flex-col gap-4">
+              <Headings
+                FontSize="text-[24px]"
+                fontWeight="font-bold"
+                text="Remove from Cart" />{" "}
+              <Headings
+                fontWeight={"font-thin"}
+                FontSize="text-base"
+                text={"Are you sure you want to remove " +
+                  `"${currentItem.brand}"` +
+                  " from wishlist ?"} />
             </Box>
           </Box>
-        }
-      />
+          <Box className="flex w-full border-t-2 border-dotted py-4 px-10 justify-center items-center bg-white gap-4 ">
+            <DefaultButton
+              size={ButtonSize.Large}
+              className="flex-1 bg-gray-200 py-3 rounded-lg text-gray-700 font-semibold text-base font-poppins flex justify-center items-center gap-2"
+              onClick={() => {
+                handleChange(currentItem);
+                setOpenModal(false);
+              } }
+            >
+              <p className="text-[#72787F] text-base font-semibold inline-block ml-2">
+                Remove
+              </p>
+            </DefaultButton>
+            <DefaultButton
+              size={ButtonSize.Large}
+              className="flex-1 py-3 rounded-lg mr-2 flex justify-center items-center gap-2"
+              style={{
+                background: "linear-gradient(to right, #BFA59A, #3F271E)",
+              }}
+              onClick={() => {
+                handleData();
+                setOpenModal(false);
+                handleChange(currentItem);
+              } }
+            >
+              <Text
+                as="p"
+                className="text-white text-base font-semibold inline-block ml-2"
+              >
+                Move to Wishlist
+              </Text>
+            </DefaultButton>
+          </Box>
+        </Box>} buttonText1={""} buttonText2={""} buttonModel={""}      />
     );
   };
 

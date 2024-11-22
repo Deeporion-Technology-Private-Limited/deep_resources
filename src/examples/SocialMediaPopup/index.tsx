@@ -47,28 +47,21 @@ const SocialMediaPopup = forwardRef<HTMLDivElement, PopupItem>(
       <Box ref={ref}>
         <PopupModal
           crossIcon
-          header={
-            <Box className="mb-3 flex justify-between  border-[rgba(255, 255, 255, 1)]">
-              <Headings
-                FontSize="text-xl"
-                fontWeight="font-bold"
-                text="Connect Social Media Accounts"
-              />
-            </Box>
-          }
+          header={<Box className="mb-3 flex justify-between  border-[rgba(255, 255, 255, 1)]">
+            <Headings
+              FontSize="text-xl"
+              fontWeight="font-bold"
+              text="Connect Social Media Accounts" />
+          </Box>}
           modalbutton
           button02={false}
           button01={false}
-          onClose={() => {}}
+          onClose={() => { } }
           openModal
-          children={
-            <Box>
-              {item?.map((val: PopupButtons) =>
-                icons(val.icon, val.buttonText, val.text, val.click)
-              )}
-            </Box>
-          }
-        />
+          children={<Box>
+            {item?.map((val: PopupButtons) => icons(val.icon, val.buttonText, val.text, val.click)
+            )}
+          </Box>} buttonText1={""} buttonText2={""} buttonModel={""}        />
       </Box>
     );
   }

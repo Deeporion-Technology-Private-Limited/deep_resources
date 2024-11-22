@@ -135,8 +135,7 @@ const Signup = () => {
                     button02={false}
                     button01={false}
                     modalbutton={false}
-                    openModal={isOpen}
-                  >
+                    openModal={isOpen} buttonText1={""} buttonText2={""} buttonModel={""}                  >
                     <Box>
                       <Box className="flex justify-center items-center pb-4">
                         <Text

@@ -21,13 +21,13 @@ const stepperStyles = cva(
   }
 );
 
-type Step = {
+export type Step = {
   component: React.FC;
   title: string;
   completed: boolean | string;
 };
 
-type StepperProps = {
+export type StepperProps = {
   steps: Step[];
 };
 

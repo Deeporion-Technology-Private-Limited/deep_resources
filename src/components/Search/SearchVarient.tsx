@@ -1,7 +1,7 @@
 import { FindIconUrl } from "../../utils/Constant";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { IDataTopNav } from "../Header/TopNavbar/TopNavConst";
+import { IDataTopNav } from "../Header";
 
 export interface IProducts {
   id?: number | string;

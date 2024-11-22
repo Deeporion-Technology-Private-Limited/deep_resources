@@ -17,7 +17,7 @@ export type CardProps = ComponentProps<typeof Box> &
     reviews?: number;
     brand?: string;
     description?: string;
-    price?: number | string;
+    price?: number | string | undefined;
     favorite?: boolean;
     starRating?: boolean;
     children?: React.ReactNode;

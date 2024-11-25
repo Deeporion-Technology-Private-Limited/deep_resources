@@ -1,11 +1,13 @@
 import { Meta, StoryObj } from "@storybook/react";
 // import './infinite.css';
-import Dailyhunt from "../../images/Dailyhunt.svg";
-import Deccan from "../../images/Deccan.svg";
-import ETimes from "../../images/ETimes.svg";
-import Ent from "../../images/Ent.svg";
-import Influencive from "../../images/Influencive.svg";
 import { AutoCarousel } from "./AutoCarousel";
+import { FindIconUrl } from "@/utils/Constant";
+
+const Dailyhunt = FindIconUrl("Dailyhunt.svg");
+const Deccan = FindIconUrl("Deccan.svg");
+const Ent = FindIconUrl("Ent.svg");
+const ETimes = FindIconUrl("ETimes.svg");
+const Influencive = FindIconUrl("Influencive.svg");
 
 const meta: Meta<typeof AutoCarousel> = {
   title: "Components/InfiniteSlides/AutoCarousel",

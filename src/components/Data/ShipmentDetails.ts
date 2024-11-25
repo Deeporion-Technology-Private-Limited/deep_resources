@@ -1,7 +1,8 @@
-import product1 from "../../images/shipment_product.png";
-import product2 from "../../images/detailsimage.png";
 import { ISizes,IShipmentDates,IDeliveryAddress,IshipmentStatusColors,ITimeDuration,IShipmentOrderInfo, } from "../types";
+import { FindIconUrl } from "@/utils/Constant";
 
+const product1 = FindIconUrl("shipment_product.png");
+const product2 = FindIconUrl("detailsimage.png");
 
 // Define the sizes object
 export const Sizes: ISizes = {

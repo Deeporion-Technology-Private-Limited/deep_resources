@@ -2,8 +2,10 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { BreadCrumb } from ".";
 import HomeIcon from "../BreadCrumb/icon/Home.svg";
 import CategoryIcon from "../BreadCrumb/icon/Category.svg";
-import RightArrow from "../BreadCrumb/icon/RightArrow.svg";
 import Divider from "../BreadCrumb/icon/Divider.svg";
+import { FindIconUrl } from "@/utils/Constant";
+
+const RightArrow = FindIconUrl("RightArrow.svg");
 
 const meta: Meta<typeof BreadCrumb> = {
   title: "Components/BreadCrumb/BreadCrumb",

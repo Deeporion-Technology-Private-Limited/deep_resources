@@ -1,1 +1,2 @@
-export * from "./CoustomizeAccordion"
+export * from "./CoustomizeAccordion";
+export * from "../../types";

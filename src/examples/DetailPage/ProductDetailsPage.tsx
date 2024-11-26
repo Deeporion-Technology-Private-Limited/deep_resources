@@ -4,14 +4,14 @@ import { FooterCart } from "../FooterCart";
 import Cards from "../ShopingCards";
 import { productData } from "./ProductDetailsData";
 import { NavbarDirection } from "@/components/types";
-import { BreadCrumb, TopHoverMenuCard, Topnavbar } from "@/components";
+import { BreadCrumb, TopHoverMenuCard, TopNavbar } from "@/components";
 import { FindIconUrl } from "@/utils/Constant";
 
 const ProductDetails = () => {
   return (
     <div className="container mx-auto px-4">
       <div className="py-4">
-        <Topnavbar
+        <TopNavbar
           direction={NavbarDirection.Row}
           isLogin
           isSearch

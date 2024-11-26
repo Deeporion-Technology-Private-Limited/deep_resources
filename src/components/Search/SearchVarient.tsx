@@ -1,7 +1,6 @@
 import { FindIconUrl } from "../../utils/Constant";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { IDataTopNav } from "../Header";
 
 export interface IProducts {
   id?: number | string;
@@ -15,7 +14,25 @@ export interface IProducts {
   image?: string;
 }
 
-export function SearchVariant({
+export interface IReviewRating {
+  average_rating: number;
+  total_review_count: number;
+}
+
+export interface IDataTopNav {
+  brand: string;
+  discount_percent_of_first_variant: string | number | null;
+  discounted_price_of_first_variant: string | number | null;
+  id: number;
+  image: string;
+  is_favorite: boolean;
+  name: string;
+  price: string;
+  price_of_first_variant: string;
+  rating_and_review: IReviewRating;
+}
+
+function SearchVariant({
   searchItem,
   setSearchItem,
   data,
@@ -102,3 +119,4 @@ export function SearchVariant({
   );
 }
 
+export default SearchVariant;

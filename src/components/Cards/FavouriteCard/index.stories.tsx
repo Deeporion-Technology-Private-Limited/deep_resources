@@ -2,10 +2,11 @@ import { DefaultButton } from "@/components/Button/DefaultButton";
 import { Box } from "@/components/Layout";
 import { Text } from "@/components/Text";
 import { ButtonIconPosition, ButtonVariant } from "@/components/types";
-import image from "@/examples/ShopingCards/images/Web-_Product listing/3897062800_1_1_1 1.png";
 import { FindIconUrl } from "@/utils/Constant";
 import { Meta, StoryObj } from "@storybook/react";
 import { FavouriteCard } from ".";
+
+const image = FindIconUrl("3897062800_1_1_1 1.png");
 
 const meta: Meta<typeof FavouriteCard> = {
   title: "Components/Cards/FaverateCard",

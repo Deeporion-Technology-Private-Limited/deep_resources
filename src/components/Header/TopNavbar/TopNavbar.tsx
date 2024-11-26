@@ -10,7 +10,7 @@ import { NavbarDirection, TopNavbarProps } from "../../types";
 import { Anchor } from "../Anchor";
 import { AnchorList } from "../AnchorList";
 import { Logo } from "../Logo";
-import SearchImage from "../../../images/InputIcons/SearchImage";
+import SearchImage from "../../../InputIcons/SearchImage";
 import { Input } from "../../Input";
 
 const navBarStyles = cva(
@@ -94,7 +94,10 @@ export const TopNavbar = forwardRef<HTMLDivElement, TopNavProp>(
                   <Anchor
                     key={item.text}
                     href={item.href}
-                    onMouseEnter={(e) => handleEnter(item, e)} to={""} state={""}                  >
+                    onMouseEnter={(e) => handleEnter(item, e)}
+                    to={""}
+                    state={""}
+                  >
                     {item.text}
                   </Anchor>
                 ))}

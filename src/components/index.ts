@@ -41,8 +41,7 @@ export * from "./Tabs";
 export * from "./Text";
 export * from "./Tooltip";
 export * from "./types";
-export * from  "./Accordian1";
 export * from "./AccordionBar";
-export * from "./FilterDropdown"
-export * from "./FollowUs"
+export * from "./FilterDropdown";
+export * from "./FollowUs";
 export * from "./Search";

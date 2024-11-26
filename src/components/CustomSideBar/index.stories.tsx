@@ -1,8 +1,9 @@
 import { Meta, StoryObj } from "@storybook/react";
 import { TabseData } from "./CustomSideBarConst";
-import RightArrow from "../BreadCrumb/icon/RightArrow.svg";
 import { CustomSideBar } from "./CustomSideBar";
+import { FindIconUrl } from "@/utils/Constant";
 
+const RightArrow = FindIconUrl("RightArrow.svg");
 
 const meta: Meta<typeof CustomSideBar> = { 
   title: "Components/CoustomSideBar", 

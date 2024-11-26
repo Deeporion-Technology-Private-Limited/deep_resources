@@ -1,8 +1,8 @@
 import React, { forwardRef, ReactNode, useState } from "react";
 import { InputType, InputVariant } from "../../Layout";
 import { getInputConditionalStyles } from "../getInputStyles";
-import OpenEye from "../../../images/InputIcons/OpenEye";
-import CloseEye from "../../../images/InputIcons/CloseEye";
+import OpenEye from "../../../InputIcons/OpenEye";
+import CloseEye from "../../../InputIcons/CloseEye";
 
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   search?: React.ReactNode;
@@ -139,5 +139,3 @@ export const PasswordInput = forwardRef<HTMLInputElement, InputProps>(
 );
 
 PasswordInput.displayName = "PasswordInput";
-
-

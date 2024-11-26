@@ -46,9 +46,6 @@ interface ModalProps extends React.HTMLAttributes<HTMLDivElement> ,VariantProps<
   openModal: boolean;
   crossIcon?: boolean;
   handleClose?: () => void;
-  buttonText1:string;
-  buttonText2:string;
-  buttonModel:string;
 }
 
    
@@ -61,9 +58,6 @@ const { button02,
   modalbutton,
   crossIcon,
   handleClose,
-  buttonText1,
-buttonText2,
-buttonModel
 } = props
 
     const [isOpen, setIsOpen] = useState(false);
@@ -84,7 +78,7 @@ buttonModel
             onClick={toggleMenu}
             test-id="ToggleBtn"
           >
-            {buttonModel}
+            Open Modal
           </DefaultButton>
         )}
 
@@ -126,7 +120,7 @@ buttonModel
                     onClick={toggleMenu}
                     data-testid="button01"
                   >
-                    {buttonText1}
+                    button
                   </DefaultButton>
                 )}
                 {button02 && (
@@ -138,7 +132,7 @@ buttonModel
                     onClick={toggleMenu}
                     data-testid="button02"
                   >
-                    {buttonText2}
+                    button
                   </DefaultButton>
                 )}
               </div>

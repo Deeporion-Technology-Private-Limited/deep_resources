@@ -72,15 +72,16 @@ export const Input = forwardRef<HTMLInputElement, IInputProps>(
     };
 
     return (
-      <div className="relative">
+      <div>
         <input
           value={value}
           ref={ref}
           type={showPassword && type === InputType.Password ? "text" : type}
           autoComplete="off"
           readOnly={readOnly}
-          className={classNames}
+          className={`${classNames}`}
           maxLength={maxLength}
+          style={{ zIndex: -999 }}
           {...props}
         />
         {renderAdditionalComponent()}

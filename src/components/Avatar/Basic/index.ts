@@ -1,2 +1,2 @@
-export * from "./ProfileAvatar";
+export * from "./BasicProfileAvatar";
 export * from "../../types";

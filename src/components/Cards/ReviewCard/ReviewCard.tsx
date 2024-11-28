@@ -1,7 +1,7 @@
 import { cva, VariantProps } from "class-variance-authority";
 import React, { ComponentProps } from "react";
 import { cn } from "../../../utils";
-import { ProfileAvatar } from "../../Avatar";
+import { BasicProfileAvatar } from "../../Avatar";
 import { Box } from "../../Layout";
 import { Text } from "../../Text";
 const reviewCardStyles = cva(
@@ -74,7 +74,7 @@ export const ReviewCard = React.forwardRef<HTMLDivElement, ReviewCardProps>(
         {...props}
       >
         {image && (
-        <Box className="relative mb-4 overflow-hidden rounded-lg">
+          <Box className="relative mb-4 overflow-hidden rounded-lg">
             <img
               src={imageSrc}
               alt={`${reviewerName}'s picture`}
@@ -82,43 +82,43 @@ export const ReviewCard = React.forwardRef<HTMLDivElement, ReviewCardProps>(
             />
           </Box>
         )}
-     
-            <Box className="flex items-center gap-4">
-              <ProfileAvatar
-                name={reviewerName}
-                src={avatarImage}
-                className="h-16 w-16 text-lg ring-2 ring-gray-100 ring-offset-2"
-              />
-               <Text className="text-xl font-bold text-gray-900">
-                {reviewerName}
-              </Text>
-            </Box>
-            {StarRating && (
-               <Box className={cn(starStyle || starStyles(), "py-2")}>
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <svg
-                    key={i}
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill={i < rating ? "currentColor" : "none"}
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    className={
-                      i < rating
-                        ? "h-5 w-5 text-yellow-400"
+
+        <Box className="flex items-center gap-4">
+          <BasicProfileAvatar
+            name={reviewerName}
+            src={avatarImage}
+            className="h-16 w-16 text-lg ring-2 ring-gray-100 ring-offset-2"
+          />
+          <Text className="text-xl font-bold text-gray-900">
+            {reviewerName}
+          </Text>
+        </Box>
+        {StarRating && (
+          <Box className={cn(starStyle || starStyles(), "py-2")}>
+            {Array.from({ length: 5 }).map((_, i) => (
+              <svg
+                key={i}
+                xmlns="http://www.w3.org/2000/svg"
+                fill={i < rating ? "currentColor" : "none"}
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                className={
+                  i < rating
+                    ? "h-5 w-5 text-yellow-400"
                     : "h-5 w-5 text-gray-200"
-                    }
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
-                    />
-                  </svg>
-                ))}
-              </Box>
-            )}
-           {reviewText && (
+                }
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+                />
+              </svg>
+            ))}
+          </Box>
+        )}
+        {reviewText && (
           <Box className="relative mt-2">
             <svg
               className="absolute left-0 top-0 h-8 w-8 -translate-x-3 -translate-y-2 transform text-gray-200"
@@ -135,7 +135,6 @@ export const ReviewCard = React.forwardRef<HTMLDivElement, ReviewCardProps>(
             </p>
           </Box>
         )}
-       
       </div>
     );
   }

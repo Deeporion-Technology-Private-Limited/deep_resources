@@ -56,7 +56,7 @@ export interface ProfileAvatarProps
   handleNav?: () => void;
 }
 
-export const ProfileAvatar = React.forwardRef<
+export const BasicProfileAvatar = React.forwardRef<
   HTMLDivElement,
   ProfileAvatarProps
 >(

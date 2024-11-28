@@ -1,10 +1,10 @@
 import { ButtonSize } from "@/components/types";
 import { Meta, StoryObj } from "@storybook/react";
-import { Profile, ProfileAvatarInterFace } from ".";
+import { EditableProfileAvatar, ProfileAvatarInterFace } from ".";
 
-const meta: Meta<typeof Profile> = {
+const meta: Meta<typeof EditableProfileAvatar> = {
   title: "Components/Avatar/Edit",
-  component: Profile,
+  component: EditableProfileAvatar,
   parameters: {
     layout: "centered",
   },

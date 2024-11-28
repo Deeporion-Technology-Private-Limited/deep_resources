@@ -441,6 +441,10 @@ export interface IAddress {
   address: string;
   phone: string;
   postalCode: number;
+  firstName: string;
+  lastName: string;
+  email: string;
+  area: string;
 }
 
 export interface CountryType {
@@ -558,7 +562,8 @@ export interface IshipmentStatusColors {
 
 // Define the interface for the shipment information
 export interface IShipmentOrderInfo {
-  imageURL: string;
+  [x: string]: any;
+  imageURL?: string;
   logisticsCompany?: string;
   productName?: string;
   productDescription?: string;
@@ -830,6 +835,7 @@ export enum SignUp {
   NewShopping = "Your new Shopping experience.",
   Cancel = "Cancel",
   AgreeBtn = "Agree",
+  Cartify = "Cartify",
   TermsDetail = "Terms and conditions outline what users can and cannot do with your website, products, and services. They lay out the rules to protect you in case of misuse and enable you to take action if it becomes necessary. It’s also referred to by other names such as terms of service (ToS) and terms of use (ToU). Even though they have different names, in fact – there is no difference. In order to use your website, products, or services, your customers usually must agree to abide by your terms and conditions first.",
 }
 
@@ -956,13 +962,16 @@ export interface RatingDetails {
 }
 
 export enum Login {
-  Logo = "LOGO",
-  Login = "Login",
+  Logo = "Cartify",
+  Login = "Log in",
+  LoginContent = "Login",
+  Email = "Email Address",
   Username = "Username",
   Password = "Password",
-  ForgotPassword = "  Forgot Password",
+  ForgotPassword = "  Forgot Password ?",
+  ForgotContent = "Serve yourself some delicious cuisine",
   OtherPlatform = " or login using other platforms",
-  AlreadyAccount = "Already have an account?",
+  AlreadyAccount = "Create an account?",
   Register = "Register",
   NewShopping = "Your new Shopping experience.",
   Google = " Login with Google",
@@ -970,7 +979,7 @@ export enum Login {
   NoAccount = "Don’t have an account?",
   CreateAccount = "Create Account",
   VerificationCode = "We’ll send you a verification code you can use to Log in",
-  PhoneNum = "Phone number",
+  PhoneNum = "Contact number",
   PasswordRecovery = "Password recovery",
   CheckMail = "Check your email",
   SentLink = "We have sent a password reset link to email@email.com",
@@ -986,7 +995,7 @@ export enum Login {
   Minimumcharacter = "Minimum character length is 8 characters",
   SetNew = "Set new password",
   PhoneVerification = "Phone Verification",
-  EnterCode = "Enter the 6-digit code that we sent to =1234 567 899",
+  EnterCode = "Enter the 6-digit code that we sent to ",
   DidNotReceive = "Didn’t receive code ?",
   Resend = "Resend",
   Verify = "Verify",
@@ -994,15 +1003,15 @@ export enum Login {
   Enheance = "Enhance your new shopping experience",
   VerifyOTP = "Verify OTP",
   Code = "Enter Verification Code",
-  Email = "Email@gmail.com",
   GoBack = "Go back",
-  TalkToUs = "Talk To Us",
+  TalkToUs = "Contact Us",
   TalkToUsHeadline = "Fill in the form below, and we will get back to you as soon as possible!",
   Name = "Name",
   EmailAddress = "Email Address",
   Subject = "Subject",
   Details = "Details",
   SendMessage = "Send message",
+  Recovery = "Send a recovery link",
 }
 
 export interface FormDetail {
@@ -1092,3 +1101,233 @@ export interface IMainSidebarProps {
   className?: string;
   labelStyle?: string;
 }
+
+export enum Alignment {
+  Center = "center",
+  Left = "left",
+  Right = "right",
+}
+
+export enum TextSize {
+  Base = "base",
+  Small = "sm",
+  Large = "lg",
+  Xl = "xl",
+  XXl = "2xl",
+  XXXl = "3xl",
+}
+
+export enum TextWeight {
+  Bold = "bold",
+  Thin = "thin",
+  Medium = "medium",
+  Normal = "normal",
+  Semibold = "semibold",
+  Black = "black",
+}
+
+export enum PasswordSection {
+  Passwordtext = " Password Recovery",
+  mailtext = " Check your email",
+  longtext = "We have sent a password reset link to",
+  resend = "Resend e-mail",
+}
+
+export const sortingArray: string[] = [
+  "Recently Added",
+  "Popular",
+  "Price: Low-to-High",
+  "Price: High-to-Low",
+  "Customer Rating",
+  "Better Discount",
+];
+
+export interface ISidebarProps {
+  menuItems: IMenuItem[];
+}
+
+export interface IMenuItem {
+  name: string;
+  icon: React.ReactNode;
+  component: React.ReactNode;
+  description: string;
+  anchor: string;
+}
+export const PaymentHistory: IPaymentHistory[] = [
+  {
+    amount: "$1,080.00",
+    typeOfPlan: "Professional Plan",
+    paymentDate: "Apr 14, 2022",
+    cardUsed: "**** 8239",
+    details: "See Details",
+  },
+  {
+    amount: "$1,080.00",
+    typeOfPlan: "Professional Plan",
+    paymentDate: "Apr 14, 2022",
+    cardUsed: "**** 8239",
+    details: "See Details",
+  },
+  {
+    amount: "$1,080.00",
+    typeOfPlan: "Professional Plan",
+    paymentDate: "Apr 14, 2022",
+    cardUsed: "**** 8239",
+    details: "See Details",
+  },
+  {
+    amount: "$1,080.00",
+    typeOfPlan: "Professional Plan",
+    paymentDate: "Apr 14, 2022",
+    cardUsed: "**** 8239",
+    details: "See Details",
+  },
+];
+export const SubscriptionData: ISubscription[] = [
+  {
+    planType: "Yearly",
+    price: 1000,
+    transactionPercent: 10,
+    planFor: "Premium Plan",
+    status: "Active",
+  },
+  {
+    planType: "Quarter",
+    price: 100,
+    transactionPercent: 5,
+    planFor: "Medium Plan",
+    status: "notActive",
+  },
+  {
+    planType: "Monthly",
+    price: 100,
+    transactionPercent: 2,
+    planFor: "Basic Plan",
+    status: "notActive",
+  },
+];
+export const PaymentHistoryFormatted = PaymentHistory.map((item) => ({
+  amount: item.amount,
+  typeOfPlan: item.typeOfPlan,
+  paymentDate: item.paymentDate,
+  cardUsed: item.cardUsed,
+  details: item.details,
+}));
+
+export const ShipmentDates: IShipmentDates = {
+  shippedDate: "24-03-2024",
+  dispatchedDate: "28-03-2024",
+  returnAvailable: "1 May",
+  location: "San Franisco, CA",
+};
+
+export const Sizes: ISizes = {
+  XS: "XS",
+  S: "S",
+  M: "M",
+  L: "L",
+  XL: "XL",
+  XXL: "XXL",
+};
+export const ShipmentStatus = {
+  pending: "Pending",
+  processing: "Processing",
+  confirmed: "Confirmed",
+  outOfDelivery: "OutOfDelivery",
+  shipped: "Shipped",
+  cancelled: "Cancelled",
+  returned: "Returned",
+  failed: "Failed",
+} as const;
+
+export const TimeDuration: ITimeDuration = {
+  year: "year",
+  month: "month",
+  day: "day",
+  hour: "hour",
+  minute: "minute",
+  second: "second",
+  justNow: "just now",
+};
+
+export const ShipmentOrderInfo: IShipmentOrderInfo = {
+  logisticsCompany: "United Parcel Service",
+  takingId: "2X8888210546700",
+  orderId: "2241-83KG",
+  currentShipmentStatus: ShipmentStatus.shipped,
+  shipmentCountry: "India",
+  shipmentFrom: "Delhi",
+  shipmentTo: "Bangalore",
+  currentLocation: "bvk Iyengar Street",
+  distanceLeft: 200,
+  lastStop: 4,
+  timeDuration: TimeDuration.hour,
+  // imageURL: productImg,
+};
+
+export const DeliveryAddress: IDeliveryAddress = {
+  customerName: "Tessa Rain",
+  phone: "1234567898",
+  address: "19f Abhinay Theatre Complex, bvk Iyengar Street",
+  pincode: 560009,
+};
+
+export const colorsMap: Record<string, string> = {
+  pending: "#FFA500",
+  processing: "#0000FF",
+  confirmed: "#059669",
+  outofdelivery: "#FFD700",
+  shipped: "#008000",
+  cancelled: "#FF0000",
+  returned: "#800080",
+  failed: "#8B0000",
+};
+
+export enum SizeChartString {
+  chart = " Size Chart",
+  measure = " How To Measure",
+  text = "  Find the size to fit your body measurements in the size chart below.",
+  cart = " Add To Cart",
+  wishlist = " Wishlist",
+}
+
+export const womanSize: ISizeDataForWomen[] = [
+  {
+    size: "XS",
+    hipCm: 35.0,
+    waistCm: 24.0,
+    lengthCm: 13.0,
+  },
+  {
+    size: "S",
+    hipCm: 37.0,
+    waistCm: 26.0,
+    lengthCm: 13.5,
+  },
+  {
+    size: "M",
+    hipCm: 39.0,
+    waistCm: 28.0,
+    lengthCm: 14.0,
+  },
+  {
+    size: "L",
+    hipCm: 41.0,
+    waistCm: 30.0,
+    lengthCm: 14.5,
+  },
+  {
+    size: "XL",
+    hipCm: 43.0,
+    waistCm: 32.0,
+    lengthCm: 15.0,
+  },
+];
+
+export const initialData = {
+  recipient_name: "",
+  recipient_email_id: "",
+  date: "",
+  sender_email: "",
+  message: "",
+};

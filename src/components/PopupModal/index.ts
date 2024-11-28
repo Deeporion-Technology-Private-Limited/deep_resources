@@ -1,3 +1,2 @@
-export * from "./PopupModal"
-export * from "./ExchangePopup/ExchangePopup";
-export * from "../types"
+export * from "./PopupModal";
+export * from "../types";

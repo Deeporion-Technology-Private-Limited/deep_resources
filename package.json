@@ -1,6 +1,6 @@
 {
   "name": "deep_resources",
-  "version": "0.0.15",
+  "version": "0.0.61",
   "type": "module",
   "files": [
     "dist"

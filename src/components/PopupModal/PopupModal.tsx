@@ -1,12 +1,11 @@
-import { VariantProps, cva } from "class-variance-authority";
-import { useState, forwardRef, ReactNode, useEffect } from "react";
-import { ButtonSize, ButtonVariant } from ".";
 import { DefaultButton } from "@/components/Button";
 import { Box } from "@/components/Layout";
-import { Close } from "@/components/Icons";
-import { color } from "@/utils/colorThemes";
 import { Text } from "@/components/Text";
+import { color } from "@/utils/colorThemes";
+import { cva, VariantProps } from "class-variance-authority";
+import { forwardRef, ReactNode, useEffect, useState } from "react";
 import { IoMdClose } from "react-icons/io";
+import { ButtonSize, ButtonVariant } from ".";
 
 const modalStyles = cva(
   [
@@ -55,8 +54,8 @@ interface IModalProps
   button02Styles?: string;
   mobileClasses?: boolean;
   modalTriggerButtonText?: string;
-  button1Text: string;
-  button2Text: string;
+  button1Text?: string;
+  button2Text?: string;
 }
 
 export const PopupModal = forwardRef<HTMLDivElement, IModalProps>(
@@ -113,7 +112,7 @@ export const PopupModal = forwardRef<HTMLDivElement, IModalProps>(
 
           {isOpen && (
             <div
-              className={`fixed left-0 top-0 z-[3] flex h-full w-full overflow-y-auto ${props.mobileClasses ? "items:end justify:end md:items-center md:justify-center" : "items-center justify-center"}`}
+              className={`fixed left-0 top-0 z-[3] flex h-full w-full overflow-y-auto ${props.mobileClasses ? "items:end justify:end md:items-center md:justify-center justify-center" : "items-center justify-center"}`}
               onClick={toggleMenu}
               ref={ref}
             >

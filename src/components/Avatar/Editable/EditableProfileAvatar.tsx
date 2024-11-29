@@ -34,7 +34,7 @@ export interface ProfileAvatarInterFace
   textStyle?: string;
 }
 
-export const Profile = React.forwardRef<HTMLDivElement, ProfileAvatarInterFace>(
+export const EditableProfileAvatar = React.forwardRef<HTMLDivElement, ProfileAvatarInterFace>(
   (
     {
       src,
@@ -68,7 +68,6 @@ export const Profile = React.forwardRef<HTMLDivElement, ProfileAvatarInterFace>(
               data-testid="icon"
             />
             <Text className={textStyle}>Edit Picture</Text>
-            {/* <Text className={textStyle}>Edit Picture</Text> */}
           </Box>
         </Box>
       </Box>

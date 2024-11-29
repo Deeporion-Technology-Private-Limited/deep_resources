@@ -69,7 +69,7 @@ export const QuantityCard = forwardRef<HTMLDivElement, CardProps>(
 
     return (
       <Box ref={ref} className={cn(cardStyles(), className)}>
-        <Box className="relative sm:w-[100%] lg:w-fit">
+        <Box className="sm:w-[100%] lg:w-fit">
           <img className={imageStyle} src={imageSrc} alt="product" />
           {/* <Box>
             <Checkbox

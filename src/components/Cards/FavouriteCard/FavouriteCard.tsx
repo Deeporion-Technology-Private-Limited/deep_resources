@@ -1,13 +1,11 @@
-import React, { useState, forwardRef, ComponentProps } from "react";
+import React, { ComponentProps, forwardRef, useState } from "react";
 
 import { VariantProps, cva } from "class-variance-authority";
+import { cn } from "../../../utils";
+import { FindIconUrl } from "../../../utils/Constant";
+import { DefaultButton } from "../../Button";
 import { Box } from "../../Layout";
 import { Text } from "../../Text";
-import { cn } from "../../../utils";
-import { DefaultButton } from "../../Button";
-import { FindIconUrl } from "../../../utils/Constant";
-import { useLocation } from "react-router-dom";
-
 
 export type CardProps = ComponentProps<typeof Box> &
   VariantProps<typeof cardStyles> & {
@@ -45,7 +43,7 @@ export type CardProps = ComponentProps<typeof Box> &
   };
 
 const cardStyles = cva(
-  " lg:w-[17rem]  w-[19.5rem] lg:max-w-sm rounded overflow-hidden shadow-xl",
+  " lg:w-[17rem]  w-[19.5rem] lg:max-w-sm rounded overflow-hidden shadow-xl"
 );
 export const FavouriteCard = forwardRef<HTMLDivElement, CardProps>(
   (
@@ -75,14 +73,14 @@ export const FavouriteCard = forwardRef<HTMLDivElement, CardProps>(
       handleNavigate,
     },
 
-    ref,
+    ref
   ) => {
     const [isFav, setIsFav] = useState(isFavorite);
     const toggleFavorite = () => {
       setIsFav(!isFavorite);
     };
-    const location = useLocation();
-    const isLandingPage = location.pathname === "/";
+    const pathname = window.location.pathname;
+    const isLandingPage = pathname === "/";
     const dynamicImageStyle = isLandingPage
       ? "h-[412px] w-[405px]"
       : "h-[341px] w-[253px]";
@@ -90,7 +88,7 @@ export const FavouriteCard = forwardRef<HTMLDivElement, CardProps>(
     const finalImageStyle = `${imageStyle} ${dynamicImageStyle} `;
 
     const handleDescClick = (
-      e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+      e: React.MouseEvent<HTMLButtonElement, MouseEvent>
     ) => {
       e.stopPropagation();
       if (handleCart !== undefined && id) {
@@ -98,12 +96,12 @@ export const FavouriteCard = forwardRef<HTMLDivElement, CardProps>(
       }
     };
 
-   
-
-    
     return (
-      <Box ref={ref} className={cn(cardStyles(), className)}
-      onClick={handleNavigate}>
+      <Box
+        ref={ref}
+        className={cn(cardStyles(), className)}
+        onClick={handleNavigate}
+      >
         <Box className="group relative flex items-center justify-center">
           {imageSrc && (
             <>
@@ -125,9 +123,8 @@ export const FavouriteCard = forwardRef<HTMLDivElement, CardProps>(
                   ? isFav
                     ? "p-3 text-red-500"
                     : "p-3 text-gray-500"
-                  : null,
+                  : null
               )}
-              
             >
               {iconUrl ? (
                 <img
@@ -203,5 +200,5 @@ export const FavouriteCard = forwardRef<HTMLDivElement, CardProps>(
         )}
       </Box>
     );
-  },
+  }
 );

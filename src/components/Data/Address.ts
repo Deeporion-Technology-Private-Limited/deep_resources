@@ -1,11 +1,15 @@
 import { IAddress,CountryType,IIndialStates } from "../types";
 export const Address: IAddress = {
+  firstName: "rohit",
+  lastName: "shetty",
+  email: "user@example.com",
+  area: "wipro",
   phone: "+1 415 123 4567",
   city: "San Francisco",
   address: "1234 Market Street, Apt 5B",
   state: "Karnataka",
   country: "IN",
-  postalCode: 94103,
+  postalCode: 941033,
 };
 
 export const countries: CountryType[] = [

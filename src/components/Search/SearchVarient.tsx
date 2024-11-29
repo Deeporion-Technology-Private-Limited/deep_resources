@@ -1,6 +1,5 @@
-import { FindIconUrl } from "../../utils/Constant";
-import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { FindIconUrl } from "../../utils/Constant";
 
 export interface IProducts {
   id?: number | string;
@@ -43,12 +42,11 @@ function SearchVariant({
 }) {
   const search = FindIconUrl("Search.svg");
   const [active, setActive] = useState(false);
-  const navigate = useNavigate();
   const handleActive = () => {
     setActive(!active);
   };
   const handleProductClick = (id: number | string) => {
-    navigate(`/product-details/id=${id}`);
+    window.location.href = `/product-details/id=${id}`;
     if (setSearchItem !== undefined) {
       setSearchItem("");
     }

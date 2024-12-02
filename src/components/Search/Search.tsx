@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { GoSearch } from "react-icons/go";
 import { IoClose } from "react-icons/io5";
 
-function Search({
+export function Search({
   searchItem,
   setSearchItem,
 }: {
@@ -52,5 +52,3 @@ function Search({
     </div>
   );
 }
-
-export default Search;

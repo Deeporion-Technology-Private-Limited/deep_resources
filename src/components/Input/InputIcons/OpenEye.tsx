@@ -1,4 +1,4 @@
-export default function OpenEye() {
+export function OpenEye() {
   return (
     <svg
       width="24"

@@ -7,7 +7,7 @@ interface IAccordionProps {
   children?: React.ReactNode;
 }
 
-const AccordionPanel: React.FC<IAccordionProps> = ({
+export const AccordionPanel: React.FC<IAccordionProps> = ({
   title,
   type,
   location,
@@ -45,5 +45,3 @@ const AccordionPanel: React.FC<IAccordionProps> = ({
     </div>
   );
 };
-
-export default AccordionPanel;

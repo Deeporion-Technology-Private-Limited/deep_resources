@@ -2,7 +2,7 @@ import React from "react";
 import { RxCross2 } from "react-icons/rx";
 import { Checkbox } from "../../Checkbox";
 
-const MoreOptions = () => {
+export const MoreOptions = () => {
   const brands = [
     "Athena",
     "AURELIA",
@@ -93,5 +93,3 @@ const MoreOptions = () => {
     </div>
   );
 };
-
-export default MoreOptions;

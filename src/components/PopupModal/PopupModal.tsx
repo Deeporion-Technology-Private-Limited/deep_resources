@@ -117,7 +117,7 @@ export const PopupModal = forwardRef<HTMLDivElement, IModalProps>(
               ref={ref}
             >
               <div
-                className={`flex flex-col relative overflow-auto rounded rounded-br-3xl bg-[${color.plainWhite}] p-4 shadow-md md:max-w-7xl ${props.mobileClasses ? "mt-[30vh] w-[100%] overflow-hidden rounded-br-none rounded-tr-3xl md:w-[50%] md:rounded md:rounded-br-3xl md:rounded-tr lg:w-[45%]" : "max-w-[50%] mt-10"}`}
+                className={`flex flex-col relative overflow-auto rounded rounded-br-3xl bg-[${color.plainWhite}] p-4 shadow-md md:max-w-7xl ${props.mobileClasses ? "mt-[30vh] w-[100%] overflow-hidden rounded-br-none rounded-tr-3xl md:w-[50%] md:rounded md:rounded-br-3xl md:rounded-tr lg:w-[45%]" : "w-[50%] mt-10"}`}
                 data-testid="Open-toggle"
                 onClick={(e) => e.stopPropagation()}
               >

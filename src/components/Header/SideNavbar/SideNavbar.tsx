@@ -43,7 +43,7 @@ const notLogin = {
   // profile: person,
 };
 
-export type profile = {
+export interface IProfileItem  {
   profileName?: string;
   profilePicture?: string;
 };
@@ -60,7 +60,7 @@ interface LogoImageProps
   navItem?: NavItems[];
   showNavItemName?: boolean;
   showProfile?: boolean;
-  profileItem?: profile;
+  profileItem?: IProfileItem;
   logoStyle?: string;
   hover?: boolean;
   largeSidebar?: boolean;
@@ -90,6 +90,10 @@ export const SideNavbar = forwardRef<HTMLDivElement, LogoImageProps>(
       []
     );
 
+    const handleFind = (item: NavItems) => {
+      return showSubMenuNavItem.find((val) => val.menus === item.menus);
+    };
+
     const handleClick = (item: NavItems) => {
       const close = handleFind(item);
       if (close) {
@@ -106,10 +110,6 @@ export const SideNavbar = forwardRef<HTMLDivElement, LogoImageProps>(
       } else {
         item.onClick ? item.onClick : alert("there is nothing we can do");
       }
-    };
-
-    const handleFind = (item: NavItems) => {
-      return showSubMenuNavItem.find((val) => val.menus === item.menus);
     };
 
     const renderProfileSection = () => {

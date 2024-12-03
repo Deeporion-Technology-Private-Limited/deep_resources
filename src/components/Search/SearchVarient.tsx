@@ -31,7 +31,7 @@ export interface IDataTopNav {
   rating_and_review: IReviewRating;
 }
 
-function SearchVariant({
+export function SearchVariant({
   searchItem,
   setSearchItem,
   data,
@@ -116,5 +116,3 @@ function SearchVariant({
     </div>
   );
 }
-
-export default SearchVariant;

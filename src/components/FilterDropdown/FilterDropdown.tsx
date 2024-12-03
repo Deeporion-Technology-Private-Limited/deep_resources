@@ -38,7 +38,11 @@ export const FilterDropdown = () => {
                         className="flex justify-between font-normal"
                       >
                         {value}
-                        <Checkbox value={value} onChange={handleChange} />
+                        <Checkbox
+                          value={value}
+                          onChange={handleChange}
+                          className="flex items-start justify-start gap-2 text-center"
+                        />
                       </div>
                     ))}
                     childClassName={item?.childClassName}

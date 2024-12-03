@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Input } from ".";
-import SearchImage from "../../InputIcons/SearchImage";
-import CloseEye from "../../InputIcons/CloseEye";
-import OpenEye from "../../InputIcons/OpenEye";
+import SearchImage from "./InputIcons/SearchImage";
+import CloseEye from "./InputIcons/CloseEye";
+import OpenEye from "./InputIcons/OpenEye";
 import { InputType, InputVariant, Placeholder } from "../types";
 
 const meta: Meta<typeof Input> = {

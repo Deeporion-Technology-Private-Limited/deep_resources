@@ -10,7 +10,7 @@ import { NavbarDirection, TopNavbarProps } from "../../types";
 import { Anchor } from "../Anchor";
 import { AnchorList } from "../AnchorList";
 import { Logo } from "../Logo";
-import SearchImage from "../../Input/InputIcons/SearchImage";
+import {SearchImage} from "../../Input/InputIcons/SearchImage";
 import { Input } from "../../Input";
 
 const navBarStyles = cva(

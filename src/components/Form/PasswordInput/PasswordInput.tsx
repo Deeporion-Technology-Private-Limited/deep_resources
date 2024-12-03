@@ -1,8 +1,8 @@
 import React, { forwardRef, ReactNode, useState } from "react";
 import { InputType, InputVariant } from "../../Layout";
 import { getInputConditionalStyles } from "../getInputStyles";
-import OpenEye from "../../Input/InputIcons/OpenEye";
-import CloseEye from "../../Input/InputIcons/CloseEye";
+import {OpenEye} from "../../Input/InputIcons/OpenEye";
+import {CloseEye} from "../../Input/InputIcons/CloseEye";
 
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   search?: React.ReactNode;

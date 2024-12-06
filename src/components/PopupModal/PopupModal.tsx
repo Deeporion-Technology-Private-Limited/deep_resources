@@ -112,9 +112,10 @@ export const PopupModal = forwardRef<HTMLDivElement, IModalProps>(
 
           {isOpen && (
             <div
-              className={`fixed left-0 top-0 z-[3] flex h-full w-full overflow-y-auto ${props.mobileClasses ? "items:end justify:end md:items-center md:justify-center justify-center" : "items-center justify-center"}`}
+              className={`fixed left-0 top-0 z-[999] flex h-full w-full overflow-y-auto ${props.mobileClasses ? "items:end justify:end md:items-center md:justify-center justify-center" : "items-center justify-center"}`}
               onClick={toggleMenu}
               ref={ref}
+              style={{ zIndex: 999 }}
             >
               <div
                 className={`flex flex-col relative overflow-auto rounded rounded-br-3xl bg-[${color.plainWhite}] p-4 shadow-md md:max-w-7xl ${props.mobileClasses ? "mt-[30vh] w-[100%] overflow-hidden rounded-br-none rounded-tr-3xl md:w-[50%] md:rounded md:rounded-br-3xl md:rounded-tr lg:w-[45%]" : "w-[50%] mt-10"}`}

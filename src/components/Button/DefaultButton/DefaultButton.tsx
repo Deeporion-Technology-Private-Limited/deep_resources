@@ -152,7 +152,7 @@ export const DefaultButton = forwardRef<HTMLButtonElement, ButtonProps>(
             className={cn(hasText ? "mr-2" : "")}
           />
         )}
-        <span className={cn(hasText ? "" : "sr-only")}>{children}</span>
+        <span className={cn(hasText ? "w-full" : "sr-only")}>{children}</span>
         {iconUrl && iconPosition === ButtonIconPosition.Right && (
           <img
             src={iconUrl as string}

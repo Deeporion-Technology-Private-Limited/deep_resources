@@ -1,5 +1,5 @@
 import React from "react";
-import { TopHoverMenuCard, TopItem, GenderItem, profile } from "../Header";
+import { TopHoverMenuCard, TopItem, GenderItem, IProfileItem } from "../Header";
 import { Cart, Favourite, Notification, Setting } from "../MenuItem/Icon/icon";
 import { NavItems } from "../types";
 
@@ -50,7 +50,7 @@ export interface SidbarProps {
   title?: string;
   LogoIcon?: string;
   navItem?: NavItems[];
-  profileItem?: profile;
+  profileItem?: IProfileItem;
   handleClose?: () => void;
   handleLogin?: () => void;
   userLogedIn?: boolean;

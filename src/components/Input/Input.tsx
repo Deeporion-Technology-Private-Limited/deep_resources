@@ -89,5 +89,3 @@ export const Input = forwardRef<HTMLInputElement, IInputProps>(
     );
   }
 );
-
-export default Input;

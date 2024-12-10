@@ -82,25 +82,25 @@ export const Checkbox = forwardRef<HTMLInputElement, InputProps>(
     const inputElement = (
       <div
         className={cn(
-          "flex items-center justify-center relative",
+          "relative flex items-start justify-center",
           {
-            "w-8 h-8 rounded-lg border-2 border-[#a67b5b]":
+            "h-5 w-5 rounded-md border-2 border-[#a67b5b]":
               type === "checkbox" && !isChecked && !disabled,
-            "w-8 h-8 rounded-lg border-2 border-[#a67b5b] bg-[#4a3224]":
+            "h-5 w-5 rounded-md border-2 border-[#a67b5b] bg-[#4a3224]":
               type === "checkbox" && isChecked && !disabled,
-            "w-8 h-8 rounded-full border-2 border-[#a67b5b]":
+            "h-5 w-5 rounded-full border-2 border-[#a67b5b]":
               type === "radio" && !isChecked && !disabled,
-            "w-8 h-8 rounded-full border-2 border-[#a67b5b] bg-[#4a3224]":
+            "h-5 w-5 rounded-full border-2 border-[#a67b5b] bg-[#4a3224]":
               type === "radio" && isChecked && !disabled,
-            "w-16 h-9 rounded-full border-2 border-[#a67b5b] bg-[#ccc]":
+            "w-13 h-6 rounded-full border-2 border-[#a67b5b] bg-[#ccc]":
               type === "toggle" && !isChecked && !disabled,
-            "w-16 h-9 rounded-full border-2 border-[#a67b5b] bg-[#4a3224]":
+            "w-13 h-6 rounded-full border-2 border-[#a67b5b] bg-[#4a3224]":
               type === "toggle" && isChecked && !disabled,
-            "w-8 h-8 rounded-lg border-2 border-gray-400 bg-gray-200 cursor-not-allowed opacity-50":
+            "h-5 w-5 cursor-not-allowed rounded-md border-2 border-gray-400 bg-gray-200 opacity-50":
               type === "checkbox" && disabled,
-            "w-8 h-8 rounded-full border-2 border-gray-400 bg-gray-200 cursor-not-allowed opacity-50":
+            "h-5 w-5 cursor-not-allowed rounded-full border-2 border-gray-400 bg-gray-200 opacity-50":
               type === "radio" && disabled,
-            "w-16 h-8 rounded-full border-2 border-gray-400 bg-gray-200 cursor-not-allowed opacity-50":
+            "w-13 h-5 cursor-not-allowed rounded-full border-2 border-gray-400 bg-gray-200 opacity-50":
               type === "toggle" && disabled,
           },
           containerClassName
@@ -130,7 +130,7 @@ export const Checkbox = forwardRef<HTMLInputElement, InputProps>(
         {type === "radio" && isChecked && (
           <span
             className={cn("bg-white w-4 h-4 rounded-full", checkedClassName)}
-          ></span>
+          />
         )}
         {type === "toggle" && (
           <span
@@ -141,7 +141,7 @@ export const Checkbox = forwardRef<HTMLInputElement, InputProps>(
               },
               checkedClassName
             )}
-          ></span>
+          />
         )}
       </div>
     );
@@ -162,7 +162,7 @@ export const Checkbox = forwardRef<HTMLInputElement, InputProps>(
     return (
       <div
         className={cn(
-          "flex items-center justify-between gap-4 text-center py-[10px] ",
+          "flex items-start justify-between gap-2 text-center",
           className
         )}
       >

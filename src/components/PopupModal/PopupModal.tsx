@@ -6,6 +6,7 @@ import { cva, VariantProps } from "class-variance-authority";
 import { forwardRef, ReactNode, useEffect, useState } from "react";
 import { IoMdClose } from "react-icons/io";
 import { ButtonSize, ButtonVariant } from ".";
+import { cn } from "@/utils";
 
 const modalStyles = cva(
   [
@@ -56,6 +57,7 @@ interface IModalProps
   modalTriggerButtonText?: string;
   button1Text?: string;
   button2Text?: string;
+  modalBoxStyles?: string;
 }
 
 export const PopupModal = forwardRef<HTMLDivElement, IModalProps>(
@@ -79,6 +81,7 @@ export const PopupModal = forwardRef<HTMLDivElement, IModalProps>(
       modalTriggerButtonText,
       button1Text,
       button2Text,
+      modalBoxStyles,
     } = props;
 
     const [isOpen, setIsOpen] = useState(false);
@@ -112,18 +115,33 @@ export const PopupModal = forwardRef<HTMLDivElement, IModalProps>(
 
           {isOpen && (
             <div
-              className={`fixed left-0 top-0 z-[999] flex h-full w-full overflow-y-auto ${props.mobileClasses ? "items:end justify:end md:items-center md:justify-center justify-center" : "items-center justify-center"}`}
+              className={cn(
+                "fixed left-0 top-0 z-[999] flex h-full w-full overflow-y-auto",
+                props.mobileClasses
+                  ? "items:end justify:end md:items-center md:justify-center justify-center"
+                  : "items-center justify-center"
+              )}
               onClick={toggleMenu}
               ref={ref}
               style={{ zIndex: 999 }}
             >
               <div
-                className={`flex flex-col relative overflow-auto rounded rounded-br-3xl bg-[${color.plainWhite}] p-4 shadow-md md:max-w-7xl ${props.mobileClasses ? "mt-[30vh] w-[100%] overflow-hidden rounded-br-none rounded-tr-3xl md:w-[50%] md:rounded md:rounded-br-3xl md:rounded-tr lg:w-[45%]" : "w-[50%] mt-10"}`}
+                className={cn(
+                  "flex flex-col relative overflow-auto rounded rounded-br-3xl",
+                  `bg-[${color.plainWhite}] p-4 shadow-md md:max-w-7xl`,
+                  props.mobileClasses
+                    ? "mt-[30vh] w-[100%] overflow-hidden rounded-br-none rounded-tr-3xl md:w-[50%] md:rounded md:rounded-br-3xl md:rounded-tr lg:w-[45%]"
+                    : "w-[50%] mt-10",
+                  modalBoxStyles
+                )}
                 data-testid="Open-toggle"
                 onClick={(e) => e.stopPropagation()}
               >
                 <Box
-                  className={`flex font-bold text-2xl justify-between pb-3 ${headerStyle}`}
+                  className={cn(
+                    "flex font-bold text-2xl justify-between pb-3",
+                    headerStyle
+                  )}
                 >
                   {header}
                   {crossIcon && (
@@ -144,7 +162,10 @@ export const PopupModal = forwardRef<HTMLDivElement, IModalProps>(
                 </Box>
 
                 <Text
-                  className={`text-left text-sm font-semibold leading-[21px] text-[${color.lightGray}] ${descriptionStyles}`}
+                  className={cn(
+                    `text-left text-sm font-semibold leading-[21px] text-[${color.lightGray}]`,
+                    descriptionStyles
+                  )}
                 >
                   {description}
                 </Text>
@@ -155,7 +176,7 @@ export const PopupModal = forwardRef<HTMLDivElement, IModalProps>(
                     <DefaultButton
                       hover
                       size={ButtonSize.Small}
-                      className={`ml-2 mr-2 w-1/4 ${button01Styles}`}
+                      className={cn("ml-2 mr-2 w-1/4", button01Styles)}
                       variant={ButtonVariant.DefaultPrimary}
                       onClick={onButton01Click}
                       data-testid="button01"
@@ -168,7 +189,7 @@ export const PopupModal = forwardRef<HTMLDivElement, IModalProps>(
                       hover
                       variant={ButtonVariant.DefaultPrimary}
                       size={ButtonSize.Small}
-                      className={`ml-2 mr-2 w-1/4 ${button02Styles}`}
+                      className={cn("ml-2 mr-2 w-1/4", button02Styles)}
                       onClick={onButton02Click}
                       data-testid="button02"
                     >

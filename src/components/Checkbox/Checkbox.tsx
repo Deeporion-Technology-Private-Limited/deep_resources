@@ -150,9 +150,8 @@ export const Checkbox = forwardRef<HTMLInputElement, InputProps>(
       <label
         htmlFor={value}
         className={cn(
-          `cursor-pointer ${labelClassname} ${
-            disabled ? "cursor-not-allowed opacity-50" : ""
-          }`
+          `cursor-pointer ${disabled ? "cursor-not-allowed opacity-50" : ""}`,
+          labelClassname
         )}
       >
         {label}

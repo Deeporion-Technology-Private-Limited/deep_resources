@@ -1,5 +1,5 @@
 import { cn } from "@/utils";
-import React from "react";
+import React, { FC } from "react";
 
 type TypographyVariants =
   | "h1"
@@ -37,7 +37,7 @@ const variantClasses: Record<TypographyVariants, string> = {
   overline: "text-xs uppercase font-bold tracking-widest text-gray-500",
 };
 
-export const Typography = React.forwardRef(
+export const Typography: FC<ITypographyProps> = React.forwardRef(
   <V extends React.ElementType = "p">({
     variant = "body1",
     className = "",

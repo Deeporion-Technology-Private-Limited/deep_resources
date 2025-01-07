@@ -44,3 +44,8 @@ export * from "./Tabs";
 export * from "./Text";
 export * from "./Tooltip";
 export * from "./types";
+export * from "./Typography";
+export * from "./Select";
+export * from "./Rating";
+export * from "./Slider";
+export * from "./Separator";

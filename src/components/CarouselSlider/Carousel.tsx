@@ -34,6 +34,7 @@ export type ReviewDataType = {
   className: string;
   starStyle: string;
   textStyle: string;
+  imageClassNames?: string;
 };
 
 type CarouselProps = ComponentProps<"div"> &
@@ -43,7 +44,7 @@ type CarouselProps = ComponentProps<"div"> &
     slideInterval?: number;
     variant?: "default" | "review";
     onButtonClick?: (label: string) => void;
-
+    imageClassNames?: string;
   };
 
 export const Carousel = React.forwardRef<HTMLDivElement, CarouselProps>(
@@ -55,6 +56,7 @@ export const Carousel = React.forwardRef<HTMLDivElement, CarouselProps>(
       className,
       variant = "default",
       onButtonClick,
+      imageClassNames,
       ...props
     },
     ref
@@ -94,7 +96,7 @@ export const Carousel = React.forwardRef<HTMLDivElement, CarouselProps>(
         >
           {items.map((item, index) => (
             <div
-              key={index}
+              key={crypto.randomUUID()}
               className="w-full flex-shrink-0 relative"
               style={{ flex: "0 0 100%" }}
             >
@@ -103,7 +105,10 @@ export const Carousel = React.forwardRef<HTMLDivElement, CarouselProps>(
                   <img
                     src={item.image}
                     alt={`Slide ${index}`}
-                    className="h-48 w-full object-cover sm:h-64 md:h-72 lg:h-[45rem]"
+                    className={cn(
+                      "h-48 w-full object-cover sm:h-64 md:h-72 lg:h-[45rem]",
+                      imageClassNames
+                    )}
                   />
                   <div className="absolute inset-0 flex flex-col items-center justify-center mt-6 p-4 sm:p-6 md:p-8 lg:p-10">
                     {item.heading && (
@@ -136,7 +141,8 @@ export const Carousel = React.forwardRef<HTMLDivElement, CarouselProps>(
                         )}
                         onClick={() =>
                           onButtonClick && onButtonClick(item.button!.label)
-                        }                      >
+                        }
+                      >
                         {item.button.label}
                       </DefaultButton>
                     )}

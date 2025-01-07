@@ -45,24 +45,28 @@ export const SingleIconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
     ref
   ) => {
     return (
-      <button
-        ref={ref}
-        className={cn(
-          IconButtonStyles({ direction }),
-          backgroundColor,
-          className
+      <>
+        {iconUrl && (
+          <button
+            ref={ref}
+            className={cn(
+              IconButtonStyles({ direction }),
+              backgroundColor,
+              className
+            )}
+            {...props}
+            data-testid="click-me"
+          >
+            {typeof iconUrl === "string" ? (
+              <img className="icon-group" src={iconUrl} />
+            ) : (
+              iconUrl
+            )}
+            {text}
+            {children}
+          </button>
         )}
-        {...props}
-        data-testid="click-me"
-      >
-        {typeof iconUrl === "string" ? (
-          <img className="icon-group" src={iconUrl} alt="icon" />
-        ) : (
-          iconUrl
-        )}
-        {text}
-        {children}
-      </button>
+      </>
     );
   }
 );

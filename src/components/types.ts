@@ -1007,7 +1007,6 @@ export enum Login {
   TalkToUs = "Contact Us",
   TalkToUsHeadline = "Fill in the form below, and we will get back to you as soon as possible!",
   Name = "Name",
-  EmailAddress = "Email Address",
   Subject = "Subject",
   Details = "Details",
   SendMessage = "Send message",
@@ -1331,3 +1330,19 @@ export const initialData = {
   sender_email: "",
   message: "",
 };
+
+// Typography
+export enum TypographyVariant {
+  H1 = "h1",
+  H2 = "h2",
+  H3 = "h3",
+  H4 = "h4",
+  H5 = "h5",
+  H6 = "h6",
+  Subtitle1 = "subtitle1",
+  Subtitle2 = "subtitle2",
+  Body1 = "body1",
+  Body2 = "body2",
+  Caption = "caption",
+  Overline = "overline",
+}

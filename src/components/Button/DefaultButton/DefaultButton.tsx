@@ -63,6 +63,7 @@ type ButtonProps = ComponentProps<"button"> &
     hover?: boolean;
     iconUrl?: string | (() => React.JSX.Element);
     iconPosition?: ButtonIconPosition;
+    onclick?: () => void;
   };
 
 const getButtonClasses = ({
@@ -95,10 +96,10 @@ const getButtonClasses = ({
   const defaultBackgroundColor = disabled
     ? "text-[#72787F] bg-[#E8EBED]"
     : variant === ButtonVariant.DefaultSeconday
-    ? "bg-[#EBE3E0] text-[#3F271E]"
-    : variant === ButtonVariant.DefaultDarkBackground
-    ? "bg-[#FFFFFF] text-[#3F271E]"
-    : "bg-gradient-to-r from-[#BFA59A] to-[#3F271E]";
+      ? "bg-[#EBE3E0] text-[#3F271E]"
+      : variant === ButtonVariant.DefaultDarkBackground
+        ? "bg-[#FFFFFF] text-[#3F271E]"
+        : "bg-gradient-to-r from-[#BFA59A] to-[#3F271E]";
 
   const backgroundColor = hasCustomBackgroundColor
     ? ""
@@ -123,6 +124,7 @@ export const DefaultButton = forwardRef<HTMLButtonElement, ButtonProps>(
       disabled = false,
       className,
       children,
+      onclick,
       ...props
     },
     ref
@@ -141,8 +143,9 @@ export const DefaultButton = forwardRef<HTMLButtonElement, ButtonProps>(
     return (
       <button
         ref={ref}
-        className={buttonClasses}
+        className={cn(buttonClasses, className)}
         disabled={disabled}
+        onClick={onclick}
         {...props}
       >
         {iconUrl && iconPosition === ButtonIconPosition.Left && (

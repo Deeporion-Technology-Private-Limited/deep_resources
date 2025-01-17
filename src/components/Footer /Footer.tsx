@@ -126,7 +126,7 @@ export const Footer = React.forwardRef<HTMLDivElement, CustomerProps>(
                 <>
                   <SingleIconButton
                     iconUrl={item.iconUrl}
-                    className="w-fit p-[5px]"
+                    className="w-fit p-[5px] hover:underline"
                     onClick={item.onClick}
                   />
                 </>

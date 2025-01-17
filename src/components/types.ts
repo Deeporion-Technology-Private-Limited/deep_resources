@@ -20,6 +20,12 @@ export enum contentData {
 
 export const contentSize = ["small", "medium", "large"];
 
+// SocialLinksSideMenu
+export enum SocialLinksSideMenuPosition {
+  Left = "left",
+  Right = "right",
+}
+
 // Alert
 export enum AlertType {
   Success = "success",
@@ -262,6 +268,8 @@ export enum InputType {
   ClassName = "FormInput-class",
   UserName = "User-Name",
   Name = "userName",
+  Radio = "radio",
+  File = "file",
 }
 
 export enum Placeholder {

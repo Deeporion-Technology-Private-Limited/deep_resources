@@ -28,7 +28,7 @@ export type ProductCardProps = ComponentProps<typeof Box> &
     descriptionClass?: string;
     buttonClass?: string;
     iconUrl?: string;
-    onButtonClick?:()=> void;
+    onButtonClick?: () => void;
   };
 
 export const Banner = React.forwardRef<HTMLDivElement, ProductCardProps>(
@@ -61,18 +61,19 @@ export const Banner = React.forwardRef<HTMLDivElement, ProductCardProps>(
           backgroundSize: "cover",
         }}
       >
-        <div className={boxStyle}>
-          <Text as="span" className={titleClass}>
+        <div className={cn(boxStyle)}>
+          <Text as="span" className={cn(titleClass)}>
             {title}
           </Text>
-          <Text as="p" className={descriptionClass}>
+          <Text as="p" className={cn(descriptionClass)}>
             {description}
           </Text>
           {buttonText && (
             <DefaultButton
-              className={buttonClass}
+              className={cn(buttonClass)}
               iconUrl={iconUrl}
               iconPosition={ButtonIconPosition.Right}
+              onClick={onButtonClick}
             >
               {buttonText}
             </DefaultButton>

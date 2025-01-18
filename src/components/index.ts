@@ -49,3 +49,4 @@ export * from "./Select";
 export * from "./Rating";
 export * from "./Slider";
 export * from "./Separator";
+export * from "./SocialLinksSideMenu";

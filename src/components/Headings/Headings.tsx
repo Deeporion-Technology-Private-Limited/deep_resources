@@ -1,9 +1,6 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import { cva, VariantProps } from "class-variance-authority";
-import{ forwardRef } from "react";
-
-
-
+import { cn } from "@/utils";
 
 const textStyles = cva("w-full", {
   variants: {
@@ -44,7 +41,7 @@ const textStyles = cva("w-full", {
   },
 });
 
-interface HProps
+interface IHeadingProps
   extends React.TextareaHTMLAttributes<HTMLHeadingElement>,
     VariantProps<typeof textStyles> {
   text: string;
@@ -54,17 +51,18 @@ interface HProps
   imageSrc?: any;
 }
 
-
-export const Headings = forwardRef<HTMLHeadingElement, HProps>((props,ref) => {
-
-  const { text, FontSize,fontWeight, className = '', ...rest } = props;
+export const Headings = forwardRef<HTMLHeadingElement, IHeadingProps>((props, ref) => {
+  const { text, FontSize, fontWeight, className = "", ...rest } = props;
 
   return (
     <div>
-    <h1 ref={ref} className={`${FontSize} ${fontWeight} ${className}`} {...rest}>
-      
-      {text}
-    </h1>
-  </div>
-  )
+      <h1
+        ref={ref}
+        className={cn(`${FontSize} ${fontWeight}`, className)}
+        {...rest}
+      >
+        {text}
+      </h1>
+    </div>
+  );
 });

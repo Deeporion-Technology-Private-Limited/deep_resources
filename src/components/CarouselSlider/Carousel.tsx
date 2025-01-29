@@ -34,7 +34,6 @@ export type ReviewDataType = {
   className: string;
   starStyle: string;
   textStyle: string;
-  imageClassNames?: string;
 };
 
 type CarouselProps = ComponentProps<"div"> &
@@ -44,7 +43,11 @@ type CarouselProps = ComponentProps<"div"> &
     slideInterval?: number;
     variant?: "default" | "review";
     onButtonClick?: (label: string) => void;
-    imageClassNames?: string;
+    additionalStyles: {
+      imageClassNames?: string;
+      headingClassNames?: string;
+      textClassNames?: string;
+    };
   };
 
 export const Carousel = React.forwardRef<HTMLDivElement, CarouselProps>(
@@ -56,7 +59,7 @@ export const Carousel = React.forwardRef<HTMLDivElement, CarouselProps>(
       className,
       variant = "default",
       onButtonClick,
-      imageClassNames,
+      additionalStyles,
       ...props
     },
     ref
@@ -107,7 +110,7 @@ export const Carousel = React.forwardRef<HTMLDivElement, CarouselProps>(
                     alt={`Slide ${index}`}
                     className={cn(
                       "h-48 w-full object-cover sm:h-64 md:h-72 lg:h-[45rem]",
-                      imageClassNames
+                      additionalStyles.imageClassNames
                     )}
                   />
                   <div className="absolute inset-0 flex flex-col items-center justify-center mt-6 p-4 sm:p-6 md:p-8 lg:p-10">
@@ -115,7 +118,8 @@ export const Carousel = React.forwardRef<HTMLDivElement, CarouselProps>(
                       <div
                         className={cn(
                           "text-center text-white rounded text-sm sm:text-lg md:text-xl lg:text-2xl",
-                          item.headingClassName
+                          item.headingClassName,
+                          additionalStyles.headingClassNames
                         )}
                       >
                         {item.heading}
@@ -125,7 +129,8 @@ export const Carousel = React.forwardRef<HTMLDivElement, CarouselProps>(
                       <div
                         className={cn(
                           "text-center text-white p-2 rounded text-xs sm:text-sm md:text-base lg:text-lg",
-                          item.textClassName
+                          item.textClassName,
+                          additionalStyles.textClassNames
                         )}
                       >
                         {item.text}
@@ -199,10 +204,12 @@ export const Carousel = React.forwardRef<HTMLDivElement, CarouselProps>(
               <SingleIconButton
                 key={index}
                 onClick={() => setCurrentIndex(index)}
-                className={`w-2 h-2 p-0 rounded-full mx-0.5 sm:mx-1 ${
-                  currentIndex === index ? "bg-[#4e2f24]" : "bg-[#C9CDD2]"
-                }`}
-              ></SingleIconButton>
+                className={cn(
+                  `w-2 h-2 p-0 rounded-full mx-0.5 sm:mx-1 ${
+                    currentIndex === index ? "bg-[#4e2f24]" : "bg-[#C9CDD2]"
+                  }`
+                )}
+              />
             ))}
           </div>
         )}

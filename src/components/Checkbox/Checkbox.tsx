@@ -1,8 +1,8 @@
+import React, { ComponentProps, forwardRef, useState, useEffect } from "react";
+import { cn } from "@/utils";
 import { cva, VariantProps } from "class-variance-authority";
-import React, { ComponentProps, forwardRef, useEffect, useState } from "react";
-import { cn } from "../../utils";
-import { FindIconUrl } from "../../utils/Constant";
-import { ButtonSize } from "../types";
+import { ButtonSize } from "../Button";
+import { FaCheck } from "react-icons/fa";
 
 const inputStyles = cva([""], {
   variants: {
@@ -77,30 +77,28 @@ export const Checkbox = forwardRef<HTMLInputElement, InputProps>(
       }
     };
 
-    const name = FindIconUrl("Tick.svg");
-
     const inputElement = (
       <div
         className={cn(
-          "relative flex items-start justify-center",
+          "flex items-center justify-center relative",
           {
-            "h-5 w-5 rounded-md border-2 border-[#a67b5b]":
+            "w-8 h-8 rounded-lg border-2 border-[#a67b5b]":
               type === "checkbox" && !isChecked && !disabled,
-            "h-5 w-5 rounded-md border-2 border-[#a67b5b] bg-[#4a3224]":
+            "w-8 h-8 rounded-lg border-2 border-[#a67b5b] bg-[#4a3224]":
               type === "checkbox" && isChecked && !disabled,
-            "h-5 w-5 rounded-full border-2 border-[#a67b5b]":
+            "w-8 h-8 rounded-full border-2 border-[#a67b5b]":
               type === "radio" && !isChecked && !disabled,
-            "h-5 w-5 rounded-full border-2 border-[#a67b5b] bg-[#4a3224]":
+            "w-8 h-8 rounded-full border-2 border-[#a67b5b] bg-[#4a3224]":
               type === "radio" && isChecked && !disabled,
-            "w-13 h-6 rounded-full border-2 border-[#a67b5b] bg-[#ccc]":
+            "w-16 h-9 rounded-full border-2 border-[#a67b5b] bg-[#ccc]":
               type === "toggle" && !isChecked && !disabled,
-            "w-13 h-6 rounded-full border-2 border-[#a67b5b] bg-[#4a3224]":
+            "w-16 h-9 rounded-full border-2 border-[#a67b5b] bg-[#4a3224]":
               type === "toggle" && isChecked && !disabled,
-            "h-5 w-5 cursor-not-allowed rounded-md border-2 border-gray-400 bg-gray-200 opacity-50":
+            "w-8 h-8 rounded-lg border-2 border-gray-400 bg-gray-200 cursor-not-allowed opacity-50":
               type === "checkbox" && disabled,
-            "h-5 w-5 cursor-not-allowed rounded-full border-2 border-gray-400 bg-gray-200 opacity-50":
+            "w-8 h-8 rounded-full border-2 border-gray-400 bg-gray-200 cursor-not-allowed opacity-50":
               type === "radio" && disabled,
-            "w-13 h-5 cursor-not-allowed rounded-full border-2 border-gray-400 bg-gray-200 opacity-50":
+            "w-16 h-8 rounded-full border-2 border-gray-400 bg-gray-200 cursor-not-allowed opacity-50":
               type === "toggle" && disabled,
           },
           containerClassName
@@ -122,15 +120,13 @@ export const Checkbox = forwardRef<HTMLInputElement, InputProps>(
         />
         {type === "checkbox" && isChecked && (
           <div className={cn(checkedClassName)}>
-            <div>
-              <img src={name} alt="" />
-            </div>
+            <FaCheck />
           </div>
         )}
         {type === "radio" && isChecked && (
           <span
             className={cn("bg-white w-4 h-4 rounded-full", checkedClassName)}
-          />
+          ></span>
         )}
         {type === "toggle" && (
           <span
@@ -141,7 +137,7 @@ export const Checkbox = forwardRef<HTMLInputElement, InputProps>(
               },
               checkedClassName
             )}
-          />
+          ></span>
         )}
       </div>
     );
@@ -150,8 +146,7 @@ export const Checkbox = forwardRef<HTMLInputElement, InputProps>(
       <label
         htmlFor={value}
         className={cn(
-          `cursor-pointer ${disabled ? "cursor-not-allowed opacity-50" : ""}`,
-          labelClassname
+          `cursor-pointer ${labelClassname} ${disabled ? "cursor-not-allowed opacity-50" : ""}`
         )}
       >
         {label}
@@ -161,13 +156,13 @@ export const Checkbox = forwardRef<HTMLInputElement, InputProps>(
     return (
       <div
         className={cn(
-          "flex items-start justify-between gap-2 text-center",
+          "flex items-center justify-between gap-4 text-center relative",
           className
         )}
       >
-        {labelPosition === "before" && labelElement}
-        {inputElement}
-        {labelPosition === "after" && labelElement}
+        {labelPosition === "before" && <div>{labelElement}</div>}
+        <div>{inputElement}</div>
+        {labelPosition === "after" && <div>{labelElement}</div>}
       </div>
     );
   }
